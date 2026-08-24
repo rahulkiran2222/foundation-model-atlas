@@ -3955,5 +3955,1929 @@
     "hunyuan",
     "hunyuan-video"
   ]
-}
+},
+  {
+  "id": "gemma",
+  "name": "Gemma",
+  "family": "Gemma",
+  "organization": "Google",
+  "releaseDate": "2024-02-21",
+  "year": 2024,
+  "category": "language",
+  "type": "open-weight-language-model-family",
+  "description": "Google's family of lightweight open-weight language models derived from technology used in Google's larger Gemini systems and designed for research, development, and efficient deployment.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "2B / 7B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 8192
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale web, code, mathematics and language data",
+    "postTraining": "instruction tuning and preference optimization"
+  },
+  "license": "Gemma Terms of Use",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "compact",
+    "open-weight",
+    "google"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Gemma",
+      "url": "https://ai.google.dev/gemma"
+    }
+  ],
+  "relatedModels": [
+    "gemma-2",
+    "gemma-3",
+    "phi-3"
   ]
+},
+
+{
+  "id": "gemma-2",
+  "name": "Gemma 2",
+  "family": "Gemma",
+  "organization": "Google",
+  "releaseDate": "2024-06-27",
+  "year": 2024,
+  "category": "language",
+  "type": "open-weight-language-model-family",
+  "description": "A second Gemma generation with improved quality and efficiency across multiple parameter sizes and deployment scenarios.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "grouped-query attention",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "2B / 9B / 27B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 8192
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale language and code data",
+    "postTraining": "instruction tuning and alignment"
+  },
+  "license": "Gemma Terms of Use",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "gqa",
+    "compact",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Gemma 2",
+      "url": "https://ai.google.dev/gemma/docs/gemma-2"
+    }
+  ],
+  "relatedModels": [
+    "gemma",
+    "gemma-3",
+    "llama-3"
+  ]
+},
+
+{
+  "id": "gemma-3",
+  "name": "Gemma 3",
+  "family": "Gemma",
+  "organization": "Google",
+  "releaseDate": "2025-03-12",
+  "year": 2025,
+  "category": "multimodal",
+  "type": "multimodal-open-weight-model-family",
+  "description": "A multimodal Gemma generation supporting text and image inputs with long-context processing and deployment-oriented parameter sizes.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "grouped-query attention",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive multimodal generation"
+  },
+  "scale": {
+    "parameters": "1B / 4B / 12B / 27B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text", "image"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "multimodal autoregressive modeling",
+    "data": "multilingual text, image, code and reasoning data",
+    "postTraining": "instruction tuning and alignment"
+  },
+  "license": "Gemma Terms of Use",
+  "openWeights": true,
+  "tags": [
+    "multimodal",
+    "vision-language",
+    "long-context",
+    "compact",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Gemma 3",
+      "url": "https://ai.google.dev/gemma/docs/core"
+    }
+  ],
+  "relatedModels": [
+    "gemma-2",
+    "gemma-3n",
+    "gemma-3-27b-it"
+  ]
+},
+
+{
+  "id": "gemma-3n",
+  "name": "Gemma 3n",
+  "family": "Gemma",
+  "organization": "Google",
+  "releaseDate": "2025-06",
+  "year": 2025,
+  "category": "multimodal",
+  "type": "efficient-multimodal-model",
+  "description": "An efficient Gemma generation designed specifically for on-device multimodal inference with memory-efficient architectural techniques.",
+  "architecture": {
+    "family": "decoder-only multimodal Transformer",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "autoregressive multimodal generation"
+  },
+  "scale": {
+    "parameters": "E2B / E4B effective configurations",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 32000
+  },
+  "modality": {
+    "input": ["text", "image", "audio", "video"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "multimodal language modeling",
+    "data": "multimodal training corpus",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Gemma Terms of Use",
+  "openWeights": true,
+  "tags": [
+    "multimodal",
+    "on-device",
+    "efficient",
+    "audio",
+    "vision"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Gemma",
+      "url": "https://ai.google.dev/gemma"
+    }
+  ],
+  "relatedModels": [
+    "gemma-3",
+    "gemma-2",
+    "phi-4"
+  ]
+},
+  {
+  "id": "phi-2",
+  "name": "Phi-2",
+  "family": "Phi",
+  "organization": "Microsoft",
+  "releaseDate": "2023-12-11",
+  "year": 2023,
+  "category": "language",
+  "type": "small-language-model",
+  "description": "A 2.7B-parameter Microsoft language model demonstrating strong reasoning and language capabilities despite its relatively small size.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "multi-head attention",
+    "position": "RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "2.7B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 2048
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "synthetic and web-sourced textbook-quality data",
+    "postTraining": "model-dependent"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "small-language-model",
+    "efficient",
+    "reasoning",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Phi-2",
+      "url": "https://huggingface.co/microsoft/phi-2"
+    }
+  ],
+  "relatedModels": [
+    "phi-3",
+    "phi-4",
+    "gemma"
+  ]
+},
+
+{
+  "id": "phi-3",
+  "name": "Phi-3",
+  "family": "Phi",
+  "organization": "Microsoft",
+  "releaseDate": "2024-04-23",
+  "year": 2024,
+  "category": "language",
+  "type": "small-language-model-family",
+  "description": "A family of compact Microsoft language models emphasizing high-quality reasoning, mathematics, coding, and efficient inference.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "3.8B / 7B / 14B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "high-quality filtered web and synthetic data",
+    "postTraining": "instruction tuning"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "small-language-model",
+    "reasoning",
+    "coding",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Phi-3",
+      "url": "https://azure.microsoft.com/en-us/blog/introducing-phi-3-redefining-whats-possible-with-slms/"
+    }
+  ],
+  "relatedModels": [
+    "phi-3-5",
+    "phi-4",
+    "gemma-2"
+  ]
+},
+
+{
+  "id": "phi-3-5",
+  "name": "Phi-3.5",
+  "family": "Phi",
+  "organization": "Microsoft",
+  "releaseDate": "2024-08-20",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "small-foundation-model-family",
+  "description": "An expanded Phi generation including language, vision-language, and mixture-of-experts variants.",
+  "architecture": {
+    "family": "Transformer family",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "dense and MoE variants",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": "model-dependent"
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text", "image"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "multimodal and language modeling",
+    "data": "high-quality language, code and multimodal data",
+    "postTraining": "instruction tuning"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "small-language-model",
+    "multimodal",
+    "vision-language",
+    "moe",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Phi-3.5",
+      "url": "https://azure.microsoft.com/en-us/blog/phi-3-5-small-language-models-with-big-potential/"
+    }
+  ],
+  "relatedModels": [
+    "phi-3",
+    "phi-4",
+    "gemma-3"
+  ]
+},
+
+{
+  "id": "phi-4",
+  "name": "Phi-4",
+  "family": "Phi",
+  "organization": "Microsoft",
+  "releaseDate": "2024-12-11",
+  "year": 2024,
+  "category": "language",
+  "type": "small-language-model",
+  "description": "A 14B Microsoft language model focused particularly on reasoning, mathematics, coding, and efficient deployment.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "14B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 16384
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "synthetic and high-quality web data",
+    "postTraining": "instruction tuning and preference optimization"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "small-language-model",
+    "reasoning",
+    "mathematics",
+    "coding",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Phi-4",
+      "url": "https://azure.microsoft.com/en-us/blog/phi-4-microsofts-new-small-language-model-specializing-in-reasoning/"
+    }
+  ],
+  "relatedModels": [
+    "phi-3-5",
+    "phi-4-reasoning",
+    "gemma-3"
+  ]
+},
+
+{
+  "id": "phi-4-reasoning",
+  "name": "Phi-4-reasoning",
+  "family": "Phi",
+  "organization": "Microsoft",
+  "releaseDate": "2025-04-30",
+  "year": 2025,
+  "category": "reasoning",
+  "type": "reasoning-language-model",
+  "description": "A Phi-4 variant specifically post-trained for complex reasoning tasks, mathematics, science, and coding.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive reasoning"
+  },
+  "scale": {
+    "parameters": "14B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 32768
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "reasoning language modeling",
+    "data": "reasoning, mathematics, science and coding data",
+    "postTraining": "reasoning-focused supervised fine-tuning and reinforcement learning"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "reasoning",
+    "mathematics",
+    "science",
+    "coding",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Phi-4-reasoning",
+      "url": "https://azure.microsoft.com/en-us/blog/phi-4-reasoning/"
+    }
+  ],
+  "relatedModels": [
+    "phi-4",
+    "deepseek-r1",
+    "qwen3"
+  ]
+},
+  {
+  "id": "olmo-1",
+  "name": "OLMo",
+  "family": "OLMo",
+  "organization": "Allen Institute for AI",
+  "releaseDate": "2024-02-01",
+  "year": 2024,
+  "category": "language",
+  "type": "fully-open-language-model",
+  "description": "A fully open language-model research initiative from the Allen Institute for AI providing models, training data, code, and evaluation resources.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "multi-head attention",
+    "position": "RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "1B / 7B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 2048
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "Dolma open corpus",
+    "postTraining": "model-dependent"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "fully-open",
+    "language",
+    "research",
+    "training-data",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "OLMo",
+      "url": "https://allenai.org/olmo"
+    }
+  ],
+  "relatedModels": [
+    "olmo-2",
+    "olmo-3",
+    "llama-2"
+  ]
+},
+
+{
+  "id": "olmo-2",
+  "name": "OLMo 2",
+  "family": "OLMo",
+  "organization": "Allen Institute for AI",
+  "releaseDate": "2024-11-26",
+  "year": 2024,
+  "category": "language",
+  "type": "fully-open-language-model-family",
+  "description": "A second OLMo generation improving reasoning and general language performance while retaining the project's unusually open training and evaluation philosophy.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "7B / 13B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 4096
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "Dolma and related open data",
+    "postTraining": "supervised fine-tuning and preference optimization"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "fully-open",
+    "language",
+    "research",
+    "open-data"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "OLMo 2",
+      "url": "https://allenai.org/olmo"
+    }
+  ],
+  "relatedModels": [
+    "olmo-1",
+    "olmo-3",
+    "dolma"
+  ]
+},
+
+{
+  "id": "olmo-3",
+  "name": "OLMo 3",
+  "family": "OLMo",
+  "organization": "Allen Institute for AI",
+  "releaseDate": "2025",
+  "year": 2025,
+  "category": "reasoning",
+  "type": "fully-open-reasoning-model-family",
+  "description": "A later OLMo generation extending the open-model philosophy into reasoning and post-training research.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive reasoning"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "language and reasoning modeling",
+    "data": "open training corpus",
+    "postTraining": "reasoning-oriented post-training"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "fully-open",
+    "reasoning",
+    "research",
+    "open-data"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "AI2 OLMo",
+      "url": "https://allenai.org/olmo"
+    }
+  ],
+  "relatedModels": [
+    "olmo-2",
+    "olmoe",
+    "deepseek-r1"
+  ]
+},
+
+{
+  "id": "olmoe-1b-7b",
+  "name": "OLMoE",
+  "family": "OLMoE",
+  "organization": "Allen Institute for AI",
+  "releaseDate": "2024-09-18",
+  "year": 2024,
+  "category": "language",
+  "type": "mixture-of-experts-language-model",
+  "description": "A fully open sparse mixture-of-experts model demonstrating that MoE architectures can achieve strong performance with relatively small active parameter counts.",
+  "architecture": {
+    "family": "decoder-only Transformer with MoE",
+    "attention": "model-dependent",
+    "position": "RoPE",
+    "sparsity": "sparse MoE",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "7B total",
+    "activeParameters": "1B"
+  },
+  "context": {
+    "tokens": 4096
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "Dolma open corpus",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "moe",
+    "sparse",
+    "fully-open",
+    "efficient"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "OLMoE",
+      "url": "https://allenai.org/olmo"
+    }
+  ],
+  "relatedModels": [
+    "olmo-2",
+    "mixtral-8x7b",
+    "deepseek-v2"
+  ]
+},
+  {
+  "id": "granite-3",
+  "name": "Granite 3.0",
+  "family": "Granite",
+  "organization": "IBM",
+  "releaseDate": "2024-10-21",
+  "year": 2024,
+  "category": "language",
+  "type": "enterprise-open-language-model-family",
+  "description": "IBM's Granite 3 generation of enterprise-focused open models optimized for language, coding, and practical business workloads.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "grouped-query attention",
+    "position": "RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "2B / 8B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "language and code data",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "enterprise",
+    "language",
+    "coding",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "IBM Granite",
+      "url": "https://www.ibm.com/granite"
+    }
+  ],
+  "relatedModels": [
+    "granite-3-1",
+    "granite-3-2",
+    "granite-4"
+  ]
+},
+
+{
+  "id": "granite-3-1",
+  "name": "Granite 3.1",
+  "family": "Granite",
+  "organization": "IBM",
+  "releaseDate": "2024-12",
+  "year": 2024,
+  "category": "language",
+  "type": "enterprise-open-language-model-family",
+  "description": "An updated Granite generation improving instruction following, multilingual performance, coding, and long-context applications.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "grouped-query attention",
+    "position": "RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "2B / 8B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "language and code corpus",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "enterprise",
+    "language",
+    "coding",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "IBM Granite",
+      "url": "https://www.ibm.com/granite"
+    }
+  ],
+  "relatedModels": [
+    "granite-3",
+    "granite-3-2",
+    "granite-4"
+  ]
+},
+
+{
+  "id": "granite-3-2",
+  "name": "Granite 3.2",
+  "family": "Granite",
+  "organization": "IBM",
+  "releaseDate": "2025",
+  "year": 2025,
+  "category": "multimodal",
+  "type": "enterprise-foundation-model-family",
+  "description": "A Granite generation extending IBM's open model portfolio toward reasoning and multimodal workloads.",
+  "architecture": {
+    "family": "Transformer family",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["text", "image"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "language and multimodal modeling",
+    "data": "enterprise language and multimodal data",
+    "postTraining": "instruction and reasoning post-training"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "enterprise",
+    "multimodal",
+    "reasoning",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "IBM Granite",
+      "url": "https://www.ibm.com/granite"
+    }
+  ],
+  "relatedModels": [
+    "granite-3-1",
+    "granite-4"
+  ]
+},
+
+{
+  "id": "granite-4",
+  "name": "Granite 4.0",
+  "family": "Granite",
+  "organization": "IBM",
+  "releaseDate": "2025",
+  "year": 2025,
+  "category": "language",
+  "type": "enterprise-foundation-model-family",
+  "description": "A later Granite generation extending IBM's enterprise-focused open model strategy across language, reasoning, coding, and efficient deployment.",
+  "architecture": {
+    "family": "hybrid model family",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "model-dependent"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": "model-dependent"
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "language modeling",
+    "data": "enterprise and general-domain corpus",
+    "postTraining": "model-dependent"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "enterprise",
+    "language",
+    "reasoning",
+    "coding"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "IBM Granite",
+      "url": "https://www.ibm.com/granite"
+    }
+  ],
+  "relatedModels": [
+    "granite-3-2",
+    "granite-3-1"
+  ]
+},
+  {
+  "id": "falcon-40b",
+  "name": "Falcon",
+  "family": "Falcon",
+  "organization": "Technology Innovation Institute",
+  "releaseDate": "2023-05-31",
+  "year": 2023,
+  "category": "language",
+  "type": "large-language-model",
+  "description": "A major open language-model release from the Technology Innovation Institute, trained on the RefinedWeb corpus.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "multi-query attention",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "40B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 2048
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "RefinedWeb",
+    "postTraining": "model-dependent"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "mqa",
+    "refinedweb",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "TII Falcon",
+      "url": "https://falconllm.tii.ae/"
+    }
+  ],
+  "relatedModels": [
+    "falcon-180b",
+    "falcon-2",
+    "llama-2"
+  ]
+},
+
+{
+  "id": "falcon-180b",
+  "name": "Falcon 180B",
+  "family": "Falcon",
+  "organization": "Technology Innovation Institute",
+  "releaseDate": "2023-09-06",
+  "year": 2023,
+  "category": "language",
+  "type": "large-language-model",
+  "description": "A 180B-parameter Falcon generation trained on a large-scale refined web corpus and released as a major open-weight model.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "multi-query attention",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "180B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 2048
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "RefinedWeb and related data",
+    "postTraining": "model-dependent"
+  },
+  "license": "Falcon License",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "mqa",
+    "large-scale",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "TII Falcon",
+      "url": "https://falconllm.tii.ae/"
+    }
+  ],
+  "relatedModels": [
+    "falcon-40b",
+    "falcon-2",
+    "llama-2"
+  ]
+},
+
+{
+  "id": "falcon-2",
+  "name": "Falcon 2",
+  "family": "Falcon",
+  "organization": "Technology Innovation Institute",
+  "releaseDate": "2024-04",
+  "year": 2024,
+  "category": "language",
+  "type": "large-language-model-family",
+  "description": "A later Falcon generation improving multilingual capabilities and efficient deployment.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "11B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 8192
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual web data",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Falcon License",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "multilingual",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "TII Falcon",
+      "url": "https://falconllm.tii.ae/"
+    }
+  ],
+  "relatedModels": [
+    "falcon-180b",
+    "falcon-3",
+    "llama-3"
+  ]
+},
+
+{
+  "id": "falcon-3",
+  "name": "Falcon 3",
+  "family": "Falcon",
+  "organization": "Technology Innovation Institute",
+  "releaseDate": "2024-12",
+  "year": 2024,
+  "category": "language",
+  "type": "small-language-model-family",
+  "description": "A compact Falcon generation designed for efficient deployment, including small parameter configurations suitable for local and edge inference.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "1B / 3B / 7B / 10B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 32768
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale web and code data",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Falcon License",
+  "openWeights": true,
+  "tags": [
+    "small-language-model",
+    "edge",
+    "efficient",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "TII Falcon",
+      "url": "https://falconllm.tii.ae/"
+    }
+  ],
+  "relatedModels": [
+    "falcon-2",
+    "falcon-h1",
+    "phi-4"
+  ]
+},
+
+{
+  "id": "falcon-h1",
+  "name": "Falcon-H1",
+  "family": "Falcon",
+  "organization": "Technology Innovation Institute",
+  "releaseDate": "2025",
+  "year": 2025,
+  "category": "language",
+  "type": "hybrid-state-space-language-model",
+  "description": "A hybrid Falcon family exploring combinations of Transformer attention and state-space modeling for efficient long-context language processing.",
+  "architecture": {
+    "family": "hybrid Transformer + state-space architecture",
+    "attention": "hybrid attention",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "hybrid sequence processing"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale language corpus",
+    "postTraining": "instruction tuning"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "hybrid",
+    "state-space",
+    "transformer",
+    "long-context",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "TII Falcon",
+      "url": "https://falconllm.tii.ae/"
+    }
+  ],
+  "relatedModels": [
+    "falcon-3",
+    "mamba-2",
+    "jamba"
+  ]
+},
+  {
+  "id": "command-r",
+  "name": "Command R",
+  "family": "Command",
+  "organization": "Cohere",
+  "releaseDate": "2024-03-11",
+  "year": 2024,
+  "category": "language",
+  "type": "enterprise-language-model",
+  "description": "Cohere's retrieval-augmented generation and tool-use-oriented language model designed for enterprise applications.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "35B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text", "tool calls"]
+  },
+  "training": {
+    "objective": "language modeling",
+    "data": "multilingual text and enterprise-oriented data",
+    "postTraining": "instruction tuning and preference optimization"
+  },
+  "license": "CC-BY-NC-4.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "enterprise",
+    "rag",
+    "tool-use",
+    "long-context",
+    "multilingual"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Cohere Command",
+      "url": "https://cohere.com/command"
+    }
+  ],
+  "relatedModels": [
+    "command-r-plus",
+    "command-a",
+    "aya-23"
+  ]
+},
+
+{
+  "id": "command-r-plus",
+  "name": "Command R+",
+  "family": "Command",
+  "organization": "Cohere",
+  "releaseDate": "2024-04-04",
+  "year": 2024,
+  "category": "language",
+  "type": "enterprise-language-model",
+  "description": "A larger Command model optimized for retrieval-augmented generation, complex tool use, multilingual generation, and enterprise workflows.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "104B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text", "tool calls"]
+  },
+  "training": {
+    "objective": "language modeling",
+    "data": "multilingual and enterprise-oriented corpus",
+    "postTraining": "instruction tuning and preference optimization"
+  },
+  "license": "CC-BY-NC-4.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "enterprise",
+    "rag",
+    "tool-use",
+    "multilingual",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Cohere Command",
+      "url": "https://cohere.com/command"
+    }
+  ],
+  "relatedModels": [
+    "command-r",
+    "command-a",
+    "aya-23"
+  ]
+},
+
+{
+  "id": "command-a",
+  "name": "Command A",
+  "family": "Command",
+  "organization": "Cohere",
+  "releaseDate": "2025-03-13",
+  "year": 2025,
+  "category": "language",
+  "type": "enterprise-language-model",
+  "description": "A newer Cohere Command generation emphasizing agentic tasks, multilingual performance, reasoning, tool use, and enterprise deployment.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "autoregressive agentic generation"
+  },
+  "scale": {
+    "parameters": "111B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 256000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text", "tool calls"]
+  },
+  "training": {
+    "objective": "language and agentic modeling",
+    "data": "multilingual, coding and enterprise data",
+    "postTraining": "instruction, preference and agentic post-training"
+  },
+  "license": "model-dependent",
+  "openWeights": false,
+  "tags": [
+    "enterprise",
+    "agents",
+    "tool-use",
+    "multilingual",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Command A",
+      "url": "https://cohere.com/blog/command-a"
+    }
+  ],
+  "relatedModels": [
+    "command-r-plus",
+    "command-r",
+    "aya-23"
+  ]
+},
+
+{
+  "id": "aya-23",
+  "name": "Aya 23",
+  "family": "Aya",
+  "organization": "Cohere For AI",
+  "releaseDate": "2024-03-05",
+  "year": 2024,
+  "category": "multilingual",
+  "type": "multilingual-language-model",
+  "description": "An open-weight multilingual model family covering 23 languages and designed to improve language technology availability beyond English-centric systems.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "8B / 35B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 8192
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "multilingual language modeling",
+    "data": "multilingual corpus covering 23 languages",
+    "postTraining": "multilingual instruction tuning"
+  },
+  "license": "CC-BY-NC",
+  "openWeights": true,
+  "tags": [
+    "multilingual",
+    "language",
+    "open-weight",
+    "low-resource-languages"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Aya 23",
+      "url": "https://cohere.com/research/aya"
+    }
+  ],
+  "relatedModels": [
+    "command-r",
+    "command-a",
+    "aya-expanse"
+  ]
+},
+
+{
+  "id": "aya-expanse",
+  "name": "Aya Expanse",
+  "family": "Aya",
+  "organization": "Cohere For AI",
+  "releaseDate": "2024-09",
+  "year": 2024,
+  "category": "multilingual",
+  "type": "multilingual-language-model-family",
+  "description": "A later Aya generation expanding multilingual instruction-following and reasoning capabilities.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "8B / 32B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "multilingual language modeling",
+    "data": "multilingual corpus",
+    "postTraining": "multilingual instruction and preference tuning"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "multilingual",
+    "reasoning",
+    "language",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Cohere For AI",
+      "url": "https://cohere.com/research"
+    }
+  ],
+  "relatedModels": [
+    "aya-23",
+    "command-a"
+  ]
+},
+  {
+  "id": "nemotron-4",
+  "name": "Nemotron-4",
+  "family": "Nemotron",
+  "organization": "NVIDIA",
+  "releaseDate": "2023-06-12",
+  "year": 2023,
+  "category": "language",
+  "type": "large-language-model-family",
+  "description": "NVIDIA's Nemotron-4 family focused on language modeling and synthetic-data generation for training and alignment.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "multi-head attention",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "340B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 4096
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale text data",
+    "postTraining": "alignment and synthetic-data generation"
+  },
+  "license": "NVIDIA Open Model License",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "synthetic-data",
+    "alignment",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "NVIDIA Nemotron",
+      "url": "https://developer.nvidia.com/nemotron"
+    }
+  ],
+  "relatedModels": [
+    "nemotron-3",
+    "llama-3-1",
+    "granite-3"
+  ]
+},
+
+{
+  "id": "nemotron-3-super",
+  "name": "Llama-3.3-Nemotron-Super-49B-v1",
+  "family": "Nemotron",
+  "organization": "NVIDIA",
+  "releaseDate": "2024-11",
+  "year": 2024,
+  "category": "language",
+  "type": "post-trained-open-model",
+  "description": "An NVIDIA post-trained Llama-derived model designed to improve reasoning, instruction following, and chat performance.",
+  "architecture": {
+    "family": "Llama-derived decoder-only Transformer",
+    "attention": "grouped-query attention",
+    "position": "RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "49B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "instruction and reasoning optimization",
+    "data": "synthetic and preference data",
+    "postTraining": "reward modeling and alignment"
+  },
+  "license": "NVIDIA Open Model License",
+  "openWeights": true,
+  "tags": [
+    "llama-derived",
+    "reasoning",
+    "alignment",
+    "post-training"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "NVIDIA Nemotron",
+      "url": "https://developer.nvidia.com/nemotron"
+    }
+  ],
+  "relatedModels": [
+    "llama-3-3",
+    "nemotron-4",
+    "nemotron-4-mini"
+  ]
+},
+
+{
+  "id": "nemotron-4-mini",
+  "name": "Nemotron-4 Mini",
+  "family": "Nemotron",
+  "organization": "NVIDIA",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "language",
+  "type": "compact-language-model",
+  "description": "A smaller Nemotron model intended for efficient inference and synthetic-data workflows.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "4B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 4096
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "language modeling",
+    "data": "language and synthetic data",
+    "postTraining": "instruction tuning"
+  },
+  "license": "NVIDIA Open Model License",
+  "openWeights": true,
+  "tags": [
+    "compact",
+    "language",
+    "synthetic-data",
+    "efficient"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "NVIDIA Nemotron",
+      "url": "https://developer.nvidia.com/nemotron"
+    }
+  ],
+  "relatedModels": [
+    "nemotron-4",
+    "nemotron-3-super"
+  ]
+},
+  {
+  "id": "dbrx",
+  "name": "DBRX",
+  "family": "DBRX",
+  "organization": "Databricks",
+  "releaseDate": "2024-03-27",
+  "year": 2024,
+  "category": "language",
+  "type": "mixture-of-experts-language-model",
+  "description": "Databricks' open-weight mixture-of-experts language model designed as a strong general-purpose model with an emphasis on efficient training and inference.",
+  "architecture": {
+    "family": "decoder-only Transformer with MoE",
+    "attention": "grouped-query attention",
+    "position": "RoPE",
+    "sparsity": "sparse MoE",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "132B total",
+    "activeParameters": "36B"
+  },
+  "context": {
+    "tokens": 32768
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "12T tokens of curated data",
+    "postTraining": "instruction tuning"
+  },
+  "license": "DBRX License",
+  "openWeights": true,
+  "tags": [
+    "moe",
+    "gqa",
+    "language",
+    "open-weight",
+    "databricks"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "DBRX",
+      "url": "https://www.databricks.com/blog/introducing-dbrx-new-state-art-open-llm"
+    }
+  ],
+  "relatedModels": [
+    "mixtral-8x22b",
+    "deepseek-v2",
+    "llama-3-1"
+  ]
+},
+  {
+  "id": "jamba",
+  "name": "Jamba",
+  "family": "Jamba",
+  "organization": "AI21 Labs",
+  "releaseDate": "2024-03-21",
+  "year": 2024,
+  "category": "language",
+  "type": "hybrid-state-space-language-model",
+  "description": "A hybrid architecture combining Transformer attention and Mamba state-space layers, designed to achieve long-context efficiency with substantially lower memory requirements.",
+  "architecture": {
+    "family": "hybrid Transformer + Mamba",
+    "attention": "interleaved attention and state-space layers",
+    "position": "model-dependent",
+    "sparsity": "dense hybrid",
+    "sequenceStrategy": "hybrid sequence processing"
+  },
+  "scale": {
+    "parameters": "52B total",
+    "activeParameters": "12B"
+  },
+  "context": {
+    "tokens": 256000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale language corpus",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "hybrid",
+    "mamba",
+    "transformer",
+    "long-context",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Jamba",
+      "url": "https://www.ai21.com/jamba/"
+    }
+  ],
+  "relatedModels": [
+    "jamba-1-5",
+    "mamba",
+    "falcon-h1"
+  ]
+},
+
+{
+  "id": "jamba-1-5",
+  "name": "Jamba 1.5",
+  "family": "Jamba",
+  "organization": "AI21 Labs",
+  "releaseDate": "2024-08",
+  "year": 2024,
+  "category": "language",
+  "type": "hybrid-state-space-language-model-family",
+  "description": "An improved Jamba generation retaining the hybrid Transformer-Mamba architecture while improving instruction following, coding, and long-context performance.",
+  "architecture": {
+    "family": "hybrid Transformer + Mamba",
+    "attention": "interleaved attention and state-space layers",
+    "position": "model-dependent",
+    "sparsity": "dense hybrid",
+    "sequenceStrategy": "hybrid sequence processing"
+  },
+  "scale": {
+    "parameters": "52B class",
+    "activeParameters": "12B class"
+  },
+  "context": {
+    "tokens": 256000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale language and code corpus",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "hybrid",
+    "mamba",
+    "transformer",
+    "long-context",
+    "efficient"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "AI21 Jamba",
+      "url": "https://www.ai21.com/jamba/"
+    }
+  ],
+  "relatedModels": [
+    "jamba",
+    "jamba-mini",
+    "mamba-2"
+  ]
+},
+
+{
+  "id": "jamba-mini",
+  "name": "Jamba Mini",
+  "family": "Jamba",
+  "organization": "AI21 Labs",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "language",
+  "type": "compact-hybrid-language-model",
+  "description": "A smaller Jamba configuration designed to make hybrid state-space and attention architectures practical for more resource-constrained deployments.",
+  "architecture": {
+    "family": "hybrid Transformer + Mamba",
+    "attention": "interleaved attention and state-space layers",
+    "position": "model-dependent",
+    "sparsity": "dense hybrid",
+    "sequenceStrategy": "hybrid sequence processing"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 256000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale language data",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "hybrid",
+    "mamba",
+    "compact",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "AI21 Jamba",
+      "url": "https://www.ai21.com/jamba/"
+    }
+  ],
+  "relatedModels": [
+    "jamba-1-5",
+    "jamba",
+    "mamba-2"
+  ]
+},
+  {
+  "id": "arctic",
+  "name": "Snowflake Arctic",
+  "family": "Arctic",
+  "organization": "Snowflake",
+  "releaseDate": "2024-04-24",
+  "year": 2024,
+  "category": "language",
+  "type": "mixture-of-experts-language-model",
+  "description": "An open mixture-of-experts model from Snowflake designed for enterprise workloads, particularly SQL generation, coding, and instruction following.",
+  "architecture": {
+    "family": "decoder-only Transformer with MoE",
+    "attention": "model-specific",
+    "position": "RoPE-family",
+    "sparsity": "sparse MoE",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "480B total",
+    "activeParameters": "17B"
+  },
+  "context": {
+    "tokens": 4096
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text", "code", "sql"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale language, code and SQL data",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "moe",
+    "enterprise",
+    "sql",
+    "coding",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Snowflake Arctic",
+      "url": "https://www.snowflake.com/en/news/snowflake-arctic-open-source-llm/"
+    }
+  ],
+  "relatedModels": [
+    "dbrx",
+    "mixtral-8x22b",
+    "deepseek-v2"
+  ]
+}
+]
