@@ -1,0 +1,3959 @@
+[
+  {
+    "id": "gpt-2",
+    "name": "GPT-2",
+    "family": "GPT",
+    "organization": "OpenAI",
+    "releaseDate": "2019-02-14",
+    "year": 2019,
+    "category": "language",
+    "type": "large-language-model",
+    "description": "An autoregressive Transformer language model that demonstrated strong zero-shot language generation at scale and became an important historical reference point for modern decoder-only language models.",
+    "architecture": {
+      "family": "decoder-only Transformer",
+      "attention": "multi-head attention",
+      "position": "learned absolute positional embeddings",
+      "sparsity": "dense",
+      "sequenceStrategy": "autoregressive"
+    },
+    "scale": {
+      "parameters": "1.5B maximum released configuration",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": 1024
+    },
+    "modality": {
+      "input": ["text"],
+      "output": ["text"]
+    },
+    "training": {
+      "objective": "autoregressive language modeling",
+      "data": "WebText",
+      "postTraining": null
+    },
+    "license": "OpenAI Modified MIT License",
+    "openWeights": true,
+    "tags": [
+      "language",
+      "transformer",
+      "autoregressive",
+      "historical"
+    ],
+    "sources": [
+      {
+        "type": "paper",
+        "title": "Language Models are Unsupervised Multitask Learners",
+        "url": "https://openai.com/research/better-language-models"
+      },
+      {
+        "type": "code",
+        "title": "OpenAI GPT-2",
+        "url": "https://github.com/openai/gpt-2"
+      }
+    ],
+    "relatedModels": [
+      "gpt-3",
+      "llama-3",
+      "olmo-2"
+    ]
+  },
+
+  {
+    "id": "llama-3",
+    "name": "Llama 3",
+    "family": "Llama",
+    "organization": "Meta",
+    "releaseDate": "2024-04-18",
+    "year": 2024,
+    "category": "language",
+    "type": "large-language-model",
+    "description": "A major generation of Meta's Llama family of open-weight language models, designed for general language understanding and generation.",
+    "architecture": {
+      "family": "decoder-only Transformer",
+      "attention": "grouped-query attention",
+      "position": "RoPE",
+      "sparsity": "dense",
+      "sequenceStrategy": "autoregressive"
+    },
+    "scale": {
+      "parameters": "8B / 70B",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": 8192
+    },
+    "modality": {
+      "input": ["text"],
+      "output": ["text"]
+    },
+    "training": {
+      "objective": "autoregressive language modeling",
+      "data": "large-scale text corpus",
+      "postTraining": "instruction tuning and preference optimization"
+    },
+    "license": "Llama 3 Community License",
+    "openWeights": true,
+    "tags": [
+      "language",
+      "transformer",
+      "gqa",
+      "open-weight"
+    ],
+    "sources": [
+      {
+        "type": "official",
+        "title": "Meta Llama",
+        "url": "https://ai.meta.com/llama/"
+      },
+      {
+        "type": "code",
+        "title": "Meta Llama GitHub",
+        "url": "https://github.com/meta-llama"
+      }
+    ],
+    "relatedModels": [
+      "llama-2",
+      "llama-3-2",
+      "llama-4"
+    ]
+  },
+
+  {
+    "id": "llama-3-2",
+    "name": "Llama 3.2",
+    "family": "Llama",
+    "organization": "Meta",
+    "releaseDate": "2024-09-25",
+    "year": 2024,
+    "category": "language",
+    "type": "large-language-model",
+    "description": "A Llama generation containing compact language models and vision-language variants.",
+    "architecture": {
+      "family": "decoder-only Transformer",
+      "attention": "grouped-query attention",
+      "position": "RoPE",
+      "sparsity": "dense",
+      "sequenceStrategy": "autoregressive"
+    },
+    "scale": {
+      "parameters": "1B / 3B / larger multimodal variants",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": 128000
+    },
+    "modality": {
+      "input": ["text", "image"],
+      "output": ["text"]
+    },
+    "training": {
+      "objective": "autoregressive language modeling",
+      "data": "generation-specific training corpus",
+      "postTraining": "instruction tuning and alignment"
+    },
+    "license": "Llama 3.2 Community License",
+    "openWeights": true,
+    "tags": [
+      "language",
+      "vision-language",
+      "gqa",
+      "open-weight"
+    ],
+    "sources": [
+      {
+        "type": "official",
+        "title": "Meta Llama",
+        "url": "https://ai.meta.com/llama/"
+      }
+    ],
+    "relatedModels": [
+      "llama-3",
+      "llama-3-1",
+      "llama-4"
+    ]
+  },
+
+  {
+    "id": "llama-4",
+    "name": "Llama 4",
+    "family": "Llama",
+    "organization": "Meta",
+    "releaseDate": "2025-04-05",
+    "year": 2025,
+    "category": "multimodal",
+    "type": "multimodal-foundation-model",
+    "description": "A newer Llama generation featuring multimodal capabilities and sparse mixture-of-experts model designs.",
+    "architecture": {
+      "family": "decoder-only Transformer",
+      "attention": "grouped-query attention",
+      "position": "model-dependent",
+      "sparsity": "sparse MoE",
+      "sequenceStrategy": "autoregressive"
+    },
+    "scale": {
+      "parameters": "model-dependent",
+      "activeParameters": "model-dependent"
+    },
+    "context": {
+      "tokens": 1000000
+    },
+    "modality": {
+      "input": ["text", "image"],
+      "output": ["text"]
+    },
+    "training": {
+      "objective": "multimodal autoregressive modeling",
+      "data": "generation-specific multimodal corpus",
+      "postTraining": "model-specific alignment"
+    },
+    "license": "Llama 4 Community License",
+    "openWeights": true,
+    "tags": [
+      "language",
+      "multimodal",
+      "moe",
+      "gqa",
+      "open-weight"
+    ],
+    "sources": [
+      {
+        "type": "official",
+        "title": "Meta Llama",
+        "url": "https://ai.meta.com/llama/"
+      }
+    ],
+    "relatedModels": [
+      "llama-3",
+      "llama-3-2",
+      "qwen3"
+    ]
+  },
+
+  {
+    "id": "qwen",
+    "name": "Qwen",
+    "family": "Qwen",
+    "organization": "Alibaba",
+    "releaseDate": "2023-08-03",
+    "year": 2023,
+    "category": "language",
+    "type": "large-language-model-family",
+    "description": "A broad family of foundation models developed by Alibaba covering language, coding, reasoning, and multimodal applications.",
+    "architecture": {
+      "family": "Transformer family",
+      "attention": "generation-dependent",
+      "position": "generation-dependent",
+      "sparsity": "generation-dependent",
+      "sequenceStrategy": "autoregressive"
+    },
+    "scale": {
+      "parameters": "generation-dependent",
+      "activeParameters": "generation-dependent"
+    },
+    "context": {
+      "tokens": null
+    },
+    "modality": {
+      "input": ["text"],
+      "output": ["text"]
+    },
+    "training": {
+      "objective": "generation-dependent language modeling",
+      "data": "generation-specific",
+      "postTraining": "instruction tuning and alignment"
+    },
+    "license": "model-dependent",
+    "openWeights": true,
+    "tags": [
+      "language",
+      "multilingual",
+      "coding",
+      "reasoning",
+      "open-weight"
+    ],
+    "sources": [
+      {
+        "type": "official",
+        "title": "Qwen",
+        "url": "https://qwenlm.github.io/"
+      },
+      {
+        "type": "code",
+        "title": "Qwen GitHub",
+        "url": "https://github.com/QwenLM"
+      },
+      {
+        "type": "models",
+        "title": "Qwen on Hugging Face",
+        "url": "https://huggingface.co/Qwen"
+      }
+    ],
+    "relatedModels": [
+      "qwen2",
+      "qwen2-5",
+      "qwen3",
+      "llama-3"
+    ]
+  },
+
+  {
+    "id": "qwen3",
+    "name": "Qwen3",
+    "family": "Qwen",
+    "organization": "Alibaba",
+    "releaseDate": "2025-04-28",
+    "year": 2025,
+    "category": "language",
+    "type": "large-language-model-family",
+    "description": "A major Qwen generation spanning dense and mixture-of-experts models with expanded reasoning, multilingual, and coding capabilities.",
+    "architecture": {
+      "family": "decoder-only Transformer",
+      "attention": "model-dependent; GQA-family mechanisms",
+      "position": "RoPE",
+      "sparsity": "dense and MoE variants",
+      "sequenceStrategy": "autoregressive"
+    },
+    "scale": {
+      "parameters": "0.6B to 235B class models",
+      "activeParameters": "model-dependent"
+    },
+    "context": {
+      "tokens": 131072
+    },
+    "modality": {
+      "input": ["text"],
+      "output": ["text"]
+    },
+    "training": {
+      "objective": "autoregressive language modeling",
+      "data": "large-scale multilingual corpus",
+      "postTraining": "reasoning and instruction post-training"
+    },
+    "license": "model-dependent",
+    "openWeights": true,
+    "tags": [
+      "language",
+      "reasoning",
+      "coding",
+      "moe",
+      "gqa",
+      "open-weight"
+    ],
+    "sources": [
+      {
+        "type": "official",
+        "title": "Qwen",
+        "url": "https://qwenlm.github.io/"
+      },
+      {
+        "type": "code",
+        "title": "Qwen GitHub",
+        "url": "https://github.com/QwenLM"
+      }
+    ],
+    "relatedModels": [
+      "qwen2-5",
+      "qwen3-coder",
+      "deepseek-v3",
+      "llama-4"
+    ]
+  },
+
+  {
+    "id": "mistral-7b",
+    "name": "Mistral 7B",
+    "family": "Mistral",
+    "organization": "Mistral AI",
+    "releaseDate": "2023-09-27",
+    "year": 2023,
+    "category": "language",
+    "type": "large-language-model",
+    "description": "An influential open-weight 7B language model designed around efficient Transformer mechanisms and strong performance at relatively small scale.",
+    "architecture": {
+      "family": "decoder-only Transformer",
+      "attention": "grouped-query attention",
+      "position": "sliding-window attention with RoPE",
+      "sparsity": "dense",
+      "sequenceStrategy": "autoregressive"
+    },
+    "scale": {
+      "parameters": "7.3B",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": 32768
+    },
+    "modality": {
+      "input": ["text"],
+      "output": ["text"]
+    },
+    "training": {
+      "objective": "autoregressive language modeling",
+      "data": "large-scale text corpus",
+      "postTraining": null
+    },
+    "license": "Apache 2.0",
+    "openWeights": true,
+    "tags": [
+      "language",
+      "gqa",
+      "sliding-window",
+      "open-weight"
+    ],
+    "sources": [
+      {
+        "type": "official",
+        "title": "Mistral AI",
+        "url": "https://mistral.ai/"
+      },
+      {
+        "type": "code",
+        "title": "Mistral GitHub",
+        "url": "https://github.com/mistralai"
+      }
+    ],
+    "relatedModels": [
+      "mixtral-8x7b",
+      "mistral-large",
+      "mistral-small-3-1"
+    ]
+  },
+
+  {
+    "id": "mixtral-8x7b",
+    "name": "Mixtral 8x7B",
+    "family": "Mixtral",
+    "organization": "Mistral AI",
+    "releaseDate": "2023-12-11",
+    "year": 2023,
+    "category": "language",
+    "type": "mixture-of-experts-language-model",
+    "description": "A sparse mixture-of-experts language model that demonstrated how expert routing can increase total model capacity while activating only a subset of parameters for each token.",
+    "architecture": {
+      "family": "decoder-only Transformer",
+      "attention": "grouped-query attention",
+      "position": "RoPE",
+      "sparsity": "sparse MoE",
+      "sequenceStrategy": "autoregressive"
+    },
+    "scale": {
+      "parameters": "46.7B total",
+      "activeParameters": "approximately 12.9B"
+    },
+    "context": {
+      "tokens": 32768
+    },
+    "modality": {
+      "input": ["text"],
+      "output": ["text"]
+    },
+    "training": {
+      "objective": "autoregressive language modeling",
+      "data": "large-scale text corpus",
+      "postTraining": "model-specific"
+    },
+    "license": "Apache 2.0",
+    "openWeights": true,
+    "tags": [
+      "language",
+      "moe",
+      "sparse",
+      "gqa",
+      "open-weight"
+    ],
+    "sources": [
+      {
+        "type": "paper",
+        "title": "Mixtral of Experts",
+        "url": "https://arxiv.org/"
+      },
+      {
+        "type": "official",
+        "title": "Mistral AI",
+        "url": "https://mistral.ai/"
+      }
+    ],
+    "relatedModels": [
+      "mistral-7b",
+      "deepseek-v3",
+      "llama-4"
+    ]
+  },
+
+  {
+    "id": "deepseek-v3",
+    "name": "DeepSeek V3",
+    "family": "DeepSeek",
+    "organization": "DeepSeek",
+    "releaseDate": "2024-12-26",
+    "year": 2024,
+    "category": "language",
+    "type": "mixture-of-experts-language-model",
+    "description": "A large sparse mixture-of-experts language model notable for its combination of expert routing, Multi-head Latent Attention, and large total parameter capacity with a much smaller active parameter count.",
+    "architecture": {
+      "family": "decoder-only Transformer",
+      "attention": "Multi-head Latent Attention",
+      "position": "RoPE",
+      "sparsity": "sparse MoE",
+      "sequenceStrategy": "autoregressive"
+    },
+    "scale": {
+      "parameters": "671B total",
+      "activeParameters": "37B"
+    },
+    "context": {
+      "tokens": 128000
+    },
+    "modality": {
+      "input": ["text"],
+      "output": ["text"]
+    },
+    "training": {
+      "objective": "autoregressive language modeling with multi-token prediction",
+      "data": "large-scale multilingual and code corpus",
+      "postTraining": "generation-specific post-training"
+    },
+    "license": "DeepSeek License Agreement",
+    "openWeights": true,
+    "tags": [
+      "language",
+      "moe",
+      "mla",
+      "mep",
+      "open-weight"
+    ],
+    "sources": [
+      {
+        "type": "paper",
+        "title": "DeepSeek-V3 Technical Report",
+        "url": "https://arxiv.org/"
+      },
+      {
+        "type": "official",
+        "title": "DeepSeek",
+        "url": "https://www.deepseek.com/"
+      }
+    ],
+    "relatedModels": [
+      "deepseek-r1",
+      "deepseek-v3-2",
+      "qwen3",
+      "llama-4"
+    ]
+  },
+
+  {
+    "id": "deepseek-r1",
+    "name": "DeepSeek R1",
+    "family": "DeepSeek",
+    "organization": "DeepSeek",
+    "releaseDate": "2025-01-20",
+    "year": 2025,
+    "category": "reasoning",
+    "type": "reasoning-language-model",
+    "description": "A reasoning-oriented model built on the DeepSeek V3 architecture with a training approach focused on explicit reasoning behavior.",
+    "architecture": {
+      "family": "decoder-only Transformer",
+      "attention": "Multi-head Latent Attention",
+      "position": "RoPE",
+      "sparsity": "sparse MoE",
+      "sequenceStrategy": "autoregressive"
+    },
+    "scale": {
+      "parameters": "671B total",
+      "activeParameters": "37B"
+    },
+    "context": {
+      "tokens": 128000
+    },
+    "modality": {
+      "input": ["text"],
+      "output": ["text"]
+    },
+    "training": {
+      "objective": "reasoning-oriented post-training",
+      "data": "model-specific",
+      "postTraining": "reinforcement learning and reasoning-oriented training"
+    },
+    "license": "MIT",
+    "openWeights": true,
+    "tags": [
+      "reasoning",
+      "moe",
+      "mla",
+      "language",
+      "open-weight"
+    ],
+    "sources": [
+      {
+        "type": "paper",
+        "title": "DeepSeek-R1",
+        "url": "https://arxiv.org/"
+      },
+      {
+        "type": "official",
+        "title": "DeepSeek",
+        "url": "https://www.deepseek.com/"
+      }
+    ],
+    "relatedModels": [
+      "deepseek-v3",
+      "qwen3",
+      "llama-4"
+    ]
+  },
+
+  {
+    "id": "gemma-3",
+    "name": "Gemma 3",
+    "family": "Gemma",
+    "organization": "Google",
+    "releaseDate": "2025-03-11",
+    "year": 2025,
+    "category": "multimodal",
+    "type": "multimodal-language-model",
+    "description": "A Gemma generation supporting language and multimodal capabilities with compact model configurations and long-context support.",
+    "architecture": {
+      "family": "decoder-only Transformer",
+      "attention": "GQA with local and global attention",
+      "position": "RoPE",
+      "sparsity": "dense",
+      "sequenceStrategy": "autoregressive"
+    },
+    "scale": {
+      "parameters": "270M to 27B",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": 128000
+    },
+    "modality": {
+      "input": ["text", "image"],
+      "output": ["text"]
+    },
+    "training": {
+      "objective": "autoregressive language modeling",
+      "data": "large-scale multilingual and multimodal data",
+      "postTraining": "instruction tuning and alignment"
+    },
+    "license": "Gemma Terms of Use",
+    "openWeights": true,
+    "tags": [
+      "language",
+      "multimodal",
+      "gqa",
+      "long-context",
+      "open-weight"
+    ],
+    "sources": [
+      {
+        "type": "official",
+        "title": "Google Gemma",
+        "url": "https://ai.google.dev/gemma"
+      },
+      {
+        "type": "models",
+        "title": "Google Gemma on Hugging Face",
+        "url": "https://huggingface.co/google"
+      }
+    ],
+    "relatedModels": [
+      "gemma-2",
+      "gemma-4",
+      "llama-3-2"
+    ]
+  },
+
+  {
+    "id": "phi-4",
+    "name": "Phi-4",
+    "family": "Phi",
+    "organization": "Microsoft",
+    "releaseDate": "2024-12-11",
+    "year": 2024,
+    "category": "language",
+    "type": "large-language-model",
+    "description": "A compact language model from Microsoft's Phi family emphasizing strong reasoning and language capabilities relative to its parameter scale.",
+    "architecture": {
+      "family": "decoder-only Transformer",
+      "attention": "grouped-query attention",
+      "position": "RoPE",
+      "sparsity": "dense",
+      "sequenceStrategy": "autoregressive"
+    },
+    "scale": {
+      "parameters": "14B",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": 16384
+    },
+    "modality": {
+      "input": ["text"],
+      "output": ["text"]
+    },
+    "training": {
+      "objective": "autoregressive language modeling",
+      "data": "curated language and synthetic reasoning data",
+      "postTraining": "instruction and preference training"
+    },
+    "license": "MIT",
+    "openWeights": true,
+    "tags": [
+      "language",
+      "reasoning",
+      "gqa",
+      "compact",
+      "open-weight"
+    ],
+    "sources": [
+      {
+        "type": "official",
+        "title": "Microsoft Phi",
+        "url": "https://azure.microsoft.com/products/phi"
+      },
+      {
+        "type": "models",
+        "title": "Phi on Hugging Face",
+        "url": "https://huggingface.co/microsoft"
+      }
+    ],
+    "relatedModels": [
+      "phi-3",
+      "gemma-3",
+      "qwen3"
+    ]
+  },
+
+  {
+    "id": "olmo-2",
+    "name": "OLMo 2",
+    "family": "OLMo",
+    "organization": "AI2",
+    "releaseDate": "2024-11-25",
+    "year": 2024,
+    "category": "language",
+    "type": "large-language-model",
+    "description": "An open language-model family from the Allen Institute for AI emphasizing transparency across training data, code, model weights, and research documentation.",
+    "architecture": {
+      "family": "decoder-only Transformer",
+      "attention": "multi-head attention with QK normalization",
+      "position": "RoPE",
+      "sparsity": "dense",
+      "sequenceStrategy": "autoregressive"
+    },
+    "scale": {
+      "parameters": "7B and larger configurations",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": 4096
+    },
+    "modality": {
+      "input": ["text"],
+      "output": ["text"]
+    },
+    "training": {
+      "objective": "autoregressive language modeling",
+      "data": "Dolma and related open datasets",
+      "postTraining": "model-specific instruction tuning"
+    },
+    "license": "Apache 2.0",
+    "openWeights": true,
+    "tags": [
+      "language",
+      "transparent",
+      "research",
+      "open-weight"
+    ],
+    "sources": [
+      {
+        "type": "official",
+        "title": "OLMo",
+        "url": "https://allenai.org/olmo"
+      },
+      {
+        "type": "code",
+        "title": "OLMo GitHub",
+        "url": "https://github.com/allenai/OLMo"
+      }
+    ],
+    "relatedModels": [
+      "olmo-3",
+      "llama-3",
+      "gpt-2"
+    ]
+  },
+
+  {
+    "id": "whisper",
+    "name": "Whisper",
+    "family": "Whisper",
+    "organization": "OpenAI",
+    "releaseDate": "2022-09-21",
+    "year": 2022,
+    "category": "speech",
+    "type": "speech-foundation-model",
+    "description": "A large-scale speech recognition foundation model trained for multilingual transcription and speech translation across diverse audio conditions.",
+    "architecture": {
+      "family": "encoder-decoder Transformer",
+      "attention": "self-attention and cross-attention",
+      "position": "Transformer positional encoding",
+      "sparsity": "dense",
+      "sequenceStrategy": "audio-to-text sequence generation"
+    },
+    "scale": {
+      "parameters": "model-size dependent",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": null
+    },
+    "modality": {
+      "input": ["audio"],
+      "output": ["text"]
+    },
+    "training": {
+      "objective": "speech recognition and speech translation",
+      "data": "large-scale weakly supervised audio-text data",
+      "postTraining": null
+    },
+    "license": "MIT",
+    "openWeights": true,
+    "tags": [
+      "speech",
+      "audio",
+      "transcription",
+      "translation",
+      "multilingual"
+    ],
+    "sources": [
+      {
+        "type": "paper",
+        "title": "Robust Speech Recognition via Large-Scale Weak Supervision",
+        "url": "https://arxiv.org/"
+      },
+      {
+        "type": "code",
+        "title": "OpenAI Whisper",
+        "url": "https://github.com/openai/whisper"
+      }
+    ],
+    "relatedModels": [
+      "seamlessm4t",
+      "speecht5",
+      "wav2vec2"
+    ]
+  },
+
+  {
+    "id": "clip",
+    "name": "CLIP",
+    "family": "CLIP",
+    "organization": "OpenAI",
+    "releaseDate": "2021-01-05",
+    "year": 2021,
+    "category": "vision-language",
+    "type": "vision-language-foundation-model",
+    "description": "A vision-language model trained with contrastive learning to align images and natural-language descriptions in a shared representation space.",
+    "architecture": {
+      "family": "dual encoder",
+      "attention": "Transformer in selected encoder variants",
+      "position": "encoder-dependent",
+      "sparsity": "dense",
+      "sequenceStrategy": "contrastive representation learning"
+    },
+    "scale": {
+      "parameters": "model-variant dependent",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": null
+    },
+    "modality": {
+      "input": ["image", "text"],
+      "output": ["embeddings"]
+    },
+    "training": {
+      "objective": "contrastive image-text learning",
+      "data": "large-scale image-text pairs",
+      "postTraining": null
+    },
+    "license": "MIT",
+    "openWeights": true,
+    "tags": [
+      "vision-language",
+      "contrastive",
+      "embeddings",
+      "multimodal"
+    ],
+    "sources": [
+      {
+        "type": "paper",
+        "title": "Learning Transferable Visual Models From Natural Language Supervision",
+        "url": "https://arxiv.org/"
+      },
+      {
+        "type": "code",
+        "title": "OpenAI CLIP",
+        "url": "https://github.com/openai/CLIP"
+      }
+    ],
+    "relatedModels": [
+      "siglip",
+      "blip",
+      "eva"
+    ]
+  },
+
+  {
+    "id": "vit",
+    "name": "Vision Transformer",
+    "family": "ViT",
+    "organization": "Google Research",
+    "releaseDate": "2020-10-22",
+    "year": 2020,
+    "category": "vision",
+    "type": "vision-foundation-model",
+    "description": "A Transformer architecture applied directly to image patches, demonstrating that attention-based sequence modeling can serve as a general visual representation architecture.",
+    "architecture": {
+      "family": "Vision Transformer",
+      "attention": "multi-head self-attention",
+      "position": "learned positional embeddings",
+      "sparsity": "dense",
+      "sequenceStrategy": "image patches as token sequence"
+    },
+    "scale": {
+      "parameters": "model-variant dependent",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": null
+    },
+    "modality": {
+      "input": ["image"],
+      "output": ["visual representations"]
+    },
+    "training": {
+      "objective": "supervised image classification and representation learning",
+      "data": "image datasets",
+      "postTraining": null
+    },
+    "license": "model-dependent",
+    "openWeights": true,
+    "tags": [
+      "vision",
+      "transformer",
+      "image",
+      "representation-learning"
+    ],
+    "sources": [
+      {
+        "type": "paper",
+        "title": "An Image is Worth 16x16 Words",
+        "url": "https://arxiv.org/"
+      }
+    ],
+    "relatedModels": [
+      "deit",
+      "eva",
+      "dinov2"
+    ]
+  },
+
+  {
+    "id": "sam",
+    "name": "Segment Anything",
+    "family": "SAM",
+    "organization": "Meta",
+    "releaseDate": "2023-04-05",
+    "year": 2023,
+    "category": "vision",
+    "type": "vision-foundation-model",
+    "description": "A promptable vision foundation model designed for general-purpose image segmentation.",
+    "architecture": {
+      "family": "vision encoder + prompt encoder + mask decoder",
+      "attention": "Transformer-based image encoder",
+      "position": "vision-transformer dependent",
+      "sparsity": "dense",
+      "sequenceStrategy": "prompt-conditioned segmentation"
+    },
+    "scale": {
+      "parameters": "model-variant dependent",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": null
+    },
+    "modality": {
+      "input": ["image", "prompt"],
+      "output": ["segmentation masks"]
+    },
+    "training": {
+      "objective": "promptable image segmentation",
+      "data": "SA-1B dataset",
+      "postTraining": null
+    },
+    "license": "Apache 2.0",
+    "openWeights": true,
+    "tags": [
+      "vision",
+      "segmentation",
+      "promptable",
+      "foundation-model"
+    ],
+    "sources": [
+      {
+        "type": "paper",
+        "title": "Segment Anything",
+        "url": "https://arxiv.org/"
+      },
+      {
+        "type": "official",
+        "title": "Segment Anything",
+        "url": "https://segment-anything.com/"
+      },
+      {
+        "type": "code",
+        "title": "Segment Anything GitHub",
+        "url": "https://github.com/facebookresearch/segment-anything"
+      }
+    ],
+    "relatedModels": [
+      "sam-2",
+      "dino",
+      "dinov2"
+    ]
+  },
+
+  {
+    "id": "blip-2",
+    "name": "BLIP-2",
+    "family": "BLIP",
+    "organization": "Salesforce Research",
+    "releaseDate": "2023-01-30",
+    "year": 2023,
+    "category": "vision-language",
+    "type": "vision-language-foundation-model",
+    "description": "A vision-language architecture that connects a frozen image encoder to a large language model through a lightweight Querying Transformer.",
+    "architecture": {
+      "family": "vision encoder + Q-Former + language model",
+      "attention": "Transformer attention",
+      "position": "component-dependent",
+      "sparsity": "dense",
+      "sequenceStrategy": "vision-to-language conditioning"
+    },
+    "scale": {
+      "parameters": "component-dependent",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": null
+    },
+    "modality": {
+      "input": ["image", "text"],
+      "output": ["text"]
+    },
+    "training": {
+      "objective": "vision-language representation and generation objectives",
+      "data": "image-text data",
+      "postTraining": null
+    },
+    "license": "model-dependent",
+    "openWeights": true,
+    "tags": [
+      "vision-language",
+      "q-former",
+      "multimodal",
+      "image-understanding"
+    ],
+    "sources": [
+      {
+        "type": "paper",
+        "title": "BLIP-2",
+        "url": "https://arxiv.org/"
+      }
+    ],
+    "relatedModels": [
+      "blip",
+      "llava",
+      "flamingo"
+    ]
+  },
+
+  {
+    "id": "llava",
+    "name": "LLaVA",
+    "family": "LLaVA",
+    "organization": "Academic research",
+    "releaseDate": "2023-04-17",
+    "year": 2023,
+    "category": "vision-language",
+    "type": "vision-language-model",
+    "description": "A vision-language architecture that connects a visual encoder with a language model to enable image-conditioned language understanding and generation.",
+    "architecture": {
+      "family": "vision encoder + projection + language model",
+      "attention": "language-model attention",
+      "position": "language-model dependent",
+      "sparsity": "dense",
+      "sequenceStrategy": "multimodal autoregressive generation"
+    },
+    "scale": {
+      "parameters": "model-dependent",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": null
+    },
+    "modality": {
+      "input": ["image", "text"],
+      "output": ["text"]
+    },
+    "training": {
+      "objective": "vision-language instruction following",
+      "data": "image-language instruction data",
+      "postTraining": "visual instruction tuning"
+    },
+    "license": "model-dependent",
+    "openWeights": true,
+    "tags": [
+      "vision-language",
+      "multimodal",
+      "instruction-tuning"
+    ],
+    "sources": [
+      {
+        "type": "paper",
+        "title": "Visual Instruction Tuning",
+        "url": "https://arxiv.org/"
+      },
+      {
+        "type": "code",
+        "title": "LLaVA GitHub",
+        "url": "https://github.com/haotian-liu/LLaVA"
+      }
+    ],
+    "relatedModels": [
+      "blip-2",
+      "llama-3-2",
+      "qwen2-5-vl"
+    ]
+  },
+
+  {
+    "id": "stable-diffusion",
+    "name": "Stable Diffusion",
+    "family": "Stable Diffusion",
+    "organization": "Stability AI / research collaborators",
+    "releaseDate": "2022-08-22",
+    "year": 2022,
+    "category": "image-generation",
+    "type": "diffusion-foundation-model",
+    "description": "A latent diffusion model family that enabled high-quality text-to-image generation by performing diffusion in a learned latent representation space.",
+    "architecture": {
+      "family": "latent diffusion",
+      "attention": "cross-attention and self-attention",
+      "position": "component-dependent",
+      "sparsity": "dense",
+      "sequenceStrategy": "iterative denoising"
+    },
+    "scale": {
+      "parameters": "model-version dependent",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": null
+    },
+    "modality": {
+      "input": ["text"],
+      "output": ["image"]
+    },
+    "training": {
+      "objective": "diffusion denoising",
+      "data": "large-scale image-text datasets",
+      "postTraining": null
+    },
+    "license": "model-version dependent",
+    "openWeights": true,
+    "tags": [
+      "diffusion",
+      "image-generation",
+      "text-to-image",
+      "latent-space"
+    ],
+    "sources": [
+      {
+        "type": "paper",
+        "title": "High-Resolution Image Synthesis with Latent Diffusion Models",
+        "url": "https://arxiv.org/"
+      },
+      {
+        "type": "code",
+        "title": "CompVis Stable Diffusion",
+        "url": "https://github.com/CompVis/stable-diffusion"
+      }
+    ],
+    "relatedModels": [
+      "sdxl",
+      "flux",
+      "imagen"
+    ]
+  },
+
+  {
+    "id": "sdxl",
+    "name": "SDXL",
+    "family": "Stable Diffusion",
+    "organization": "Stability AI",
+    "releaseDate": "2023-07-26",
+    "year": 2023,
+    "category": "image-generation",
+    "type": "diffusion-foundation-model",
+    "description": "A larger Stable Diffusion generation designed to improve image quality, composition, and text-to-image generation capability.",
+    "architecture": {
+      "family": "latent diffusion",
+      "attention": "cross-attention and self-attention",
+      "position": "component-dependent",
+      "sparsity": "dense",
+      "sequenceStrategy": "iterative denoising"
+    },
+    "scale": {
+      "parameters": "model-dependent",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": null
+    },
+    "modality": {
+      "input": ["text", "image"],
+      "output": ["image"]
+    },
+    "training": {
+      "objective": "diffusion denoising",
+      "data": "large-scale image-text data",
+      "postTraining": null
+    },
+    "license": "Stability AI model license",
+    "openWeights": true,
+    "tags": [
+      "diffusion",
+      "image-generation",
+      "text-to-image"
+    ],
+    "sources": [
+      {
+        "type": "official",
+        "title": "Stability AI",
+        "url": "https://stability.ai/"
+      }
+    ],
+    "relatedModels": [
+      "stable-diffusion",
+      "flux",
+      "imagen"
+    ]
+  },
+
+  {
+    "id": "mamba",
+    "name": "Mamba",
+    "family": "Mamba",
+    "organization": "Academic research",
+    "releaseDate": "2023-12-01",
+    "year": 2023,
+    "category": "alternative-architecture",
+    "type": "state-space-model",
+    "description": "A selective state space model designed as an efficient alternative to conventional attention-based sequence modeling.",
+    "architecture": {
+      "family": "selective state space model",
+      "attention": "no conventional self-attention",
+      "position": "implicit through state evolution",
+      "sparsity": "not MoE",
+      "sequenceStrategy": "selective state-space recurrence"
+    },
+    "scale": {
+      "parameters": "model-dependent",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": null
+    },
+    "modality": {
+      "input": ["sequence"],
+      "output": ["sequence"]
+    },
+    "training": {
+      "objective": "sequence modeling",
+      "data": "model-dependent",
+      "postTraining": null
+    },
+    "license": "model/repository dependent",
+    "openWeights": true,
+    "tags": [
+      "ssm",
+      "state-space",
+      "sequence-modeling",
+      "alternative-architecture"
+    ],
+    "sources": [
+      {
+        "type": "paper",
+        "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+        "url": "https://arxiv.org/"
+      },
+      {
+        "type": "code",
+        "title": "State Spaces Mamba",
+        "url": "https://github.com/state-spaces/mamba"
+      }
+    ],
+    "relatedModels": [
+      "mamba-2",
+      "rwkv",
+      "hyena"
+    ]
+  },
+
+  {
+    "id": "rwkv",
+    "name": "RWKV",
+    "family": "RWKV",
+    "organization": "RWKV research community",
+    "releaseDate": "2023",
+    "year": 2023,
+    "category": "alternative-architecture",
+    "type": "recurrent-language-model",
+    "description": "A family of language-model architectures combining recurrent-style sequence processing with attention-inspired mechanisms.",
+    "architecture": {
+      "family": "recurrent / attention-inspired architecture",
+      "attention": "attention-like time-mixing mechanism",
+      "position": "recurrent sequence processing",
+      "sparsity": "dense",
+      "sequenceStrategy": "recurrent"
+    },
+    "scale": {
+      "parameters": "model-dependent",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": null
+    },
+    "modality": {
+      "input": ["text"],
+      "output": ["text"]
+    },
+    "training": {
+      "objective": "autoregressive language modeling",
+      "data": "model-dependent",
+      "postTraining": "model-dependent"
+    },
+    "license": "model-dependent",
+    "openWeights": true,
+    "tags": [
+      "recurrent",
+      "language",
+      "alternative-architecture",
+      "sequence-modeling"
+    ],
+    "sources": [
+      {
+        "type": "official",
+        "title": "RWKV",
+        "url": "https://www.rwkv.com/"
+      },
+      {
+        "type": "code",
+        "title": "BlinkDL RWKV",
+        "url": "https://github.com/BlinkDL/RWKV-LM"
+      }
+    ],
+    "relatedModels": [
+      "mamba",
+      "hyena",
+      "transformer"
+    ]
+  },
+
+  {
+    "id": "siglip",
+    "name": "SigLIP",
+    "family": "SigLIP",
+    "organization": "Google Research",
+    "releaseDate": "2023-08-07",
+    "year": 2023,
+    "category": "vision-language",
+    "type": "vision-language-foundation-model",
+    "description": "A vision-language representation model that replaces CLIP's softmax-based contrastive objective with a sigmoid-based pairwise objective.",
+    "architecture": {
+      "family": "dual encoder",
+      "attention": "Transformer-based encoders",
+      "position": "encoder-dependent",
+      "sparsity": "dense",
+      "sequenceStrategy": "contrastive representation learning"
+    },
+    "scale": {
+      "parameters": "model-dependent",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": null
+    },
+    "modality": {
+      "input": ["image", "text"],
+      "output": ["embeddings"]
+    },
+    "training": {
+      "objective": "sigmoid-based image-text matching",
+      "data": "large-scale image-text pairs",
+      "postTraining": null
+    },
+    "license": "model-dependent",
+    "openWeights": true,
+    "tags": [
+      "vision-language",
+      "contrastive",
+      "embeddings",
+      "multimodal"
+    ],
+    "sources": [
+      {
+        "type": "paper",
+        "title": "Sigmoid Loss for Language Image Pre-Training",
+        "url": "https://arxiv.org/"
+      },
+      {
+        "type": "models",
+        "title": "SigLIP on Hugging Face",
+        "url": "https://huggingface.co/google"
+      }
+    ],
+    "relatedModels": [
+      "clip",
+      "siglip-2",
+      "vit"
+    ]
+  },
+
+  {
+    "id": "e5",
+    "name": "E5",
+    "family": "E5",
+    "organization": "Microsoft Research",
+    "releaseDate": "2022",
+    "year": 2022,
+    "category": "embedding",
+    "type": "embedding-foundation-model",
+    "description": "A family of text embedding models designed for general-purpose representation learning and retrieval.",
+    "architecture": {
+      "family": "Transformer encoder",
+      "attention": "self-attention",
+      "position": "model-dependent",
+      "sparsity": "dense",
+      "sequenceStrategy": "bidirectional representation learning"
+    },
+    "scale": {
+      "parameters": "model-dependent",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": null
+    },
+    "modality": {
+      "input": ["text"],
+      "output": ["embeddings"]
+    },
+    "training": {
+      "objective": "contrastive representation learning",
+      "data": "large-scale text pairs",
+      "postTraining": "retrieval-oriented training"
+    },
+    "license": "model-dependent",
+    "openWeights": true,
+    "tags": [
+      "embeddings",
+      "retrieval",
+      "semantic-search",
+      "text"
+    ],
+    "sources": [
+      {
+        "type": "paper",
+        "title": "Text Embeddings by Weakly-Supervised Contrastive Pre-training",
+        "url": "https://arxiv.org/"
+      },
+      {
+        "type": "models",
+        "title": "E5 on Hugging Face",
+        "url": "https://huggingface.co/intfloat"
+      }
+    ],
+    "relatedModels": [
+      "bge",
+      "gte",
+      "nomic-embed"
+    ]
+  },
+
+  {
+    "id": "bge",
+    "name": "BGE",
+    "family": "BGE",
+    "organization": "BAAI",
+    "releaseDate": "2023",
+    "year": 2023,
+    "category": "embedding",
+    "type": "embedding-foundation-model",
+    "description": "A family of general-purpose embedding models designed for semantic retrieval, search, reranking, and representation learning.",
+    "architecture": {
+      "family": "Transformer encoder",
+      "attention": "self-attention",
+      "position": "model-dependent",
+      "sparsity": "dense",
+      "sequenceStrategy": "bidirectional representation learning"
+    },
+    "scale": {
+      "parameters": "model-dependent",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": null
+    },
+    "modality": {
+      "input": ["text"],
+      "output": ["embeddings"]
+    },
+    "training": {
+      "objective": "contrastive representation learning",
+      "data": "large-scale text pairs",
+      "postTraining": "retrieval-oriented training"
+    },
+    "license": "model-dependent",
+    "openWeights": true,
+    "tags": [
+      "embeddings",
+      "retrieval",
+      "reranking",
+      "semantic-search"
+    ],
+    "sources": [
+      {
+        "type": "models",
+        "title": "BAAI on Hugging Face",
+        "url": "https://huggingface.co/BAAI"
+      }
+    ],
+    "relatedModels": [
+      "e5",
+      "gte",
+      "nomic-embed"
+    ]
+  },
+
+  {
+    "id": "flamingo",
+    "name": "Flamingo",
+    "family": "Flamingo",
+    "organization": "DeepMind",
+    "releaseDate": "2022-04-28",
+    "year": 2022,
+    "category": "vision-language",
+    "type": "multimodal-foundation-model",
+    "description": "A multimodal few-shot learning architecture connecting visual representations with a large language model through specialized cross-attention mechanisms.",
+    "architecture": {
+      "family": "vision encoder + language model + cross-attention",
+      "attention": "cross-attention",
+      "position": "component-dependent",
+      "sparsity": "dense",
+      "sequenceStrategy": "multimodal autoregressive generation"
+    },
+    "scale": {
+      "parameters": "80B-class model",
+      "activeParameters": null
+    },
+    "context": {
+      "tokens": null
+    },
+    "modality": {
+      "input": ["image", "video", "text"],
+      "output": ["text"]
+    },
+    "training": {
+      "objective": "multimodal few-shot learning",
+      "data": "large-scale multimodal web data",
+      "postTraining": null
+    },
+    "license": "research",
+    "openWeights": false,
+    "tags": [
+      "multimodal",
+      "vision-language",
+      "few-shot",
+      "cross-attention"
+    ],
+    "sources": [
+      {
+        "type": "paper",
+        "title": "Flamingo: a Visual Language Model for Few-Shot Learning",
+        "url": "https://arxiv.org/"
+      }
+    ],
+    "relatedModels": [
+      "blip-2",
+      "llava",
+      "qwen2-5-vl"
+    ]
+  },
+  {
+  "id": "llama-1",
+  "name": "LLaMA",
+  "family": "LLaMA",
+  "organization": "Meta",
+  "releaseDate": "2023-02-24",
+  "year": 2023,
+  "category": "language",
+  "type": "large-language-model",
+  "description": "Meta's original LLaMA foundation model family, designed to demonstrate that strong language-model performance could be achieved with relatively smaller parameter counts and publicly described research methods.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "multi-head self-attention",
+    "position": "RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "7B / 13B / 33B / 65B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 2048
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "publicly available datasets",
+    "postTraining": null
+  },
+  "license": "research license",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "transformer",
+    "rope",
+    "historical",
+    "research"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Introducing LLaMA",
+      "url": "https://ai.meta.com/blog/large-language-model-llama-meta-ai/"
+    }
+  ],
+  "relatedModels": [
+    "llama-2",
+    "llama-3",
+    "gpt-2"
+  ]
+},
+
+{
+  "id": "llama-2",
+  "name": "Llama 2",
+  "family": "Llama",
+  "organization": "Meta",
+  "releaseDate": "2023-07-18",
+  "year": 2023,
+  "category": "language",
+  "type": "large-language-model",
+  "description": "The second major generation of Meta's Llama family, released for research and commercial use with pretrained and instruction-tuned variants.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "grouped-query attention in larger configurations",
+    "position": "RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "7B / 13B / 70B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 4096
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale publicly available text data",
+    "postTraining": "supervised fine-tuning and RLHF"
+  },
+  "license": "Llama 2 Community License",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "transformer",
+    "gqa",
+    "rlhf",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Meta and Microsoft Introduce Llama 2",
+      "url": "https://ai.meta.com/blog/llama-2/"
+    }
+  ],
+  "relatedModels": [
+    "llama-1",
+    "llama-3",
+    "llama-3-1"
+  ]
+},
+
+{
+  "id": "llama-3-1",
+  "name": "Llama 3.1",
+  "family": "Llama",
+  "organization": "Meta",
+  "releaseDate": "2024-07-23",
+  "year": 2024,
+  "category": "language",
+  "type": "large-language-model",
+  "description": "A major Llama generation introducing 128K context, multilingual capabilities, upgraded 8B and 70B models, and the 405B frontier-scale open model.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "grouped-query attention",
+    "position": "RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "8B / 70B / 405B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual corpus",
+    "postTraining": "instruction tuning and preference optimization"
+  },
+  "license": "Llama 3.1 Community License",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "gqa",
+    "long-context",
+    "multilingual",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Introducing Llama 3.1",
+      "url": "https://ai.meta.com/blog/meta-llama-3-1/"
+    }
+  ],
+  "relatedModels": [
+    "llama-3",
+    "llama-3-2",
+    "llama-3-3",
+    "llama-4"
+  ]
+},
+
+{
+  "id": "llama-3-3",
+  "name": "Llama 3.3",
+  "family": "Llama",
+  "organization": "Meta",
+  "releaseDate": "2024-12-06",
+  "year": 2024,
+  "category": "language",
+  "type": "large-language-model",
+  "description": "A Llama 3 generation optimized around a 70B model, providing strong instruction-following, reasoning, multilingual, and coding capabilities.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "grouped-query attention",
+    "position": "RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "70B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual corpus",
+    "postTraining": "supervised fine-tuning and preference optimization"
+  },
+  "license": "Llama 3.3 Community License",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "gqa",
+    "reasoning",
+    "coding",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Meta Llama",
+      "url": "https://ai.meta.com/llama/"
+    }
+  ],
+  "relatedModels": [
+    "llama-3-1",
+    "llama-3-2",
+    "llama-4"
+  ]
+},
+
+{
+  "id": "llama-4-scout",
+  "name": "Llama 4 Scout",
+  "family": "Llama 4",
+  "organization": "Meta",
+  "releaseDate": "2025-04-05",
+  "year": 2025,
+  "category": "multimodal",
+  "type": "multimodal-mixture-of-experts-model",
+  "description": "A Llama 4 multimodal mixture-of-experts model designed for long-context processing and efficient deployment.",
+  "architecture": {
+    "family": "decoder-only Transformer with MoE",
+    "attention": "grouped-query attention with model-specific efficiency mechanisms",
+    "position": "model-specific",
+    "sparsity": "sparse MoE",
+    "sequenceStrategy": "autoregressive multimodal generation"
+  },
+  "scale": {
+    "parameters": "109B total",
+    "activeParameters": "17B"
+  },
+  "context": {
+    "tokens": 10000000
+  },
+  "modality": {
+    "input": ["text", "image"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "multimodal autoregressive modeling",
+    "data": "large-scale multimodal corpus",
+    "postTraining": "instruction tuning and alignment"
+  },
+  "license": "Llama 4 Community License",
+  "openWeights": true,
+  "tags": [
+    "multimodal",
+    "moe",
+    "long-context",
+    "vision-language",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Llama Documentation",
+      "url": "https://ai.meta.com/llama/get-started/"
+    }
+  ],
+  "relatedModels": [
+    "llama-4-maverick",
+    "llama-3-1",
+    "qwen3"
+  ]
+},
+
+{
+  "id": "llama-4-maverick",
+  "name": "Llama 4 Maverick",
+  "family": "Llama 4",
+  "organization": "Meta",
+  "releaseDate": "2025-04-05",
+  "year": 2025,
+  "category": "multimodal",
+  "type": "multimodal-mixture-of-experts-model",
+  "description": "A Llama 4 multimodal mixture-of-experts model optimized for high-capability image and text understanding and efficient inference.",
+  "architecture": {
+    "family": "decoder-only Transformer with MoE",
+    "attention": "model-specific attention architecture",
+    "position": "model-specific",
+    "sparsity": "sparse MoE",
+    "sequenceStrategy": "autoregressive multimodal generation"
+  },
+  "scale": {
+    "parameters": "400B total",
+    "activeParameters": "17B"
+  },
+  "context": {
+    "tokens": 1000000
+  },
+  "modality": {
+    "input": ["text", "image"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "multimodal autoregressive modeling",
+    "data": "large-scale multimodal corpus",
+    "postTraining": "instruction tuning and alignment"
+  },
+  "license": "Llama 4 Community License",
+  "openWeights": true,
+  "tags": [
+    "multimodal",
+    "moe",
+    "vision-language",
+    "long-context",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Llama Documentation",
+      "url": "https://ai.meta.com/llama/get-started/"
+    }
+  ],
+  "relatedModels": [
+    "llama-4-scout",
+    "llama-3-1",
+    "qwen3"
+  ]
+},
+
+{
+  "id": "qwen2",
+  "name": "Qwen2",
+  "family": "Qwen",
+  "organization": "Alibaba",
+  "releaseDate": "2024-06-07",
+  "year": 2024,
+  "category": "language",
+  "type": "large-language-model-family",
+  "description": "A major Qwen generation expanding model sizes, multilingual capabilities, context length, and coding performance.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "grouped-query attention",
+    "position": "RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "0.5B to 72B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 131072
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual corpus",
+    "postTraining": "instruction tuning"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "multilingual",
+    "gqa",
+    "long-context",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Qwen",
+      "url": "https://qwenlm.github.io/"
+    },
+    {
+      "type": "code",
+      "title": "Qwen GitHub",
+      "url": "https://github.com/QwenLM"
+    }
+  ],
+  "relatedModels": [
+    "qwen2-5",
+    "qwen3",
+    "llama-3-1"
+  ]
+},
+
+{
+  "id": "qwen2-5",
+  "name": "Qwen2.5",
+  "family": "Qwen",
+  "organization": "Alibaba",
+  "releaseDate": "2024-09-19",
+  "year": 2024,
+  "category": "language",
+  "type": "large-language-model-family",
+  "description": "A broad Qwen generation spanning small to large language models with improvements in coding, mathematics, multilingual understanding, and long-context use.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "grouped-query attention",
+    "position": "RoPE",
+    "sparsity": "dense and specialized variants",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "0.5B to 72B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 131072
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual and code data",
+    "postTraining": "instruction tuning and preference optimization"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "coding",
+    "mathematics",
+    "multilingual",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Qwen",
+      "url": "https://qwenlm.github.io/"
+    },
+    {
+      "type": "code",
+      "title": "Qwen GitHub",
+      "url": "https://github.com/QwenLM"
+    }
+  ],
+  "relatedModels": [
+    "qwen2",
+    "qwen3",
+    "deepseek-v3"
+  ]
+},
+
+{
+  "id": "qwen2-5-coder",
+  "name": "Qwen2.5-Coder",
+  "family": "Qwen",
+  "organization": "Alibaba",
+  "releaseDate": "2024-11-12",
+  "year": 2024,
+  "category": "coding",
+  "type": "code-language-model",
+  "description": "A Qwen family specialized model trained for code generation, understanding, completion, and software engineering tasks.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "grouped-query attention",
+    "position": "RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "0.5B to 32B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 131072
+  },
+  "modality": {
+    "input": ["text", "code"],
+    "output": ["text", "code"]
+  },
+  "training": {
+    "objective": "autoregressive code and language modeling",
+    "data": "code and text corpora",
+    "postTraining": "coding-oriented instruction tuning"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "coding",
+    "code-generation",
+    "language",
+    "long-context",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Qwen Coder",
+      "url": "https://qwenlm.github.io/"
+    },
+    {
+      "type": "code",
+      "title": "Qwen GitHub",
+      "url": "https://github.com/QwenLM"
+    }
+  ],
+  "relatedModels": [
+    "qwen2-5",
+    "qwen3-coder",
+    "codestral"
+  ]
+},
+
+{
+  "id": "qwen2-5-vl",
+  "name": "Qwen2.5-VL",
+  "family": "Qwen",
+  "organization": "Alibaba",
+  "releaseDate": "2025-01-28",
+  "year": 2025,
+  "category": "vision-language",
+  "type": "vision-language-model",
+  "description": "A multimodal Qwen model designed for visual understanding, image and video analysis, document understanding, and vision-language reasoning.",
+  "architecture": {
+    "family": "vision-language Transformer",
+    "attention": "multimodal attention",
+    "position": "multimodal positional mechanisms",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "multimodal autoregressive generation"
+  },
+  "scale": {
+    "parameters": "3B / 7B / 32B / 72B class variants",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 131072
+  },
+  "modality": {
+    "input": ["text", "image", "video"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "multimodal pretraining and instruction following",
+    "data": "image-text-video and document data",
+    "postTraining": "multimodal instruction tuning"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "vision-language",
+    "multimodal",
+    "video",
+    "document-understanding",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Qwen",
+      "url": "https://qwenlm.github.io/"
+    },
+    {
+      "type": "code",
+      "title": "Qwen GitHub",
+      "url": "https://github.com/QwenLM"
+    }
+  ],
+  "relatedModels": [
+    "qwen3-vl",
+    "llama-3-2",
+    "llava"
+  ]
+},
+
+{
+  "id": "qwen3-coder",
+  "name": "Qwen3-Coder",
+  "family": "Qwen",
+  "organization": "Alibaba",
+  "releaseDate": "2025",
+  "year": 2025,
+  "category": "coding",
+  "type": "code-language-model",
+  "description": "A Qwen3 generation specialized for software engineering, code generation, agentic coding, and long-context programming workflows.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "RoPE-family positional encoding",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": "model-dependent"
+  },
+  "context": {
+    "tokens": 1000000
+  },
+  "modality": {
+    "input": ["text", "code"],
+    "output": ["text", "code"]
+  },
+  "training": {
+    "objective": "code and language modeling",
+    "data": "large-scale code corpus",
+    "postTraining": "coding and agentic-task post-training"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "coding",
+    "agentic-coding",
+    "long-context",
+    "qwen3"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Qwen",
+      "url": "https://qwenlm.github.io/"
+    }
+  ],
+  "relatedModels": [
+    "qwen3",
+    "qwen2-5-coder",
+    "codestral"
+  ]
+},
+
+{
+  "id": "mistral-large-1",
+  "name": "Mistral Large",
+  "family": "Mistral Large",
+  "organization": "Mistral AI",
+  "releaseDate": "2024-02-26",
+  "year": 2024,
+  "category": "language",
+  "type": "large-language-model",
+  "description": "Mistral AI's flagship language model released in early 2024 with strong multilingual, reasoning, instruction-following, and code-generation capabilities.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-specific attention",
+    "position": "model-specific",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "approximately 123B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 32768
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual corpus",
+    "postTraining": "instruction tuning"
+  },
+  "license": "commercial / model-dependent",
+  "openWeights": false,
+  "tags": [
+    "language",
+    "multilingual",
+    "reasoning",
+    "coding"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Mistral Large",
+      "url": "https://mistral.ai/news/mistral-large/"
+    }
+  ],
+  "relatedModels": [
+    "mistral-7b",
+    "mistral-large-2",
+    "mixtral-8x22b"
+  ]
+},
+
+{
+  "id": "mistral-large-2",
+  "name": "Mistral Large 2",
+  "family": "Mistral Large",
+  "organization": "Mistral AI",
+  "releaseDate": "2024-07-24",
+  "year": 2024,
+  "category": "language",
+  "type": "large-language-model",
+  "description": "A second major Mistral Large generation with expanded context, multilingual capabilities, coding performance, and reasoning.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-specific",
+    "position": "model-specific",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "123B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual and code corpus",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Mistral Research License / commercial terms",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "long-context",
+    "coding",
+    "multilingual"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Mistral AI Models",
+      "url": "https://mistral.ai/models/"
+    }
+  ],
+  "relatedModels": [
+    "mistral-large-1",
+    "mistral-large-3",
+    "mixtral-8x22b"
+  ]
+},
+
+{
+  "id": "mixtral-8x22b",
+  "name": "Mixtral 8x22B",
+  "family": "Mixtral",
+  "organization": "Mistral AI",
+  "releaseDate": "2024-04-17",
+  "year": 2024,
+  "category": "language",
+  "type": "mixture-of-experts-language-model",
+  "description": "A larger sparse mixture-of-experts Mistral model with eight experts and substantially greater total capacity than Mixtral 8x7B.",
+  "architecture": {
+    "family": "decoder-only Transformer with MoE",
+    "attention": "grouped-query attention",
+    "position": "RoPE",
+    "sparsity": "sparse MoE",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "approximately 176B total",
+    "activeParameters": "approximately 39B"
+  },
+  "context": {
+    "tokens": 65536
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual and code corpus",
+    "postTraining": "model-dependent"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "moe",
+    "sparse",
+    "gqa",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Mistral AI",
+      "url": "https://mistral.ai/"
+    }
+  ],
+  "relatedModels": [
+    "mixtral-8x7b",
+    "mistral-large-2",
+    "deepseek-v3"
+  ]
+},
+
+{
+  "id": "mistral-nemo",
+  "name": "Mistral NeMo",
+  "family": "Mistral NeMo",
+  "organization": "Mistral AI / NVIDIA",
+  "releaseDate": "2024-07-11",
+  "year": 2024,
+  "category": "language",
+  "type": "compact-language-model",
+  "description": "A compact 12B language model developed by Mistral AI and NVIDIA, designed for strong multilingual performance and long-context applications.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-specific",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "12B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "multilingual text and code",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "compact",
+    "multilingual",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Mistral AI Models",
+      "url": "https://mistral.ai/models/"
+    }
+  ],
+  "relatedModels": [
+    "mistral-7b",
+    "ministral-3b",
+    "ministral-8b"
+  ]
+},
+
+{
+  "id": "ministral-3b",
+  "name": "Ministral 3B",
+  "family": "Ministral",
+  "organization": "Mistral AI",
+  "releaseDate": "2024-10-16",
+  "year": 2024,
+  "category": "language",
+  "type": "edge-language-model",
+  "description": "A compact Mistral model designed for on-device and edge inference, emphasizing efficiency while retaining general language capabilities.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "sliding-window attention",
+    "position": "RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "3B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "model-specific",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "edge",
+    "compact",
+    "language",
+    "sliding-window"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Ministral",
+      "url": "https://mistral.ai/news/ministraux/"
+    }
+  ],
+  "relatedModels": [
+    "ministral-8b",
+    "mistral-nemo",
+    "mistral-7b"
+  ]
+},
+
+{
+  "id": "ministral-8b",
+  "name": "Ministral 8B",
+  "family": "Ministral",
+  "organization": "Mistral AI",
+  "releaseDate": "2024-10-16",
+  "year": 2024,
+  "category": "language",
+  "type": "edge-language-model",
+  "description": "An efficient 8B Mistral model designed for edge and local inference with long-context support and efficient attention.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "interleaved sliding-window attention",
+    "position": "RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "8B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "model-specific",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "edge",
+    "compact",
+    "language",
+    "sliding-window",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Ministral",
+      "url": "https://mistral.ai/news/ministraux/"
+    }
+  ],
+  "relatedModels": [
+    "ministral-3b",
+    "mistral-nemo",
+    "mistral-7b"
+  ]
+},
+
+{
+  "id": "codestral",
+  "name": "Codestral",
+  "family": "Codestral",
+  "organization": "Mistral AI",
+  "releaseDate": "2024-05-29",
+  "year": 2024,
+  "category": "coding",
+  "type": "code-language-model",
+  "description": "A Mistral model specialized for code generation and software-development tasks, with long-context support for large codebases.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-specific",
+    "position": "model-specific",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "22B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 32768
+  },
+  "modality": {
+    "input": ["text", "code"],
+    "output": ["text", "code"]
+  },
+  "training": {
+    "objective": "code and language modeling",
+    "data": "large-scale code corpus",
+    "postTraining": "code-oriented post-training"
+  },
+  "license": "model-dependent",
+  "openWeights": false,
+  "tags": [
+    "coding",
+    "code-generation",
+    "long-context",
+    "mistral"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Mistral AI Models",
+      "url": "https://mistral.ai/models/"
+    }
+  ],
+  "relatedModels": [
+    "codestral-mamba",
+    "qwen2-5-coder",
+    "qwen3-coder"
+  ]
+},
+
+{
+  "id": "codestral-mamba",
+  "name": "Codestral Mamba",
+  "family": "Codestral Mamba",
+  "organization": "Mistral AI",
+  "releaseDate": "2024-05-29",
+  "year": 2024,
+  "category": "coding",
+  "type": "state-space-code-model",
+  "description": "A code-focused model based on the Mamba state-space architecture, illustrating an alternative to Transformer attention for software-development workloads.",
+  "architecture": {
+    "family": "Mamba state space model",
+    "attention": "no conventional self-attention",
+    "position": "implicit state evolution",
+    "sparsity": "dense",
+    "sequenceStrategy": "selective state-space sequence processing"
+  },
+  "scale": {
+    "parameters": "7B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 256000
+  },
+  "modality": {
+    "input": ["text", "code"],
+    "output": ["text", "code"]
+  },
+  "training": {
+    "objective": "code language modeling",
+    "data": "code corpus",
+    "postTraining": "coding-oriented training"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "coding",
+    "mamba",
+    "state-space",
+    "long-context",
+    "alternative-architecture"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Mistral AI Models",
+      "url": "https://mistral.ai/models/"
+    }
+  ],
+  "relatedModels": [
+    "mamba",
+    "codestral",
+    "qwen2-5-coder"
+  ],
+  {
+  "id": "deepseek-v2",
+  "name": "DeepSeek V2",
+  "family": "DeepSeek",
+  "organization": "DeepSeek",
+  "releaseDate": "2024-05-06",
+  "year": 2024,
+  "category": "language",
+  "type": "mixture-of-experts-language-model",
+  "description": "A major DeepSeek generation that introduced Multi-head Latent Attention and a sparse mixture-of-experts architecture to improve training and inference efficiency.",
+  "architecture": {
+    "family": "decoder-only Transformer with MoE",
+    "attention": "Multi-head Latent Attention",
+    "position": "RoPE",
+    "sparsity": "sparse MoE",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "236B total",
+    "activeParameters": "21B"
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual and code corpus",
+    "postTraining": "model-dependent"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "moe",
+    "mla",
+    "long-context",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "DeepSeek",
+      "url": "https://www.deepseek.com/"
+    }
+  ],
+  "relatedModels": [
+    "deepseek-v3",
+    "deepseek-r1",
+    "mixtral-8x7b"
+  ]
+},
+
+{
+  "id": "deepseek-v2-5",
+  "name": "DeepSeek-V2.5",
+  "family": "DeepSeek",
+  "organization": "DeepSeek",
+  "releaseDate": "2024-09-05",
+  "year": 2024,
+  "category": "language",
+  "type": "large-language-model",
+  "description": "A unified DeepSeek model generation combining improvements from the V2.5 language and coding model lines.",
+  "architecture": {
+    "family": "decoder-only Transformer with MoE",
+    "attention": "Multi-head Latent Attention",
+    "position": "RoPE",
+    "sparsity": "sparse MoE",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "236B total",
+    "activeParameters": "21B"
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "language and code corpus",
+    "postTraining": "instruction and coding alignment"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "coding",
+    "moe",
+    "mla"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "DeepSeek",
+      "url": "https://www.deepseek.com/"
+    }
+  ],
+  "relatedModels": [
+    "deepseek-v2",
+    "deepseek-v3",
+    "deepseek-r1"
+  ]
+},
+
+{
+  "id": "deepseek-r1-zero",
+  "name": "DeepSeek-R1-Zero",
+  "family": "DeepSeek R1",
+  "organization": "DeepSeek",
+  "releaseDate": "2025-01-20",
+  "year": 2025,
+  "category": "reasoning",
+  "type": "reasoning-language-model",
+  "description": "An experimental reasoning model demonstrating large-scale reinforcement learning without conventional supervised fine-tuning as the starting point for reasoning behavior.",
+  "architecture": {
+    "family": "decoder-only Transformer with MoE",
+    "attention": "Multi-head Latent Attention",
+    "position": "RoPE",
+    "sparsity": "sparse MoE",
+    "sequenceStrategy": "autoregressive reasoning"
+  },
+  "scale": {
+    "parameters": "671B total",
+    "activeParameters": "37B"
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "reasoning-oriented reinforcement learning",
+    "data": "reasoning tasks",
+    "postTraining": "large-scale reinforcement learning"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "reasoning",
+    "reinforcement-learning",
+    "moe",
+    "mla",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "DeepSeek-R1 Release",
+      "url": "https://www.deepseek.com/en/news/deepseek-r1/"
+    }
+  ],
+  "relatedModels": [
+    "deepseek-r1",
+    "deepseek-v3",
+    "qwen3"
+  ]
+},
+
+{
+  "id": "deepseek-v3-0324",
+  "name": "DeepSeek-V3-0324",
+  "family": "DeepSeek V3",
+  "organization": "DeepSeek",
+  "releaseDate": "2025-03-24",
+  "year": 2025,
+  "category": "language",
+  "type": "mixture-of-experts-language-model",
+  "description": "An updated DeepSeek-V3 checkpoint with improved reasoning, coding, front-end development, writing, search, and tool-use capabilities through additional post-training.",
+  "architecture": {
+    "family": "decoder-only Transformer with MoE",
+    "attention": "Multi-head Latent Attention",
+    "position": "RoPE",
+    "sparsity": "sparse MoE",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "approximately 671B",
+    "activeParameters": "approximately 37B"
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "existing V3 base model",
+    "postTraining": "reinforcement-learning-informed post-training"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "moe",
+    "mla",
+    "coding",
+    "tool-use"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "DeepSeek-V3-0324 Release",
+      "url": "https://api-docs.deepseek.com/news/news250325/"
+    }
+  ],
+  "relatedModels": [
+    "deepseek-v3",
+    "deepseek-r1",
+    "deepseek-v3-2"
+  ]
+},
+
+{
+  "id": "deepseek-v3-2",
+  "name": "DeepSeek-V3.2",
+  "family": "DeepSeek",
+  "organization": "DeepSeek",
+  "releaseDate": "2025-12-01",
+  "year": 2025,
+  "category": "reasoning",
+  "type": "reasoning-and-agent-model",
+  "description": "A reasoning-first DeepSeek generation designed to integrate extended reasoning directly with tool use and agentic workflows.",
+  "architecture": {
+    "family": "decoder-only Transformer with MoE",
+    "attention": "DeepSeek attention family",
+    "position": "model-dependent",
+    "sparsity": "sparse MoE",
+    "sequenceStrategy": "autoregressive reasoning and tool use"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": "model-dependent"
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text", "tool calls"]
+  },
+  "training": {
+    "objective": "reasoning and tool-use modeling",
+    "data": "large-scale language and agent environments",
+    "postTraining": "reinforcement learning and agent training"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "reasoning",
+    "agents",
+    "tool-use",
+    "moe",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "DeepSeek-V3.2",
+      "url": "https://www.deepseek.com/en/news/deepseek-v3-2/"
+    }
+  ],
+  "relatedModels": [
+    "deepseek-r1",
+    "deepseek-v3",
+    "deepseek-v4"
+  ]
+},
+
+{
+  "id": "deepseek-v4",
+  "name": "DeepSeek V4",
+  "family": "DeepSeek",
+  "organization": "DeepSeek",
+  "releaseDate": "2026-04-24",
+  "year": 2026,
+  "category": "language",
+  "type": "foundation-model",
+  "description": "A later DeepSeek foundation-model generation released in 2026. The Atlas records it as a distinct generation while retaining a conservative architecture description until all primary technical specifications are fully normalized.",
+  "architecture": {
+    "family": "DeepSeek generation",
+    "attention": "see official technical report",
+    "position": "see official technical report",
+    "sparsity": "see official technical report",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": null,
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "see official technical report",
+    "data": "see official technical documentation",
+    "postTraining": "see official technical documentation"
+  },
+  "license": "model-dependent",
+  "openWeights": null,
+  "tags": [
+    "language",
+    "deepseek",
+    "2026"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "DeepSeek Transparency Center",
+      "url": "https://www.deepseek.com/en/transparency/"
+    }
+  ],
+  "relatedModels": [
+    "deepseek-v3-2",
+    "deepseek-r1"
+  ]
+},
+  {
+  "id": "glm-4",
+  "name": "GLM-4",
+  "family": "GLM",
+  "organization": "Zhipu AI",
+  "releaseDate": "2024-03-06",
+  "year": 2024,
+  "category": "language",
+  "type": "large-language-model-family",
+  "description": "A major generation of the General Language Model family from Zhipu AI, supporting multilingual language understanding, generation, reasoning, and tool-oriented applications.",
+  "architecture": {
+    "family": "decoder-only Transformer family",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual corpus",
+    "postTraining": "instruction tuning and alignment"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "multilingual",
+    "reasoning",
+    "glm"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Z.ai",
+      "url": "https://z.ai/"
+    }
+  ],
+  "relatedModels": [
+    "glm-4-5",
+    "glm-4-6",
+    "internlm-3"
+  ]
+},
+
+{
+  "id": "glm-4-5",
+  "name": "GLM-4.5",
+  "family": "GLM",
+  "organization": "Zhipu AI",
+  "releaseDate": "2025-07-28",
+  "year": 2025,
+  "category": "reasoning",
+  "type": "reasoning-and-agent-model",
+  "description": "A GLM generation designed around reasoning, coding, tool use, and agentic task execution.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "autoregressive reasoning"
+  },
+  "scale": {
+    "parameters": "355B total",
+    "activeParameters": "32B"
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text", "tool calls"]
+  },
+  "training": {
+    "objective": "language and reasoning modeling",
+    "data": "large-scale text and code data",
+    "postTraining": "reasoning reinforcement learning and agent training"
+  },
+  "license": "open model license",
+  "openWeights": true,
+  "tags": [
+    "reasoning",
+    "agents",
+    "coding",
+    "moe"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Z.ai",
+      "url": "https://z.ai/"
+    }
+  ],
+  "relatedModels": [
+    "glm-4-6",
+    "deepseek-v3-2",
+    "qwen3"
+  ]
+},
+
+{
+  "id": "glm-4-6",
+  "name": "GLM-4.6",
+  "family": "GLM",
+  "organization": "Zhipu AI",
+  "releaseDate": "2025-09-30",
+  "year": 2025,
+  "category": "reasoning",
+  "type": "reasoning-and-agent-model",
+  "description": "A GLM generation focused on advanced agentic tasks, reasoning, coding, tool use, and long-context workflows.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "autoregressive reasoning and tool use"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": "model-dependent"
+  },
+  "context": {
+    "tokens": 200000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text", "tool calls"]
+  },
+  "training": {
+    "objective": "language, reasoning, coding, and agent modeling",
+    "data": "large-scale language, code, and agent trajectories",
+    "postTraining": "reasoning and agentic post-training"
+  },
+  "license": "open model license",
+  "openWeights": true,
+  "tags": [
+    "reasoning",
+    "agents",
+    "coding",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "GLM-4.6",
+      "url": "https://z.ai/blog/glm-4.6"
+    }
+  ],
+  "relatedModels": [
+    "glm-4-5",
+    "glm-4-6v",
+    "deepseek-v3-2"
+  ]
+},
+
+{
+  "id": "glm-4-6v",
+  "name": "GLM-4.6V",
+  "family": "GLM Vision",
+  "organization": "Zhipu AI",
+  "releaseDate": "2025-12-08",
+  "year": 2025,
+  "category": "vision-language",
+  "type": "multimodal-foundation-model",
+  "description": "A multimodal GLM generation designed for visual understanding, reasoning, and native tool use across real-world multimodal agent scenarios.",
+  "architecture": {
+    "family": "vision-language Transformer",
+    "attention": "multimodal attention",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "multimodal autoregressive generation"
+  },
+  "scale": {
+    "parameters": "106B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text", "image", "video"],
+    "output": ["text", "tool calls"]
+  },
+  "training": {
+    "objective": "multimodal reasoning",
+    "data": "multimodal and visual reasoning data",
+    "postTraining": "multimodal reinforcement learning"
+  },
+  "license": "open model license",
+  "openWeights": true,
+  "tags": [
+    "vision-language",
+    "multimodal",
+    "reasoning",
+    "tool-use",
+    "agents"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "GLM-4.6V",
+      "url": "https://z.ai/blog/glm-4.6v"
+    }
+  ],
+  "relatedModels": [
+    "glm-4-6",
+    "qwen2-5-vl",
+    "llama-4-maverick"
+  ]
+},
+  {
+  "id": "internlm-2",
+  "name": "InternLM 2",
+  "family": "InternLM",
+  "organization": "Shanghai AI Laboratory",
+  "releaseDate": "2024-01-31",
+  "year": 2024,
+  "category": "language",
+  "type": "large-language-model-family",
+  "description": "A major generation of the InternLM family designed for general language understanding, generation, reasoning, and tool use.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "7B / 20B class models",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 32768
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual and code corpus",
+    "postTraining": "instruction tuning"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "reasoning",
+    "tool-use",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "InternLM",
+      "url": "https://internlm.intern-ai.org.cn/"
+    },
+    {
+      "type": "code",
+      "title": "InternLM GitHub",
+      "url": "https://github.com/InternLM"
+    }
+  ],
+  "relatedModels": [
+    "internlm-3",
+    "glm-4",
+    "qwen2"
+  ]
+},
+
+{
+  "id": "internlm-3",
+  "name": "InternLM 3",
+  "family": "InternLM",
+  "organization": "Shanghai AI Laboratory",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "language",
+  "type": "large-language-model",
+  "description": "An InternLM generation emphasizing improved reasoning, mathematics, coding, multilingual understanding, and efficient model deployment.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "8B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 32768
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale language and code data",
+    "postTraining": "reasoning and instruction tuning"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "reasoning",
+    "coding",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "InternLM",
+      "url": "https://internlm.intern-ai.org.cn/"
+    }
+  ],
+  "relatedModels": [
+    "internlm-2",
+    "glm-4",
+    "qwen2-5"
+  ]
+},
+  {
+  "id": "yi-1-5",
+  "name": "Yi-1.5",
+  "family": "Yi",
+  "organization": "01.AI",
+  "releaseDate": "2024-05-13",
+  "year": 2024,
+  "category": "language",
+  "type": "large-language-model-family",
+  "description": "An improved generation of the Yi language-model family with stronger coding, mathematics, instruction following, and long-context capabilities.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "6B / 9B / 34B class models",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 4096
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual corpus",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "coding",
+    "mathematics",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "01.AI",
+      "url": "https://www.01.ai/"
+    }
+  ],
+  "relatedModels": [
+    "yi-34b",
+    "qwen2-5",
+    "llama-3"
+  ]
+},
+  {
+  "id": "kimi-k2",
+  "name": "Kimi K2",
+  "family": "Kimi",
+  "organization": "Moonshot AI",
+  "releaseDate": "2025-07-11",
+  "year": 2025,
+  "category": "reasoning",
+  "type": "mixture-of-experts-agent-model",
+  "description": "A large open-weight Kimi model designed for agentic tasks, coding, reasoning, and tool use.",
+  "architecture": {
+    "family": "decoder-only Transformer with MoE",
+    "attention": "model-specific",
+    "position": "model-specific",
+    "sparsity": "sparse MoE",
+    "sequenceStrategy": "autoregressive agentic generation"
+  },
+  "scale": {
+    "parameters": "1T total",
+    "activeParameters": "32B"
+  },
+  "context": {
+    "tokens": 131072
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text", "tool calls"]
+  },
+  "training": {
+    "objective": "language and agentic modeling",
+    "data": "large-scale language, code, and agent data",
+    "postTraining": "agentic reinforcement learning"
+  },
+  "license": "Modified MIT",
+  "openWeights": true,
+  "tags": [
+    "agents",
+    "reasoning",
+    "coding",
+    "moe",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Moonshot AI",
+      "url": "https://www.moonshot.ai/"
+    }
+  ],
+  "relatedModels": [
+    "kimi-k2-5",
+    "deepseek-v3-2",
+    "qwen3"
+  ]
+},
+
+{
+  "id": "kimi-k2-5",
+  "name": "Kimi K2.5",
+  "family": "Kimi",
+  "organization": "Moonshot AI",
+  "releaseDate": "2026-01",
+  "year": 2026,
+  "category": "multimodal",
+  "type": "multimodal-agent-model",
+  "description": "A later Kimi generation extending the K2 family toward multimodal understanding, reasoning, coding, and agentic workflows.",
+  "architecture": {
+    "family": "multimodal Transformer with MoE",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "sparse MoE",
+    "sequenceStrategy": "multimodal autoregressive generation"
+  },
+  "scale": {
+    "parameters": null,
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["text", "image"],
+    "output": ["text", "tool calls"]
+  },
+  "training": {
+    "objective": "multimodal language and agent modeling",
+    "data": "multimodal and agent data",
+    "postTraining": "reasoning and agentic post-training"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "multimodal",
+    "agents",
+    "reasoning",
+    "coding"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Moonshot AI",
+      "url": "https://www.moonshot.ai/"
+    }
+  ],
+  "relatedModels": [
+    "kimi-k2",
+    "glm-4-6v",
+    "qwen3"
+  ]
+},
+  {
+  "id": "minimax-01",
+  "name": "MiniMax-01",
+  "family": "MiniMax",
+  "organization": "MiniMax",
+  "releaseDate": "2025-01",
+  "year": 2025,
+  "category": "language",
+  "type": "long-context-language-model",
+  "description": "A MiniMax foundation-model generation emphasizing very long-context language processing and efficient attention mechanisms.",
+  "architecture": {
+    "family": "hybrid Transformer architecture",
+    "attention": "hybrid attention mechanism",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 4000000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "language modeling",
+    "data": "large-scale language corpus",
+    "postTraining": "instruction and preference optimization"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "long-context",
+    "efficient-attention",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "MiniMax",
+      "url": "https://www.minimaxi.com/"
+    }
+  ],
+  "relatedModels": [
+    "minimax-m2",
+    "kimi-k2",
+    "qwen3"
+  ]
+},
+
+{
+  "id": "minimax-m2",
+  "name": "MiniMax M2",
+  "family": "MiniMax",
+  "organization": "MiniMax",
+  "releaseDate": "2025-10",
+  "year": 2025,
+  "category": "agent",
+  "type": "agentic-language-model",
+  "description": "A MiniMax model optimized for coding, tool use, deep search, and agentic task execution.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "autoregressive agentic generation"
+  },
+  "scale": {
+    "parameters": null,
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text", "tool calls"]
+  },
+  "training": {
+    "objective": "language and agentic modeling",
+    "data": "language, coding, and agent trajectories",
+    "postTraining": "agentic reinforcement learning"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "agents",
+    "coding",
+    "tool-use",
+    "deep-search"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "MiniMax",
+      "url": "https://www.minimaxi.com/"
+    }
+  ],
+  "relatedModels": [
+    "minimax-m2-1",
+    "minimax-m2-5",
+    "kimi-k2"
+  ]
+},
+
+{
+  "id": "minimax-m2-1",
+  "name": "MiniMax M2.1",
+  "family": "MiniMax",
+  "organization": "MiniMax",
+  "releaseDate": "2025-12",
+  "year": 2025,
+  "category": "agent",
+  "type": "agentic-language-model",
+  "description": "An improved MiniMax M2 generation focused on complex real-world tasks, coding, workplace workflows, and tool use.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "autoregressive agentic generation"
+  },
+  "scale": {
+    "parameters": null,
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text", "tool calls"]
+  },
+  "training": {
+    "objective": "agentic language modeling",
+    "data": "language, code, and real-world task data",
+    "postTraining": "agentic post-training"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "agents",
+    "coding",
+    "tool-use",
+    "workplace"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "MiniMax",
+      "url": "https://www.minimaxi.com/"
+    }
+  ],
+  "relatedModels": [
+    "minimax-m2",
+    "minimax-m2-5"
+  ]
+},
+
+{
+  "id": "minimax-m2-5",
+  "name": "MiniMax M2.5",
+  "family": "MiniMax",
+  "organization": "MiniMax",
+  "releaseDate": "2026-02",
+  "year": 2026,
+  "category": "agent",
+  "type": "agentic-language-model",
+  "description": "A MiniMax generation targeting scalable coding, tool use, workplace productivity, and complex agent execution.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "autoregressive agentic generation"
+  },
+  "scale": {
+    "parameters": null,
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text", "tool calls"]
+  },
+  "training": {
+    "objective": "agentic language modeling",
+    "data": "language, coding, tool-use, and workplace data",
+    "postTraining": "reinforcement learning and agent training"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "agents",
+    "coding",
+    "tool-use",
+    "productivity"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "MiniMax",
+      "url": "https://www.minimaxi.com/"
+    }
+  ],
+  "relatedModels": [
+    "minimax-m2",
+    "minimax-m2-1",
+    "kimi-k2-5"
+  ]
+},
+  {
+  "id": "baichuan-2",
+  "name": "Baichuan 2",
+  "family": "Baichuan",
+  "organization": "Baichuan AI",
+  "releaseDate": "2023-09-06",
+  "year": 2023,
+  "category": "language",
+  "type": "large-language-model-family",
+  "description": "A multilingual large language model family developed by Baichuan AI, released in multiple parameter sizes.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "multi-head attention",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "7B / 13B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 4096
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual corpus",
+    "postTraining": "instruction tuning"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "multilingual",
+    "chinese",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Baichuan AI",
+      "url": "https://www.baichuan-ai.com/"
+    }
+  ],
+  "relatedModels": [
+    "qwen2",
+    "internlm-2",
+    "llama-2"
+  ]
+},
+  {
+  "id": "hunyuan",
+  "name": "Hunyuan",
+  "family": "Hunyuan",
+  "organization": "Tencent",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "foundation-model-family",
+  "description": "Tencent's Hunyuan family of foundation models spanning language, vision, image generation, video, 3D, and other multimodal applications.",
+  "architecture": {
+    "family": "model-family",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "model-dependent"
+  },
+  "scale": {
+    "parameters": null,
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": [
+      "text",
+      "image",
+      "video",
+      "3d"
+    ],
+    "output": [
+      "text",
+      "image",
+      "video",
+      "3d"
+    ]
+  },
+  "training": {
+    "objective": "modality-dependent",
+    "data": "modality-specific datasets",
+    "postTraining": "model-dependent"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "multimodal",
+    "vision",
+    "video",
+    "3d",
+    "generative-ai"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Tencent Hunyuan",
+      "url": "https://hunyuan.tencent.com/"
+    }
+  ],
+  "relatedModels": [
+    "hunyuan-video",
+    "hunyuan-image",
+    "hunyuan-3d"
+  ]
+},
+
+{
+  "id": "hunyuan-video",
+  "name": "HunyuanVideo",
+  "family": "Hunyuan",
+  "organization": "Tencent",
+  "releaseDate": "2024-12",
+  "year": 2024,
+  "category": "video-generation",
+  "type": "video-generation-foundation-model",
+  "description": "A Hunyuan generative video model designed for high-quality text-to-video generation.",
+  "architecture": {
+    "family": "video diffusion / Transformer architecture",
+    "attention": "spatiotemporal attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "iterative generative denoising"
+  },
+  "scale": {
+    "parameters": null,
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["video"]
+  },
+  "training": {
+    "objective": "video generation",
+    "data": "large-scale video-text data",
+    "postTraining": "generation-specific alignment"
+  },
+  "license": "model-specific",
+  "openWeights": true,
+  "tags": [
+    "video",
+    "generation",
+    "diffusion",
+    "text-to-video"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "HunyuanVideo",
+      "url": "https://github.com/Tencent-Hunyuan/HunyuanVideo"
+    }
+  ],
+  "relatedModels": [
+    "hunyuan",
+    "hunyuan-video-1-5",
+    "wan"
+  ]
+},
+
+{
+  "id": "hunyuan-3d",
+  "name": "Hunyuan3D",
+  "family": "Hunyuan",
+  "organization": "Tencent",
+  "releaseDate": "2025",
+  "year": 2025,
+  "category": "3d-generation",
+  "type": "3d-foundation-model",
+  "description": "A Tencent Hunyuan family of models for generative 3D asset creation and related 3D understanding tasks.",
+  "architecture": {
+    "family": "3D generative architecture",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "generative"
+  },
+  "scale": {
+    "parameters": null,
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["text", "image"],
+    "output": ["3d"]
+  },
+  "training": {
+    "objective": "3D generation",
+    "data": "3D assets and multimodal conditioning data",
+    "postTraining": "model-dependent"
+  },
+  "license": "model-specific",
+  "openWeights": true,
+  "tags": [
+    "3d",
+    "generation",
+    "multimodal",
+    "hunyuan"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Hunyuan3D",
+      "url": "https://github.com/Tencent-Hunyuan/Hunyuan3D-2"
+    }
+  ],
+  "relatedModels": [
+    "hunyuan",
+    "hunyuan-video"
+  ]
+}
+  ]
