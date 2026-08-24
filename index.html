@@ -1,0 +1,2588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Foundation Model Atlas — The Open Encyclopedia of Foundation Model Architectures</title>
+
+  <meta
+    name="description"
+    content="Foundation Model Atlas is an open encyclopedia of foundation models, architectures, training paradigms, evolution, comparisons, and research resources."
+  >
+
+  <meta
+    name="author"
+    content="Rahul Kiran Gunti"
+  >
+
+  <meta
+    name="theme-color"
+    content="#0b0d10"
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="Foundation Model Atlas"
+  >
+
+  <meta
+    property="og:description"
+    content="The open encyclopedia of foundation model architectures."
+  >
+
+  <meta
+    property="og:url"
+    content="https://rahulkiran2222.github.io/foundation-model-atlas/"
+  >
+
+  <meta
+    name="twitter:card"
+    content="summary"
+  >
+
+  <meta
+    name="twitter:title"
+    content="Foundation Model Atlas"
+  >
+
+  <meta
+    name="twitter:description"
+    content="An open encyclopedia of foundation models, architectures, evolution, and research resources."
+  >
+
+  <link
+    rel="canonical"
+    href="https://rahulkiran2222.github.io/foundation-model-atlas/"
+  >
+
+  <!-- Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =========================================================
+       FOUNDATION MODEL ATLAS
+       INDEX — v0.1
+       ========================================================= */
+
+    :root {
+
+      --bg: #0b0d10;
+      --bg-soft: #101318;
+      --bg-card: #13171d;
+      --bg-card-hover: #171c23;
+
+      --text: #f2f4f7;
+      --text-soft: #a7afb9;
+      --text-muted: #6f7884;
+
+      --line: #252b33;
+      --line-light: #303740;
+
+      --accent: #d7ff64;
+      --accent-soft: rgba(215, 255, 100, 0.10);
+
+      --blue: #8ab4ff;
+      --purple: #bda5ff;
+      --orange: #ffb86b;
+
+      --max-width: 1180px;
+
+      --radius: 10px;
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+
+      margin: 0;
+
+      background:
+        radial-gradient(
+          circle at 75% 10%,
+          rgba(215, 255, 100, 0.045),
+          transparent 30%
+        ),
+        var(--bg);
+
+      color: var(--text);
+
+      font-family: "Inter", sans-serif;
+
+      font-size: 15px;
+
+      line-height: 1.65;
+
+      -webkit-font-smoothing: antialiased;
+
+    }
+
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+
+    ::selection {
+      background: var(--accent);
+      color: #0b0d10;
+    }
+
+
+    .container {
+
+      width: min(
+        calc(100% - 40px),
+        var(--max-width)
+      );
+
+      margin: 0 auto;
+
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
+    .nav {
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 100;
+
+      border-bottom: 1px solid var(--line);
+
+      background:
+        rgba(11, 13, 16, 0.88);
+
+      backdrop-filter: blur(16px);
+
+    }
+
+
+    .nav-inner {
+
+      min-height: 68px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 30px;
+
+    }
+
+
+    .brand {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-weight: 600;
+
+      letter-spacing: -0.02em;
+
+    }
+
+
+    .brand-mark {
+
+      width: 30px;
+
+      height: 30px;
+
+      border: 1px solid var(--accent);
+
+      display: grid;
+
+      place-items: center;
+
+      color: var(--accent);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 11px;
+
+      border-radius: 6px;
+
+    }
+
+
+    .brand-name {
+
+      font-size: 15px;
+
+    }
+
+
+    .brand-name span {
+
+      color: var(--text-muted);
+
+      font-weight: 400;
+
+    }
+
+
+    .nav-links {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 24px;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 11px;
+
+      color: var(--text-soft);
+
+    }
+
+
+    .nav-links a {
+
+      transition:
+        color 0.2s ease;
+
+    }
+
+
+    .nav-links a:hover {
+
+      color: var(--accent);
+
+    }
+
+
+    .nav-github {
+
+      border: 1px solid var(--line-light);
+
+      padding: 8px 12px;
+
+      border-radius: 6px;
+
+    }
+
+
+    .nav-github:hover {
+
+      border-color: var(--accent);
+
+    }
+
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+
+      position: relative;
+
+      padding: 120px 0 90px;
+
+      border-bottom: 1px solid var(--line);
+
+      overflow: hidden;
+
+    }
+
+
+    .hero-grid {
+
+      position: absolute;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      opacity: 0.28;
+
+      background-image:
+
+        linear-gradient(
+          rgba(255,255,255,0.035) 1px,
+          transparent 1px
+        ),
+
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.035) 1px,
+          transparent 1px
+        );
+
+      background-size: 48px 48px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent
+        );
+
+    }
+
+
+    .hero-content {
+
+      position: relative;
+
+      max-width: 850px;
+
+    }
+
+
+    .eyebrow {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      margin-bottom: 22px;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 11px;
+
+      color: var(--accent);
+
+      letter-spacing: 0.08em;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .eyebrow::before {
+
+      content: "";
+
+      width: 7px;
+
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--accent);
+
+      box-shadow:
+        0 0 12px rgba(215, 255, 100, 0.6);
+
+    }
+
+
+    h1 {
+
+      margin: 0;
+
+      max-width: 900px;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: clamp(
+        46px,
+        8vw,
+        88px
+      );
+
+      line-height: 0.98;
+
+      letter-spacing: -0.055em;
+
+      font-weight: 600;
+
+    }
+
+
+    .hero-title-accent {
+
+      color: var(--accent);
+
+    }
+
+
+    .hero-description {
+
+      max-width: 720px;
+
+      margin: 30px 0 0;
+
+      color: var(--text-soft);
+
+      font-size: 18px;
+
+      line-height: 1.7;
+
+    }
+
+
+    .hero-description strong {
+
+      color: var(--text);
+
+      font-weight: 500;
+
+    }
+
+
+    .hero-actions {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-top: 34px;
+
+    }
+
+
+    .button {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 9px;
+
+      padding: 11px 16px;
+
+      border-radius: 7px;
+
+      border: 1px solid var(--line-light);
+
+      background: var(--bg-card);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 11px;
+
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+
+    }
+
+
+    .button:hover {
+
+      transform: translateY(-1px);
+
+      border-color: var(--accent);
+
+      background: var(--bg-card-hover);
+
+    }
+
+
+    .button-primary {
+
+      background: var(--accent);
+
+      border-color: var(--accent);
+
+      color: #0b0d10;
+
+      font-weight: 500;
+
+    }
+
+
+    .button-primary:hover {
+
+      background: #e1ff85;
+
+      border-color: #e1ff85;
+
+    }
+
+
+    /* =========================================================
+       STATS
+       ========================================================= */
+
+    .stats {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      border-bottom: 1px solid var(--line);
+
+    }
+
+
+    .stat {
+
+      padding: 28px 22px;
+
+      border-right: 1px solid var(--line);
+
+    }
+
+
+    .stat:last-child {
+
+      border-right: none;
+
+    }
+
+
+    .stat-number {
+
+      display: block;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 30px;
+
+      font-weight: 600;
+
+      letter-spacing: -0.04em;
+
+    }
+
+
+    .stat-number span {
+
+      color: var(--accent);
+
+    }
+
+
+    .stat-label {
+
+      display: block;
+
+      margin-top: 4px;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 10px;
+
+      color: var(--text-muted);
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.06em;
+
+    }
+
+
+    /* =========================================================
+       SECTION
+       ========================================================= */
+
+    section {
+
+      padding: 82px 0;
+
+      border-bottom: 1px solid var(--line);
+
+    }
+
+
+    .section-header {
+
+      display: flex;
+
+      align-items: flex-end;
+
+      justify-content: space-between;
+
+      gap: 30px;
+
+      margin-bottom: 34px;
+
+    }
+
+
+    .section-kicker {
+
+      margin: 0 0 8px;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 10px;
+
+      color: var(--accent);
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.08em;
+
+    }
+
+
+    h2 {
+
+      margin: 0;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 34px;
+
+      line-height: 1.1;
+
+      letter-spacing: -0.035em;
+
+    }
+
+
+    .section-description {
+
+      max-width: 560px;
+
+      color: var(--text-soft);
+
+      margin: 14px 0 0;
+
+    }
+
+
+    .section-link {
+
+      white-space: nowrap;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 11px;
+
+      color: var(--text-soft);
+
+      border-bottom: 1px solid var(--line-light);
+
+      padding-bottom: 3px;
+
+    }
+
+
+    .section-link:hover {
+
+      color: var(--accent);
+
+      border-color: var(--accent);
+
+    }
+
+
+    /* =========================================================
+       CATEGORY GRID
+       ========================================================= */
+
+    .category-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 10px;
+
+    }
+
+
+    .category {
+
+      position: relative;
+
+      min-height: 170px;
+
+      padding: 24px;
+
+      border: 1px solid var(--line);
+
+      background: var(--bg-card);
+
+      border-radius: var(--radius);
+
+      overflow: hidden;
+
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+
+    }
+
+
+    .category:hover {
+
+      transform: translateY(-2px);
+
+      border-color: var(--line-light);
+
+    }
+
+
+    .category-number {
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 10px;
+
+      color: var(--text-muted);
+
+    }
+
+
+    .category h3 {
+
+      margin: 28px 0 7px;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 19px;
+
+    }
+
+
+    .category p {
+
+      margin: 0;
+
+      color: var(--text-soft);
+
+      font-size: 13px;
+
+    }
+
+
+    .category-arrow {
+
+      position: absolute;
+
+      right: 22px;
+
+      bottom: 19px;
+
+      color: var(--accent);
+
+      font-family: "DM Mono", monospace;
+
+    }
+
+
+    /* =========================================================
+       FEATURED MODELS
+       ========================================================= */
+
+    .model-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 10px;
+
+    }
+
+
+    .model-card {
+
+      padding: 22px;
+
+      min-height: 205px;
+
+      border: 1px solid var(--line);
+
+      background: var(--bg-card);
+
+      border-radius: var(--radius);
+
+      transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+
+    }
+
+
+    .model-card:hover {
+
+      border-color: var(--line-light);
+
+      background: var(--bg-card-hover);
+
+    }
+
+
+    .model-meta {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 10px;
+
+      margin-bottom: 22px;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+      color: var(--text-muted);
+
+      text-transform: uppercase;
+
+    }
+
+
+    .model-type {
+
+      color: var(--accent);
+
+    }
+
+
+    .model-card h3 {
+
+      margin: 0 0 7px;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 20px;
+
+    }
+
+
+    .model-card p {
+
+      margin: 0;
+
+      color: var(--text-soft);
+
+      font-size: 13px;
+
+    }
+
+
+    .model-family {
+
+      margin-top: 18px;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 10px;
+
+      color: var(--text-muted);
+
+    }
+
+
+    /* =========================================================
+       ARCHITECTURE
+       ========================================================= */
+
+    .architecture-list {
+
+      border-top: 1px solid var(--line);
+
+    }
+
+
+    .architecture-row {
+
+      display: grid;
+
+      grid-template-columns: 70px 230px 1fr auto;
+
+      gap: 20px;
+
+      align-items: center;
+
+      padding: 18px 0;
+
+      border-bottom: 1px solid var(--line);
+
+    }
+
+
+    .architecture-index {
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 10px;
+
+      color: var(--text-muted);
+
+    }
+
+
+    .architecture-name {
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-weight: 600;
+
+    }
+
+
+    .architecture-description {
+
+      color: var(--text-soft);
+
+      font-size: 13px;
+
+    }
+
+
+    .architecture-arrow {
+
+      color: var(--accent);
+
+      font-family: "DM Mono", monospace;
+
+    }
+
+
+    /* =========================================================
+       HOW IT WORKS
+       ========================================================= */
+
+    .principles {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 1px;
+
+      border: 1px solid var(--line);
+
+      background: var(--line);
+
+    }
+
+
+    .principle {
+
+      padding: 28px;
+
+      background: var(--bg-card);
+
+    }
+
+
+    .principle-number {
+
+      font-family: "DM Mono", monospace;
+
+      color: var(--accent);
+
+      font-size: 11px;
+
+    }
+
+
+    .principle h3 {
+
+      margin: 24px 0 8px;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 17px;
+
+    }
+
+
+    .principle p {
+
+      margin: 0;
+
+      color: var(--text-soft);
+
+      font-size: 13px;
+
+    }
+
+
+    /* =========================================================
+       SOURCE POLICY
+       ========================================================= */
+
+    .source-box {
+
+      padding: 30px;
+
+      border: 1px solid var(--line);
+
+      border-radius: var(--radius);
+
+      background:
+
+        linear-gradient(
+          135deg,
+          rgba(215,255,100,0.055),
+          transparent 55%
+        ),
+
+        var(--bg-card);
+
+    }
+
+
+    .source-box h3 {
+
+      margin: 0 0 10px;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 20px;
+
+    }
+
+
+    .source-box p {
+
+      margin: 0;
+
+      max-width: 720px;
+
+      color: var(--text-soft);
+
+    }
+
+
+    .source-hierarchy {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin-top: 22px;
+
+    }
+
+
+    .source-pill {
+
+      padding: 7px 10px;
+
+      border: 1px solid var(--line-light);
+
+      border-radius: 5px;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 10px;
+
+      color: var(--text-soft);
+
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+
+      padding: 45px 0 60px;
+
+    }
+
+
+    .footer-main {
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 30px;
+
+      padding-bottom: 30px;
+
+    }
+
+
+    .footer-brand {
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 18px;
+
+      font-weight: 600;
+
+    }
+
+
+    .footer-brand span {
+
+      color: var(--accent);
+
+    }
+
+
+    .footer-note {
+
+      max-width: 450px;
+
+      margin-top: 8px;
+
+      color: var(--text-muted);
+
+      font-size: 12px;
+
+    }
+
+
+    .footer-links {
+
+      display: flex;
+
+      gap: 20px;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 10px;
+
+      color: var(--text-soft);
+
+    }
+
+
+    .footer-links a:hover {
+
+      color: var(--accent);
+
+    }
+
+
+    .footer-bottom {
+
+      padding-top: 18px;
+
+      border-top: 1px solid var(--line);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+      color: var(--text-muted);
+
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 850px) {
+
+      .nav-links {
+
+        gap: 12px;
+
+      }
+
+
+      .category-grid,
+      .model-grid {
+
+        grid-template-columns: 1fr 1fr;
+
+      }
+
+
+      .architecture-row {
+
+        grid-template-columns:
+          50px 180px 1fr;
+
+      }
+
+
+      .architecture-arrow {
+
+        display: none;
+
+      }
+
+    }
+
+
+    @media (max-width: 640px) {
+
+      .container {
+
+        width: min(
+          calc(100% - 28px),
+          var(--max-width)
+        );
+
+      }
+
+
+      .nav-inner {
+
+        min-height: 60px;
+
+      }
+
+
+      .brand-name {
+
+        display: none;
+
+      }
+
+
+      .nav-links {
+
+        gap: 9px;
+
+        font-size: 9px;
+
+      }
+
+
+      .nav-github {
+
+        display: none;
+
+      }
+
+
+      .hero {
+
+        padding: 80px 0 65px;
+
+      }
+
+
+      h1 {
+
+        font-size: 48px;
+
+      }
+
+
+      .hero-description {
+
+        font-size: 16px;
+
+      }
+
+
+      .stats {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+
+      }
+
+
+      .stat:nth-child(2) {
+
+        border-right: none;
+
+      }
+
+
+      .stat:nth-child(1),
+      .stat:nth-child(2) {
+
+        border-bottom: 1px solid var(--line);
+
+      }
+
+
+      section {
+
+        padding: 60px 0;
+
+      }
+
+
+      .section-header {
+
+        display: block;
+
+      }
+
+
+      .section-link {
+
+        display: inline-block;
+
+        margin-top: 18px;
+
+      }
+
+
+      .category-grid,
+      .model-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .architecture-row {
+
+        grid-template-columns:
+          35px 1fr;
+
+      }
+
+
+      .architecture-description {
+
+        grid-column: 2;
+
+      }
+
+
+      .footer-main,
+      .footer-bottom {
+
+        display: block;
+
+      }
+
+
+      .footer-links {
+
+        margin-top: 20px;
+
+        flex-wrap: wrap;
+
+      }
+
+
+      .footer-bottom span {
+
+        display: block;
+
+        margin-top: 8px;
+
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =======================================================
+       NAVIGATION
+       ======================================================= -->
+
+  <nav class="nav">
+
+    <div class="container nav-inner">
+
+      <a
+        href="index.html"
+        class="brand"
+        aria-label="Foundation Model Atlas home"
+      >
+
+        <span class="brand-mark">
+          FM
+        </span>
+
+        <span class="brand-name">
+          Foundation Model Atlas
+          <span>/ v0.1</span>
+        </span>
+
+      </a>
+
+
+      <div class="nav-links">
+
+        <a href="models.html">
+          models
+        </a>
+
+        <a href="architectures.html">
+          architectures
+        </a>
+
+        <a href="models.html#compare">
+          compare
+        </a>
+
+        <a href="docs/methodology.md">
+          methodology
+        </a>
+
+        <a
+          href="https://github.com/rahulkiran2222/foundation-model-atlas"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="nav-github"
+        >
+          GitHub ↗
+        </a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =======================================================
+       HERO
+       ======================================================= -->
+
+  <header class="hero">
+
+    <div class="hero-grid"></div>
+
+    <div class="container hero-content">
+
+      <div class="eyebrow">
+        Open Research Knowledge Base
+      </div>
+
+
+      <h1>
+
+        Foundation
+        <span class="hero-title-accent">
+          Model
+        </span>
+        Atlas
+
+      </h1>
+
+
+      <p class="hero-description">
+
+        The open encyclopedia of
+        <strong>
+          foundation model architectures
+        </strong>.
+
+        Explore the models, architectures, training paradigms,
+        evolutionary lineages, and research behind modern AI systems.
+
+      </p>
+
+
+      <div class="hero-actions">
+
+        <a
+          href="models.html"
+          class="button button-primary"
+        >
+          Explore models →
+        </a>
+
+
+        <a
+          href="architectures.html"
+          class="button"
+        >
+          Explore architectures
+        </a>
+
+
+        <a
+          href="models.html#compare"
+          class="button"
+        >
+          Compare models
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =======================================================
+       LIVE ATLAS COUNTS
+       ======================================================= -->
+
+  <div class="container">
+
+    <div class="stats">
+
+      <div class="stat">
+
+        <span class="stat-number">
+          0<span>+</span>
+        </span>
+
+        <span class="stat-label">
+          Verified models
+        </span>
+
+      </div>
+
+
+      <div class="stat">
+
+        <span class="stat-number">
+          0<span>+</span>
+        </span>
+
+        <span class="stat-label">
+          Architectures
+        </span>
+
+      </div>
+
+
+      <div class="stat">
+
+        <span class="stat-number">
+          0<span>+</span>
+        </span>
+
+        <span class="stat-label">
+          Model families
+        </span>
+
+      </div>
+
+
+      <div class="stat">
+
+        <span class="stat-number">
+          0<span>+</span>
+        </span>
+
+        <span class="stat-label">
+          Primary sources
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <main>
+
+
+    <!-- =====================================================
+         ATLAS CATEGORIES
+         ===================================================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div>
+
+            <p class="section-kicker">
+              01 / Encyclopedia
+            </p>
+
+            <h2>
+              Explore the Atlas
+            </h2>
+
+            <p class="section-description">
+              Navigate foundation models by modality, purpose,
+              architecture, and research lineage.
+            </p>
+
+          </div>
+
+
+          <a
+            href="models.html"
+            class="section-link"
+          >
+            Browse all models →
+          </a>
+
+        </div>
+
+
+        <div class="category-grid">
+
+
+          <a
+            href="models.html?category=language"
+            class="category"
+          >
+
+            <span class="category-number">
+              01
+            </span>
+
+            <h3>
+              Language Models
+            </h3>
+
+            <p>
+              Decoder-only, encoder-decoder, mixture-of-experts,
+              reasoning, and alternative sequence architectures.
+            </p>
+
+            <span class="category-arrow">
+              →
+            </span>
+
+          </a>
+
+
+          <a
+            href="models.html?category=vision"
+            class="category"
+          >
+
+            <span class="category-number">
+              02
+            </span>
+
+            <h3>
+              Vision Models
+            </h3>
+
+            <p>
+              Vision transformers, representation learning,
+              segmentation, detection, and visual understanding.
+            </p>
+
+            <span class="category-arrow">
+              →
+            </span>
+
+          </a>
+
+
+          <a
+            href="models.html?category=vision-language"
+            class="category"
+          >
+
+            <span class="category-number">
+              03
+            </span>
+
+            <h3>
+              Vision-Language
+            </h3>
+
+            <p>
+              Models combining language and visual reasoning,
+              understanding, generation, and multimodal interaction.
+            </p>
+
+            <span class="category-arrow">
+              →
+            </span>
+
+          </a>
+
+
+          <a
+            href="models.html?category=multimodal"
+            class="category"
+          >
+
+            <span class="category-number">
+              04
+            </span>
+
+            <h3>
+              Multimodal Models
+            </h3>
+
+            <p>
+              Foundation models spanning text, image, audio,
+              video, and other modalities.
+            </p>
+
+            <span class="category-arrow">
+              →
+            </span>
+
+          </a>
+
+
+          <a
+            href="models.html?category=speech"
+            class="category"
+          >
+
+            <span class="category-number">
+              05
+            </span>
+
+            <h3>
+              Speech & Audio
+            </h3>
+
+            <p>
+              Speech recognition, synthesis, translation,
+              audio understanding, and generative audio systems.
+            </p>
+
+            <span class="category-arrow">
+              →
+            </span>
+
+          </a>
+
+
+          <a
+            href="models.html?category=generative"
+            class="category"
+          >
+
+            <span class="category-number">
+              06
+            </span>
+
+            <h3>
+              Generative Models
+            </h3>
+
+            <p>
+              Diffusion, image generation, video generation,
+              and other generative foundation models.
+            </p>
+
+            <span class="category-arrow">
+              →
+            </span>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FEATURED MODELS
+         ===================================================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div>
+
+            <p class="section-kicker">
+              02 / Model Encyclopedia
+            </p>
+
+            <h2>
+              Model Families
+            </h2>
+
+            <p class="section-description">
+              The catalog will grow from a rigorously verified
+              initial collection toward hundreds of documented
+              foundation model families.
+            </p>
+
+          </div>
+
+
+          <a
+            href="models.html"
+            class="section-link"
+          >
+            View catalog →
+          </a>
+
+        </div>
+
+
+        <div class="model-grid">
+
+
+          <a
+            href="model.html?id=transformer"
+            class="model-card"
+          >
+
+            <div class="model-meta">
+
+              <span class="model-type">
+                Architecture
+              </span>
+
+              <span>
+                Core
+              </span>
+
+            </div>
+
+            <h3>
+              Transformer
+            </h3>
+
+            <p>
+              The dominant architectural foundation underlying
+              much of modern language and multimodal modeling.
+            </p>
+
+            <div class="model-family">
+              Attention · Sequence modeling
+            </div>
+
+          </a>
+
+
+          <a
+            href="model.html?id=llama"
+            class="model-card"
+          >
+
+            <div class="model-meta">
+
+              <span class="model-type">
+                Language
+              </span>
+
+              <span>
+                Meta
+              </span>
+
+            </div>
+
+            <h3>
+              Llama
+            </h3>
+
+            <p>
+              A major open-weight language-model family spanning
+              multiple generations and architectural developments.
+            </p>
+
+            <div class="model-family">
+              Llama → Llama 2 → Llama 3 → Llama 4
+            </div>
+
+          </a>
+
+
+          <a
+            href="model.html?id=qwen"
+            class="model-card"
+          >
+
+            <div class="model-meta">
+
+              <span class="model-type">
+                Language
+              </span>
+
+              <span>
+                Qwen
+              </span>
+
+            </div>
+
+            <h3>
+              Qwen
+            </h3>
+
+            <p>
+              A broad model family spanning language, multimodal,
+              reasoning, coding, and other capabilities.
+            </p>
+
+            <div class="model-family">
+              Qwen family
+            </div>
+
+          </a>
+
+
+          <a
+            href="model.html?id=mamba"
+            class="model-card"
+          >
+
+            <div class="model-meta">
+
+              <span class="model-type">
+                SSM
+              </span>
+
+              <span>
+                Research
+              </span>
+
+            </div>
+
+            <h3>
+              Mamba
+            </h3>
+
+            <p>
+              Selective state-space modeling as an alternative
+              approach to long-sequence modeling.
+            </p>
+
+            <div class="model-family">
+              State Space Models
+            </div>
+
+          </a>
+
+
+          <a
+            href="model.html?id=stable-diffusion"
+            class="model-card"
+          >
+
+            <div class="model-meta">
+
+              <span class="model-type">
+                Generative
+              </span>
+
+              <span>
+                Vision
+              </span>
+
+            </div>
+
+            <h3>
+              Stable Diffusion
+            </h3>
+
+            <p>
+              A major family of latent diffusion systems for
+              text-to-image generation and related applications.
+            </p>
+
+            <div class="model-family">
+              Diffusion · Image generation
+            </div>
+
+          </a>
+
+
+          <a
+            href="model.html?id=whisper"
+            class="model-card"
+          >
+
+            <div class="model-meta">
+
+              <span class="model-type">
+                Speech
+              </span>
+
+              <span>
+                OpenAI
+              </span>
+
+            </div>
+
+            <h3>
+              Whisper
+            </h3>
+
+            <p>
+              A large-scale speech recognition model designed
+              for multilingual transcription and translation.
+            </p>
+
+            <div class="model-family">
+              Speech recognition
+            </div>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ARCHITECTURE ENCYCLOPEDIA
+         ===================================================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div>
+
+            <p class="section-kicker">
+              03 / Architecture Encyclopedia
+            </p>
+
+            <h2>
+              How the models work
+            </h2>
+
+            <p class="section-description">
+              Learn the architectural ideas behind modern
+              foundation models—not just their names.
+            </p>
+
+          </div>
+
+
+          <a
+            href="architectures.html"
+            class="section-link"
+          >
+            Architecture index →
+          </a>
+
+        </div>
+
+
+        <div class="architecture-list">
+
+
+          <a
+            href="architecture.html?id=transformer"
+            class="architecture-row"
+          >
+
+            <span class="architecture-index">
+              001
+            </span>
+
+            <span class="architecture-name">
+              Transformer
+            </span>
+
+            <span class="architecture-description">
+              Attention-based sequence modeling architecture.
+            </span>
+
+            <span class="architecture-arrow">
+              →
+            </span>
+
+          </a>
+
+
+          <a
+            href="architecture.html?id=moe"
+            class="architecture-row"
+          >
+
+            <span class="architecture-index">
+              002
+            </span>
+
+            <span class="architecture-name">
+              Mixture of Experts
+            </span>
+
+            <span class="architecture-description">
+              Sparse expert routing for increasing model capacity
+              without activating every parameter for every token.
+            </span>
+
+            <span class="architecture-arrow">
+              →
+            </span>
+
+          </a>
+
+
+          <a
+            href="architecture.html?id=gqa"
+            class="architecture-row"
+          >
+
+            <span class="architecture-index">
+              003
+            </span>
+
+            <span class="architecture-name">
+              Grouped Query Attention
+            </span>
+
+            <span class="architecture-description">
+              Attention variant designed to reduce KV-cache
+              memory and improve inference efficiency.
+            </span>
+
+            <span class="architecture-arrow">
+              →
+            </span>
+
+          </a>
+
+
+          <a
+            href="architecture.html?id=mla"
+            class="architecture-row"
+          >
+
+            <span class="architecture-index">
+              004
+            </span>
+
+            <span class="architecture-name">
+              Multi-head Latent Attention
+            </span>
+
+            <span class="architecture-description">
+              Latent attention mechanism designed to improve
+              memory efficiency in long-context inference.
+            </span>
+
+            <span class="architecture-arrow">
+              →
+            </span>
+
+          </a>
+
+
+          <a
+            href="architecture.html?id=ssm"
+            class="architecture-row"
+          >
+
+            <span class="architecture-index">
+              005
+            </span>
+
+            <span class="architecture-name">
+              State Space Models
+            </span>
+
+            <span class="architecture-description">
+              Sequence modeling family providing an alternative
+              path to conventional attention mechanisms.
+            </span>
+
+            <span class="architecture-arrow">
+              →
+            </span>
+
+          </a>
+
+
+          <a
+            href="architecture.html?id=rwkv"
+            class="architecture-row"
+          >
+
+            <span class="architecture-index">
+              006
+            </span>
+
+            <span class="architecture-name">
+              RWKV
+            </span>
+
+            <span class="architecture-description">
+              Recurrent-style architecture combining aspects of
+              attention-like modeling with efficient recurrence.
+            </span>
+
+            <span class="architecture-arrow">
+              →
+            </span>
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EVOLUTION
+         ===================================================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div>
+
+            <p class="section-kicker">
+              04 / Evolution
+            </p>
+
+            <h2>
+              Models as lineages
+            </h2>
+
+            <p class="section-description">
+              Foundation models are not isolated releases.
+              They form architectural and research lineages.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="source-box">
+
+          <h3>
+            From architectures to generations
+          </h3>
+
+          <p>
+            The Atlas will map relationships between foundational
+            architectures, model families, generations, successors,
+            forks, and major architectural changes.
+          </p>
+
+
+          <div class="source-hierarchy">
+
+            <span class="source-pill">
+              Architecture
+            </span>
+
+            <span class="source-pill">
+              Model family
+            </span>
+
+            <span class="source-pill">
+              Generation
+            </span>
+
+            <span class="source-pill">
+              Variant
+            </span>
+
+            <span class="source-pill">
+              Successor
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ATLAS PRINCIPLES
+         ===================================================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div>
+
+            <p class="section-kicker">
+              05 / Methodology
+            </p>
+
+            <h2>
+              Built as a research resource
+            </h2>
+
+            <p class="section-description">
+              The Atlas prioritizes provenance, clarity,
+              reproducibility, and primary sources.
+            </p>
+
+          </div>
+
+          <a
+            href="docs/methodology.md"
+            class="section-link"
+          >
+            Read methodology →
+          </a>
+
+        </div>
+
+
+        <div class="principles">
+
+
+          <div class="principle">
+
+            <span class="principle-number">
+              01
+            </span>
+
+            <h3>
+              Primary sources first
+            </h3>
+
+            <p>
+              Architecture and model claims should be traced to
+              official papers, model cards, repositories,
+              documentation, or other authoritative sources.
+            </p>
+
+          </div>
+
+
+          <div class="principle">
+
+            <span class="principle-number">
+              02
+            </span>
+
+            <h3>
+              Unknown is acceptable
+            </h3>
+
+            <p>
+              Missing information is represented as unknown rather
+              than inferred or fabricated.
+            </p>
+
+          </div>
+
+
+          <div class="principle">
+
+            <span class="principle-number">
+              03
+            </span>
+
+            <h3>
+              Versioned knowledge
+            </h3>
+
+            <p>
+              Model information changes. The Atlas should preserve
+              provenance and make updates traceable over time.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SOURCE HIERARCHY
+         ===================================================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="source-box">
+
+          <h3>
+            Every model should lead back to evidence.
+          </h3>
+
+          <p>
+            The Atlas is designed around a source hierarchy that
+            connects model entries to the research ecosystem behind
+            them. Where available, primary sources take precedence
+            over secondary summaries.
+          </p>
+
+
+          <div class="source-hierarchy">
+
+            <span class="source-pill">
+              Research paper
+            </span>
+
+            <span class="source-pill">
+              Official repository
+            </span>
+
+            <span class="source-pill">
+              Official model card
+            </span>
+
+            <span class="source-pill">
+              Official weights
+            </span>
+
+            <span class="source-pill">
+              Documentation
+            </span>
+
+            <span class="source-pill">
+              Hugging Face
+            </span>
+
+            <span class="source-pill">
+              Benchmark
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-main">
+
+        <div>
+
+          <div class="footer-brand">
+            Foundation Model Atlas<span>.</span>
+          </div>
+
+          <p class="footer-note">
+            An open encyclopedia of foundation models,
+            architectures, evolution, and research resources.
+          </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+          <a href="models.html">
+            Models
+          </a>
+
+          <a href="architectures.html">
+            Architectures
+          </a>
+
+          <a href="models.html#compare">
+            Compare
+          </a>
+
+          <a
+            href="https://github.com/rahulkiran2222/foundation-model-atlas"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="https://rahulkiran2222.github.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Rahul Kiran
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          Open research · Community contributions welcome
+        </span>
+
+        <span>
+          Foundation Model Atlas · v0.1
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+</body>
+</html>
