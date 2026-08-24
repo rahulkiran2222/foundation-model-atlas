@@ -5879,5 +5879,1059 @@
     "mixtral-8x22b",
     "deepseek-v2"
   ]
+},
+  {
+  "id": "smollm-1",
+  "name": "SmolLM",
+  "family": "SmolLM",
+  "organization": "Hugging Face",
+  "releaseDate": "2024-07",
+  "year": 2024,
+  "category": "language",
+  "type": "small-language-model-family",
+  "description": "A family of compact language models designed for on-device and resource-constrained applications.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "grouped-query attention",
+    "position": "RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "135M / 360M / 1.7B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 8192
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "SmolLM-Corpus and curated educational/code data",
+    "postTraining": "instruction tuning for selected variants"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "small-language-model",
+    "on-device",
+    "efficient",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Hugging Face SmolLM",
+      "url": "https://huggingface.co/blog/smollm"
+    }
+  ],
+  "relatedModels": [
+    "smollm2",
+    "phi-3",
+    "gemma"
+  ]
+},
+
+{
+  "id": "smollm2",
+  "name": "SmolLM2",
+  "family": "SmolLM",
+  "organization": "Hugging Face",
+  "releaseDate": "2024-11",
+  "year": 2024,
+  "category": "language",
+  "type": "small-language-model-family",
+  "description": "A second-generation compact language-model family designed for efficient local inference while improving reasoning, instruction following, mathematics, and common-sense capabilities.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "grouped-query attention",
+    "position": "RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "135M / 360M / 1.7B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 8192
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale curated text, code and educational data",
+    "postTraining": "instruction tuning and preference optimization"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "small-language-model",
+    "on-device",
+    "efficient",
+    "reasoning",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "SmolLM2",
+      "url": "https://huggingface.co/blog/smollm2"
+    }
+  ],
+  "relatedModels": [
+    "smollm-1",
+    "phi-4",
+    "gemma-3n"
+  ]
+},
+
+{
+  "id": "openelm",
+  "name": "OpenELM",
+  "family": "OpenELM",
+  "organization": "Apple",
+  "releaseDate": "2024-04-24",
+  "year": 2024,
+  "category": "language",
+  "type": "efficient-language-model-family",
+  "description": "An Apple open language-model family designed for efficient on-device inference and research into scalable language-model architectures.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "270M / 450M / 1.1B / 3B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 2048
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "CoreNet and publicly described datasets",
+    "postTraining": "model-dependent"
+  },
+  "license": "Apple Sample Code License / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "efficient",
+    "on-device",
+    "language",
+    "apple",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "OpenELM",
+      "url": "https://machinelearning.apple.com/research/openelm"
+    }
+  ],
+  "relatedModels": [
+    "smollm2",
+    "phi-3",
+    "gemma"
+  ]
+},
+
+{
+  "id": "exaone-3-0",
+  "name": "EXAONE 3.0",
+  "family": "EXAONE",
+  "organization": "LG AI Research",
+  "releaseDate": "2024-08",
+  "year": 2024,
+  "category": "language",
+  "type": "bilingual-language-model-family",
+  "description": "LG AI Research's EXAONE generation focused on Korean-English bilingual language understanding, generation, reasoning, and practical enterprise applications.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "7.8B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 32768
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "Korean and English language/code data",
+    "postTraining": "instruction tuning"
+  },
+  "license": "EXAONE License",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "korean",
+    "english",
+    "bilingual",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "LG AI Research",
+      "url": "https://www.lgresearch.ai/"
+    }
+  ],
+  "relatedModels": [
+    "exaone-3-5",
+    "qwen2-5",
+    "gemma-2"
+  ]
+},
+
+{
+  "id": "exaone-3-5",
+  "name": "EXAONE 3.5",
+  "family": "EXAONE",
+  "organization": "LG AI Research",
+  "releaseDate": "2025-02",
+  "year": 2025,
+  "category": "language",
+  "type": "bilingual-language-model-family",
+  "description": "An improved EXAONE generation with stronger reasoning, coding, mathematics, multilingual and long-context capabilities.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "2.4B / 7.8B / 32B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 32768
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "language and reasoning modeling",
+    "data": "Korean, English and code data",
+    "postTraining": "instruction and reasoning optimization"
+  },
+  "license": "EXAONE License",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "reasoning",
+    "coding",
+    "korean",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "LG AI Research",
+      "url": "https://www.lgresearch.ai/"
+    }
+  ],
+  "relatedModels": [
+    "exaone-3-0",
+    "exaone-deep",
+    "qwen3"
+  ]
+},
+
+{
+  "id": "exaone-deep",
+  "name": "EXAONE Deep",
+  "family": "EXAONE",
+  "organization": "LG AI Research",
+  "releaseDate": "2025",
+  "year": 2025,
+  "category": "reasoning",
+  "type": "reasoning-language-model-family",
+  "description": "An EXAONE family focused on advanced reasoning, mathematics, science, and coding tasks.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "autoregressive reasoning"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "reasoning language modeling",
+    "data": "mathematics, science, coding and general reasoning data",
+    "postTraining": "reasoning-focused reinforcement learning"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "reasoning",
+    "mathematics",
+    "science",
+    "coding",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "LG AI Research",
+      "url": "https://www.lgresearch.ai/"
+    }
+  ],
+  "relatedModels": [
+    "exaone-3-5",
+    "deepseek-r1",
+    "qwen3"
+  ]
+},
+
+{
+  "id": "sarvam-2b",
+  "name": "Sarvam-2B",
+  "family": "Sarvam",
+  "organization": "Sarvam AI",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "language",
+  "type": "indic-language-model",
+  "description": "A compact open language model from Sarvam AI designed around Indian-language and multilingual applications.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "2B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 8192
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "multilingual language modeling",
+    "data": "Indian-language and multilingual corpus",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "indic",
+    "multilingual",
+    "language",
+    "india",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Sarvam AI",
+      "url": "https://www.sarvam.ai/"
+    }
+  ],
+  "relatedModels": [
+    "sarvam-30b",
+    "aya-23",
+    "indictrans2"
+  ]
+},
+
+{
+  "id": "sarvam-30b",
+  "name": "Sarvam-30B",
+  "family": "Sarvam",
+  "organization": "Sarvam AI",
+  "releaseDate": "2025",
+  "year": 2025,
+  "category": "language",
+  "type": "indic-language-model",
+  "description": "A larger Sarvam foundation-model generation designed for multilingual Indian-language reasoning and generation.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "30B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "multilingual language modeling",
+    "data": "Indian languages and multilingual corpus",
+    "postTraining": "instruction and preference optimization"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "indic",
+    "multilingual",
+    "language",
+    "india",
+    "reasoning"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Sarvam AI",
+      "url": "https://www.sarvam.ai/"
+    }
+  ],
+  "relatedModels": [
+    "sarvam-2b",
+    "aya-23",
+    "qwen3"
+  ]
+},
+
+{
+  "id": "stablelm-zephyr-3b",
+  "name": "StableLM Zephyr 3B",
+  "family": "StableLM",
+  "organization": "Stability AI",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "language",
+  "type": "small-language-model",
+  "description": "A compact StableLM model optimized for efficient instruction-following and local deployment.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "3B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 4096
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "language modeling",
+    "data": "language and code data",
+    "postTraining": "instruction and preference tuning"
+  },
+  "license": "Stability AI License",
+  "openWeights": true,
+  "tags": [
+    "small-language-model",
+    "instruction",
+    "efficient",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Stability AI",
+      "url": "https://stability.ai/"
+    }
+  ],
+  "relatedModels": [
+    "stablelm-2",
+    "smollm2",
+    "phi-3"
+  ]
+},
+
+{
+  "id": "xverse-65b",
+  "name": "XVERSE-65B",
+  "family": "XVERSE",
+  "organization": "XVERSE",
+  "releaseDate": "2023-08",
+  "year": 2023,
+  "category": "language",
+  "type": "multilingual-language-model",
+  "description": "A large multilingual language model designed to support Chinese and international language applications.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "65.7B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 8192
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "multilingual autoregressive language modeling",
+    "data": "large-scale multilingual and code data",
+    "postTraining": "instruction tuning"
+  },
+  "license": "XVERSE Model License",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "multilingual",
+    "chinese",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "XVERSE",
+      "url": "https://www.xverse.cn/"
+    }
+  ],
+  "relatedModels": [
+    "xverse-13b",
+    "qwen2",
+    "baichuan-2"
+  ]
+},
+
+{
+  "id": "orion-14b",
+  "name": "Orion-14B",
+  "family": "Orion",
+  "organization": "OrionStarAI",
+  "releaseDate": "2023-12",
+  "year": 2023,
+  "category": "language",
+  "type": "multilingual-language-model",
+  "description": "A multilingual large language model family developed for Chinese and international language applications.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "model-dependent",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive"
+  },
+  "scale": {
+    "parameters": "14B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 4096
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "multilingual language modeling",
+    "data": "multilingual and code corpus",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "language",
+    "multilingual",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "OrionStarAI",
+      "url": "https://github.com/OrionStarAI"
+    }
+  ],
+  "relatedModels": [
+    "baichuan-2",
+    "qwen2",
+    "yi-1-5"
+  ]
+},
+
+{
+  "id": "seed-1-5",
+  "name": "Seed 1.5",
+  "family": "Seed",
+  "organization": "ByteDance",
+  "releaseDate": "2025",
+  "year": 2025,
+  "category": "multimodal",
+  "type": "multimodal-foundation-model",
+  "description": "A ByteDance Seed family generation covering advanced language and multimodal capabilities.",
+  "architecture": {
+    "family": "multimodal Transformer",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "autoregressive multimodal generation"
+  },
+  "scale": {
+    "parameters": null,
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["text", "image", "video", "audio"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "multimodal foundation modeling",
+    "data": "large-scale multimodal corpus",
+    "postTraining": "multimodal instruction and reasoning optimization"
+  },
+  "license": "model-dependent",
+  "openWeights": null,
+  "tags": [
+    "multimodal",
+    "vision",
+    "video",
+    "audio",
+    "seed"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "ByteDance Seed",
+      "url": "https://seed.bytedance.com/"
+    }
+  ],
+  "relatedModels": [
+    "seed-1-8",
+    "qwen2-5-vl",
+    "internvl"
+  ]
+},
+
+{
+  "id": "minicpm-v-2-6",
+  "name": "MiniCPM-V 2.6",
+  "family": "MiniCPM",
+  "organization": "OpenBMB",
+  "releaseDate": "2024-08",
+  "year": 2024,
+  "category": "vision-language",
+  "type": "vision-language-model",
+  "description": "A compact vision-language model designed for efficient multimodal understanding, document analysis, OCR, and visual question answering.",
+  "architecture": {
+    "family": "vision-language Transformer",
+    "attention": "multimodal attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive multimodal generation"
+  },
+  "scale": {
+    "parameters": "8B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 32768
+  },
+  "modality": {
+    "input": ["text", "image", "video"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "multimodal language modeling",
+    "data": "image-text, video-text and document data",
+    "postTraining": "multimodal instruction tuning"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "vision-language",
+    "ocr",
+    "document-ai",
+    "video",
+    "efficient"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "MiniCPM",
+      "url": "https://github.com/OpenBMB/MiniCPM-V"
+    }
+  ],
+  "relatedModels": [
+    "minicpm-v-2-5",
+    "internvl",
+    "qwen2-5-vl"
+  ]
+},
+
+{
+  "id": "internvl-2",
+  "name": "InternVL 2",
+  "family": "InternVL",
+  "organization": "OpenGVLab",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "vision-language",
+  "type": "vision-language-model-family",
+  "description": "A family of open multimodal models designed for high-resolution image understanding, document analysis, OCR, reasoning, and multimodal dialogue.",
+  "architecture": {
+    "family": "vision encoder + language model",
+    "attention": "multimodal Transformer",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "autoregressive multimodal generation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["text", "image", "video"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "vision-language alignment and generation",
+    "data": "large-scale multimodal data",
+    "postTraining": "multimodal instruction tuning"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "vision-language",
+    "ocr",
+    "document-ai",
+    "multimodal",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "InternVL",
+      "url": "https://github.com/OpenGVLab/InternVL"
+    }
+  ],
+  "relatedModels": [
+    "internvl-2-5",
+    "internvl-3",
+    "minicpm-v-2-6"
+  ]
+},
+
+{
+  "id": "internvl-2-5",
+  "name": "InternVL 2.5",
+  "family": "InternVL",
+  "organization": "OpenGVLab",
+  "releaseDate": "2024-12",
+  "year": 2024,
+  "category": "vision-language",
+  "type": "vision-language-model-family",
+  "description": "An improved InternVL generation with stronger visual reasoning, document understanding, OCR, and multimodal generalization.",
+  "architecture": {
+    "family": "vision encoder + language model",
+    "attention": "multimodal Transformer",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "autoregressive multimodal generation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["text", "image", "video"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "multimodal understanding and generation",
+    "data": "large-scale image-text and video-text corpus",
+    "postTraining": "multimodal instruction and preference optimization"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "vision-language",
+    "multimodal",
+    "ocr",
+    "reasoning"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "InternVL",
+      "url": "https://github.com/OpenGVLab/InternVL"
+    }
+  ],
+  "relatedModels": [
+    "internvl-2",
+    "internvl-3",
+    "qwen2-5-vl"
+  ]
+},
+
+{
+  "id": "molmo",
+  "name": "Molmo",
+  "family": "Molmo",
+  "organization": "Allen Institute for AI",
+  "releaseDate": "2024-09",
+  "year": 2024,
+  "category": "vision-language",
+  "type": "open-vision-language-model-family",
+  "description": "A fully open vision-language model family emphasizing high-quality multimodal data, visual grounding, and reproducible research.",
+  "architecture": {
+    "family": "vision encoder + language model",
+    "attention": "multimodal Transformer",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive multimodal generation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["text", "image"],
+    "output": ["text", "pointing/grounding"]
+  },
+  "training": {
+    "objective": "vision-language modeling",
+    "data": "PixMo multimodal data",
+    "postTraining": "multimodal instruction tuning"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "vision-language",
+    "fully-open",
+    "grounding",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Molmo",
+      "url": "https://allenai.org/molmo"
+    }
+  ],
+  "relatedModels": [
+    "molmo-7b-d",
+    "idefics-2",
+    "paligemma"
+  ]
+},
+
+{
+  "id": "paligemma",
+  "name": "PaliGemma",
+  "family": "PaliGemma",
+  "organization": "Google",
+  "releaseDate": "2024-05-14",
+  "year": 2024,
+  "category": "vision-language",
+  "type": "vision-language-model-family",
+  "description": "A compact vision-language model combining a SigLIP vision encoder with a Gemma language model for visual understanding and generation tasks.",
+  "architecture": {
+    "family": "SigLIP vision encoder + Gemma decoder",
+    "attention": "multimodal Transformer",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive multimodal generation"
+  },
+  "scale": {
+    "parameters": "3B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 8192
+  },
+  "modality": {
+    "input": ["text", "image"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "vision-language modeling",
+    "data": "image-text and multilingual multimodal data",
+    "postTraining": "task-specific fine-tuning"
+  },
+  "license": "Gemma Terms of Use",
+  "openWeights": true,
+  "tags": [
+    "vision-language",
+    "siglip",
+    "gemma",
+    "multimodal",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "PaliGemma",
+      "url": "https://ai.google.dev/gemma/docs/paligemma"
+    }
+  ],
+  "relatedModels": [
+    "gemma-2",
+    "gemma-3",
+    "siglip"
+  ]
+},
+
+{
+  "id": "idefics-2",
+  "name": "IDEFICS 2",
+  "family": "IDEFICS",
+  "organization": "Hugging Face",
+  "releaseDate": "2024-04-16",
+  "year": 2024,
+  "category": "vision-language",
+  "type": "open-vision-language-model",
+  "description": "An open multimodal model designed for image understanding, visual question answering, document understanding, and multimodal dialogue.",
+  "architecture": {
+    "family": "vision encoder + language model",
+    "attention": "multimodal Transformer",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive multimodal generation"
+  },
+  "scale": {
+    "parameters": "8B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["text", "image"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "vision-language modeling",
+    "data": "image-text and document data",
+    "postTraining": "multimodal instruction tuning"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "vision-language",
+    "document-ai",
+    "multimodal",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "IDEFICS 2",
+      "url": "https://huggingface.co/HuggingFaceM4/idefics2-8b"
+    }
+  ],
+  "relatedModels": [
+    "idefics-3",
+    "paligemma",
+    "molmo"
+  ]
+},
+
+{
+  "id": "pixtral-12b",
+  "name": "Pixtral 12B",
+  "family": "Pixtral",
+  "organization": "Mistral AI",
+  "releaseDate": "2024-09-10",
+  "year": 2024,
+  "category": "vision-language",
+  "type": "vision-language-model",
+  "description": "Mistral's multimodal model combining image understanding with a language model architecture for visual reasoning and multimodal dialogue.",
+  "architecture": {
+    "family": "vision encoder + Mistral language model",
+    "attention": "multimodal attention",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive multimodal generation"
+  },
+  "scale": {
+    "parameters": "12B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text", "image"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "multimodal language modeling",
+    "data": "image-text and language data",
+    "postTraining": "multimodal instruction tuning"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "vision-language",
+    "multimodal",
+    "long-context",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Pixtral",
+      "url": "https://mistral.ai/news/pixtral-12b/"
+    }
+  ],
+  "relatedModels": [
+    "mistral-large",
+    "idefics-2",
+    "paligemma"
+  ]
 }
 ]
