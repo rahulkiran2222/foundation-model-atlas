@@ -1,0 +1,2559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Architectures — Foundation Model Atlas</title>
+
+  <meta
+    name="description"
+    content="Explore the architecture encyclopedia of the Foundation Model Atlas: Transformers, MoE, attention mechanisms, state space models, diffusion, recurrent architectures, and more."
+  >
+
+  <meta
+    name="author"
+    content="Rahul Kiran Gunti"
+  >
+
+  <meta
+    name="theme-color"
+    content="#0b0d10"
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="Architecture Encyclopedia — Foundation Model Atlas"
+  >
+
+  <meta
+    property="og:description"
+    content="Understand the architectural ideas behind modern foundation models."
+  >
+
+  <meta
+    property="og:url"
+    content="https://rahulkiran2222.github.io/foundation-model-atlas/architectures.html"
+  >
+
+  <link
+    rel="canonical"
+    href="https://rahulkiran2222.github.io/foundation-model-atlas/architectures.html"
+  >
+
+  <!-- =======================================================
+       FONTS
+       ======================================================= -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <style>
+
+    /* =========================================================
+       FOUNDATION MODEL ATLAS
+       ARCHITECTURES — v0.1
+       ========================================================= */
+
+    :root {
+
+      --bg: #0b0d10;
+      --bg-soft: #101318;
+      --bg-card: #13171d;
+      --bg-card-hover: #171c23;
+
+      --text: #f2f4f7;
+      --text-soft: #a7afb9;
+      --text-muted: #6f7884;
+
+      --line: #252b33;
+      --line-light: #303740;
+
+      --accent: #d7ff64;
+      --accent-soft: rgba(215, 255, 100, 0.10);
+
+      --blue: #8ab4ff;
+      --purple: #bda5ff;
+      --orange: #ffb86b;
+
+      --max-width: 1180px;
+
+      --radius: 9px;
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+
+      margin: 0;
+
+      background: var(--bg);
+
+      color: var(--text);
+
+      font-family: "Inter", sans-serif;
+
+      font-size: 14px;
+
+      line-height: 1.65;
+
+      -webkit-font-smoothing: antialiased;
+
+    }
+
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+
+    ::selection {
+      background: var(--accent);
+      color: #0b0d10;
+    }
+
+
+    .container {
+
+      width: min(
+        calc(100% - 40px),
+        var(--max-width)
+      );
+
+      margin: 0 auto;
+
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
+    .nav {
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 100;
+
+      border-bottom: 1px solid var(--line);
+
+      background:
+        rgba(11, 13, 16, 0.90);
+
+      backdrop-filter: blur(16px);
+
+    }
+
+
+    .nav-inner {
+
+      min-height: 68px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 30px;
+
+    }
+
+
+    .brand {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-weight: 600;
+
+    }
+
+
+    .brand-mark {
+
+      width: 30px;
+
+      height: 30px;
+
+      display: grid;
+
+      place-items: center;
+
+      border: 1px solid var(--accent);
+
+      border-radius: 6px;
+
+      color: var(--accent);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 10px;
+
+    }
+
+
+    .brand-name {
+
+      font-size: 14px;
+
+    }
+
+
+    .brand-name span {
+
+      color: var(--text-muted);
+
+      font-weight: 400;
+
+    }
+
+
+    .nav-links {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 23px;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 10px;
+
+      color: var(--text-soft);
+
+    }
+
+
+    .nav-links a:hover {
+
+      color: var(--accent);
+
+    }
+
+
+    .nav-links .active {
+
+      color: var(--accent);
+
+    }
+
+
+    .github-link {
+
+      border: 1px solid var(--line-light);
+
+      border-radius: 6px;
+
+      padding: 8px 11px;
+
+    }
+
+
+    .github-link:hover {
+
+      border-color: var(--accent);
+
+    }
+
+
+    /* =========================================================
+       PAGE HEADER
+       ========================================================= */
+
+    .page-header {
+
+      padding: 78px 0 58px;
+
+      border-bottom: 1px solid var(--line);
+
+    }
+
+
+    .kicker {
+
+      margin: 0 0 12px;
+
+      color: var(--accent);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 10px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.08em;
+
+    }
+
+
+    h1 {
+
+      margin: 0;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: clamp(
+        42px,
+        6vw,
+        68px
+      );
+
+      line-height: 1;
+
+      letter-spacing: -0.05em;
+
+    }
+
+
+    .page-description {
+
+      max-width: 770px;
+
+      margin: 22px 0 0;
+
+      color: var(--text-soft);
+
+      font-size: 16px;
+
+    }
+
+
+    /* =========================================================
+       INTRO GRID
+       ========================================================= */
+
+    .intro {
+
+      padding: 52px 0;
+
+      border-bottom: 1px solid var(--line);
+
+    }
+
+
+    .intro-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1.25fr
+        0.75fr;
+
+      gap: 10px;
+
+    }
+
+
+    .intro-card {
+
+      padding: 28px;
+
+      border: 1px solid var(--line);
+
+      border-radius: var(--radius);
+
+      background: var(--bg-card);
+
+    }
+
+
+    .intro-card h2 {
+
+      margin: 0 0 9px;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 22px;
+
+      letter-spacing: -0.025em;
+
+    }
+
+
+    .intro-card p {
+
+      margin: 0;
+
+      color: var(--text-soft);
+
+      font-size: 13px;
+
+    }
+
+
+    .taxonomy-flow {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      align-items: center;
+
+      gap: 7px;
+
+      margin-top: 20px;
+
+    }
+
+
+    .taxonomy-pill {
+
+      padding: 6px 9px;
+
+      border: 1px solid var(--line-light);
+
+      border-radius: 5px;
+
+      color: var(--text-soft);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+    }
+
+
+    .taxonomy-arrow {
+
+      color: var(--accent);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 10px;
+
+    }
+
+
+    .principle-list {
+
+      margin: 0;
+
+      padding: 0;
+
+      list-style: none;
+
+    }
+
+
+    .principle-list li {
+
+      display: flex;
+
+      gap: 11px;
+
+      padding: 9px 0;
+
+      border-bottom: 1px solid var(--line);
+
+      color: var(--text-soft);
+
+      font-size: 12px;
+
+    }
+
+
+    .principle-list li:last-child {
+
+      border-bottom: none;
+
+    }
+
+
+    .principle-list span {
+
+      color: var(--accent);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+    }
+
+
+    /* =========================================================
+       SEARCH / FILTER
+       ========================================================= */
+
+    .catalog {
+
+      padding: 62px 0 85px;
+
+    }
+
+
+    .catalog-header {
+
+      display: flex;
+
+      align-items: flex-end;
+
+      justify-content: space-between;
+
+      gap: 25px;
+
+      margin-bottom: 30px;
+
+    }
+
+
+    .catalog-title {
+
+      margin: 0;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 32px;
+
+      letter-spacing: -0.035em;
+
+    }
+
+
+    .catalog-subtitle {
+
+      margin: 7px 0 0;
+
+      color: var(--text-muted);
+
+      font-size: 12px;
+
+    }
+
+
+    .search {
+
+      width: 330px;
+
+      height: 42px;
+
+      padding: 0 13px;
+
+      border: 1px solid var(--line-light);
+
+      border-radius: 6px;
+
+      outline: none;
+
+      background: var(--bg-card);
+
+      color: var(--text);
+
+      font-size: 12px;
+
+    }
+
+
+    .search::placeholder {
+
+      color: var(--text-muted);
+
+    }
+
+
+    .search:focus {
+
+      border-color: var(--accent);
+
+    }
+
+
+    .category-filters {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+
+      margin-bottom: 28px;
+
+    }
+
+
+    .category-button {
+
+      padding: 7px 11px;
+
+      border: 1px solid var(--line);
+
+      border-radius: 5px;
+
+      background: transparent;
+
+      color: var(--text-muted);
+
+      cursor: pointer;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+      transition:
+        color 0.15s ease,
+        border-color 0.15s ease,
+        background 0.15s ease;
+
+    }
+
+
+    .category-button:hover {
+
+      color: var(--text);
+
+      border-color: var(--line-light);
+
+    }
+
+
+    .category-button.active {
+
+      color: #0b0d10;
+
+      border-color: var(--accent);
+
+      background: var(--accent);
+
+    }
+
+
+    /* =========================================================
+       ARCHITECTURE GRID
+       ========================================================= */
+
+    .architecture-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 10px;
+
+    }
+
+
+    .architecture-card {
+
+      position: relative;
+
+      min-height: 255px;
+
+      padding: 24px;
+
+      border: 1px solid var(--line);
+
+      border-radius: var(--radius);
+
+      background: var(--bg-card);
+
+      overflow: hidden;
+
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+
+    }
+
+
+    .architecture-card::after {
+
+      content: "";
+
+      position: absolute;
+
+      right: -40px;
+
+      bottom: -45px;
+
+      width: 130px;
+
+      height: 130px;
+
+      border: 1px solid var(--line);
+
+      border-radius: 50%;
+
+      opacity: 0.5;
+
+    }
+
+
+    .architecture-card:hover {
+
+      transform: translateY(-2px);
+
+      border-color: var(--line-light);
+
+      background: var(--bg-card-hover);
+
+    }
+
+
+    .architecture-number {
+
+      color: var(--text-muted);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+    }
+
+
+    .architecture-category {
+
+      float: right;
+
+      color: var(--accent);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 8px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .architecture-card h3 {
+
+      margin: 42px 0 8px;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 21px;
+
+      letter-spacing: -0.025em;
+
+    }
+
+
+    .architecture-card p {
+
+      margin: 0;
+
+      color: var(--text-soft);
+
+      font-size: 12px;
+
+    }
+
+
+    .architecture-meta {
+
+      position: absolute;
+
+      left: 24px;
+
+      right: 24px;
+
+      bottom: 21px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 10px;
+
+      padding-top: 12px;
+
+      border-top: 1px solid var(--line);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+      color: var(--text-muted);
+
+    }
+
+
+    .architecture-arrow {
+
+      color: var(--accent);
+
+    }
+
+
+    /* =========================================================
+       SEARCH EMPTY
+       ========================================================= */
+
+    .empty {
+
+      display: none;
+
+      padding: 70px 20px;
+
+      text-align: center;
+
+      border: 1px solid var(--line);
+
+      border-radius: var(--radius);
+
+      color: var(--text-muted);
+
+    }
+
+
+    .empty strong {
+
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: var(--text);
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 18px;
+
+    }
+
+
+    /* =========================================================
+       ARCHITECTURE FAMILY MAP
+       ========================================================= */
+
+    .map-section {
+
+      padding: 80px 0;
+
+      border-top: 1px solid var(--line);
+
+      border-bottom: 1px solid var(--line);
+
+    }
+
+
+    .map-header {
+
+      max-width: 720px;
+
+      margin-bottom: 30px;
+
+    }
+
+
+    .map-header h2 {
+
+      margin: 0;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 32px;
+
+      letter-spacing: -0.035em;
+
+    }
+
+
+    .map-header p {
+
+      margin: 10px 0 0;
+
+      color: var(--text-soft);
+
+      font-size: 13px;
+
+    }
+
+
+    .architecture-map {
+
+      padding: 30px;
+
+      border: 1px solid var(--line);
+
+      border-radius: var(--radius);
+
+      background: var(--bg-card);
+
+      overflow-x: auto;
+
+    }
+
+
+    .map-line {
+
+      min-width: 780px;
+
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        50px
+        1fr
+        50px
+        1fr;
+
+      align-items: center;
+
+      gap: 10px;
+
+    }
+
+
+    .map-node {
+
+      min-height: 90px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      padding: 17px;
+
+      border: 1px solid var(--line-light);
+
+      border-radius: 6px;
+
+      background: var(--bg-soft);
+
+    }
+
+
+    .map-node strong {
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 15px;
+
+    }
+
+
+    .map-node span {
+
+      margin-top: 3px;
+
+      color: var(--text-muted);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 8px;
+
+    }
+
+
+    .map-connector {
+
+      height: 1px;
+
+      background: var(--line-light);
+
+      position: relative;
+
+    }
+
+
+    .map-connector::after {
+
+      content: "›";
+
+      position: absolute;
+
+      right: -2px;
+
+      top: 50%;
+
+      transform: translateY(-54%);
+
+      color: var(--accent);
+
+      font-family: "DM Mono", monospace;
+
+    }
+
+
+    /* =========================================================
+       LEARNING PATH
+       ========================================================= */
+
+    .learning {
+
+      padding: 80px 0;
+
+    }
+
+
+    .learning-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 10px;
+
+    }
+
+
+    .learning-card {
+
+      padding: 26px;
+
+      border: 1px solid var(--line);
+
+      border-radius: var(--radius);
+
+      background: var(--bg-card);
+
+    }
+
+
+    .learning-label {
+
+      color: var(--accent);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .learning-card h3 {
+
+      margin: 16px 0 8px;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 19px;
+
+    }
+
+
+    .learning-card p {
+
+      margin: 0;
+
+      color: var(--text-soft);
+
+      font-size: 12px;
+
+    }
+
+
+    .learning-path {
+
+      margin-top: 20px;
+
+      color: var(--text-muted);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+      line-height: 2;
+
+    }
+
+
+    .learning-path strong {
+
+      color: var(--text-soft);
+
+      font-weight: 400;
+
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+
+      padding: 45px 0 60px;
+
+    }
+
+
+    .footer-inner {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 25px;
+
+      padding-top: 20px;
+
+      border-top: 1px solid var(--line);
+
+    }
+
+
+    .footer-brand {
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-weight: 600;
+
+      font-size: 14px;
+
+    }
+
+
+    .footer-brand span {
+
+      color: var(--accent);
+
+    }
+
+
+    .footer-note {
+
+      margin-top: 4px;
+
+      color: var(--text-muted);
+
+      font-size: 11px;
+
+    }
+
+
+    .footer-links {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 18px;
+
+      color: var(--text-muted);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+    }
+
+
+    .footer-links a:hover {
+
+      color: var(--accent);
+
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .architecture-grid {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+
+      }
+
+
+      .intro-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+    }
+
+
+    @media (max-width: 700px) {
+
+      .container {
+
+        width: min(
+          calc(100% - 28px),
+          var(--max-width)
+        );
+
+      }
+
+
+      .brand-name {
+
+        display: none;
+
+      }
+
+
+      .nav-links {
+
+        gap: 10px;
+
+        font-size: 9px;
+
+      }
+
+
+      .github-link {
+
+        display: none;
+
+      }
+
+
+      .catalog-header {
+
+        display: block;
+
+      }
+
+
+      .search {
+
+        width: 100%;
+
+        margin-top: 20px;
+
+      }
+
+
+      .architecture-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .learning-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .footer-inner {
+
+        display: block;
+
+      }
+
+
+      .footer-links {
+
+        margin-top: 18px;
+
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =======================================================
+       NAVIGATION
+       ======================================================= -->
+
+  <nav class="nav">
+
+    <div class="container nav-inner">
+
+      <a
+        href="index.html"
+        class="brand"
+      >
+
+        <span class="brand-mark">
+          FM
+        </span>
+
+        <span class="brand-name">
+          Foundation Model Atlas
+          <span>/ v0.1</span>
+        </span>
+
+      </a>
+
+
+      <div class="nav-links">
+
+        <a href="index.html">
+          atlas
+        </a>
+
+        <a href="models.html">
+          models
+        </a>
+
+        <a
+          href="architectures.html"
+          class="active"
+        >
+          architectures
+        </a>
+
+        <a href="models.html#compare">
+          compare
+        </a>
+
+        <a
+          href="https://github.com/rahulkiran2222/foundation-model-atlas"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="github-link"
+        >
+          GitHub ↗
+        </a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =======================================================
+       PAGE HEADER
+       ======================================================= -->
+
+  <header class="page-header">
+
+    <div class="container">
+
+      <p class="kicker">
+        Foundation Model Atlas / 02
+      </p>
+
+      <h1>
+        Architecture Encyclopedia
+      </h1>
+
+      <p class="page-description">
+        A map of the architectural ideas that shape modern
+        foundation models—from attention and Transformers to
+        mixture-of-experts, state space models, recurrent
+        alternatives, diffusion, and emerging hybrids.
+      </p>
+
+    </div>
+
+  </header>
+
+
+  <!-- =======================================================
+       INTRO
+       ======================================================= -->
+
+  <section class="intro">
+
+    <div class="container">
+
+      <div class="intro-grid">
+
+
+        <div class="intro-card">
+
+          <h2>
+            Architectures, not just model names.
+          </h2>
+
+          <p>
+            The same architectural idea can appear across
+            many different model families. The Atlas therefore
+            treats architecture as its own knowledge layer,
+            connecting concepts to models, papers, evolution,
+            computational characteristics, and practical tradeoffs.
+          </p>
+
+
+          <div class="taxonomy-flow">
+
+            <span class="taxonomy-pill">
+              Concept
+            </span>
+
+            <span class="taxonomy-arrow">
+              →
+            </span>
+
+            <span class="taxonomy-pill">
+              Mechanism
+            </span>
+
+            <span class="taxonomy-arrow">
+              →
+            </span>
+
+            <span class="taxonomy-pill">
+              Architecture
+            </span>
+
+            <span class="taxonomy-arrow">
+              →
+            </span>
+
+            <span class="taxonomy-pill">
+              Model
+            </span>
+
+            <span class="taxonomy-arrow">
+              →
+            </span>
+
+            <span class="taxonomy-pill">
+              Application
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="intro-card">
+
+          <h2>
+            Each page will explain
+          </h2>
+
+          <ul class="principle-list">
+
+            <li>
+              <span>01</span>
+              Why the architecture exists
+            </li>
+
+            <li>
+              <span>02</span>
+              Core mechanism
+            </li>
+
+            <li>
+              <span>03</span>
+              Mathematical intuition
+            </li>
+
+            <li>
+              <span>04</span>
+              Computational complexity
+            </li>
+
+            <li>
+              <span>05</span>
+              Advantages & limitations
+            </li>
+
+            <li>
+              <span>06</span>
+              Models using it
+            </li>
+
+            <li>
+              <span>07</span>
+              Primary research sources
+            </li>
+
+          </ul>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       ARCHITECTURE CATALOG
+       ======================================================= -->
+
+  <main class="catalog">
+
+    <div class="container">
+
+
+      <div class="catalog-header">
+
+        <div>
+
+          <h2 class="catalog-title">
+            Architecture index
+          </h2>
+
+          <p class="catalog-subtitle">
+            Browse the architectural building blocks of
+            foundation models.
+          </p>
+
+        </div>
+
+
+        <input
+          id="architectureSearch"
+          class="search"
+          type="search"
+          placeholder="Search architectures..."
+          autocomplete="off"
+          aria-label="Search architectures"
+        >
+
+      </div>
+
+
+      <!-- =====================================================
+           CATEGORY FILTERS
+           ===================================================== -->
+
+      <div class="category-filters">
+
+        <button
+          type="button"
+          class="category-button active"
+          data-category="all"
+        >
+          All
+        </button>
+
+        <button
+          type="button"
+          class="category-button"
+          data-category="attention"
+        >
+          Attention
+        </button>
+
+        <button
+          type="button"
+          class="category-button"
+          data-category="transformer"
+        >
+          Transformer
+        </button>
+
+        <button
+          type="button"
+          class="category-button"
+          data-category="sparse"
+        >
+          Sparse / MoE
+        </button>
+
+        <button
+          type="button"
+          class="category-button"
+          data-category="efficient"
+        >
+          Efficient Attention
+        </button>
+
+        <button
+          type="button"
+          class="category-button"
+          data-category="sequence"
+        >
+          Sequence Alternatives
+        </button>
+
+        <button
+          type="button"
+          class="category-button"
+          data-category="generative"
+        >
+          Generative
+        </button>
+
+        <button
+          type="button"
+          class="category-button"
+          data-category="multimodal"
+        >
+          Multimodal
+        </button>
+
+      </div>
+
+
+      <!-- =====================================================
+           ARCHITECTURE CARDS
+           ===================================================== -->
+
+      <div
+        id="architectureGrid"
+        class="architecture-grid"
+      >
+
+        <!-- JavaScript renders cards -->
+
+      </div>
+
+
+      <!-- =====================================================
+           EMPTY STATE
+           ===================================================== -->
+
+      <div
+        id="emptyState"
+        class="empty"
+      >
+
+        <strong>
+          No architecture found.
+        </strong>
+
+        Try another search term or category.
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- =======================================================
+       ARCHITECTURE MAP
+       ======================================================= -->
+
+  <section class="map-section">
+
+    <div class="container">
+
+      <div class="map-header">
+
+        <p class="kicker">
+          Architecture evolution
+        </p>
+
+        <h2>
+          From attention to alternatives
+        </h2>
+
+        <p>
+          A simplified conceptual map. The full Atlas will
+          eventually represent these relationships as an
+          interactive graph backed by structured data and
+          primary research sources.
+        </p>
+
+      </div>
+
+
+      <div class="architecture-map">
+
+        <div class="map-line">
+
+
+          <div class="map-node">
+
+            <strong>
+              Attention
+            </strong>
+
+            <span>
+              sequence interaction
+            </span>
+
+          </div>
+
+
+          <div class="map-connector"></div>
+
+
+          <div class="map-node">
+
+            <strong>
+              Transformer
+            </strong>
+
+            <span>
+              attention-based architecture
+            </span>
+
+          </div>
+
+
+          <div class="map-connector"></div>
+
+
+          <div class="map-node">
+
+            <strong>
+              Modern Variants
+            </strong>
+
+            <span>
+              GQA · MLA · MoE · sparse systems
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+        <br>
+
+
+        <div class="map-line">
+
+
+          <div class="map-node">
+
+            <strong>
+              Sequence Modeling
+            </strong>
+
+            <span>
+              long-range dependencies
+            </span>
+
+          </div>
+
+
+          <div class="map-connector"></div>
+
+
+          <div class="map-node">
+
+            <strong>
+              State Space Models
+            </strong>
+
+            <span>
+              SSM · selective recurrence
+            </span>
+
+          </div>
+
+
+          <div class="map-connector"></div>
+
+
+          <div class="map-node">
+
+            <strong>
+              Hybrid Systems
+            </strong>
+
+            <span>
+              attention + recurrence / SSM
+            </span>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       LEARNING PATHS
+       ======================================================= -->
+
+  <section class="learning">
+
+    <div class="container">
+
+
+      <div class="map-header">
+
+        <p class="kicker">
+          Learn the architectures
+        </p>
+
+        <h2>
+          Choose your path
+        </h2>
+
+        <p>
+          The architecture encyclopedia will serve different
+          levels of readers—from students encountering attention
+          for the first time to researchers studying alternatives
+          to Transformers.
+        </p>
+
+      </div>
+
+
+      <div class="learning-grid">
+
+
+        <div class="learning-card">
+
+          <span class="learning-label">
+            Beginner
+          </span>
+
+          <h3>
+            Understand the Transformer
+          </h3>
+
+          <p>
+            Build the conceptual foundation before moving into
+            modern architectural variants.
+          </p>
+
+          <div class="learning-path">
+
+            <strong>
+              Attention
+            </strong>
+            →
+            Transformer
+            →
+            Encoder / Decoder
+            →
+            GPT / BERT
+            →
+            Modern LLMs
+
+          </div>
+
+        </div>
+
+
+        <div class="learning-card">
+
+          <span class="learning-label">
+            Engineer
+          </span>
+
+          <h3>
+            Understand efficiency
+          </h3>
+
+          <p>
+            Focus on architectures and mechanisms that directly
+            affect inference cost, memory, and scalability.
+          </p>
+
+          <div class="learning-path">
+
+            <strong>
+              Attention
+            </strong>
+            →
+            GQA
+            →
+            MQA
+            →
+            MoE
+            →
+            Sparse systems
+            →
+            Long context
+
+          </div>
+
+        </div>
+
+
+        <div class="learning-card">
+
+          <span class="learning-label">
+            Researcher
+          </span>
+
+          <h3>
+            Study alternatives
+          </h3>
+
+          <p>
+            Explore the broader sequence-modeling landscape
+            beyond standard dense Transformers.
+          </p>
+
+          <div class="learning-path">
+
+            <strong>
+              Transformer
+            </strong>
+            →
+            Linear Attention
+            →
+            SSM
+            →
+            Mamba
+            →
+            RWKV
+            →
+            Hybrid architectures
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-inner">
+
+
+        <div>
+
+          <div class="footer-brand">
+            Foundation Model Atlas<span>.</span>
+          </div>
+
+          <div class="footer-note">
+            Open encyclopedia of foundation models,
+            architectures, evolution, and research resources.
+          </div>
+
+        </div>
+
+
+        <div class="footer-links">
+
+          <a href="index.html">
+            Atlas
+          </a>
+
+          <a href="models.html">
+            Models
+          </a>
+
+          <a
+            href="https://github.com/rahulkiran2222/foundation-model-atlas"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="https://rahulkiran2222.github.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Rahul Kiran
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =======================================================
+       ARCHITECTURE DATA + INTERACTION
+       ======================================================= -->
+
+  <script>
+
+    /*
+     * TEMPORARY ARCHITECTURE DATA
+     *
+     * This will later move to:
+     *
+     * data/architectures.json
+     *
+     * The architecture schema will be expanded
+     * before the large Atlas dataset is created.
+     */
+
+
+    const architectures = [
+
+      {
+        id: "transformer",
+        name: "Transformer",
+        category: "transformer",
+        categoryLabel: "Transformer",
+        description:
+          "Attention-based sequence architecture that became a dominant foundation for modern language and multimodal models.",
+        era:
+          "2017 →",
+        tags:
+          "attention sequence language"
+      },
+
+
+      {
+        id: "self-attention",
+        name: "Self-Attention",
+        category: "attention",
+        categoryLabel: "Attention",
+        description:
+          "Mechanism allowing tokens or representations to interact by computing content-dependent relationships.",
+        era:
+          "Core mechanism",
+        tags:
+          "attention transformer"
+      },
+
+
+      {
+        id: "gqa",
+        name: "Grouped Query Attention",
+        category: "efficient",
+        categoryLabel: "Efficient Attention",
+        description:
+          "Attention variant that shares key and value heads across groups of query heads to reduce KV-cache memory.",
+        era:
+          "Modern LLMs",
+        tags:
+          "attention inference kv cache"
+      },
+
+
+      {
+        id: "mqa",
+        name: "Multi-Query Attention",
+        category: "efficient",
+        categoryLabel: "Efficient Attention",
+        description:
+          "Attention variant using multiple query heads with shared key and value projections for more efficient inference.",
+        era:
+          "Inference efficiency",
+        tags:
+          "attention inference"
+      },
+
+
+      {
+        id: "mla",
+        name: "Multi-head Latent Attention",
+        category: "efficient",
+        categoryLabel: "Efficient Attention",
+        description:
+          "Latent attention approach designed to reduce KV-cache requirements while preserving expressive attention behavior.",
+        era:
+          "Modern systems",
+        tags:
+          "attention kv cache latent"
+      },
+
+
+      {
+        id: "moe",
+        name: "Mixture of Experts",
+        category: "sparse",
+        categoryLabel: "Sparse / MoE",
+        description:
+          "Sparse architecture that routes inputs to selected expert networks, increasing total parameter capacity without activating every parameter.",
+        era:
+          "Sparse scaling",
+        tags:
+          "sparse experts routing scaling"
+      },
+
+
+      {
+        id: "sparse-attention",
+        name: "Sparse Attention",
+        category: "sparse",
+        categoryLabel: "Sparse / MoE",
+        description:
+          "Attention mechanisms that restrict token-to-token interactions to reduce computational cost.",
+        era:
+          "Long context",
+        tags:
+          "attention sparse efficiency long context"
+      },
+
+
+      {
+        id: "linear-attention",
+        name: "Linear Attention",
+        category: "efficient",
+        categoryLabel: "Efficient Attention",
+        description:
+          "Family of attention alternatives that restructure computation to improve scaling with sequence length.",
+        era:
+          "Alternative attention",
+        tags:
+          "attention efficiency sequence"
+      },
+
+
+      {
+        id: "ssm",
+        name: "State Space Models",
+        category: "sequence",
+        categoryLabel: "Sequence Alternatives",
+        description:
+          "Sequence-modeling family based on state-space formulations that provides an alternative to conventional attention.",
+        era:
+          "Alternative sequence modeling",
+        tags:
+          "state space sequence recurrence"
+      },
+
+
+      {
+        id: "mamba",
+        name: "Mamba",
+        category: "sequence",
+        categoryLabel: "Sequence Alternatives",
+        description:
+          "Selective state-space architecture introducing input-dependent state transitions for efficient sequence modeling.",
+        era:
+          "2023 →",
+        tags:
+          "ssm state space selective sequence"
+      },
+
+
+      {
+        id: "rwkv",
+        name: "RWKV",
+        category: "sequence",
+        categoryLabel: "Sequence Alternatives",
+        description:
+          "Architecture combining recurrent-style computation with attention-inspired mechanisms for efficient sequence processing.",
+        era:
+          "Alternative sequence modeling",
+        tags:
+          "recurrent attention sequence"
+      },
+
+
+      {
+        id: "hyena",
+        name: "Hyena",
+        category: "sequence",
+        categoryLabel: "Sequence Alternatives",
+        description:
+          "Long-convolution architecture designed as an alternative to attention for long-context sequence modeling.",
+        era:
+          "Long sequence",
+        tags:
+          "convolution sequence long context"
+      },
+
+
+      {
+        id: "rope",
+        name: "Rotary Position Embedding",
+        category: "transformer",
+        categoryLabel: "Transformer",
+        description:
+          "Relative positional mechanism that encodes positional information through rotations applied to representations.",
+        era:
+          "Position encoding",
+        tags:
+          "position encoding transformer"
+      },
+
+
+      {
+        id: "alibi",
+        name: "ALiBi",
+        category: "transformer",
+        categoryLabel: "Transformer",
+        description:
+          "Position mechanism that introduces attention biases based on token distance instead of learned positional embeddings.",
+        era:
+          "Position encoding",
+        tags:
+          "position attention transformer"
+      },
+
+
+      {
+        id: "encoder-decoder",
+        name: "Encoder–Decoder",
+        category: "transformer",
+        categoryLabel: "Transformer",
+        description:
+          "Architecture separating input representation and autoregressive generation into encoder and decoder components.",
+        era:
+          "Sequence-to-sequence",
+        tags:
+          "transformer seq2seq t5"
+      },
+
+
+      {
+        id: "decoder-only",
+        name: "Decoder-Only Transformer",
+        category: "transformer",
+        categoryLabel: "Transformer",
+        description:
+          "Autoregressive Transformer configuration widely used by modern large language models.",
+        era:
+          "Modern LLMs",
+        tags:
+          "gpt language autoregressive"
+      },
+
+
+      {
+        id: "diffusion",
+        name: "Diffusion Models",
+        category: "generative",
+        categoryLabel: "Generative",
+        description:
+          "Generative framework based on learning to reverse a gradual corruption or noising process.",
+        era:
+          "Generative modeling",
+        tags:
+          "image generation diffusion generative"
+      },
+
+
+      {
+        id: "latent-diffusion",
+        name: "Latent Diffusion",
+        category: "generative",
+        categoryLabel: "Generative",
+        description:
+          "Diffusion performed in a learned latent representation space rather than directly in pixel space.",
+        era:
+          "Generative vision",
+        tags:
+          "diffusion image generation latent"
+      },
+
+
+      {
+        id: "vision-transformer",
+        name: "Vision Transformer",
+        category: "transformer",
+        categoryLabel: "Transformer",
+        description:
+          "Transformer architecture adapted to visual inputs by representing images as sequences of patches.",
+        era:
+          "2020 →",
+        tags:
+          "vision transformer image"
+      },
+
+
+      {
+        id: "contrastive-learning",
+        name: "Contrastive Multimodal Learning",
+        category: "multimodal",
+        categoryLabel: "Multimodal",
+        description:
+          "Learning framework that aligns representations from different modalities through contrastive objectives.",
+        era:
+          "Multimodal",
+        tags:
+          "vision language clip multimodal"
+      },
+
+
+      {
+        id: "vision-language",
+        name: "Vision-Language Architectures",
+        category: "multimodal",
+        categoryLabel: "Multimodal",
+        description:
+          "Architectural families connecting visual encoders with language models for multimodal understanding and generation.",
+        era:
+          "Multimodal",
+        tags:
+          "vision language multimodal llm"
+      }
+
+    ];
+
+
+    /* =========================================================
+       ELEMENTS
+       ========================================================= */
+
+    const grid =
+      document.getElementById(
+        "architectureGrid"
+      );
+
+
+    const search =
+      document.getElementById(
+        "architectureSearch"
+      );
+
+
+    const emptyState =
+      document.getElementById(
+        "emptyState"
+      );
+
+
+    const categoryButtons =
+      document.querySelectorAll(
+        ".category-button"
+      );
+
+
+    let selectedCategory =
+      "all";
+
+
+    /* =========================================================
+       RENDER ARCHITECTURES
+       ========================================================= */
+
+    function renderArchitectures() {
+
+      const query =
+        search.value
+          .trim()
+          .toLowerCase();
+
+
+      const filtered =
+        architectures.filter(
+          architecture => {
+
+            const searchable =
+              [
+                architecture.name,
+                architecture.categoryLabel,
+                architecture.description,
+                architecture.tags
+              ]
+                .join(" ")
+                .toLowerCase();
+
+
+            const matchesSearch =
+              !query ||
+              searchable.includes(
+                query
+              );
+
+
+            const matchesCategory =
+              selectedCategory === "all" ||
+              architecture.category ===
+                selectedCategory;
+
+
+            return (
+              matchesSearch &&
+              matchesCategory
+            );
+
+          }
+        );
+
+
+      /* =======================================================
+         EMPTY STATE
+         ======================================================= */
+
+      if (
+        filtered.length === 0
+      ) {
+
+        grid.style.display =
+          "none";
+
+        emptyState.style.display =
+          "block";
+
+        return;
+
+      }
+
+
+      grid.style.display =
+        "grid";
+
+      emptyState.style.display =
+        "none";
+
+
+      /* =======================================================
+         CARDS
+         ======================================================= */
+
+      grid.innerHTML =
+        filtered
+          .map(
+            (architecture, index) => {
+
+              const number =
+                String(
+                  index + 1
+                ).padStart(
+                  3,
+                  "0"
+                );
+
+
+              return `
+
+                <a
+                  class="architecture-card"
+                  href="architecture.html?id=${architecture.id}"
+                >
+
+                  <span class="architecture-number">
+                    ${number}
+                  </span>
+
+                  <span class="architecture-category">
+                    ${architecture.categoryLabel}
+                  </span>
+
+
+                  <h3>
+                    ${architecture.name}
+                  </h3>
+
+
+                  <p>
+                    ${architecture.description}
+                  </p>
+
+
+                  <div class="architecture-meta">
+
+                    <span>
+                      ${architecture.era}
+                    </span>
+
+                    <span class="architecture-arrow">
+                      explore →
+                    </span>
+
+                  </div>
+
+                </a>
+
+              `;
+
+            }
+          )
+          .join("");
+
+    }
+
+
+    /* =========================================================
+       SEARCH
+       ========================================================= */
+
+    search.addEventListener(
+      "input",
+      renderArchitectures
+    );
+
+
+    /* =========================================================
+       CATEGORY FILTERS
+       ========================================================= */
+
+    categoryButtons.forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            categoryButtons.forEach(
+              item =>
+                item.classList.remove(
+                  "active"
+                )
+            );
+
+
+            button.classList.add(
+              "active"
+            );
+
+
+            selectedCategory =
+              button.dataset.category;
+
+
+            renderArchitectures();
+
+          }
+        );
+
+      }
+    );
+
+
+    /* =========================================================
+       INITIAL RENDER
+       ========================================================= */
+
+    renderArchitectures();
+
+  </script>
+
+
+</body>
+</html>
