@@ -8475,4 +8475,1047 @@
     "chameleon",
     "qwen2-5-vl"
   ]
+},
+  {
+  "id": "wav2vec-2-0",
+  "name": "wav2vec 2.0",
+  "family": "wav2vec",
+  "organization": "Meta AI",
+  "releaseDate": "2020-06",
+  "year": 2020,
+  "category": "speech",
+  "type": "self-supervised-speech-model",
+  "description": "A self-supervised speech representation model that learns contextualized representations directly from raw audio and can be fine-tuned for automatic speech recognition.",
+  "architecture": {
+    "family": "convolutional feature encoder + Transformer",
+    "attention": "Transformer self-attention",
+    "position": "learned/relative model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "masked latent speech prediction"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "latent speech representations"
+  },
+  "modality": {
+    "input": ["audio"],
+    "output": ["speech representations", "transcription after fine-tuning"]
+  },
+  "training": {
+    "objective": "self-supervised masked speech representation learning",
+    "data": "unlabeled speech audio",
+    "postTraining": "CTC-based speech recognition fine-tuning"
+  },
+  "license": "MIT / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "speech",
+    "self-supervised",
+    "speech-recognition",
+    "representation-learning"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "wav2vec 2.0",
+      "url": "https://arxiv.org/abs/2006.11477"
+    }
+  ],
+  "relatedModels": [
+    "hubert",
+    "wavlm",
+    "whisper"
+  ]
+},
+
+{
+  "id": "hubert",
+  "name": "HuBERT",
+  "family": "HuBERT",
+  "organization": "Meta AI",
+  "releaseDate": "2021-06",
+  "year": 2021,
+  "category": "speech",
+  "type": "self-supervised-speech-model",
+  "description": "A self-supervised speech representation model that learns hidden units through masked prediction, providing transferable representations for speech recognition and related tasks.",
+  "architecture": {
+    "family": "convolutional speech encoder + Transformer",
+    "attention": "Transformer self-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "masked hidden-unit prediction"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "latent speech units"
+  },
+  "modality": {
+    "input": ["audio"],
+    "output": ["speech representations"]
+  },
+  "training": {
+    "objective": "masked prediction of hidden speech units",
+    "data": "unlabeled speech",
+    "postTraining": "speech recognition and downstream fine-tuning"
+  },
+  "license": "MIT / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "speech",
+    "self-supervised",
+    "representation-learning",
+    "speech-recognition"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "HuBERT",
+      "url": "https://arxiv.org/abs/2106.07447"
+    }
+  ],
+  "relatedModels": [
+    "wav2vec-2-0",
+    "wavlm",
+    "whisper"
+  ]
+},
+
+{
+  "id": "wavlm",
+  "name": "WavLM",
+  "family": "WavLM",
+  "organization": "Microsoft Research",
+  "releaseDate": "2021-10",
+  "year": 2021,
+  "category": "speech",
+  "type": "self-supervised-speech-model",
+  "description": "A speech foundation model designed to learn representations useful for both spoken-content modeling and speaker/voice characteristics.",
+  "architecture": {
+    "family": "speech encoder + Transformer",
+    "attention": "Transformer self-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "masked speech prediction with denoising"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "latent speech representations"
+  },
+  "modality": {
+    "input": ["audio"],
+    "output": ["speech representations", "speaker representations"]
+  },
+  "training": {
+    "objective": "self-supervised speech representation learning",
+    "data": "large-scale unlabeled speech",
+    "postTraining": "speech and speaker downstream tasks"
+  },
+  "license": "MIT / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "speech",
+    "speaker-recognition",
+    "self-supervised",
+    "representation-learning"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "WavLM",
+      "url": "https://arxiv.org/abs/2110.13900"
+    }
+  ],
+  "relatedModels": [
+    "hubert",
+    "wav2vec-2-0",
+    "whisper"
+  ]
+},
+
+{
+  "id": "whisper",
+  "name": "Whisper",
+  "family": "Whisper",
+  "organization": "OpenAI",
+  "releaseDate": "2022-09-21",
+  "year": 2022,
+  "category": "speech",
+  "type": "speech-recognition-foundation-model",
+  "description": "A large-scale multilingual speech model trained on weakly supervised audio-transcription data for transcription, language identification, translation, and related speech tasks.",
+  "architecture": {
+    "family": "encoder-decoder Transformer",
+    "attention": "self-attention + cross-attention",
+    "position": "learned positional embeddings",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive sequence-to-sequence"
+  },
+  "scale": {
+    "parameters": "up to 1.55B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "audio frames + text tokens"
+  },
+  "modality": {
+    "input": ["audio"],
+    "output": ["text", "language identification", "translation"]
+  },
+  "training": {
+    "objective": "multitask speech recognition",
+    "data": "680,000 hours of multilingual and multitask supervised audio",
+    "postTraining": "zero-shot inference and task-specific fine-tuning"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "speech-recognition",
+    "speech-translation",
+    "multilingual",
+    "zero-shot",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Whisper",
+      "url": "https://openai.com/research/whisper"
+    }
+  ],
+  "relatedModels": [
+    "wav2vec-2-0",
+    "whisper-large-v3",
+    "seamlessm4t"
+  ]
+},
+
+{
+  "id": "whisper-large-v3",
+  "name": "Whisper large-v3",
+  "family": "Whisper",
+  "organization": "OpenAI",
+  "releaseDate": "2023-11",
+  "year": 2023,
+  "category": "speech",
+  "type": "speech-recognition-foundation-model",
+  "description": "An improved Whisper generation with stronger multilingual speech recognition, transcription robustness, and language coverage.",
+  "architecture": {
+    "family": "encoder-decoder Transformer",
+    "attention": "self-attention + cross-attention",
+    "position": "learned positional embeddings",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive sequence-to-sequence"
+  },
+  "scale": {
+    "parameters": "1.55B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "audio frames + text tokens"
+  },
+  "modality": {
+    "input": ["audio"],
+    "output": ["text", "translation"]
+  },
+  "training": {
+    "objective": "multilingual multitask speech recognition",
+    "data": "expanded multilingual audio-transcription data",
+    "postTraining": "zero-shot inference"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "speech-recognition",
+    "multilingual",
+    "translation",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Whisper large-v3",
+      "url": "https://github.com/openai/whisper"
+    }
+  ],
+  "relatedModels": [
+    "whisper",
+    "whisper-large-v3-turbo",
+    "seamlessm4t"
+  ]
+},
+
+{
+  "id": "whisper-large-v3-turbo",
+  "name": "Whisper large-v3-turbo",
+  "family": "Whisper",
+  "organization": "OpenAI",
+  "releaseDate": "2024-10",
+  "year": 2024,
+  "category": "speech",
+  "type": "efficient-speech-recognition-model",
+  "description": "An optimized Whisper generation designed to substantially reduce inference cost while retaining much of the recognition quality of large-v3.",
+  "architecture": {
+    "family": "encoder-decoder Transformer",
+    "attention": "self-attention + cross-attention",
+    "position": "learned positional embeddings",
+    "sparsity": "reduced decoder depth",
+    "sequenceStrategy": "autoregressive sequence-to-sequence"
+  },
+  "scale": {
+    "parameters": "809M",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "audio frames + text tokens"
+  },
+  "modality": {
+    "input": ["audio"],
+    "output": ["text", "translation"]
+  },
+  "training": {
+    "objective": "efficient multilingual speech recognition",
+    "data": "Whisper training data and distillation/optimization",
+    "postTraining": "zero-shot inference"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "speech-recognition",
+    "efficient",
+    "multilingual",
+    "distillation"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Whisper large-v3-turbo",
+      "url": "https://huggingface.co/openai/whisper-large-v3-turbo"
+    }
+  ],
+  "relatedModels": [
+    "whisper-large-v3",
+    "whisper"
+  ]
+},
+
+{
+  "id": "speecht5",
+  "name": "SpeechT5",
+  "family": "SpeechT5",
+  "organization": "Microsoft Research",
+  "releaseDate": "2021-11",
+  "year": 2021,
+  "category": "speech",
+  "type": "unified-speech-text-model",
+  "description": "A unified encoder-decoder framework that supports multiple speech and text tasks by sharing representations across modalities.",
+  "architecture": {
+    "family": "encoder-decoder Transformer",
+    "attention": "self-attention + cross-attention",
+    "position": "Transformer positional encoding",
+    "sparsity": "dense",
+    "sequenceStrategy": "sequence-to-sequence"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "speech and text representations"
+  },
+  "modality": {
+    "input": ["audio", "text"],
+    "output": ["audio", "text"]
+  },
+  "training": {
+    "objective": "shared speech-text representation learning",
+    "data": "speech and text corpora",
+    "postTraining": "speech synthesis, recognition and conversion"
+  },
+  "license": "MIT / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "speech",
+    "text",
+    "unified-model",
+    "text-to-speech",
+    "speech-recognition"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "SpeechT5",
+      "url": "https://arxiv.org/abs/2110.07205"
+    }
+  ],
+  "relatedModels": [
+    "speecht5-tts",
+    "seamlessm4t",
+    "mms"
+  ]
+},
+
+{
+  "id": "mms",
+  "name": "Massively Multilingual Speech",
+  "family": "MMS",
+  "organization": "Meta AI",
+  "releaseDate": "2023-05",
+  "year": 2023,
+  "category": "speech",
+  "type": "multilingual-speech-foundation-model",
+  "description": "A multilingual speech initiative providing speech recognition and speech technology models covering thousands of languages.",
+  "architecture": {
+    "family": "self-supervised speech encoder",
+    "attention": "Transformer",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "self-supervised speech representation learning"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "speech representations"
+  },
+  "modality": {
+    "input": ["audio"],
+    "output": ["speech representations", "transcription"]
+  },
+  "training": {
+    "objective": "multilingual speech representation and recognition",
+    "data": "speech data covering more than 1,000 languages",
+    "postTraining": "language-specific speech recognition and synthesis"
+  },
+  "license": "CC BY-NC 4.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "speech",
+    "multilingual",
+    "low-resource-languages",
+    "speech-recognition"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Massively Multilingual Speech",
+      "url": "https://ai.meta.com/research/no-language-left-behind/"
+    }
+  ],
+  "relatedModels": [
+    "wav2vec-2-0",
+    "seamlessm4t",
+    "seamlessm4t-v2"
+  ]
+},
+
+{
+  "id": "seamlessm4t",
+  "name": "SeamlessM4T",
+  "family": "SeamlessM4T",
+  "organization": "Meta AI",
+  "releaseDate": "2023-08",
+  "year": 2023,
+  "category": "speech",
+  "type": "multimodal-speech-translation-foundation-model",
+  "description": "A massively multilingual multimodal translation model supporting speech-to-speech, speech-to-text, text-to-speech, and text-to-text translation.",
+  "architecture": {
+    "family": "multimodal sequence-to-sequence Transformer",
+    "attention": "self-attention + cross-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "multimodal sequence-to-sequence"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "speech and text sequences"
+  },
+  "modality": {
+    "input": ["audio", "text"],
+    "output": ["audio", "text"]
+  },
+  "training": {
+    "objective": "multilingual speech and text translation",
+    "data": "multilingual speech and text corpora",
+    "postTraining": "multilingual translation adaptation"
+  },
+  "license": "CC BY-NC 4.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "speech-translation",
+    "speech-to-speech",
+    "multilingual",
+    "text-to-speech"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "SeamlessM4T",
+      "url": "https://ai.meta.com/research/seamless-m4t/"
+    }
+  ],
+  "relatedModels": [
+    "seamlessm4t-v2",
+    "mms",
+    "whisper"
+  ]
+},
+
+{
+  "id": "seamlessm4t-v2",
+  "name": "SeamlessM4T v2",
+  "family": "SeamlessM4T",
+  "organization": "Meta AI",
+  "releaseDate": "2024-03",
+  "year": 2024,
+  "category": "speech",
+  "type": "multimodal-speech-translation-foundation-model",
+  "description": "An improved SeamlessM4T generation providing stronger multilingual speech and text translation with improved speech generation quality.",
+  "architecture": {
+    "family": "multimodal sequence-to-sequence Transformer",
+    "attention": "self-attention + cross-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "multimodal sequence-to-sequence"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "speech and text sequences"
+  },
+  "modality": {
+    "input": ["audio", "text"],
+    "output": ["audio", "text"]
+  },
+  "training": {
+    "objective": "multilingual translation and speech generation",
+    "data": "expanded multilingual speech/text data",
+    "postTraining": "multilingual adaptation"
+  },
+  "license": "CC BY-NC 4.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "speech",
+    "translation",
+    "speech-to-speech",
+    "multilingual"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "SeamlessM4T v2",
+      "url": "https://ai.meta.com/research/seamless-m4t/"
+    }
+  ],
+  "relatedModels": [
+    "seamlessm4t",
+    "mms",
+    "whisper-large-v3"
+  ]
+},
+
+{
+  "id": "audiolm",
+  "name": "AudioLM",
+  "family": "AudioLM",
+  "organization": "Google Research",
+  "releaseDate": "2022-09",
+  "year": 2022,
+  "category": "audio",
+  "type": "audio-language-model",
+  "description": "A language-modeling framework for audio that generates coherent audio continuations by modeling hierarchical semantic and acoustic token representations.",
+  "architecture": {
+    "family": "hierarchical audio token language model",
+    "attention": "Transformer",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive audio-token generation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "semantic and acoustic audio tokens"
+  },
+  "modality": {
+    "input": ["audio"],
+    "output": ["audio"]
+  },
+  "training": {
+    "objective": "audio continuation and generation",
+    "data": "speech and audio recordings",
+    "postTraining": "audio generation conditioning"
+  },
+  "license": "research",
+  "openWeights": false,
+  "tags": [
+    "audio",
+    "audio-generation",
+    "language-model",
+    "speech"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "AudioLM",
+      "url": "https://arxiv.org/abs/2209.03143"
+    }
+  ],
+  "relatedModels": [
+    "musiclm",
+    "audiopaLM",
+    "soundstorm"
+  ]
+},
+
+{
+  "id": "audiopaLM",
+  "name": "AudioPaLM",
+  "family": "AudioPaLM",
+  "organization": "Google Research",
+  "releaseDate": "2023-08",
+  "year": 2023,
+  "category": "audio",
+  "type": "audio-language-model",
+  "description": "A multimodal language model combining PaLM-style language modeling with speech representations to process and generate language and speech.",
+  "architecture": {
+    "family": "multimodal language model",
+    "attention": "Transformer self-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive multimodal token modeling"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "text and audio tokens"
+  },
+  "modality": {
+    "input": ["audio", "text"],
+    "output": ["audio", "text"]
+  },
+  "training": {
+    "objective": "speech-text multimodal language modeling",
+    "data": "speech and text corpora",
+    "postTraining": "speech translation and generation"
+  },
+  "license": "research",
+  "openWeights": false,
+  "tags": [
+    "audio-language-model",
+    "speech",
+    "multimodal",
+    "translation"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "AudioPaLM",
+      "url": "https://arxiv.org/abs/2306.12925"
+    }
+  ],
+  "relatedModels": [
+    "audiolm",
+    "seamlessm4t",
+    "gemini"
+  ]
+},
+  {
+  "id": "vall-e",
+  "name": "VALL-E",
+  "family": "VALL-E",
+  "organization": "Microsoft Research",
+  "releaseDate": "2023-01",
+  "year": 2023,
+  "category": "speech",
+  "type": "neural-speech-generation-model",
+  "description": "A language-modeling approach to text-to-speech that represents speech as discrete codec tokens and enables zero-shot speaker adaptation from short audio prompts.",
+  "architecture": {
+    "family": "neural codec language model",
+    "attention": "Transformer",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive codec-token generation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "discrete speech codec tokens"
+  },
+  "modality": {
+    "input": ["text", "speech prompt"],
+    "output": ["speech"]
+  },
+  "training": {
+    "objective": "text-to-speech codec modeling",
+    "data": "large-scale speech corpus",
+    "postTraining": "zero-shot speaker adaptation"
+  },
+  "license": "research",
+  "openWeights": false,
+  "tags": [
+    "text-to-speech",
+    "voice-cloning",
+    "codec-language-model",
+    "zero-shot"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Neural Codec Language Models are Zero-Shot Text to Speech Synthesizers",
+      "url": "https://arxiv.org/abs/2301.02111"
+    }
+  ],
+  "relatedModels": [
+    "vall-e-x",
+    "voicebox",
+    "naturalspeech"
+  ]
+},
+
+{
+  "id": "voicebox",
+  "name": "Voicebox",
+  "family": "Voicebox",
+  "organization": "Meta AI",
+  "releaseDate": "2023-06",
+  "year": 2023,
+  "category": "speech",
+  "type": "generative-speech-foundation-model",
+  "description": "A generative speech model based on flow matching that supports speech synthesis, editing, style conversion, denoising, and related tasks.",
+  "architecture": {
+    "family": "flow-matching speech model",
+    "attention": "Transformer-based",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "flow-matching generation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "continuous speech representation"
+  },
+  "modality": {
+    "input": ["text", "audio"],
+    "output": ["audio"]
+  },
+  "training": {
+    "objective": "speech generation and infilling",
+    "data": "large-scale speech recordings",
+    "postTraining": "conditional speech generation"
+  },
+  "license": "research",
+  "openWeights": false,
+  "tags": [
+    "speech-generation",
+    "text-to-speech",
+    "flow-matching",
+    "speech-editing"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Voicebox",
+      "url": "https://arxiv.org/abs/2306.15687"
+    }
+  ],
+  "relatedModels": [
+    "vall-e",
+    "seamlessm4t",
+    "audiolm"
+  ]
+},
+
+{
+  "id": "naturalspeech",
+  "name": "NaturalSpeech",
+  "family": "NaturalSpeech",
+  "organization": "Microsoft Research",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "speech",
+  "type": "text-to-speech-foundation-model",
+  "description": "A text-to-speech architecture designed to generate natural speech through factorized representations of content, prosody, and speaker identity.",
+  "architecture": {
+    "family": "latent speech generation",
+    "attention": "Transformer / diffusion components",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "latent speech generation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "text and latent speech representations"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["speech"]
+  },
+  "training": {
+    "objective": "natural speech synthesis",
+    "data": "large-scale speech corpus",
+    "postTraining": "speaker and style adaptation"
+  },
+  "license": "research",
+  "openWeights": false,
+  "tags": [
+    "text-to-speech",
+    "speech-generation",
+    "speaker-modeling"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "NaturalSpeech",
+      "url": "https://arxiv.org/abs/2205.04421"
+    }
+  ],
+  "relatedModels": [
+    "naturalspeech-2",
+    "vall-e",
+    "voicebox"
+  ]
+},
+
+{
+  "id": "naturalspeech-2",
+  "name": "NaturalSpeech 2",
+  "family": "NaturalSpeech",
+  "organization": "Microsoft Research",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "speech",
+  "type": "diffusion-speech-generation-model",
+  "description": "A speech generation model using latent diffusion to produce high-quality speech while enabling zero-shot voice cloning and expressive generation.",
+  "architecture": {
+    "family": "latent diffusion speech model",
+    "attention": "Transformer-based diffusion network",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "diffusion generation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "continuous speech latent"
+  },
+  "modality": {
+    "input": ["text", "speech prompt"],
+    "output": ["speech"]
+  },
+  "training": {
+    "objective": "speech generation",
+    "data": "large-scale speech corpus",
+    "postTraining": "zero-shot speaker adaptation"
+  },
+  "license": "research",
+  "openWeights": false,
+  "tags": [
+    "speech-generation",
+    "diffusion",
+    "voice-cloning",
+    "zero-shot"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "NaturalSpeech 2",
+      "url": "https://arxiv.org/abs/2304.09116"
+    }
+  ],
+  "relatedModels": [
+    "naturalspeech",
+    "vall-e",
+    "voicebox"
+  ]
+},
+
+{
+  "id": "bark",
+  "name": "Bark",
+  "family": "Bark",
+  "organization": "Suno AI",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "audio",
+  "type": "text-to-audio-generation-model",
+  "description": "A generative audio model capable of producing speech, multilingual speech, non-speech sounds, music-like outputs, and expressive vocalizations from text prompts.",
+  "architecture": {
+    "family": "autoregressive codec language model",
+    "attention": "Transformer",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "hierarchical token generation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "semantic and acoustic audio tokens"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["audio"]
+  },
+  "training": {
+    "objective": "audio generation",
+    "data": "speech and audio data",
+    "postTraining": "conditional audio generation"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "audio-generation",
+    "text-to-speech",
+    "speech",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Bark",
+      "url": "https://github.com/suno-ai/bark"
+    }
+  ],
+  "relatedModels": [
+    "vall-e",
+    "audiolm",
+    "voicebox"
+  ]
+},
+
+{
+  "id": "cosyvoice",
+  "name": "CosyVoice",
+  "family": "CosyVoice",
+  "organization": "FunAudioLLM / Alibaba",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "speech",
+  "type": "multilingual-speech-generation-model",
+  "description": "A multilingual speech generation framework supporting zero-shot voice cloning, cross-lingual synthesis, and controllable speech generation.",
+  "architecture": {
+    "family": "speech language model + flow matching",
+    "attention": "Transformer-based",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "conditional speech-token generation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "speech and text representations"
+  },
+  "modality": {
+    "input": ["text", "audio prompt"],
+    "output": ["speech"]
+  },
+  "training": {
+    "objective": "multilingual speech synthesis",
+    "data": "large-scale multilingual speech data",
+    "postTraining": "speaker and style adaptation"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "text-to-speech",
+    "multilingual",
+    "voice-cloning",
+    "speech-generation"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "CosyVoice",
+      "url": "https://github.com/FunAudioLLM/CosyVoice"
+    }
+  ],
+  "relatedModels": [
+    "cosyvoice-2",
+    "vall-e",
+    "voicebox"
+  ]
+},
+
+{
+  "id": "fish-speech",
+  "name": "Fish Speech",
+  "family": "Fish Speech",
+  "organization": "Fish Audio",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "speech",
+  "type": "speech-language-model",
+  "description": "An open speech language-model family designed for multilingual text-to-speech and expressive voice generation.",
+  "architecture": {
+    "family": "speech codec language model",
+    "attention": "Transformer",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive speech-token generation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "speech codec tokens"
+  },
+  "modality": {
+    "input": ["text", "audio prompt"],
+    "output": ["speech"]
+  },
+  "training": {
+    "objective": "speech generation",
+    "data": "multilingual speech data",
+    "postTraining": "voice and style conditioning"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "text-to-speech",
+    "voice-cloning",
+    "multilingual",
+    "speech-language-model"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Fish Speech",
+      "url": "https://github.com/fishaudio/fish-speech"
+    }
+  ],
+  "relatedModels": [
+    "cosyvoice",
+    "vall-e",
+    "bark"
+  ]
 }
