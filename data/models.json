@@ -19744,4 +19744,2294 @@
   "audioRepresentation": "",
   "videoRepresentation": "",
   "tokenEfficiencyNotes": ""
+},
+    {
+  "id": "benchmark-taxonomy",
+  "name": "Foundation Model Evaluation Taxonomy",
+  "family": "Evaluation Framework",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "evaluation",
+  "type": "benchmark-taxonomy",
+  "description": "A capability-oriented framework for evaluating foundation models across knowledge, reasoning, mathematics, coding, instruction following, multilingual ability, multimodal understanding, long-context processing, safety, factuality, tool use, and agentic performance.",
+  "capabilities": [
+    "knowledge",
+    "reasoning",
+    "mathematics",
+    "coding",
+    "instruction-following",
+    "multilingual",
+    "long-context",
+    "vision",
+    "audio",
+    "video",
+    "factuality",
+    "safety",
+    "tool-use",
+    "agents"
+  ],
+  "evaluationMethods": [
+    "static benchmarks",
+    "dynamic benchmarks",
+    "human evaluation",
+    "pairwise preference evaluation",
+    "automated evaluation",
+    "expert evaluation",
+    "real-world task evaluation"
+  ],
+  "limitations": [
+    "Benchmark saturation",
+    "Training-data contamination",
+    "Prompt sensitivity",
+    "Metric gaming",
+    "Poor correlation with some real-world tasks",
+    "Differences in evaluation protocols"
+  ],
+  "tags": [
+    "evaluation",
+    "benchmarks",
+    "foundation-models",
+    "capabilities"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "benchmark-contamination",
+    "llm-evaluation",
+    "human-evaluation"
+  ]
+},
+  {
+  "id": "mmlu",
+  "name": "MMLU",
+  "family": "Knowledge & Reasoning Benchmark",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "evaluation",
+  "type": "multitask-knowledge-benchmark",
+  "description": "Massive Multitask Language Understanding evaluates language models across a broad collection of academic and professional subjects using multiple-choice questions.",
+  "capabilities": [
+    "knowledge",
+    "reasoning",
+    "professional knowledge",
+    "academic knowledge"
+  ],
+  "taskFormat": "multiple-choice",
+  "evaluationMethod": "accuracy",
+  "modalities": [
+    "text"
+  ],
+  "advantages": [
+    "Broad subject coverage",
+    "Simple and reproducible evaluation",
+    "Widely reported"
+  ],
+  "limitations": [
+    "Multiple-choice format",
+    "Potential benchmark saturation",
+    "Possible training-data contamination",
+    "Does not fully measure open-ended reasoning"
+  ],
+  "tags": [
+    "mmlu",
+    "knowledge",
+    "reasoning",
+    "benchmark"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Measuring Massive Multitask Language Understanding",
+      "url": "https://arxiv.org/abs/2009.03300"
+    }
+  ],
+  "relatedConcepts": [
+    "mmlu-pro",
+    "gpqa",
+    "benchmark-contamination"
+  ]
+},
+  {
+  "id": "mmlu-pro",
+  "name": "MMLU-Pro",
+  "family": "Knowledge & Reasoning Benchmark",
+  "organization": "Research community",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "evaluation",
+  "type": "advanced-knowledge-reasoning-benchmark",
+  "description": "MMLU-Pro extends the original MMLU evaluation with more challenging questions and a stronger emphasis on reasoning.",
+  "capabilities": [
+    "knowledge",
+    "reasoning",
+    "professional knowledge"
+  ],
+  "taskFormat": "multiple-choice",
+  "evaluationMethod": "accuracy",
+  "modalities": [
+    "text"
+  ],
+  "advantages": [
+    "More challenging than many original MMLU questions",
+    "Better emphasis on reasoning",
+    "Reduced dependence on simple answer selection"
+  ],
+  "limitations": [
+    "Still primarily multiple-choice",
+    "Potential contamination",
+    "Benchmark-specific optimization remains possible"
+  ],
+  "tags": [
+    "mmlu-pro",
+    "reasoning",
+    "knowledge",
+    "evaluation"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "MMLU-Pro: A More Robust and Challenging Multi-Task Language Understanding Benchmark",
+      "url": "https://arxiv.org/abs/2406.01574"
+    }
+  ],
+  "relatedConcepts": [
+    "mmlu",
+    "gpqa",
+    "benchmark-saturation"
+  ]
+},
+  {
+  "id": "gpqa",
+  "name": "GPQA",
+  "family": "Expert Reasoning Benchmark",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "evaluation",
+  "type": "graduate-level-reasoning-benchmark",
+  "description": "GPQA evaluates advanced scientific reasoning using difficult questions designed to be resistant to straightforward web search and accessible primarily to domain experts.",
+  "capabilities": [
+    "scientific reasoning",
+    "expert knowledge",
+    "problem solving"
+  ],
+  "taskFormat": "multiple-choice",
+  "evaluationMethod": "accuracy",
+  "modalities": [
+    "text"
+  ],
+  "advantages": [
+    "High difficulty",
+    "Expert-authored questions",
+    "Tests advanced scientific reasoning"
+  ],
+  "limitations": [
+    "Narrower domain coverage",
+    "Multiple-choice format",
+    "Potential contamination concerns"
+  ],
+  "tags": [
+    "gpqa",
+    "reasoning",
+    "science",
+    "expert-evaluation"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "GPQA: A Graduate-Level Google-Proof Q&A Benchmark",
+      "url": "https://arxiv.org/abs/2311.12022"
+    }
+  ],
+  "relatedConcepts": [
+    "mmlu-pro",
+    "reasoning",
+    "expert-evaluation"
+  ]
+},
+  {
+  "id": "gsm8k",
+  "name": "GSM8K",
+  "family": "Mathematical Reasoning Benchmark",
+  "organization": "OpenAI / research community",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "evaluation",
+  "type": "grade-school-math-reasoning",
+  "description": "GSM8K evaluates multi-step mathematical reasoning using grade-school word problems.",
+  "capabilities": [
+    "mathematical reasoning",
+    "multi-step reasoning",
+    "arithmetic"
+  ],
+  "taskFormat": "open-ended question answering",
+  "evaluationMethod": "answer accuracy",
+  "modalities": [
+    "text"
+  ],
+  "advantages": [
+    "Simple interpretation",
+    "Multi-step reasoning",
+    "Widely used"
+  ],
+  "limitations": [
+    "Increasingly saturated",
+    "Limited mathematical difficulty",
+    "Potential contamination"
+  ],
+  "tags": [
+    "gsm8k",
+    "math",
+    "reasoning",
+    "benchmark"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Training Verifiers to Solve Math Word Problems",
+      "url": "https://arxiv.org/abs/2110.14168"
+    }
+  ],
+  "relatedConcepts": [
+    "math-reasoning",
+    "aime",
+    "benchmark-saturation"
+  ]
+},
+  {
+  "id": "aime",
+  "name": "AIME",
+  "family": "Advanced Mathematics Evaluation",
+  "organization": "Mathematical Association of America",
+  "releaseDate": "1978",
+  "year": 1978,
+  "category": "evaluation",
+  "type": "competition-mathematics",
+  "description": "The American Invitational Mathematics Examination provides difficult competition mathematics problems that are increasingly used as evaluations of advanced mathematical reasoning in AI systems.",
+  "capabilities": [
+    "advanced mathematics",
+    "problem solving",
+    "reasoning"
+  ],
+  "taskFormat": "numeric-answer problem solving",
+  "evaluationMethod": "exact-answer accuracy",
+  "modalities": [
+    "text"
+  ],
+  "advantages": [
+    "High mathematical difficulty",
+    "Objective answers",
+    "Competition-level problems"
+  ],
+  "limitations": [
+    "Not designed specifically as an AI benchmark",
+    "Potential exposure through training or public solutions",
+    "Narrow capability measurement"
+  ],
+  "tags": [
+    "aime",
+    "mathematics",
+    "reasoning",
+    "competition"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "American Invitational Mathematics Examination",
+      "url": "https://maa.org/math-competitions/american-invitational-mathematics-examination-aime"
+    }
+  ],
+  "relatedConcepts": [
+    "gsm8k",
+    "math-reasoning",
+    "benchmark-contamination"
+  ]
+},
+  {
+  "id": "humaneval",
+  "name": "HumanEval",
+  "family": "Code Generation Benchmark",
+  "organization": "OpenAI",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "evaluation",
+  "type": "code-generation",
+  "description": "HumanEval evaluates code-generation models using programming problems with function signatures and hidden tests.",
+  "capabilities": [
+    "code generation",
+    "program synthesis",
+    "functional correctness"
+  ],
+  "taskFormat": "code completion",
+  "evaluationMethod": "pass@k",
+  "modalities": [
+    "text",
+    "code"
+  ],
+  "advantages": [
+    "Tests executable correctness",
+    "More meaningful than text similarity metrics",
+    "Introduced pass@k evaluation"
+  ],
+  "limitations": [
+    "Small benchmark",
+    "Known contamination concerns",
+    "Does not fully represent software engineering"
+  ],
+  "tags": [
+    "humaneval",
+    "coding",
+    "code-generation",
+    "pass-at-k"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Evaluating Large Language Models Trained on Code",
+      "url": "https://arxiv.org/abs/2107.03374"
+    }
+  ],
+  "relatedConcepts": [
+    "swe-bench",
+    "coding-evaluation",
+    "pass-at-k"
+  ]
+},
+  {
+  "id": "swe-bench",
+  "name": "SWE-bench",
+  "family": "Software Engineering Benchmark",
+  "organization": "Princeton University / research community",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "evaluation",
+  "type": "real-world-software-engineering",
+  "description": "SWE-bench evaluates whether language models can resolve real GitHub issues by modifying repositories and producing patches that satisfy tests.",
+  "capabilities": [
+    "software engineering",
+    "repository understanding",
+    "debugging",
+    "code modification",
+    "test-driven problem solving"
+  ],
+  "taskFormat": "repository-level issue resolution",
+  "evaluationMethod": "test-based patch evaluation",
+  "modalities": [
+    "text",
+    "code",
+    "repository"
+  ],
+  "advantages": [
+    "Real-world repositories",
+    "Tests repository-level reasoning",
+    "Closer to practical software engineering"
+  ],
+  "limitations": [
+    "Environment and setup can affect results",
+    "Evaluation depends on tests",
+    "Benchmark-specific optimization remains possible"
+  ],
+  "tags": [
+    "swe-bench",
+    "software-engineering",
+    "coding",
+    "agents"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?",
+      "url": "https://arxiv.org/abs/2310.06770"
+    }
+  ],
+  "relatedConcepts": [
+    "humaneval",
+    "coding-agent",
+    "agent-evaluation"
+  ]
+},
+  {
+  "id": "ifeval",
+  "name": "IFEval",
+  "family": "Instruction Following Benchmark",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "evaluation",
+  "type": "instruction-following",
+  "description": "IFEval evaluates whether language models follow verifiable natural-language instructions containing explicit constraints.",
+  "capabilities": [
+    "instruction following",
+    "constraint satisfaction",
+    "format adherence"
+  ],
+  "taskFormat": "instruction-following",
+  "evaluationMethod": "verifiable constraint satisfaction",
+  "modalities": [
+    "text"
+  ],
+  "advantages": [
+    "Objective instruction-following checks",
+    "Tests formatting and explicit constraints"
+  ],
+  "limitations": [
+    "Limited to verifiable instructions",
+    "Does not fully capture subjective instruction quality"
+  ],
+  "tags": [
+    "ifeval",
+    "instruction-following",
+    "alignment",
+    "evaluation"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Instruction-Following Evaluation for Large Language Models",
+      "url": "https://arxiv.org/abs/2311.07911"
+    }
+  ],
+  "relatedConcepts": [
+    "instruction-tuning",
+    "alignment",
+    "llm-evaluation"
+  ]
+},
+  {
+  "id": "big-bench-hard",
+  "name": "BIG-Bench Hard",
+  "family": "Reasoning Benchmark",
+  "organization": "BIG-bench research community",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "evaluation",
+  "type": "reasoning-suite",
+  "description": "BIG-Bench Hard is a curated subset of challenging BIG-bench tasks selected for their difficulty for language models and their relevance to reasoning capabilities.",
+  "capabilities": [
+    "reasoning",
+    "language understanding",
+    "logical reasoning",
+    "symbolic reasoning"
+  ],
+  "taskFormat": "multiple task formats",
+  "evaluationMethod": "task-specific accuracy",
+  "modalities": [
+    "text"
+  ],
+  "advantages": [
+    "Broad reasoning task coverage",
+    "Includes diverse challenging tasks"
+  ],
+  "limitations": [
+    "Task heterogeneity",
+    "Some tasks may become saturated",
+    "Prompting can significantly affect results"
+  ],
+  "tags": [
+    "bbh",
+    "big-bench",
+    "reasoning",
+    "evaluation"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Beyond the Imitation Game: Quantifying and Extrapolating the Capabilities of Language Models",
+      "url": "https://arxiv.org/abs/2206.04615"
+    }
+  ],
+  "relatedConcepts": [
+    "mmlu",
+    "reasoning",
+    "benchmark-suite"
+  ]
+},
+  {
+  "id": "arc",
+  "name": "ARC",
+  "family": "Science Reasoning Benchmark",
+  "organization": "AI2",
+  "releaseDate": "2018",
+  "year": 2018,
+  "category": "evaluation",
+  "type": "science-question-answering",
+  "description": "The AI2 Reasoning Challenge evaluates scientific question answering using grade-school science questions divided into standard and challenge sets.",
+  "capabilities": [
+    "science knowledge",
+    "reasoning",
+    "question answering"
+  ],
+  "taskFormat": "multiple-choice",
+  "evaluationMethod": "accuracy",
+  "modalities": [
+    "text"
+  ],
+  "advantages": [
+    "Scientific reasoning focus",
+    "Challenge subset targets more difficult questions"
+  ],
+  "limitations": [
+    "Older benchmark",
+    "Potential saturation",
+    "Limited domain scope"
+  ],
+  "tags": [
+    "arc",
+    "science",
+    "reasoning",
+    "benchmark"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Think you have Solved Question Answering? Try ARC, the AI2 Reasoning Challenge",
+      "url": "https://arxiv.org/abs/1803.05457"
+    }
+  ],
+  "relatedConcepts": [
+    "mmlu",
+    "gpqa",
+    "science-reasoning"
+  ]
+},
+  {
+  "id": "hellaswag",
+  "name": "HellaSwag",
+  "family": "Commonsense Reasoning Benchmark",
+  "organization": "Research community",
+  "releaseDate": "2019",
+  "year": 2019,
+  "category": "evaluation",
+  "type": "commonsense-completion",
+  "description": "HellaSwag evaluates commonsense reasoning by asking models to select plausible continuations of scenarios.",
+  "capabilities": [
+    "commonsense reasoning",
+    "language understanding"
+  ],
+  "taskFormat": "multiple-choice completion",
+  "evaluationMethod": "accuracy",
+  "modalities": [
+    "text"
+  ],
+  "advantages": [
+    "Tests commonsense plausibility",
+    "Designed to challenge strong language models"
+  ],
+  "limitations": [
+    "Benchmark saturation",
+    "Multiple-choice limitation",
+    "Potential contamination"
+  ],
+  "tags": [
+    "hellaswag",
+    "commonsense",
+    "reasoning"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "HellaSwag: Can a Machine Really Finish Your Sentence?",
+      "url": "https://arxiv.org/abs/1905.07830"
+    }
+  ],
+  "relatedConcepts": [
+    "arc",
+    "reasoning",
+    "mmlu"
+  ]
+},
+  {
+  "id": "truthfulqa",
+  "name": "TruthfulQA",
+  "family": "Truthfulness Benchmark",
+  "organization": "Research community",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "evaluation",
+  "type": "truthfulness",
+  "description": "TruthfulQA evaluates whether language models produce truthful answers to questions designed to expose common misconceptions and false beliefs.",
+  "capabilities": [
+    "truthfulness",
+    "factuality",
+    "misconception resistance"
+  ],
+  "taskFormat": "question answering",
+  "evaluationMethod": "truthfulness and informativeness",
+  "modalities": [
+    "text"
+  ],
+  "advantages": [
+    "Targets factual reliability",
+    "Tests resistance to common misconceptions"
+  ],
+  "limitations": [
+    "Truthfulness is difficult to reduce to a single metric",
+    "Evaluation can depend on reference judgments",
+    "Does not directly measure grounding against provided evidence"
+  ],
+  "tags": [
+    "truthfulqa",
+    "truthfulness",
+    "hallucination",
+    "factuality",
+    "grounding"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "TruthfulQA: Measuring How Models Mimic Human Falsehoods",
+      "url": "https://arxiv.org/abs/2109.07958"
+    }
+  ],
+  "relatedConcepts": [
+    "hallucination",
+    "grounding",
+    "factuality",
+    "rag-evaluation"
+  ]
+},
+  {
+  "id": "mmmu",
+  "name": "MMMU",
+  "family": "Multimodal Reasoning Benchmark",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "evaluation",
+  "type": "multimodal-expert-reasoning",
+  "description": "MMMU evaluates multimodal reasoning across university-level subjects using questions that require understanding images, diagrams, charts, and text.",
+  "capabilities": [
+    "multimodal reasoning",
+    "expert knowledge",
+    "visual understanding"
+  ],
+  "taskFormat": "multiple-choice",
+  "evaluationMethod": "accuracy",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "advantages": [
+    "Broad academic subject coverage",
+    "Requires visual and textual reasoning",
+    "Designed for advanced multimodal models"
+  ],
+  "limitations": [
+    "Multiple-choice format",
+    "Potential contamination",
+    "Does not cover all real-world multimodal tasks"
+  ],
+  "tags": [
+    "mmmu",
+    "multimodal",
+    "vision-language",
+    "reasoning"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "MMMU: A Massive Multi-discipline Multimodal Understanding and Reasoning Benchmark for Expert AGI",
+      "url": "https://arxiv.org/abs/2311.16502"
+    }
+  ],
+  "relatedConcepts": [
+    "mathvista",
+    "multimodal-evaluation",
+    "vision-language-model"
+  ]
+},
+  {
+  "id": "mathvista",
+  "name": "MathVista",
+  "family": "Multimodal Mathematics Benchmark",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "evaluation",
+  "type": "visual-mathematical-reasoning",
+  "description": "MathVista evaluates mathematical reasoning involving visual information such as charts, diagrams, geometry, and scientific figures.",
+  "capabilities": [
+    "mathematical reasoning",
+    "visual reasoning",
+    "diagram understanding"
+  ],
+  "taskFormat": "multimodal question answering",
+  "evaluationMethod": "answer accuracy",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "advantages": [
+    "Combines mathematics and visual reasoning",
+    "Tests multimodal problem solving"
+  ],
+  "limitations": [
+    "Benchmark-specific task distribution",
+    "Potential contamination",
+    "Limited to selected visual-mathematical tasks"
+  ],
+  "tags": [
+    "mathvista",
+    "multimodal",
+    "math",
+    "vision"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "MathVista: Evaluating Mathematical Reasoning of Foundation Models in Visual Contexts",
+      "url": "https://arxiv.org/abs/2310.02255"
+    }
+  ],
+  "relatedConcepts": [
+    "mmmu",
+    "multimodal-reasoning",
+    "math-reasoning"
+  ]
+},
+  {
+  "id": "docvqa",
+  "name": "DocVQA",
+  "family": "Document Understanding Benchmark",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "evaluation",
+  "type": "document-visual-question-answering",
+  "description": "DocVQA evaluates visual question answering over document images, requiring models to combine document layout, text recognition, and semantic understanding.",
+  "capabilities": [
+    "document understanding",
+    "OCR",
+    "visual question answering",
+    "layout understanding"
+  ],
+  "taskFormat": "question answering",
+  "evaluationMethod": "ANLS and related metrics",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "advantages": [
+    "Tests practical document understanding",
+    "Combines visual and textual information"
+  ],
+  "limitations": [
+    "Domain-specific",
+    "OCR quality can affect results"
+  ],
+  "tags": [
+    "docvqa",
+    "documents",
+    "ocr",
+    "vision-language"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "DocVQA: A Dataset for VQA on Document Images",
+      "url": "https://arxiv.org/abs/2007.00398"
+    }
+  ],
+  "relatedConcepts": [
+    "ocr",
+    "multimodal-evaluation",
+    "document-understanding"
+  ]
+},
+  {
+  "id": "longbench",
+  "name": "LongBench",
+  "family": "Long-Context Benchmark",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "evaluation",
+  "type": "long-context-evaluation",
+  "description": "LongBench evaluates language models across diverse tasks requiring understanding and reasoning over long contexts.",
+  "capabilities": [
+    "long-context understanding",
+    "retrieval",
+    "reasoning",
+    "summarization",
+    "question answering"
+  ],
+  "taskFormat": "multiple task formats",
+  "evaluationMethod": "task-specific metrics",
+  "modalities": [
+    "text"
+  ],
+  "advantages": [
+    "Evaluates long-context behavior across multiple tasks",
+    "More informative than context-window size alone"
+  ],
+  "limitations": [
+    "Long-context benchmark performance depends on task distribution",
+    "Does not establish reliable performance at every advertised context length"
+  ],
+  "tags": [
+    "longbench",
+    "long-context",
+    "context-window",
+    "evaluation"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "LongBench: A Bilingual, Multitask Benchmark for Long Context Understanding",
+      "url": "https://arxiv.org/abs/2308.14508"
+    }
+  ],
+  "relatedConcepts": [
+    "long-context",
+    "ruler",
+    "needle-in-a-haystack"
+  ]
+},
+  {
+  "id": "ruler",
+  "name": "RULER",
+  "family": "Long-Context Evaluation",
+  "organization": "Research community",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "evaluation",
+  "type": "synthetic-long-context-benchmark",
+  "description": "RULER evaluates long-context capabilities using controlled tasks designed to measure retrieval, reasoning, and manipulation of information across long sequences.",
+  "capabilities": [
+    "long-context retrieval",
+    "long-context reasoning",
+    "information tracking"
+  ],
+  "taskFormat": "synthetic controlled tasks",
+  "evaluationMethod": "task-specific accuracy",
+  "modalities": [
+    "text"
+  ],
+  "advantages": [
+    "Controlled context-length evaluation",
+    "Tests multiple long-context capabilities",
+    "Can probe degradation as context grows"
+  ],
+  "limitations": [
+    "Synthetic tasks may not fully represent real workloads",
+    "Benchmark performance can differ from natural-document retrieval"
+  ],
+  "tags": [
+    "ruler",
+    "long-context",
+    "retrieval",
+    "evaluation"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "RULER: What's the Real Context Size of Your Long-Context Language Models?",
+      "url": "https://arxiv.org/abs/2404.06654"
+    }
+  ],
+  "relatedConcepts": [
+    "longbench",
+    "long-context",
+    "context-window"
+  ]
+},
+  {
+  "id": "videomme",
+  "name": "Video-MME",
+  "family": "Video Understanding Benchmark",
+  "organization": "Research community",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "evaluation",
+  "type": "video-multimodal-evaluation",
+  "description": "Video-MME evaluates multimodal models on video understanding across different video durations and domains.",
+  "capabilities": [
+    "video understanding",
+    "temporal reasoning",
+    "visual reasoning",
+    "audio-visual understanding"
+  ],
+  "taskFormat": "video question answering",
+  "evaluationMethod": "accuracy",
+  "modalities": [
+    "video",
+    "text",
+    "audio"
+  ],
+  "advantages": [
+    "Tests temporal multimodal understanding",
+    "Covers different video durations",
+    "More representative of video tasks than image-only benchmarks"
+  ],
+  "limitations": [
+    "Video processing cost is high",
+    "Sampling strategy affects results"
+  ],
+  "tags": [
+    "videomme",
+    "video",
+    "multimodal",
+    "temporal-reasoning"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Video-MME: A Comprehensive Evaluation Benchmark for Multi-modal Large Language Models in Video Analysis",
+      "url": "https://arxiv.org/abs/2405.21075"
+    }
+  ],
+  "relatedConcepts": [
+    "video-tokenization",
+    "multimodal-evaluation",
+    "video-language-model"
+  ]
+},
+  {
+  "id": "benchmark-contamination",
+  "name": "Benchmark Contamination",
+  "family": "Evaluation Methodology",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "evaluation",
+  "type": "evaluation-validity",
+  "description": "Benchmark contamination occurs when evaluation examples or closely related information are present in a model's training data, potentially inflating reported performance.",
+  "riskFactors": [
+    "Public benchmark datasets",
+    "Web-scale pretraining",
+    "Repeated benchmark publication",
+    "Synthetic benchmark leakage",
+    "Human-written solutions online"
+  ],
+  "detectionMethods": [
+    "n-gram overlap analysis",
+    "membership-style analysis",
+    "training-data audits",
+    "deduplication",
+    "temporal evaluation",
+    "private test sets"
+  ],
+  "limitations": [
+    "Perfect contamination detection is difficult",
+    "Semantic contamination can occur without exact string overlap"
+  ],
+  "tags": [
+    "contamination",
+    "benchmark",
+    "evaluation",
+    "data-leakage"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "benchmark-evaluation",
+    "data-contamination",
+    "test-set-integrity"
+  ]
+},
+  {
+  "id": "human-evaluation",
+  "name": "Human Evaluation",
+  "family": "Evaluation Methodology",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2010,
+  "category": "evaluation",
+  "type": "human-judgment",
+  "description": "Human evaluation uses human judgments to assess qualities that automated metrics may not reliably capture, including helpfulness, preference, factuality, style, and overall response quality.",
+  "evaluationMethods": [
+    "pairwise preference",
+    "rating scales",
+    "expert review",
+    "rubric-based evaluation",
+    "blind comparison"
+  ],
+  "advantages": [
+    "Can evaluate open-ended quality",
+    "Captures dimensions difficult to formalize",
+    "Useful for comparing generative systems"
+  ],
+  "limitations": [
+    "Expensive",
+    "Inter-rater variability",
+    "Potential evaluator bias",
+    "Prompt and presentation effects"
+  ],
+  "tags": [
+    "human-evaluation",
+    "preference",
+    "alignment",
+    "llm-evaluation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "arena-evaluation",
+    "llm-as-a-judge",
+    "benchmark-evaluation"
+  ]
+},
+  {
+  "id": "llm-as-a-judge",
+  "name": "LLM-as-a-Judge",
+  "family": "Evaluation Methodology",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "evaluation",
+  "type": "model-based-evaluation",
+  "description": "LLM-as-a-Judge uses a language model to evaluate or rank outputs produced by other models according to a rubric or comparison protocol.",
+  "evaluationMethods": [
+    "pairwise comparison",
+    "rubric scoring",
+    "ranking",
+    "reference-based judging"
+  ],
+  "advantages": [
+    "Scales evaluation more cheaply than human annotation",
+    "Can evaluate open-ended responses",
+    "Useful for rapid model comparison"
+  ],
+  "limitations": [
+    "Judge bias",
+    "Position bias",
+    "Verbosity bias",
+    "Preference instability",
+    "Potential agreement with its own model family"
+  ],
+  "tags": [
+    "llm-as-a-judge",
+    "evaluation",
+    "model-evaluation",
+    "alignment"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena",
+      "url": "https://arxiv.org/abs/2306.05685"
+    }
+  ],
+  "relatedConcepts": [
+    "human-evaluation",
+    "mt-bench",
+    "arena-evaluation"
+  ]
+},
+  {
+  "id": "arena-evaluation",
+  "name": "Arena-Style Pairwise Evaluation",
+  "family": "Human Preference Evaluation",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "evaluation",
+  "type": "pairwise-preference",
+  "description": "Arena-style evaluation compares model outputs pairwise, often using anonymous human preferences, and aggregates results into a ranking or rating system.",
+  "evaluationMethods": [
+    "pairwise human preference",
+    "Elo-style ranking",
+    "Bradley-Terry-style modeling",
+    "crowdsourced comparison"
+  ],
+  "advantages": [
+    "Measures real user preference",
+    "Works for open-ended generation",
+    "Dynamic model comparison"
+  ],
+  "limitations": [
+    "Preference is not identical to correctness",
+    "Presentation effects",
+    "Prompt distribution effects",
+    "Potential gaming or strategic behavior"
+  ],
+  "tags": [
+    "arena",
+    "human-preference",
+    "pairwise-evaluation",
+    "leaderboard"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "human-evaluation",
+    "llm-as-a-judge",
+    "model-ranking"
+  ]
+},
+  {
+  "id": "agent-evaluation",
+  "name": "Agent Evaluation",
+  "family": "Agentic Evaluation",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "evaluation",
+  "type": "agent-benchmark",
+  "description": "Agent evaluation measures whether models can plan, use tools, interact with environments, maintain state, recover from errors, and complete multi-step tasks.",
+  "capabilities": [
+    "planning",
+    "tool use",
+    "environment interaction",
+    "memory",
+    "task completion",
+    "error recovery",
+    "multi-step reasoning"
+  ],
+  "evaluationMethods": [
+    "task success rate",
+    "trajectory evaluation",
+    "tool-call accuracy",
+    "execution success",
+    "cost-aware success",
+    "human evaluation"
+  ],
+  "advantages": [
+    "Closer to real-world AI systems",
+    "Measures behavior over multiple steps",
+    "Captures tool-use capabilities"
+  ],
+  "limitations": [
+    "Highly environment-dependent",
+    "Expensive to evaluate",
+    "Small implementation differences can alter results"
+  ],
+  "tags": [
+    "agents",
+    "agent-evaluation",
+    "tool-use",
+    "planning"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "swe-bench",
+    "tool-use",
+    "agent-model"
+  ]
+},
+  {
+  "id": "evaluation-reliability",
+  "name": "Foundation Model Evaluation Reliability",
+  "family": "Evaluation Methodology",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "evaluation",
+  "type": "evaluation-reliability",
+  "description": "Evaluation reliability concerns whether benchmark results accurately measure the capability they claim to measure and whether scores generalize across prompts, datasets, languages, evaluators, and real-world tasks.",
+  "dimensions": [
+    "validity",
+    "reliability",
+    "reproducibility",
+    "contamination resistance",
+    "prompt robustness",
+    "distribution shift",
+    "statistical significance",
+    "human agreement"
+  ],
+  "bestPractices": [
+    "Report evaluation protocol",
+    "Report prompts",
+    "Use multiple benchmarks",
+    "Separate development and test data",
+    "Check contamination",
+    "Report uncertainty when possible",
+    "Evaluate real-world tasks",
+    "Avoid relying on one leaderboard"
+  ],
+  "tags": [
+    "evaluation",
+    "reproducibility",
+    "benchmark",
+    "scientific-method"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "benchmark-contamination",
+    "human-evaluation",
+    "llm-as-a-judge"
+  ]
+  "evaluation": {
+  "benchmarks": [],
+  "reportedScores": [],
+  "evaluationDate": "",
+  "evaluationProtocol": "",
+  "promptingStrategy": "",
+  "fewShot": null,
+  "toolsEnabled": false,
+  "reasoningMode": "",
+  "contaminationRisk": "unknown",
+  "humanEvaluation": false,
+  "externalEvaluation": false
+},
+{
+  "id": "pretraining",
+  "name": "Foundation Model Pretraining",
+  "family": "Training Paradigm",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2010,
+  "category": "training",
+  "type": "pretraining",
+  "description": "Pretraining learns general-purpose representations or generative capabilities from large-scale datasets before task-specific adaptation or post-training.",
+  "data": {
+    "sources": [
+      "web text",
+      "books",
+      "code",
+      "scientific literature",
+      "multilingual text",
+      "images",
+      "audio",
+      "video",
+      "synthetic data"
+    ],
+    "scale": "model-dependent",
+    "processing": [
+      "filtering",
+      "deduplication",
+      "quality control",
+      "format normalization"
+    ]
+  },
+  "objectives": [
+    "causal language modeling",
+    "masked language modeling",
+    "sequence-to-sequence modeling",
+    "multimodal prediction",
+    "contrastive learning"
+  ],
+  "advantages": [
+    "Produces general-purpose capabilities",
+    "Supports transfer to many downstream tasks",
+    "Can exploit very large heterogeneous datasets"
+  ],
+  "limitations": [
+    "Extremely computationally expensive",
+    "Data quality strongly affects results",
+    "Training-data composition can introduce unwanted biases",
+    "Potential benchmark contamination"
+  ],
+  "tags": [
+    "pretraining",
+    "foundation-model",
+    "training",
+    "data"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "causal-language-modeling",
+    "masked-language-modeling",
+    "data-filtering",
+    "continued-pretraining"
+  ]
+},
+  {
+  "id": "causal-language-modeling",
+  "name": "Causal Language Modeling",
+  "family": "Training Objective",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "training",
+  "type": "autoregressive-language-modeling",
+  "description": "Causal language modeling trains a model to predict the next token conditioned on preceding tokens, typically using a causal attention mask.",
+  "objective": {
+    "direction": "left-to-right",
+    "prediction": "next token",
+    "masking": "causal",
+    "loss": "cross-entropy"
+  },
+  "architecture": {
+    "typicalArchitecture": "decoder-only Transformer",
+    "attention": "causal self-attention"
+  },
+  "advantages": [
+    "Natural fit for text generation",
+    "Scales effectively with large language models",
+    "Simple autoregressive objective"
+  ],
+  "limitations": [
+    "Training requires processing long token sequences",
+    "Standard causal attention does not directly see future tokens"
+  ],
+  "tags": [
+    "causal-lm",
+    "autoregressive",
+    "gpt",
+    "language-modeling"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "gpt",
+    "masked-language-modeling",
+    "sequence-to-sequence"
+  ]
+},
+  {
+  "id": "masked-language-modeling",
+  "name": "Masked Language Modeling",
+  "family": "Training Objective",
+  "organization": "Research community",
+  "releaseDate": "2018",
+  "year": 2018,
+  "category": "training",
+  "type": "masked-language-modeling",
+  "description": "Masked language modeling trains an encoder-style model to reconstruct tokens that have been masked or corrupted within an input sequence.",
+  "objective": {
+    "direction": "bidirectional",
+    "prediction": "masked tokens",
+    "masking": "random or structured corruption",
+    "loss": "cross-entropy"
+  },
+  "architecture": {
+    "typicalArchitecture": "encoder-only Transformer",
+    "attention": "bidirectional self-attention"
+  },
+  "advantages": [
+    "Strong contextual representations",
+    "Each masked token can use information from both sides",
+    "Effective for understanding tasks"
+  ],
+  "limitations": [
+    "Not naturally autoregressive",
+    "Pretraining corruption differs from ordinary generation",
+    "Requires task-specific adaptation for generation"
+  ],
+  "tags": [
+    "mlm",
+    "bert",
+    "masked-language-modeling",
+    "encoder"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+      "url": "https://arxiv.org/abs/1810.04805"
+    }
+  ],
+  "relatedConcepts": [
+    "bert",
+    "causal-language-modeling",
+    "encoder-only"
+  ]
+},
+  {
+  "id": "sequence-to-sequence-training",
+  "name": "Sequence-to-Sequence Training",
+  "family": "Training Paradigm",
+  "organization": "Research community",
+  "releaseDate": "2014",
+  "year": 2014,
+  "category": "training",
+  "type": "encoder-decoder",
+  "description": "Sequence-to-sequence training learns to transform an input sequence into an output sequence, typically using an encoder to represent the input and a decoder to generate the target.",
+  "objective": {
+    "direction": "input-to-output",
+    "prediction": "target sequence",
+    "masking": "decoder causal masking",
+    "loss": "cross-entropy"
+  },
+  "architecture": {
+    "typicalArchitecture": "encoder-decoder Transformer",
+    "attention": [
+      "encoder self-attention",
+      "decoder self-attention",
+      "encoder-decoder cross-attention"
+    ]
+  },
+  "advantages": [
+    "Natural for translation and transformation tasks",
+    "Flexible input-output mapping",
+    "Strong conditional generation"
+  ],
+  "limitations": [
+    "More architectural components than decoder-only models",
+    "Potentially higher inference complexity"
+  ],
+  "tags": [
+    "seq2seq",
+    "encoder-decoder",
+    "t5",
+    "translation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "t5",
+    "encoder-decoder",
+    "causal-language-modeling"
+  ]
+},
+  {
+  "id": "data-filtering",
+  "name": "Training Data Filtering",
+  "family": "Data Pipeline",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "training",
+  "type": "data-filtering",
+  "description": "Data filtering removes low-quality, irrelevant, duplicated, unsafe, or otherwise undesirable examples before or during foundation-model training.",
+  "methods": [
+    "language identification",
+    "quality scoring",
+    "heuristic filtering",
+    "classifier-based filtering",
+    "toxicity filtering",
+    "spam detection",
+    "perplexity filtering",
+    "domain filtering"
+  ],
+  "objectives": [
+    "increase data quality",
+    "reduce harmful content",
+    "remove noise",
+    "improve training efficiency",
+    "control domain composition"
+  ],
+  "advantages": [
+    "Can improve data quality",
+    "Reduces wasted compute",
+    "Allows control over corpus composition"
+  ],
+  "limitations": [
+    "Aggressive filtering can remove useful information",
+    "Classifier errors can bias the corpus",
+    "Exact filtering pipelines are often proprietary"
+  ],
+  "tags": [
+    "data-filtering",
+    "pretraining",
+    "dataset-quality",
+    "data-pipeline"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "data-deduplication",
+    "data-quality",
+    "pretraining"
+  ]
+},
+  {
+  "id": "data-deduplication",
+  "name": "Training Data Deduplication",
+  "family": "Data Pipeline",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "training",
+  "type": "deduplication",
+  "description": "Data deduplication identifies and removes exact or near-duplicate examples from training corpora to reduce redundancy, improve effective data diversity, and mitigate memorization and contamination risks.",
+  "methods": [
+    "exact hash matching",
+    "n-gram overlap",
+    "MinHash",
+    "locality-sensitive hashing",
+    "semantic similarity",
+    "document-level deduplication"
+  ],
+  "objectives": [
+    "increase data diversity",
+    "reduce repeated examples",
+    "reduce memorization",
+    "reduce benchmark contamination"
+  ],
+  "advantages": [
+    "Improves effective corpus diversity",
+    "Can reduce unnecessary training compute",
+    "Can reduce repeated benchmark exposure"
+  ],
+  "limitations": [
+    "Near-duplicate detection is computationally expensive",
+    "Over-deduplication can remove legitimate related examples"
+  ],
+  "tags": [
+    "deduplication",
+    "data-quality",
+    "pretraining",
+    "contamination"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "data-filtering",
+    "benchmark-contamination",
+    "pretraining"
+  ]
+},
+  {
+  "id": "data-mixture",
+  "name": "Training Data Mixture",
+  "family": "Data Composition",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "training",
+  "type": "data-mixture",
+  "description": "A training data mixture defines the relative composition of different domains, sources, languages, modalities, or quality levels used during model training.",
+  "dimensions": [
+    "domain",
+    "language",
+    "quality",
+    "modality",
+    "source",
+    "synthetic versus human-generated"
+  ],
+  "examples": [
+    "web",
+    "books",
+    "code",
+    "scientific text",
+    "mathematics",
+    "multilingual data",
+    "image-text pairs",
+    "audio",
+    "video",
+    "synthetic data"
+  ],
+  "importance": [
+    "Influences model capabilities",
+    "Influences domain specialization",
+    "Influences multilingual performance",
+    "Influences downstream behavior"
+  ],
+  "limitations": [
+    "Exact mixtures are often proprietary",
+    "Mixture percentages alone do not capture data quality",
+    "Repeated training or resampling complicates interpretation"
+  ],
+  "tags": [
+    "data-mixture",
+    "pretraining",
+    "dataset",
+    "training-data"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "data-filtering",
+    "data-quality",
+    "pretraining"
+  ]
+},
+  {
+  "id": "continued-pretraining",
+  "name": "Continued Pretraining",
+  "family": "Training Paradigm",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "training",
+  "type": "continued-pretraining",
+  "description": "Continued pretraining further trains an existing pretrained model on additional data, often to improve domain, language, modality, or temporal specialization while retaining much of the original model's capabilities.",
+  "data": [
+    "domain-specific text",
+    "newer data",
+    "new languages",
+    "code",
+    "scientific literature",
+    "specialized multimodal data"
+  ],
+  "objectives": [
+    "domain adaptation",
+    "language adaptation",
+    "knowledge updating",
+    "capability expansion"
+  ],
+  "advantages": [
+    "Cheaper than training from scratch",
+    "Can specialize an existing model",
+    "Preserves pretrained capabilities more readily than full retraining"
+  ],
+  "limitations": [
+    "Catastrophic forgetting",
+    "Distribution imbalance",
+    "Can introduce new biases",
+    "May not fully update parametric knowledge"
+  ],
+  "tags": [
+    "continued-pretraining",
+    "domain-adaptation",
+    "pretraining",
+    "fine-tuning"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "pretraining",
+    "fine-tuning",
+    "domain-adaptation"
+  ]
+},
+  {
+  "id": "supervised-fine-tuning",
+  "name": "Supervised Fine-Tuning",
+  "family": "Post-Training",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2019,
+  "category": "training",
+  "type": "sft",
+  "description": "Supervised fine-tuning adapts a pretrained model using labeled input-output examples, commonly instruction-response pairs for language models.",
+  "data": {
+    "examples": [
+      "instruction-response pairs",
+      "question-answer pairs",
+      "demonstrations",
+      "task-specific labels"
+    ]
+  },
+  "objective": {
+    "loss": "supervised likelihood",
+    "target": "reference output",
+    "direction": "model-dependent"
+  },
+  "advantages": [
+    "Improves instruction following",
+    "Simple and stable training procedure",
+    "Can specialize models for specific tasks"
+  ],
+  "limitations": [
+    "Quality depends strongly on demonstrations",
+    "Can reduce diversity if over-specialized",
+    "Does not directly optimize human preferences"
+  ],
+  "tags": [
+    "sft",
+    "fine-tuning",
+    "instruction-tuning",
+    "post-training"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "instruction-tuning",
+    "rlhf",
+    "dpo"
+  ]
+},
+  {
+  "id": "instruction-tuning",
+  "name": "Instruction Tuning",
+  "family": "Post-Training",
+  "organization": "Research community",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "training",
+  "type": "instruction-following",
+  "description": "Instruction tuning trains pretrained models on diverse task instructions and demonstrations so they learn to interpret natural-language requests and produce task-appropriate responses.",
+  "data": {
+    "examples": [
+      "instruction-response pairs",
+      "multi-task demonstrations",
+      "synthetic instructions",
+      "human-written instructions"
+    ]
+  },
+  "objectives": [
+    "instruction following",
+    "task generalization",
+    "response formatting",
+    "helpfulness"
+  ],
+  "advantages": [
+    "Improves zero-shot task generalization",
+    "Makes pretrained models easier to interact with",
+    "Can consolidate many tasks into one model"
+  ],
+  "limitations": [
+    "Instruction quality strongly affects outcomes",
+    "Synthetic data can introduce errors",
+    "May alter pretrained behavior"
+  ],
+  "tags": [
+    "instruction-tuning",
+    "sft",
+    "alignment",
+    "post-training"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "sft",
+    "rlhf",
+    "dpo"
+  ]
+},
+  {
+  "id": "rlhf",
+  "name": "Reinforcement Learning from Human Feedback",
+  "family": "Post-Training",
+  "organization": "Research community",
+  "releaseDate": "2017",
+  "year": 2017,
+  "category": "training",
+  "type": "preference-optimization",
+  "description": "RLHF uses human preference judgments to train a reward model or otherwise derive a preference signal that is then used to optimize the language model.",
+  "pipeline": [
+    "supervised fine-tuning",
+    "preference data collection",
+    "reward modeling",
+    "reinforcement learning"
+  ],
+  "objectives": [
+    "helpfulness",
+    "preference alignment",
+    "instruction following",
+    "safety"
+  ],
+  "advantages": [
+    "Directly incorporates human preferences",
+    "Can improve conversational behavior",
+    "Supports optimization of qualities difficult to specify with supervised labels"
+  ],
+  "limitations": [
+    "Expensive human preference collection",
+    "Reward-model errors",
+    "Potential reward hacking",
+    "Training instability",
+    "Human preference may not equal factual correctness"
+  ],
+  "tags": [
+    "rlhf",
+    "alignment",
+    "preference-learning",
+    "reinforcement-learning"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "reward-modeling",
+    "dpo",
+    "sft"
+  ]
+},
+  {
+  "id": "reward-modeling",
+  "name": "Reward Modeling",
+  "family": "Post-Training",
+  "organization": "Research community",
+  "releaseDate": "2017",
+  "year": 2017,
+  "category": "training",
+  "type": "reward-model",
+  "description": "Reward modeling learns a model that assigns scores or preferences to outputs based on human or other preference signals.",
+  "inputs": [
+    "prompt",
+    "candidate response",
+    "preference labels"
+  ],
+  "output": [
+    "reward score",
+    "preference probability"
+  ],
+  "advantages": [
+    "Provides a scalable learned preference signal",
+    "Can support reinforcement-learning optimization"
+  ],
+  "limitations": [
+    "Reward models can be exploited",
+    "Preference labels contain human biases",
+    "Reward scores may not correspond to actual task success"
+  ],
+  "tags": [
+    "reward-model",
+    "rlhf",
+    "alignment",
+    "preference-learning"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rlhf",
+    "reward-hacking",
+    "preference-optimization"
+  ]
+},
+  {
+  "id": "dpo",
+  "name": "Direct Preference Optimization",
+  "family": "Post-Training",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "training",
+  "type": "direct-preference-optimization",
+  "description": "Direct Preference Optimization trains a language model directly from preference pairs without requiring a separately trained reward model and explicit reinforcement-learning loop.",
+  "data": {
+    "format": [
+      "prompt",
+      "preferred response",
+      "rejected response"
+    ]
+  },
+  "objective": {
+    "type": "preference-ranking",
+    "optimization": "direct policy optimization"
+  },
+  "advantages": [
+    "Simpler than traditional RLHF pipelines",
+    "Stable optimization in many settings",
+    "Does not require a separate reward-model training stage"
+  ],
+  "limitations": [
+    "Sensitive to preference-data quality",
+    "Reference-model assumptions matter",
+    "Not a universal replacement for reinforcement learning"
+  ],
+  "tags": [
+    "dpo",
+    "preference-optimization",
+    "alignment",
+    "post-training"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+      "url": "https://arxiv.org/abs/2305.18290"
+    }
+  ],
+  "relatedConcepts": [
+    "rlhf",
+    "reward-modeling",
+    "preference-learning"
+  ]
+},
+  {
+  "id": "rlaif",
+  "name": "Reinforcement Learning from AI Feedback",
+  "family": "Post-Training",
+  "organization": "Research community",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "training",
+  "type": "ai-feedback",
+  "description": "RLAIF uses AI-generated evaluations or preferences as a major source of feedback for preference optimization or reinforcement learning.",
+  "feedbackSource": [
+    "AI evaluator",
+    "constitutional principles",
+    "model-generated preference judgments"
+  ],
+  "advantages": [
+    "Reduces reliance on large-scale human labeling",
+    "Can scale preference collection",
+    "Useful for safety and behavioral alignment"
+  ],
+  "limitations": [
+    "Evaluator-model biases",
+    "Potential feedback loops",
+    "AI judgments may not match human preferences"
+  ],
+  "tags": [
+    "rlaif",
+    "alignment",
+    "ai-feedback",
+    "preference-learning"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rlhf",
+    "constitutional-ai",
+    "llm-as-a-judge"
+  ]
+},
+  {
+  "id": "constitutional-ai",
+  "name": "Constitutional AI",
+  "family": "Alignment Method",
+  "organization": "Anthropic",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "training",
+  "type": "constitutional-alignment",
+  "description": "Constitutional AI uses explicit principles or a constitution to guide model self-critique, revision, and preference generation, reducing dependence on direct human preference labeling for some stages.",
+  "pipeline": [
+    "generate response",
+    "critique response",
+    "revise response",
+    "AI preference generation",
+    "preference optimization"
+  ],
+  "objectives": [
+    "helpfulness",
+    "harmlessness",
+    "behavioral alignment"
+  ],
+  "advantages": [
+    "Explicit behavioral principles",
+    "Scalable AI-generated feedback",
+    "Can reduce some forms of human annotation"
+  ],
+  "limitations": [
+    "Constitution design affects behavior",
+    "AI-generated feedback can propagate model biases",
+    "Does not eliminate the need for evaluation"
+  ],
+  "tags": [
+    "constitutional-ai",
+    "alignment",
+    "rlaif",
+    "anthropic"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Constitutional AI: Harmlessness from AI Feedback",
+      "url": "https://arxiv.org/abs/2212.08073"
+    }
+  ],
+  "relatedConcepts": [
+    "rlaif",
+    "rlhf",
+    "alignment"
+  ]
+},
+  {
+  "id": "grpo",
+  "name": "Group Relative Policy Optimization",
+  "family": "Reinforcement Learning",
+  "organization": "Research community",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "training",
+  "type": "group-relative-policy-optimization",
+  "description": "GRPO is a reinforcement-learning method that estimates relative advantages among multiple sampled responses from a group, reducing reliance on a separate value model.",
+  "pipeline": [
+    "sample multiple responses",
+    "score responses",
+    "compute group-relative rewards",
+    "optimize policy"
+  ],
+  "advantages": [
+    "Can reduce memory associated with separate value models",
+    "Naturally compares multiple candidate solutions",
+    "Useful for verifiable-reward reasoning tasks"
+  ],
+  "limitations": [
+    "Depends on reward quality",
+    "Sampling multiple responses increases training cost",
+    "Optimization remains sensitive to reward design"
+  ],
+  "tags": [
+    "grpo",
+    "reinforcement-learning",
+    "reasoning",
+    "post-training"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+      "url": "https://arxiv.org/abs/2402.03300"
+    }
+  ],
+  "relatedConcepts": [
+    "ppo",
+    "rlhf",
+    "reasoning-model"
+  ]
+},
+  {
+  "id": "verifiable-rewards",
+  "name": "Verifiable Reward Training",
+  "family": "Reinforcement Learning",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2024,
+  "category": "training",
+  "type": "verifiable-reward",
+  "description": "Verifiable reward training optimizes models using rewards that can be automatically checked against objective criteria such as mathematical answers, executable code, formal proofs, or game outcomes.",
+  "rewardSources": [
+    "exact-answer verification",
+    "unit tests",
+    "formal verification",
+    "program execution",
+    "environment success"
+  ],
+  "advantages": [
+    "Objective reward signals",
+    "Less dependence on subjective human preferences",
+    "Useful for reasoning and coding"
+  ],
+  "limitations": [
+    "Only works when reliable verification exists",
+    "Reward may capture correctness without capturing quality",
+    "Poorly designed verifiers can be exploited"
+  ],
+  "tags": [
+    "verifiable-reward",
+    "reasoning",
+    "reinforcement-learning",
+    "coding"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "grpo",
+    "reasoning-model",
+    "reward-hacking"
+  ]
+},
+  {
+  "id": "synthetic-training-data",
+  "name": "Synthetic Training Data",
+  "family": "Data Generation",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "training",
+  "type": "synthetic-data",
+  "description": "Synthetic training data consists of examples generated or transformed by models, simulations, procedural systems, or other automated processes for use in training foundation models.",
+  "sources": [
+    "language models",
+    "simulators",
+    "programmatic generators",
+    "human-model collaboration",
+    "AI evaluators"
+  ],
+  "uses": [
+    "instruction tuning",
+    "reasoning traces",
+    "code generation",
+    "data augmentation",
+    "preference data",
+    "domain expansion"
+  ],
+  "advantages": [
+    "Highly scalable",
+    "Can target specific capabilities",
+    "Can generate difficult or rare examples"
+  ],
+  "limitations": [
+    "Synthetic errors can propagate",
+    "Model collapse risks under careless recursive training",
+    "Distribution may reflect generator biases"
+  ],
+  "tags": [
+    "synthetic-data",
+    "training",
+    "data-generation",
+    "post-training"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "self-training",
+    "distillation",
+    "instruction-tuning"
+  ]
+},
+  {
+  "id": "knowledge-distillation",
+  "name": "Knowledge Distillation",
+  "family": "Model Training",
+  "organization": "Research community",
+  "releaseDate": "2015",
+  "year": 2015,
+  "category": "training",
+  "type": "distillation",
+  "description": "Knowledge distillation trains a student model to reproduce or approximate information contained in a larger teacher model or ensemble.",
+  "pipeline": [
+    "teacher model",
+    "teacher outputs",
+    "student training",
+    "student model"
+  ],
+  "objectives": [
+    "model compression",
+    "capability transfer",
+    "efficient deployment"
+  ],
+  "advantages": [
+    "Can transfer capabilities to smaller models",
+    "Reduces inference cost",
+    "Can produce specialized compact models"
+  ],
+  "limitations": [
+    "Student may not reproduce all teacher capabilities",
+    "Teacher errors can be transferred",
+    "Distillation quality depends on data and objective"
+  ],
+  "tags": [
+    "distillation",
+    "model-compression",
+    "teacher-student",
+    "training"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Distilling the Knowledge in a Neural Network",
+      "url": "https://arxiv.org/abs/1503.02531"
+    }
+  ],
+  "relatedConcepts": [
+    "synthetic-data",
+    "model-compression",
+    "fine-tuning"
+  ]
+},
+  {
+  "id": "parameter-efficient-fine-tuning",
+  "name": "Parameter-Efficient Fine-Tuning",
+  "family": "Fine-Tuning",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "training",
+  "type": "peft",
+  "description": "Parameter-efficient fine-tuning adapts a pretrained model while updating only a small subset of parameters or adding trainable parameters rather than updating the full model.",
+  "methods": [
+    "LoRA",
+    "QLoRA",
+    "adapters",
+    "prefix tuning",
+    "prompt tuning",
+    "IA3"
+  ],
+  "advantages": [
+    "Lower GPU memory requirements",
+    "Lower training cost",
+    "Multiple task-specific adapters can share one base model"
+  ],
+  "limitations": [
+    "May reduce adaptation capacity for some tasks",
+    "Adapter composition can become complex",
+    "Quality depends on method and rank/configuration"
+  ],
+  "tags": [
+    "peft",
+    "fine-tuning",
+    "lora",
+    "qlora"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "lora",
+    "qlora",
+    "fine-tuning"
+  ]
+},
+  {
+  "id": "lora",
+  "name": "LoRA",
+  "family": "Parameter-Efficient Fine-Tuning",
+  "organization": "Microsoft Research",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "training",
+  "type": "low-rank-adaptation",
+  "description": "LoRA adapts a pretrained neural network by freezing the original weights and learning low-rank update matrices.",
+  "mechanism": {
+    "baseWeights": "frozen",
+    "trainableParameters": "low-rank matrices",
+    "target": "selected model layers"
+  },
+  "advantages": [
+    "Substantially fewer trainable parameters",
+    "Lower memory usage",
+    "Easy adapter storage and deployment"
+  ],
+  "limitations": [
+    "Rank selection affects quality and cost",
+    "Not always equivalent to full fine-tuning",
+    "Adapter interactions can become complex"
+  ],
+  "tags": [
+    "lora",
+    "peft",
+    "fine-tuning",
+    "parameter-efficient"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "url": "https://arxiv.org/abs/2106.09685"
+    }
+  ],
+  "relatedConcepts": [
+    "peft",
+    "qlora",
+    "fine-tuning"
+  ]
+},
+  {
+  "id": "qlora",
+  "name": "QLoRA",
+  "family": "Parameter-Efficient Fine-Tuning",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "training",
+  "type": "quantized-low-rank-adaptation",
+  "description": "QLoRA combines low-rank adaptation with quantized base-model weights to substantially reduce memory requirements during fine-tuning.",
+  "mechanism": {
+    "baseWeights": "quantized and frozen",
+    "trainableParameters": "LoRA adapters",
+    "precision": "low-bit base weights"
+  },
+  "advantages": [
+    "Lower GPU memory requirements",
+    "Enables fine-tuning larger models on more accessible hardware",
+    "Combines quantization and parameter-efficient adaptation"
+  ],
+  "limitations": [
+    "Quantization can introduce quality tradeoffs",
+    "Training configuration is more complex",
+    "Hardware and implementation details affect performance"
+  ],
+  "tags": [
+    "qlora",
+    "lora",
+    "peft",
+    "quantization"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+      "url": "https://arxiv.org/abs/2305.14314"
+    }
+  ],
+  "relatedConcepts": [
+    "lora",
+    "peft",
+    "quantization"
+  ]
+},
+  {
+  "id": "training-compute",
+  "name": "Training Compute",
+  "family": "Scaling & Training",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "training",
+  "type": "compute",
+  "description": "Training compute describes the computational resources required to optimize a foundation model, including accelerator count, training duration, numerical precision, communication overhead, and total floating-point operations.",
+  "dimensions": [
+    "parameter count",
+    "training tokens",
+    "FLOPs",
+    "accelerator type",
+    "accelerator count",
+    "training duration",
+    "precision",
+    "parallelism",
+    "communication"
+  ],
+  "advantages": [
+    "Provides a basis for understanding training cost",
+    "Connects model scale with compute requirements"
+  ],
+  "limitations": [
+    "Reported compute is often incomplete",
+    "Hardware utilization varies",
+    "FLOPs alone do not capture actual cost"
+  ],
+  "tags": [
+    "training-compute",
+    "scaling",
+    "flops",
+    "training"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "scaling-laws",
+    "distributed-training",
+    "training-efficiency"
+  ]
 }
+  
