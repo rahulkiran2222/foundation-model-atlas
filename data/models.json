@@ -6933,5 +6933,1546 @@
     "idefics-2",
     "paligemma"
   ]
+},
+  {
+  "id": "vit",
+  "name": "Vision Transformer",
+  "family": "ViT",
+  "organization": "Google Research",
+  "releaseDate": "2020-10-22",
+  "year": 2020,
+  "category": "vision",
+  "type": "vision-foundation-architecture",
+  "description": "The Vision Transformer demonstrated that a pure Transformer architecture can operate directly on sequences of image patches and achieve strong image-recognition performance without a conventional convolutional backbone.",
+  "architecture": {
+    "family": "Vision Transformer",
+    "attention": "multi-head self-attention",
+    "position": "learned positional embeddings",
+    "sparsity": "dense",
+    "sequenceStrategy": "patch-token sequence"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "image patches"
+  },
+  "modality": {
+    "input": ["image"],
+    "output": ["visual representations", "classification"]
+  },
+  "training": {
+    "objective": "supervised image classification",
+    "data": "ImageNet and large-scale image datasets",
+    "postTraining": "task-specific fine-tuning"
+  },
+  "license": "paper/model-dependent",
+  "openWeights": true,
+  "tags": [
+    "vision-transformer",
+    "image-classification",
+    "self-attention",
+    "foundation-architecture"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "An Image is Worth 16x16 Words",
+      "url": "https://arxiv.org/abs/2010.11929"
+    }
+  ],
+  "relatedModels": [
+    "deit",
+    "beit",
+    "swin-transformer",
+    "mae"
+  ]
+},
+
+{
+  "id": "deit",
+  "name": "DeiT",
+  "family": "DeiT",
+  "organization": "Meta AI / Facebook AI Research",
+  "releaseDate": "2020-12",
+  "year": 2020,
+  "category": "vision",
+  "type": "efficient-vision-transformer",
+  "description": "Data-efficient Image Transformers introduced training strategies that allowed competitive Vision Transformers to be trained with less data than the original large-scale ViT setup.",
+  "architecture": {
+    "family": "Vision Transformer",
+    "attention": "multi-head self-attention",
+    "position": "learned positional embeddings",
+    "sparsity": "dense",
+    "sequenceStrategy": "patch-token sequence"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "image patches"
+  },
+  "modality": {
+    "input": ["image"],
+    "output": ["visual representations", "classification"]
+  },
+  "training": {
+    "objective": "supervised image classification with distillation",
+    "data": "ImageNet",
+    "postTraining": "task-specific fine-tuning"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "vision-transformer",
+    "efficient-training",
+    "distillation",
+    "image-classification"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Training data-efficient image transformers",
+      "url": "https://arxiv.org/abs/2012.12877"
+    }
+  ],
+  "relatedModels": [
+    "vit",
+    "beit",
+    "mae"
+  ]
+},
+
+{
+  "id": "swin-transformer",
+  "name": "Swin Transformer",
+  "family": "Swin",
+  "organization": "Microsoft Research",
+  "releaseDate": "2021-03",
+  "year": 2021,
+  "category": "vision",
+  "type": "hierarchical-vision-transformer",
+  "description": "A hierarchical vision Transformer using shifted local windows to improve computational efficiency while supporting dense vision tasks.",
+  "architecture": {
+    "family": "hierarchical Vision Transformer",
+    "attention": "windowed self-attention with shifted windows",
+    "position": "relative position bias",
+    "sparsity": "local attention",
+    "sequenceStrategy": "hierarchical visual tokens"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "hierarchical image patches"
+  },
+  "modality": {
+    "input": ["image"],
+    "output": ["visual representations"]
+  },
+  "training": {
+    "objective": "image representation learning",
+    "data": "ImageNet and downstream vision datasets",
+    "postTraining": "detection and segmentation fine-tuning"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "vision-transformer",
+    "hierarchical",
+    "window-attention",
+    "dense-vision"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Swin Transformer",
+      "url": "https://arxiv.org/abs/2103.14030"
+    }
+  ],
+  "relatedModels": [
+    "vit",
+    "deit",
+    "convnext"
+  ]
+},
+
+{
+  "id": "beit",
+  "name": "BEiT",
+  "family": "BEiT",
+  "organization": "Microsoft Research",
+  "releaseDate": "2021-06",
+  "year": 2021,
+  "category": "vision",
+  "type": "self-supervised-vision-transformer",
+  "description": "A self-supervised Vision Transformer trained through masked image modeling, establishing a major pretraining paradigm for visual representations.",
+  "architecture": {
+    "family": "Vision Transformer",
+    "attention": "multi-head self-attention",
+    "position": "learned positional embeddings",
+    "sparsity": "dense",
+    "sequenceStrategy": "masked image-token prediction"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "image patches"
+  },
+  "modality": {
+    "input": ["image"],
+    "output": ["visual representations"]
+  },
+  "training": {
+    "objective": "masked image modeling",
+    "data": "ImageNet and large-scale image data",
+    "postTraining": "task-specific fine-tuning"
+  },
+  "license": "MIT / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "self-supervised",
+    "masked-image-modeling",
+    "vision-transformer"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "BEiT",
+      "url": "https://arxiv.org/abs/2106.08254"
+    }
+  ],
+  "relatedModels": [
+    "mae",
+    "vit",
+    "beit-3"
+  ]
+},
+
+{
+  "id": "convnext",
+  "name": "ConvNeXt",
+  "family": "ConvNeXt",
+  "organization": "Meta AI",
+  "releaseDate": "2022-01",
+  "year": 2022,
+  "category": "vision",
+  "type": "modern-convolutional-vision-model",
+  "description": "A modernized convolutional architecture that incorporates design choices inspired by Vision Transformers while retaining convolutional computation.",
+  "architecture": {
+    "family": "modernized CNN",
+    "attention": "convolutional",
+    "position": "implicit spatial structure",
+    "sparsity": "dense",
+    "sequenceStrategy": "spatial feature hierarchy"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["image"],
+    "output": ["visual representations", "classification"]
+  },
+  "training": {
+    "objective": "image representation learning",
+    "data": "ImageNet",
+    "postTraining": "vision task fine-tuning"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "cnn",
+    "vision",
+    "convnext",
+    "image-classification"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "A ConvNet for the 2020s",
+      "url": "https://arxiv.org/abs/2201.03545"
+    }
+  ],
+  "relatedModels": [
+    "swin-transformer",
+    "vit",
+    "eva"
+  ]
+},
+  {
+  "id": "dino",
+  "name": "DINO",
+  "family": "DINO",
+  "organization": "Meta AI",
+  "releaseDate": "2021-04",
+  "year": 2021,
+  "category": "vision",
+  "type": "self-supervised-vision-model",
+  "description": "A self-supervised visual representation-learning approach using knowledge distillation without labels, demonstrating strong emergent semantic properties in Vision Transformers.",
+  "architecture": {
+    "family": "Vision Transformer / CNN",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "self-distillation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "image patches or convolutional features"
+  },
+  "modality": {
+    "input": ["image"],
+    "output": ["visual representations"]
+  },
+  "training": {
+    "objective": "self-supervised knowledge distillation",
+    "data": "unlabeled images",
+    "postTraining": "linear probing and downstream fine-tuning"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "self-supervised",
+    "representation-learning",
+    "vision-transformer",
+    "knowledge-distillation"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Emerging Properties in Self-Supervised Vision Transformers",
+      "url": "https://arxiv.org/abs/2104.14294"
+    }
+  ],
+  "relatedModels": [
+    "dinov2",
+    "mae",
+    "beit"
+  ]
+},
+
+{
+  "id": "dinov2",
+  "name": "DINOv2",
+  "family": "DINO",
+  "organization": "Meta AI",
+  "releaseDate": "2023-04",
+  "year": 2023,
+  "category": "vision",
+  "type": "self-supervised-vision-foundation-model",
+  "description": "A large-scale self-supervised vision foundation model producing general-purpose visual features without requiring task-specific labels during pretraining.",
+  "architecture": {
+    "family": "Vision Transformer",
+    "attention": "self-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "self-supervised representation learning"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "image patches"
+  },
+  "modality": {
+    "input": ["image"],
+    "output": ["visual representations", "dense features"]
+  },
+  "training": {
+    "objective": "self-supervised visual representation learning",
+    "data": "large curated image dataset",
+    "postTraining": "downstream task adaptation"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "vision-foundation-model",
+    "self-supervised",
+    "representation-learning",
+    "dense-features"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "DINOv2",
+      "url": "https://github.com/facebookresearch/dinov2"
+    }
+  ],
+  "relatedModels": [
+    "dino",
+    "dinov3",
+    "mae",
+    "eva"
+  ]
+},
+
+{
+  "id": "mae",
+  "name": "MAE",
+  "family": "Masked Autoencoders",
+  "organization": "Meta AI",
+  "releaseDate": "2021-11",
+  "year": 2021,
+  "category": "vision",
+  "type": "self-supervised-vision-model",
+  "description": "Masked Autoencoders introduced an asymmetric encoder-decoder approach that learns visual representations by reconstructing heavily masked image patches.",
+  "architecture": {
+    "family": "Vision Transformer encoder-decoder",
+    "attention": "self-attention",
+    "position": "positional embeddings",
+    "sparsity": "masked input",
+    "sequenceStrategy": "masked image reconstruction"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "image patches"
+  },
+  "modality": {
+    "input": ["image"],
+    "output": ["visual representations", "reconstructed patches"]
+  },
+  "training": {
+    "objective": "masked image reconstruction",
+    "data": "ImageNet and unlabeled image datasets",
+    "postTraining": "fine-tuning and linear probing"
+  },
+  "license": "CC BY-NC 4.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "masked-autoencoder",
+    "self-supervised",
+    "vision-transformer",
+    "representation-learning"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Masked Autoencoders Are Scalable Vision Learners",
+      "url": "https://arxiv.org/abs/2111.06377"
+    }
+  ],
+  "relatedModels": [
+    "dino",
+    "dinov2",
+    "beit"
+  ]
+},
+
+{
+  "id": "eva",
+  "name": "EVA",
+  "family": "EVA",
+  "organization": "BAAI",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "vision",
+  "type": "vision-foundation-model",
+  "description": "A family of large-scale vision models exploring efficient visual pretraining and strong transferable representations.",
+  "architecture": {
+    "family": "Vision Transformer",
+    "attention": "self-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "visual representation learning"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "image patches"
+  },
+  "modality": {
+    "input": ["image"],
+    "output": ["visual representations"]
+  },
+  "training": {
+    "objective": "self-supervised visual representation learning",
+    "data": "large-scale image data",
+    "postTraining": "downstream vision adaptation"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "vision",
+    "self-supervised",
+    "vision-transformer",
+    "representation-learning"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "EVA",
+      "url": "https://arxiv.org/abs/2211.07636"
+    }
+  ],
+  "relatedModels": [
+    "eva-02",
+    "dinov2",
+    "mae"
+  ]
+},
+
+{
+  "id": "eva-02",
+  "name": "EVA-02",
+  "family": "EVA",
+  "organization": "BAAI",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "vision",
+  "type": "vision-foundation-model",
+  "description": "A second EVA generation improving large-scale visual representation learning through modern self-supervised pretraining.",
+  "architecture": {
+    "family": "Vision Transformer",
+    "attention": "self-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "visual representation learning"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "image patches"
+  },
+  "modality": {
+    "input": ["image"],
+    "output": ["visual representations"]
+  },
+  "training": {
+    "objective": "self-supervised visual representation learning",
+    "data": "large-scale image corpus",
+    "postTraining": "downstream adaptation"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "vision",
+    "self-supervised",
+    "representation-learning",
+    "vision-transformer"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "EVA-02",
+      "url": "https://arxiv.org/abs/2303.11331"
+    }
+  ],
+  "relatedModels": [
+    "eva",
+    "dinov2",
+    "mae"
+  ]
+},
+
+{
+  "id": "siglip",
+  "name": "SigLIP",
+  "family": "SigLIP",
+  "organization": "Google Research",
+  "releaseDate": "2023-03",
+  "year": 2023,
+  "category": "vision-language",
+  "type": "vision-language-encoder",
+  "description": "A vision-language representation model replacing CLIP's softmax contrastive loss with a pairwise sigmoid loss, enabling efficient image-text representation learning.",
+  "architecture": {
+    "family": "vision encoder + text encoder",
+    "attention": "Transformer",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "dual-encoder"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "image patches + text tokens"
+  },
+  "modality": {
+    "input": ["image", "text"],
+    "output": ["aligned embeddings"]
+  },
+  "training": {
+    "objective": "image-text matching with sigmoid loss",
+    "data": "large-scale image-text pairs",
+    "postTraining": "downstream multimodal adaptation"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "vision-language",
+    "embeddings",
+    "contrastive-learning",
+    "dual-encoder"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Sigmoid Loss for Language Image Pre-Training",
+      "url": "https://arxiv.org/abs/2303.15343"
+    }
+  ],
+  "relatedModels": [
+    "clip",
+    "siglip2",
+    "paligemma"
+  ]
+},
+
+{
+  "id": "clip",
+  "name": "CLIP",
+  "family": "CLIP",
+  "organization": "OpenAI",
+  "releaseDate": "2021-01-05",
+  "year": 2021,
+  "category": "vision-language",
+  "type": "vision-language-foundation-model",
+  "description": "A large-scale image-text representation model trained on natural-language supervision and widely used for zero-shot image classification, retrieval, and multimodal transfer.",
+  "architecture": {
+    "family": "dual encoder",
+    "attention": "Transformer and/or CNN encoders",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "contrastive image-text alignment"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "image and text tokens"
+  },
+  "modality": {
+    "input": ["image", "text"],
+    "output": ["aligned embeddings"]
+  },
+  "training": {
+    "objective": "contrastive image-text learning",
+    "data": "400M image-text pairs",
+    "postTraining": "zero-shot and downstream adaptation"
+  },
+  "license": "MIT / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "vision-language",
+    "zero-shot",
+    "embeddings",
+    "contrastive-learning"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "CLIP",
+      "url": "https://openai.com/research/clip"
+    }
+  ],
+  "relatedModels": [
+    "siglip",
+    "openclip",
+    "flamingo"
+  ]
+},
+  {
+  "id": "sam",
+  "name": "Segment Anything Model",
+  "family": "SAM",
+  "organization": "Meta AI",
+  "releaseDate": "2023-04-05",
+  "year": 2023,
+  "category": "vision",
+  "type": "segmentation-foundation-model",
+  "description": "A promptable segmentation foundation model designed to segment arbitrary objects from points, boxes, masks, and related prompts.",
+  "architecture": {
+    "family": "image encoder + prompt encoder + mask decoder",
+    "attention": "Transformer-based image encoder",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "prompt-conditioned segmentation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "image patches + prompts"
+  },
+  "modality": {
+    "input": ["image", "point", "box", "mask"],
+    "output": ["segmentation masks"]
+  },
+  "training": {
+    "objective": "promptable segmentation",
+    "data": "SA-1B",
+    "postTraining": "zero-shot prompting"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "segmentation",
+    "computer-vision",
+    "foundation-model",
+    "promptable"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Segment Anything",
+      "url": "https://segment-anything.com/"
+    }
+  ],
+  "relatedModels": [
+    "sam-2",
+    "sam-3",
+    "dino"
+  ]
+},
+
+{
+  "id": "sam-2",
+  "name": "SAM 2",
+  "family": "SAM",
+  "organization": "Meta AI",
+  "releaseDate": "2024-07-29",
+  "year": 2024,
+  "category": "vision",
+  "type": "image-video-segmentation-foundation-model",
+  "description": "A unified promptable segmentation foundation model for images and videos using streaming memory to track and segment objects over time.",
+  "architecture": {
+    "family": "Transformer segmentation model with memory",
+    "attention": "Transformer attention",
+    "position": "spatial and temporal positional mechanisms",
+    "sparsity": "streaming architecture",
+    "sequenceStrategy": "prompt-conditioned image/video segmentation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "image/video features + memory"
+  },
+  "modality": {
+    "input": ["image", "video", "point", "box", "mask"],
+    "output": ["segmentation masks", "object tracks"]
+  },
+  "training": {
+    "objective": "promptable image and video segmentation",
+    "data": "SA-1B + SA-V",
+    "postTraining": "interactive segmentation"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "segmentation",
+    "video",
+    "tracking",
+    "memory",
+    "foundation-model"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "SAM 2",
+      "url": "https://ai.meta.com/research/sam2/"
+    }
+  ],
+  "relatedModels": [
+    "sam",
+    "sam-2-1",
+    "sam-3"
+  ]
+},
+
+{
+  "id": "sam-2-1",
+  "name": "SAM 2.1",
+  "family": "SAM",
+  "organization": "Meta AI",
+  "releaseDate": "2024-10-18",
+  "year": 2024,
+  "category": "vision",
+  "type": "image-video-segmentation-foundation-model",
+  "description": "An improved SAM 2 release with stronger handling of small and visually similar objects, occlusions, and longer video sequences.",
+  "architecture": {
+    "family": "Transformer segmentation model with streaming memory",
+    "attention": "Transformer attention",
+    "position": "spatial and temporal positional mechanisms",
+    "sparsity": "streaming architecture",
+    "sequenceStrategy": "prompt-conditioned image/video segmentation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "image/video features + memory"
+  },
+  "modality": {
+    "input": ["image", "video", "point", "box", "mask"],
+    "output": ["segmentation masks", "object tracks"]
+  },
+  "training": {
+    "objective": "promptable image/video segmentation",
+    "data": "SA-1B + SA-V and additional augmentation",
+    "postTraining": "interactive segmentation"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "segmentation",
+    "video",
+    "tracking",
+    "memory",
+    "foundation-model"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "SAM 2.1",
+      "url": "https://ai.meta.com/blog/segment-anything-2-1/"
+    }
+  ],
+  "relatedModels": [
+    "sam",
+    "sam-2",
+    "sam-3"
+  ]
+},
+
+{
+  "id": "sam-3",
+  "name": "SAM 3",
+  "family": "SAM",
+  "organization": "Meta AI",
+  "releaseDate": "2025",
+  "year": 2025,
+  "category": "vision",
+  "type": "promptable-detection-segmentation-tracking-foundation-model",
+  "description": "A later Segment Anything generation extending the family toward text- and example-driven detection, segmentation, and tracking of object categories in images and videos.",
+  "architecture": {
+    "family": "multimodal vision foundation model",
+    "attention": "Transformer-based visual reasoning",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "prompt-conditioned detection, segmentation and tracking"
+  },
+  "scale": {
+    "parameters": null,
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "visual tokens + prompts"
+  },
+  "modality": {
+    "input": ["image", "video", "text", "visual examples"],
+    "output": ["detections", "segmentation masks", "tracks"]
+  },
+  "training": {
+    "objective": "promptable visual perception",
+    "data": "large-scale image and video segmentation data",
+    "postTraining": "prompt-based adaptation"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "segmentation",
+    "detection",
+    "tracking",
+    "multimodal",
+    "video"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "SAM 3",
+      "url": "https://ai.meta.com/research/sam3/"
+    }
+  ],
+  "relatedModels": [
+    "sam",
+    "sam-2",
+    "sam-2-1"
+  ]
+},
+  {
+  "id": "flamingo",
+  "name": "Flamingo",
+  "family": "Flamingo",
+  "organization": "DeepMind",
+  "releaseDate": "2022-04-28",
+  "year": 2022,
+  "category": "vision-language",
+  "type": "few-shot-multimodal-language-model",
+  "description": "A multimodal few-shot learning architecture that connects visual inputs to a pretrained language model through specialized cross-attention mechanisms.",
+  "architecture": {
+    "family": "vision encoder + language model + cross-attention",
+    "attention": "cross-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "interleaved image-text generation"
+  },
+  "scale": {
+    "parameters": "80B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "interleaved image-text sequences"
+  },
+  "modality": {
+    "input": ["image", "video", "text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "multimodal language modeling",
+    "data": "large-scale image/video-text data",
+    "postTraining": "few-shot prompting"
+  },
+  "license": "research/model-dependent",
+  "openWeights": false,
+  "tags": [
+    "vision-language",
+    "few-shot",
+    "cross-attention",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Flamingo",
+      "url": "https://deepmind.google/discover/blog/tackling-multiple-tasks-with-a-single-visual-language-model/"
+    }
+  ],
+  "relatedModels": [
+    "flamingo-80b",
+    "idefics-2",
+    "llava"
+  ]
+},
+
+{
+  "id": "blip",
+  "name": "BLIP",
+  "family": "BLIP",
+  "organization": "Salesforce Research",
+  "releaseDate": "2022-01",
+  "year": 2022,
+  "category": "vision-language",
+  "type": "vision-language-foundation-model",
+  "description": "Bootstrapped Language-Image Pretraining introduced a unified framework for image-text understanding and generation through multimodal pretraining.",
+  "architecture": {
+    "family": "vision encoder + multimodal encoder-decoder",
+    "attention": "cross-modal attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "vision-language pretraining"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "image patches + text tokens"
+  },
+  "modality": {
+    "input": ["image", "text"],
+    "output": ["text", "image-text representations"]
+  },
+  "training": {
+    "objective": "image-text contrastive, matching and generation",
+    "data": "web-scale image-text data",
+    "postTraining": "task-specific adaptation"
+  },
+  "license": "BSD-3-Clause / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "vision-language",
+    "image-captioning",
+    "multimodal",
+    "pretraining"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "BLIP",
+      "url": "https://arxiv.org/abs/2201.12086"
+    }
+  ],
+  "relatedModels": [
+    "blip-2",
+    "flamingo",
+    "llava"
+  ]
+},
+
+{
+  "id": "blip-2",
+  "name": "BLIP-2",
+  "family": "BLIP",
+  "organization": "Salesforce Research",
+  "releaseDate": "2023-01",
+  "year": 2023,
+  "category": "vision-language",
+  "type": "vision-language-foundation-model",
+  "description": "A multimodal architecture that bridges frozen image encoders and large language models using a lightweight Querying Transformer.",
+  "architecture": {
+    "family": "vision encoder + Q-Former + language model",
+    "attention": "cross-attention through Q-Former",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "visual feature querying followed by language generation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "visual queries + language tokens"
+  },
+  "modality": {
+    "input": ["image", "text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "vision-language alignment and generation",
+    "data": "image-text datasets",
+    "postTraining": "instruction and multimodal adaptation"
+  },
+  "license": "BSD-3-Clause / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "vision-language",
+    "q-former",
+    "multimodal",
+    "llm-connector"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "BLIP-2",
+      "url": "https://arxiv.org/abs/2301.12597"
+    }
+  ],
+  "relatedModels": [
+    "blip",
+    "flamingo",
+    "llava"
+  ]
+},
+
+{
+  "id": "llava",
+  "name": "LLaVA",
+  "family": "LLaVA",
+  "organization": "University of Wisconsin–Madison / Microsoft Research / Columbia University",
+  "releaseDate": "2023-04",
+  "year": 2023,
+  "category": "vision-language",
+  "type": "visual-instruction-model",
+  "description": "A visual instruction-following architecture that connects a pretrained vision encoder to a large language model and trains the resulting system on visual instruction data.",
+  "architecture": {
+    "family": "vision encoder + LLM",
+    "attention": "projected visual tokens into language model",
+    "position": "language-model positional encoding",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive multimodal generation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "visual tokens + language tokens"
+  },
+  "modality": {
+    "input": ["image", "text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "visual instruction tuning",
+    "data": "image-text instruction data",
+    "postTraining": "visual instruction tuning"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "vision-language",
+    "visual-instruction",
+    "multimodal",
+    "llm"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "LLaVA",
+      "url": "https://llava-vl.github.io/"
+    }
+  ],
+  "relatedModels": [
+    "llava-1-5",
+    "llava-next",
+    "blip-2"
+  ]
+},
+
+{
+  "id": "llava-next",
+  "name": "LLaVA-NeXT",
+  "family": "LLaVA",
+  "organization": "LLaVA Research Community",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "vision-language",
+  "type": "vision-language-model-family",
+  "description": "A later LLaVA generation improving visual reasoning, image resolution handling, document understanding, and multimodal instruction following.",
+  "architecture": {
+    "family": "vision encoder + language model",
+    "attention": "multimodal language-model attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive multimodal generation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "visual and language tokens"
+  },
+  "modality": {
+    "input": ["image", "text", "video"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "multimodal instruction tuning",
+    "data": "visual instruction and reasoning datasets",
+    "postTraining": "multimodal instruction optimization"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "vision-language",
+    "multimodal",
+    "visual-reasoning",
+    "document-ai"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "LLaVA",
+      "url": "https://llava-vl.github.io/"
+    }
+  ],
+  "relatedModels": [
+    "llava",
+    "llava-onevision",
+    "qwen2-5-vl"
+  ]
+},
+
+{
+  "id": "qwen-vl",
+  "name": "Qwen-VL",
+  "family": "Qwen-VL",
+  "organization": "Alibaba Cloud",
+  "releaseDate": "2023-08",
+  "year": 2023,
+  "category": "vision-language",
+  "type": "vision-language-model",
+  "description": "A Qwen-based multimodal model supporting image understanding, visual question answering, grounding, and multimodal dialogue.",
+  "architecture": {
+    "family": "vision encoder + Qwen language model",
+    "attention": "multimodal Transformer",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive multimodal generation"
+  },
+  "scale": {
+    "parameters": "7B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["image", "text"],
+    "output": ["text", "grounding"]
+  },
+  "training": {
+    "objective": "vision-language modeling",
+    "data": "image-text and grounding data",
+    "postTraining": "multimodal instruction tuning"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "vision-language",
+    "grounding",
+    "multimodal",
+    "qwen"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Qwen-VL",
+      "url": "https://github.com/QwenLM/Qwen-VL"
+    }
+  ],
+  "relatedModels": [
+    "qwen2-vl",
+    "qwen2-5-vl",
+    "llava"
+  ]
+},
+
+{
+  "id": "qwen2-vl",
+  "name": "Qwen2-VL",
+  "family": "Qwen-VL",
+  "organization": "Alibaba Cloud",
+  "releaseDate": "2024-08",
+  "year": 2024,
+  "category": "vision-language",
+  "type": "vision-language-model-family",
+  "description": "A major Qwen multimodal generation supporting visual reasoning, document understanding, video understanding, and dynamic visual input.",
+  "architecture": {
+    "family": "vision encoder + Qwen2 language model",
+    "attention": "multimodal Transformer",
+    "position": "multimodal rotary positional encoding",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive multimodal generation"
+  },
+  "scale": {
+    "parameters": "2B / 7B / 72B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["image", "video", "text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "multimodal language modeling",
+    "data": "large-scale image, video and text data",
+    "postTraining": "multimodal instruction tuning"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "vision-language",
+    "video",
+    "document-ai",
+    "multimodal",
+    "qwen"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Qwen2-VL",
+      "url": "https://qwenlm.github.io/blog/qwen2-vl/"
+    }
+  ],
+  "relatedModels": [
+    "qwen-vl",
+    "qwen2-5-vl",
+    "qwen3-vl"
+  ]
+},
+
+{
+  "id": "qwen2-5-vl",
+  "name": "Qwen2.5-VL",
+  "family": "Qwen-VL",
+  "organization": "Alibaba Cloud",
+  "releaseDate": "2025-01-28",
+  "year": 2025,
+  "category": "vision-language",
+  "type": "vision-language-model-family",
+  "description": "An advanced Qwen multimodal generation with stronger document understanding, visual reasoning, structured information extraction, and video understanding.",
+  "architecture": {
+    "family": "vision encoder + Qwen language model",
+    "attention": "multimodal Transformer",
+    "position": "multimodal positional encoding",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive multimodal generation"
+  },
+  "scale": {
+    "parameters": "3B / 7B / 32B / 72B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["image", "video", "text"],
+    "output": ["text", "structured information"]
+  },
+  "training": {
+    "objective": "multimodal language modeling",
+    "data": "image, video, document, OCR and text data",
+    "postTraining": "multimodal instruction and reasoning optimization"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "vision-language",
+    "video",
+    "ocr",
+    "document-ai",
+    "reasoning"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Qwen2.5-VL",
+      "url": "https://qwenlm.github.io/blog/qwen2.5-vl/"
+    }
+  ],
+  "relatedModels": [
+    "qwen2-vl",
+    "qwen3-vl",
+    "internvl-3"
+  ]
+},
+
+{
+  "id": "kosmos-2",
+  "name": "KOSMOS-2",
+  "family": "KOSMOS",
+  "organization": "Microsoft Research",
+  "releaseDate": "2023-06",
+  "year": 2023,
+  "category": "vision-language",
+  "type": "grounded-multimodal-language-model",
+  "description": "A multimodal language model that integrates visual grounding into language generation, allowing references to objects and regions within images.",
+  "architecture": {
+    "family": "vision encoder + language model",
+    "attention": "multimodal Transformer",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "grounded autoregressive generation"
+  },
+  "scale": {
+    "parameters": "1.6B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "image regions + text"
+  },
+  "modality": {
+    "input": ["image", "text"],
+    "output": ["text", "grounding references"]
+  },
+  "training": {
+    "objective": "grounded vision-language modeling",
+    "data": "image-text and grounding datasets",
+    "postTraining": "multimodal instruction adaptation"
+  },
+  "license": "MIT / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "vision-language",
+    "grounding",
+    "multimodal",
+    "spatial-reasoning"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "KOSMOS-2",
+      "url": "https://arxiv.org/abs/2306.14824"
+    }
+  ],
+  "relatedModels": [
+    "kosmos-1",
+    "llava",
+    "qwen2-vl"
+  ]
+},
+
+{
+  "id": "chameleon",
+  "name": "Chameleon",
+  "family": "Chameleon",
+  "organization": "Meta AI",
+  "releaseDate": "2024-05",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "early-fusion-multimodal-language-model",
+  "description": "A multimodal model exploring early-fusion token-based integration of text and images, enabling interleaved multimodal generation and reasoning.",
+  "architecture": {
+    "family": "early-fusion multimodal Transformer",
+    "attention": "joint multimodal attention",
+    "position": "multimodal positional encoding",
+    "sparsity": "dense",
+    "sequenceStrategy": "interleaved multimodal autoregressive modeling"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "interleaved image and text tokens"
+  },
+  "modality": {
+    "input": ["image", "text"],
+    "output": ["image tokens", "text"]
+  },
+  "training": {
+    "objective": "mixed-modal language modeling",
+    "data": "interleaved image-text data",
+    "postTraining": "multimodal instruction tuning"
+  },
+  "license": "research/model-dependent",
+  "openWeights": true,
+  "tags": [
+    "multimodal",
+    "early-fusion",
+    "image-generation",
+    "interleaved-generation"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Chameleon",
+      "url": "https://arxiv.org/abs/2405.09818"
+    }
+  ],
+  "relatedModels": [
+    "flamingo",
+    "llava",
+    "emu"
+  ]
+},
+
+{
+  "id": "janus",
+  "name": "Janus",
+  "family": "Janus",
+  "organization": "DeepSeek",
+  "releaseDate": "2024-10",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "unified-multimodal-model",
+  "description": "A unified multimodal architecture separating visual encoding for understanding and generation while using a shared autoregressive language-modeling framework.",
+  "architecture": {
+    "family": "unified multimodal autoregressive model",
+    "attention": "Transformer",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive multimodal understanding and generation"
+  },
+  "scale": {
+    "parameters": "1.3B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "multimodal token sequence"
+  },
+  "modality": {
+    "input": ["image", "text"],
+    "output": ["text", "image"]
+  },
+  "training": {
+    "objective": "multimodal understanding and image generation",
+    "data": "image-text and image-generation data",
+    "postTraining": "multimodal instruction tuning"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "multimodal",
+    "image-generation",
+    "vision-language",
+    "unified-model"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Janus",
+      "url": "https://arxiv.org/abs/2410.13848"
+    }
+  ],
+  "relatedModels": [
+    "janus-pro",
+    "chameleon",
+    "emu"
+  ]
+},
+
+{
+  "id": "janus-pro",
+  "name": "Janus-Pro",
+  "family": "Janus",
+  "organization": "DeepSeek",
+  "releaseDate": "2025-01-27",
+  "year": 2025,
+  "category": "multimodal",
+  "type": "unified-multimodal-model",
+  "description": "An improved Janus generation for multimodal understanding and image generation with enhanced training and data strategies.",
+  "architecture": {
+    "family": "unified multimodal autoregressive model",
+    "attention": "Transformer",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive multimodal understanding and generation"
+  },
+  "scale": {
+    "parameters": "1B / 7B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "multimodal token sequence"
+  },
+  "modality": {
+    "input": ["image", "text"],
+    "output": ["text", "image"]
+  },
+  "training": {
+    "objective": "multimodal understanding and image generation",
+    "data": "expanded multimodal and image-generation datasets",
+    "postTraining": "multimodal instruction tuning"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "multimodal",
+    "image-generation",
+    "vision-language",
+    "unified-model"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Janus",
+      "url": "https://github.com/deepseek-ai/Janus"
+    }
+  ],
+  "relatedModels": [
+    "janus",
+    "chameleon",
+    "qwen2-5-vl"
+  ]
 }
-]
