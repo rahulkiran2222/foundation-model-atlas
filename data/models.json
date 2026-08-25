@@ -16935,4 +16935,1955 @@
     "tensor-parallelism",
     "data-parallelism"
   ]
+},
+  {
+  "id": "rnn",
+  "name": "Recurrent Neural Network",
+  "family": "Recurrent Sequence Model",
+  "organization": "Research community",
+  "releaseDate": "1980s",
+  "year": 1980,
+  "category": "sequence-processing",
+  "type": "recurrent-neural-network",
+  "description": "Recurrent Neural Networks process sequences sequentially while maintaining a hidden state that carries information from previous positions.",
+  "architecture": {
+    "family": "recurrent neural network",
+    "attention": "none",
+    "position": "implicit through recurrence",
+    "sparsity": "dense",
+    "sequenceStrategy": "sequential recurrence"
+  },
+  "memory": {
+    "type": "hidden state",
+    "access": "sequential",
+    "complexity": "linear in sequence length",
+    "parallelization": "limited across sequence positions"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence", "hidden state"]
+  },
+  "advantages": [
+    "Natural sequential memory",
+    "Low memory footprint relative to full attention",
+    "Suitable for streaming"
+  ],
+  "limitations": [
+    "Difficult long-range dependency learning",
+    "Sequential computation limits training parallelism",
+    "Vanishing and exploding gradients"
+  ],
+  "tags": [
+    "rnn",
+    "recurrent",
+    "sequence-modeling",
+    "memory"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Learning representations by back-propagating errors",
+      "url": "https://www.nature.com/articles/323533a0"
+    }
+  ],
+  "relatedConcepts": [
+    "lstm",
+    "gru",
+    "state-space-models"
+  ]
+},
+  {
+  "id": "lstm",
+  "name": "Long Short-Term Memory",
+  "family": "Recurrent Sequence Model",
+  "organization": "Research community",
+  "releaseDate": "1997",
+  "year": 1997,
+  "category": "sequence-processing",
+  "type": "gated-recurrent-network",
+  "description": "LSTM introduces gated memory cells that control information flow into, out of, and within a recurrent state, improving the ability to preserve information over long sequences.",
+  "architecture": {
+    "family": "gated recurrent neural network",
+    "attention": "none",
+    "position": "implicit through recurrence",
+    "sparsity": "dense",
+    "sequenceStrategy": "gated recurrence"
+  },
+  "memory": {
+    "type": "cell state + hidden state",
+    "access": "sequential",
+    "complexity": "linear in sequence length",
+    "parallelization": "limited across sequence positions"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence", "hidden state"]
+  },
+  "advantages": [
+    "Improved long-range memory over vanilla RNNs",
+    "Stable recurrent training",
+    "Useful for sequential and streaming tasks"
+  ],
+  "limitations": [
+    "Sequential computation",
+    "Lower training parallelism than Transformers",
+    "Less scalable for very large foundation models"
+  ],
+  "tags": [
+    "lstm",
+    "rnn",
+    "recurrent",
+    "memory"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Long Short-Term Memory",
+      "url": "https://www.bioinf.jku.at/publications/older/2604.pdf"
+    }
+  ],
+  "relatedConcepts": [
+    "rnn",
+    "gru",
+    "xlstm"
+  ]
+},
+  {
+  "id": "gru",
+  "name": "Gated Recurrent Unit",
+  "family": "Recurrent Sequence Model",
+  "organization": "Research community",
+  "releaseDate": "2014",
+  "year": 2014,
+  "category": "sequence-processing",
+  "type": "gated-recurrent-network",
+  "description": "GRU is a gated recurrent architecture that simplifies LSTM-style memory using update and reset gates.",
+  "architecture": {
+    "family": "gated recurrent neural network",
+    "attention": "none",
+    "position": "implicit through recurrence",
+    "sparsity": "dense",
+    "sequenceStrategy": "gated recurrence"
+  },
+  "memory": {
+    "type": "hidden state",
+    "access": "sequential",
+    "complexity": "linear in sequence length",
+    "parallelization": "limited across sequence positions"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence", "hidden state"]
+  },
+  "advantages": [
+    "Simpler than LSTM",
+    "Lower parameter count than many LSTM configurations",
+    "Effective recurrent sequence model"
+  ],
+  "limitations": [
+    "Sequential computation",
+    "Limited scalability compared with highly parallel architectures"
+  ],
+  "tags": [
+    "gru",
+    "rnn",
+    "recurrent",
+    "gating"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation",
+      "url": "https://arxiv.org/abs/1406.1078"
+    }
+  ],
+  "relatedConcepts": [
+    "rnn",
+    "lstm",
+    "xlstm"
+  ]
+},{
+  "id": "state-space-model",
+  "name": "State Space Model",
+  "family": "State Space Models",
+  "organization": "Research community",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "sequence-processing",
+  "type": "continuous-discrete-state-space-model",
+  "description": "State Space Models represent sequence dynamics through a latent state that evolves as inputs arrive, providing an alternative to explicit pairwise attention for long sequences.",
+  "architecture": {
+    "family": "state space model",
+    "attention": "none",
+    "position": "encoded through state dynamics",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "state transition"
+  },
+  "memory": {
+    "type": "latent state",
+    "access": "recurrent state update",
+    "complexity": "typically linear in sequence length",
+    "parallelization": "implementation-dependent"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence", "state"]
+  },
+  "advantages": [
+    "Efficient long-sequence processing",
+    "Linear-time sequence processing in relevant formulations",
+    "Compact recurrent state"
+  ],
+  "limitations": [
+    "Different optimization and representation tradeoffs from attention",
+    "State compression can limit direct access to all previous tokens"
+  ],
+  "tags": [
+    "ssm",
+    "state-space-model",
+    "sequence-modeling",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Efficiently Modeling Long Sequences with Structured State Spaces",
+      "url": "https://arxiv.org/abs/2111.00396"
+    }
+  ],
+  "relatedConcepts": [
+    "s4",
+    "mamba",
+    "s5"
+  ]
+},
+  {
+  "id": "s4",
+  "name": "S4",
+  "family": "Structured State Space Models",
+  "organization": "Stanford University / Carnegie Mellon University",
+  "releaseDate": "2021-11",
+  "year": 2021,
+  "category": "sequence-processing",
+  "type": "structured-state-space-model",
+  "description": "S4 uses structured state space representations designed to efficiently model long-range dependencies while maintaining computationally efficient sequence processing.",
+  "architecture": {
+    "family": "structured state space",
+    "attention": "none",
+    "position": "state dynamics",
+    "sparsity": "structured state matrices",
+    "sequenceStrategy": "state-space convolution / recurrence"
+  },
+  "memory": {
+    "type": "structured latent state",
+    "access": "state transition",
+    "complexity": "linear-time sequence processing",
+    "parallelization": "parallelizable through convolutional formulation"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence"]
+  },
+  "advantages": [
+    "Strong long-range sequence modeling",
+    "Efficient sequence computation",
+    "Alternative to attention"
+  ],
+  "limitations": [
+    "More specialized mathematical machinery",
+    "Less widely deployed than Transformer architectures"
+  ],
+  "tags": [
+    "s4",
+    "ssm",
+    "state-space",
+    "long-sequence"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Efficiently Modeling Long Sequences with Structured State Spaces",
+      "url": "https://arxiv.org/abs/2111.00396"
+    }
+  ],
+  "relatedConcepts": [
+    "ssm",
+    "s5",
+    "mamba"
+  ]
+},
+  {
+  "id": "s5",
+  "name": "S5",
+  "family": "State Space Models",
+  "organization": "Research community",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "sequence-processing",
+  "type": "simplified-state-space-model",
+  "description": "S5 simplifies multi-input multi-output state space modeling by using a single state space layer, reducing some of the complexity of earlier structured state space approaches.",
+  "architecture": {
+    "family": "simplified state space model",
+    "attention": "none",
+    "position": "state dynamics",
+    "sparsity": "structured",
+    "sequenceStrategy": "state-space recurrence"
+  },
+  "memory": {
+    "type": "latent state",
+    "access": "state transition",
+    "complexity": "linear in sequence length",
+    "parallelization": "implementation-dependent"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence"]
+  },
+  "advantages": [
+    "Simpler architecture than some S4 formulations",
+    "Efficient long-sequence modeling",
+    "Single state representation"
+  ],
+  "limitations": [
+    "Still less established than Transformer architectures",
+    "Requires specialized implementation"
+  ],
+  "tags": [
+    "s5",
+    "ssm",
+    "state-space",
+    "sequence-modeling"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Simplified State Space Layers for Sequence Modeling",
+      "url": "https://arxiv.org/abs/2208.04933"
+    }
+  ],
+  "relatedConcepts": [
+    "s4",
+    "ssm",
+    "mamba"
+  ]
+},
+  {
+  "id": "mamba",
+  "name": "Mamba",
+  "family": "Selective State Space Model",
+  "organization": "Carnegie Mellon University / Princeton University",
+  "releaseDate": "2023-12",
+  "year": 2023,
+  "category": "sequence-processing",
+  "type": "selective-state-space-model",
+  "description": "Mamba introduces selective state space modeling in which input-dependent parameters control what information is propagated through the recurrent state, providing a linear-scaling alternative to attention for sequence modeling.",
+  "architecture": {
+    "family": "selective state space model",
+    "attention": "none",
+    "position": "state dynamics",
+    "sparsity": "selective state update",
+    "sequenceStrategy": "input-dependent state transition"
+  },
+  "memory": {
+    "type": "selective recurrent state",
+    "access": "sequential state update",
+    "complexity": "linear in sequence length",
+    "parallelization": "hardware-aware selective scan"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence"]
+  },
+  "advantages": [
+    "Linear sequence scaling",
+    "Efficient long-context processing",
+    "Selective memory mechanism",
+    "No quadratic attention matrix"
+  ],
+  "limitations": [
+    "Does not provide direct pairwise token-to-token attention",
+    "Capability tradeoffs vary by task and model design",
+    "Architecture and kernels are more specialized"
+  ],
+  "tags": [
+    "mamba",
+    "ssm",
+    "selective-ssm",
+    "linear-time",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+      "url": "https://arxiv.org/abs/2312.00752"
+    },
+    {
+      "type": "github",
+      "title": "state-spaces/mamba",
+      "url": "https://github.com/state-spaces/mamba"
+    }
+  ],
+  "relatedConcepts": [
+    "s4",
+    "mamba-2",
+    "mamba-3",
+    "state-space-model"
+  ]
+},
+  {
+  "id": "mamba-2",
+  "name": "Mamba-2",
+  "family": "State Space Models",
+  "organization": "Carnegie Mellon University / Princeton University",
+  "releaseDate": "2024-05",
+  "year": 2024,
+  "category": "sequence-processing",
+  "type": "structured-state-space-sequence-model",
+  "description": "Mamba-2 develops a structured state space approach that connects state space modeling and attention-like computation while improving hardware efficiency and simplifying the underlying formulation.",
+  "architecture": {
+    "family": "structured state space duality",
+    "attention": "state-space formulation with attention connections",
+    "position": "state dynamics",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "selective state-space processing"
+  },
+  "memory": {
+    "type": "state representation",
+    "access": "state transition",
+    "complexity": "linear-time sequence processing in the core formulation",
+    "parallelization": "hardware-aware"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence"]
+  },
+  "advantages": [
+    "Connects SSMs with attention formulations",
+    "Improved computational efficiency",
+    "Strong long-sequence modeling"
+  ],
+  "limitations": [
+    "Specialized architecture",
+    "Tradeoffs versus attention depend on workload"
+  ],
+  "tags": [
+    "mamba-2",
+    "ssm",
+    "state-space",
+    "sequence-modeling"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Transformers are SSMs: Generalized Models and Efficient Algorithms Through Structured State Space Duality",
+      "url": "https://arxiv.org/abs/2405.21060"
+    }
+  ],
+  "relatedConcepts": [
+    "mamba",
+    "s4",
+    "attention"
+  ]
+},
+  {
+  "id": "mamba-3",
+  "name": "Mamba-3",
+  "family": "State Space Models",
+  "organization": "Research community",
+  "releaseDate": "2025",
+  "year": 2025,
+  "category": "sequence-processing",
+  "type": "next-generation-state-space-model",
+  "description": "Mamba-3 represents the subsequent evolution of the Mamba family, exploring improved state-space formulations and training mechanisms for language and long-context modeling.",
+  "architecture": {
+    "family": "state space model",
+    "attention": "model-dependent",
+    "position": "state dynamics",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "state-based sequence processing"
+  },
+  "memory": {
+    "type": "latent recurrent state",
+    "access": "state transition",
+    "complexity": "linear-oriented sequence processing",
+    "parallelization": "implementation-dependent"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence"]
+  },
+  "training": {
+    "objective": "language modeling / sequence modeling",
+    "direction": "model-dependent",
+    "masking": "model-dependent",
+    "target": "next-token or sequence prediction",
+    "data": "model-dependent"
+  },
+  "license": "model-dependent",
+  "openWeights": "model-dependent",
+  "tags": [
+    "mamba-3",
+    "ssm",
+    "state-space",
+    "long-context"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "mamba",
+    "mamba-2",
+    "state-space-model"
+  ]
+},
+  {
+  "id": "rwkv",
+  "name": "RWKV",
+  "family": "Linear-Attention / Recurrent Architecture",
+  "organization": "RWKV community",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "sequence-processing",
+  "type": "recurrent-linear-attention-hybrid",
+  "description": "RWKV combines recurrent-style sequence processing with attention-inspired weighting, enabling efficient inference with constant-size recurrent state while retaining Transformer-like training characteristics.",
+  "architecture": {
+    "family": "recurrent weighted key-value architecture",
+    "attention": "linear-attention-inspired",
+    "position": "time-mixing",
+    "sparsity": "dense",
+    "sequenceStrategy": "parallelizable training + recurrent inference"
+  },
+  "memory": {
+    "type": "recurrent state",
+    "access": "state update",
+    "complexity": "linear sequence processing",
+    "parallelization": "parallel training formulation"
+  },
+  "modality": {
+    "input": ["text", "sequence"],
+    "output": ["text", "sequence"]
+  },
+  "advantages": [
+    "Efficient recurrent inference",
+    "Constant-size recurrent state",
+    "Linear sequence processing"
+  ],
+  "limitations": [
+    "Different scaling and capability tradeoffs from mainstream Transformers",
+    "Smaller ecosystem than Transformer architectures"
+  ],
+  "tags": [
+    "rwkv",
+    "recurrent",
+    "linear-attention",
+    "sequence-modeling"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "RWKV: Reinventing RNNs for the Transformer Era",
+      "url": "https://arxiv.org/abs/2305.13048"
+    }
+  ],
+  "relatedConcepts": [
+    "mamba",
+    "linear-attention",
+    "retentive-network"
+  ]
+},
+  {
+  "id": "retnet",
+  "name": "RetNet",
+  "family": "Retentive Network",
+  "organization": "Microsoft Research",
+  "releaseDate": "2023-04",
+  "year": 2023,
+  "category": "sequence-processing",
+  "type": "retention-based-sequence-model",
+  "description": "RetNet introduces a retention mechanism designed to provide parallelizable training, recurrent inference, and efficient sequence computation as alternatives to standard Transformer attention.",
+  "architecture": {
+    "family": "retention network",
+    "attention": "retention mechanism",
+    "position": "retention decay",
+    "sparsity": "dense",
+    "sequenceStrategy": "parallel training + recurrent inference"
+  },
+  "memory": {
+    "type": "retention state",
+    "access": "recurrent state",
+    "complexity": "linear-oriented",
+    "parallelization": "parallel training formulation"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence"]
+  },
+  "advantages": [
+    "Parallel training",
+    "Recurrent inference",
+    "Efficient long-sequence processing"
+  ],
+  "limitations": [
+    "Alternative ecosystem compared with Transformers",
+    "Tradeoffs depend on task and implementation"
+  ],
+  "tags": [
+    "retnet",
+    "retention",
+    "linear-attention",
+    "sequence-modeling"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Retentive Network: A Successor to Transformer for Large Language Models",
+      "url": "https://arxiv.org/abs/2307.08621"
+    }
+  ],
+  "relatedConcepts": [
+    "rwkv",
+    "mamba",
+    "linear-attention"
+  ]
+},
+  {
+  "id": "hyena",
+  "name": "Hyena",
+  "family": "Implicit Long Convolution",
+  "organization": "Stanford University",
+  "releaseDate": "2023-02",
+  "year": 2023,
+  "category": "sequence-processing",
+  "type": "implicit-long-convolution",
+  "description": "Hyena replaces explicit quadratic attention with long convolutions and element-wise gating, providing a subquadratic alternative for long-context sequence modeling.",
+  "architecture": {
+    "family": "implicit long convolution",
+    "attention": "none",
+    "position": "implicit through long convolution",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "long convolution + gating"
+  },
+  "memory": {
+    "type": "convolutional state",
+    "access": "long-range filtering",
+    "complexity": "subquadratic / implementation-dependent",
+    "parallelization": "highly parallelizable"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence"]
+  },
+  "advantages": [
+    "Avoids explicit quadratic attention",
+    "Designed for long sequences",
+    "Highly parallelizable"
+  ],
+  "limitations": [
+    "Different inductive bias from attention",
+    "Specialized implementation"
+  ],
+  "tags": [
+    "hyena",
+    "long-convolution",
+    "attention-alternative",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Hyena Hierarchy: Towards Larger Convolutional Language Models",
+      "url": "https://arxiv.org/abs/2302.10866"
+    }
+  ],
+  "relatedConcepts": [
+    "ssm",
+    "mamba",
+    "linear-attention"
+  ]
+},
+  {
+  "id": "linear-attention",
+  "name": "Linear Attention",
+  "family": "Attention Alternatives",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "sequence-processing",
+  "type": "linear-complexity-attention",
+  "description": "Linear attention reformulates attention computation so that the sequence-length dependence can be reduced from quadratic to linear under specific kernel or feature-map formulations.",
+  "architecture": {
+    "family": "linear attention",
+    "attention": "linearized attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "reordered attention computation"
+  },
+  "memory": {
+    "type": "aggregated key-value state",
+    "access": "compressed attention state",
+    "complexity": "linear in sequence length under applicable formulations",
+    "parallelization": "implementation-dependent"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence"]
+  },
+  "advantages": [
+    "Reduced sequence-length complexity",
+    "Potentially efficient long-context processing",
+    "Can support recurrent inference"
+  ],
+  "limitations": [
+    "Approximation or reformulation can alter attention behavior",
+    "Quality varies significantly across formulations"
+  ],
+  "tags": [
+    "linear-attention",
+    "attention-alternative",
+    "long-context",
+    "efficient-transformer"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention",
+      "url": "https://arxiv.org/abs/2006.16236"
+    }
+  ],
+  "relatedConcepts": [
+    "rwkv",
+    "retnet",
+    "mamba"
+  ]
+},
+  {
+  "id": "xlstm",
+  "name": "xLSTM",
+  "family": "Modern Recurrent Architecture",
+  "organization": "NXAI / research community",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "sequence-processing",
+  "type": "extended-long-short-term-memory",
+  "description": "xLSTM revisits recurrent memory using exponential gating and new scalar and matrix memory variants designed to improve scalability and long-range sequence modeling.",
+  "architecture": {
+    "family": "extended LSTM",
+    "attention": "none",
+    "position": "implicit through recurrence",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "gated recurrent memory"
+  },
+  "memory": {
+    "type": "scalar or matrix memory",
+    "access": "recurrent state",
+    "complexity": "linear sequence processing",
+    "parallelization": "implementation-dependent"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence"]
+  },
+  "advantages": [
+    "Modernizes recurrent memory",
+    "Designed for long-context sequence processing",
+    "Avoids quadratic attention"
+  ],
+  "limitations": [
+    "Newer ecosystem",
+    "Deployment and scaling evidence is smaller than Transformer ecosystem"
+  ],
+  "tags": [
+    "xlstm",
+    "lstm",
+    "recurrent",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "xLSTM: Extended Long Short-Term Memory",
+      "url": "https://arxiv.org/abs/2405.04517"
+    }
+  ],
+  "relatedConcepts": [
+    "lstm",
+    "mamba",
+    "rwkv"
+  ]
+},
+  {
+  "id": "hybrid-attention-ssm",
+  "name": "Hybrid Attention-State Space Architecture",
+  "family": "Hybrid Sequence Models",
+  "organization": "Research community",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "sequence-processing",
+  "type": "attention-state-space-hybrid",
+  "description": "Hybrid architectures combine attention layers with state-space or recurrent layers, attempting to capture both direct token-to-token interactions and efficient long-range state propagation.",
+  "architecture": {
+    "family": "attention + state space",
+    "attention": "selective attention layers",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "hybrid attention and state dynamics"
+  },
+  "memory": {
+    "type": "attention KV state + recurrent state",
+    "access": "direct attention + compressed state",
+    "complexity": "model-dependent",
+    "parallelization": "model-dependent"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence"]
+  },
+  "advantages": [
+    "Combines complementary sequence-processing mechanisms",
+    "Potentially balances quality and efficiency",
+    "Can reduce dependence on full attention"
+  ],
+  "limitations": [
+    "More architectural complexity",
+    "Optimal layer composition remains model-dependent"
+  ],
+  "tags": [
+    "hybrid",
+    "attention",
+    "ssm",
+    "mamba",
+    "long-context"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "jamba",
+    "zamba",
+    "mamba",
+    "transformer"
+  ]
+},
+  {
+  "id": "jamba",
+  "name": "Jamba",
+  "family": "Hybrid SSM-Transformer",
+  "organization": "AI21 Labs",
+  "releaseDate": "2024-03",
+  "year": 2024,
+  "category": "foundation-model",
+  "type": "hybrid-state-space-transformer",
+  "description": "Jamba combines Transformer attention, Mamba-style state space layers, and Mixture-of-Experts components in a hybrid architecture designed for efficient long-context language modeling.",
+  "architecture": {
+    "family": "hybrid Transformer + Mamba",
+    "attention": "Transformer attention in selected layers",
+    "position": "model-dependent",
+    "sparsity": "MoE expert sparsity",
+    "sequenceStrategy": "hybrid attention + state-space processing"
+  },
+  "memory": {
+    "type": "KV cache + recurrent state",
+    "access": "attention + state-space",
+    "complexity": "hybrid",
+    "parallelization": "model-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "causal language modeling",
+    "direction": "autoregressive",
+    "masking": "causal",
+    "target": "next-token prediction",
+    "data": "model-specific"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "jamba",
+    "mamba",
+    "transformer",
+    "moe",
+    "hybrid",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "AI21 Jamba",
+      "url": "https://www.ai21.com/jamba/"
+    }
+  ],
+  "relatedConcepts": [
+    "mamba",
+    "hybrid-attention-ssm",
+    "moe"
+  ]
+},
+  {
+  "id": "dual-encoder-multimodal",
+  "name": "Dual-Encoder Multimodal Architecture",
+  "family": "Multimodal Architecture",
+  "organization": "Research community",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "multimodal",
+  "type": "dual-encoder",
+  "description": "A dual-encoder architecture independently encodes two modalities into compatible representation spaces and aligns them using a similarity or contrastive objective.",
+  "architecture": {
+    "family": "dual encoder",
+    "attention": "modality-specific",
+    "position": "modality-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "independent encoding followed by representation alignment"
+  },
+  "fusion": {
+    "type": "late fusion",
+    "mechanism": "embedding-space alignment",
+    "crossModalAttention": false,
+    "sharedRepresentation": true
+  },
+  "modality": {
+    "input": [
+      "image",
+      "text"
+    ],
+    "output": [
+      "aligned embeddings"
+    ]
+  },
+  "training": {
+    "objective": "contrastive multimodal alignment",
+    "direction": "representation learning",
+    "masking": "none",
+    "target": "matching modality pairs",
+    "data": "paired multimodal data"
+  },
+  "advantages": [
+    "Efficient retrieval",
+    "Scalable representation learning",
+    "Strong zero-shot transfer"
+  ],
+  "limitations": [
+    "Limited deep token-level cross-modal interaction",
+    "Not inherently generative"
+  ],
+  "tags": [
+    "dual-encoder",
+    "multimodal",
+    "contrastive",
+    "vision-language"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Learning Transferable Visual Models From Natural Language Supervision",
+      "url": "https://arxiv.org/abs/2103.00020"
+    }
+  ],
+  "relatedConcepts": [
+    "clip",
+    "siglip",
+    "cross-attention",
+    "multimodal-fusion"
+  ]
+},
+  {
+  "id": "clip",
+  "name": "CLIP",
+  "family": "Vision-Language Foundation Model",
+  "organization": "OpenAI",
+  "releaseDate": "2021-01",
+  "year": 2021,
+  "category": "foundation-model",
+  "type": "vision-language-dual-encoder",
+  "description": "CLIP jointly trains an image encoder and a text encoder to produce aligned representations using large-scale image-text contrastive learning.",
+  "architecture": {
+    "family": "dual encoder",
+    "visionEncoder": "vision model",
+    "textEncoder": "Transformer-based text encoder",
+    "attention": "modality-specific",
+    "position": "encoder-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "independent encoding"
+  },
+  "fusion": {
+    "type": "late fusion",
+    "mechanism": "embedding similarity",
+    "crossModalAttention": false,
+    "sharedRepresentation": true
+  },
+  "modality": {
+    "input": [
+      "image",
+      "text"
+    ],
+    "output": [
+      "image embedding",
+      "text embedding"
+    ]
+  },
+  "training": {
+    "objective": "image-text contrastive learning",
+    "direction": "representation alignment",
+    "masking": "none",
+    "target": "matching image-text pairs",
+    "data": "image-text pairs"
+  },
+  "advantages": [
+    "Zero-shot image classification",
+    "Image-text retrieval",
+    "Strong semantic alignment"
+  ],
+  "limitations": [
+    "Not a general-purpose multimodal conversational model",
+    "Limited generative capability"
+  ],
+  "tags": [
+    "clip",
+    "vision-language",
+    "dual-encoder",
+    "contrastive"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Learning Transferable Visual Models From Natural Language Supervision",
+      "url": "https://arxiv.org/abs/2103.00020"
+    }
+  ],
+  "relatedConcepts": [
+    "dual-encoder-multimodal",
+    "siglip",
+    "vision-language-model"
+  ]
+},
+  {
+  "id": "siglip",
+  "name": "SigLIP",
+  "family": "Vision-Language Foundation Model",
+  "organization": "Google Research",
+  "releaseDate": "2023-09",
+  "year": 2023,
+  "category": "foundation-model",
+  "type": "vision-language-dual-encoder",
+  "description": "SigLIP is a vision-language dual encoder that replaces CLIP's softmax contrastive objective with a pairwise sigmoid loss for image-text alignment.",
+  "architecture": {
+    "family": "dual encoder",
+    "visionEncoder": "Vision Transformer",
+    "textEncoder": "Transformer",
+    "attention": "modality-specific",
+    "position": "encoder-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "independent encoding"
+  },
+  "fusion": {
+    "type": "late fusion",
+    "mechanism": "pairwise similarity",
+    "crossModalAttention": false,
+    "sharedRepresentation": true
+  },
+  "modality": {
+    "input": [
+      "image",
+      "text"
+    ],
+    "output": [
+      "aligned embeddings"
+    ]
+  },
+  "training": {
+    "objective": "sigmoid image-text loss",
+    "direction": "representation alignment",
+    "masking": "none",
+    "target": "image-text pair classification",
+    "data": "image-text pairs"
+  },
+  "advantages": [
+    "Efficient pairwise training objective",
+    "Strong vision-language representation learning",
+    "Useful as a vision encoder for multimodal models"
+  ],
+  "limitations": [
+    "Primarily a representation model",
+    "Not inherently a general-purpose conversational generator"
+  ],
+  "tags": [
+    "siglip",
+    "vision-language",
+    "dual-encoder",
+    "contrastive-alternative"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Sigmoid Loss for Language Image Pre-Training",
+      "url": "https://arxiv.org/abs/2303.15343"
+    }
+  ],
+  "relatedConcepts": [
+    "clip",
+    "paligemma",
+    "vision-language-model"
+  ]
+},
+  {
+  "id": "cross-attention-fusion",
+  "name": "Cross-Attention Multimodal Fusion",
+  "family": "Multimodal Architecture",
+  "organization": "Research community",
+  "releaseDate": "2019",
+  "year": 2019,
+  "category": "multimodal",
+  "type": "cross-attention",
+  "description": "Cross-attention fusion allows representations from one modality to attend to representations from another modality, enabling token-level or feature-level multimodal interaction.",
+  "architecture": {
+    "family": "cross-attention architecture",
+    "attention": "cross-modal attention",
+    "position": "modality-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "cross-modal interaction"
+  },
+  "fusion": {
+    "type": "cross-attention",
+    "mechanism": "queries from one modality attend to keys and values from another",
+    "crossModalAttention": true,
+    "sharedRepresentation": false
+  },
+  "modality": {
+    "input": [
+      "image",
+      "text",
+      "audio",
+      "video"
+    ],
+    "output": [
+      "fused representations"
+    ]
+  },
+  "advantages": [
+    "Deep cross-modal interaction",
+    "Flexible conditioning",
+    "Useful for multimodal generation"
+  ],
+  "limitations": [
+    "Additional computation",
+    "More complex than independent encoders",
+    "Cross-attention memory grows with multimodal sequence sizes"
+  ],
+  "tags": [
+    "cross-attention",
+    "multimodal-fusion",
+    "vision-language",
+    "audio-language"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "flamingo",
+    "blip-2",
+    "multimodal-transformer"
+  ]
+},
+  {
+  "id": "flamingo",
+  "name": "Flamingo",
+  "family": "Vision-Language Foundation Model",
+  "organization": "DeepMind",
+  "releaseDate": "2022-04",
+  "year": 2022,
+  "category": "foundation-model",
+  "type": "few-shot-vision-language-model",
+  "description": "Flamingo connects a pretrained vision encoder to a pretrained language model through specialized cross-attention layers, enabling few-shot multimodal generation.",
+  "architecture": {
+    "family": "vision encoder + language model + cross-attention",
+    "visionEncoder": "pretrained vision encoder",
+    "textEncoder": "language model",
+    "attention": "cross-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "interleaved multimodal conditioning"
+  },
+  "fusion": {
+    "type": "cross-attention",
+    "mechanism": "gated cross-attention layers",
+    "crossModalAttention": true,
+    "sharedRepresentation": false
+  },
+  "modality": {
+    "input": [
+      "image",
+      "text"
+    ],
+    "output": [
+      "text"
+    ]
+  },
+  "training": {
+    "objective": "multimodal language modeling",
+    "direction": "autoregressive",
+    "masking": "causal",
+    "target": "text conditioned on visual context",
+    "data": "interleaved image-text data"
+  },
+  "advantages": [
+    "Few-shot multimodal learning",
+    "Preserves pretrained language-model capabilities",
+    "Supports interleaved visual and textual inputs"
+  ],
+  "limitations": [
+    "Complex architecture",
+    "Large-scale training requirements"
+  ],
+  "tags": [
+    "flamingo",
+    "vision-language",
+    "cross-attention",
+    "few-shot"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Flamingo: a Visual Language Model for Few-Shot Learning",
+      "url": "https://arxiv.org/abs/2204.14198"
+    }
+  ],
+  "relatedConcepts": [
+    "cross-attention-fusion",
+    "blip-2",
+    "multimodal-language-model"
+  ]
+},
+  {
+  "id": "blip-2",
+  "name": "BLIP-2",
+  "family": "Vision-Language Foundation Model",
+  "organization": "Salesforce Research",
+  "releaseDate": "2023-01",
+  "year": 2023,
+  "category": "foundation-model",
+  "type": "vision-language-bridge",
+  "description": "BLIP-2 connects frozen vision and language models through a lightweight Querying Transformer that learns to extract visual information useful for language generation.",
+  "architecture": {
+    "family": "vision encoder + Q-Former + language model",
+    "visionEncoder": "frozen vision encoder",
+    "textEncoder": "frozen language model",
+    "attention": "cross-attention through Q-Former",
+    "position": "component-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "learned visual query extraction"
+  },
+  "fusion": {
+    "type": "learned bridge",
+    "mechanism": "Q-Former",
+    "crossModalAttention": true,
+    "sharedRepresentation": false
+  },
+  "modality": {
+    "input": [
+      "image",
+      "text"
+    ],
+    "output": [
+      "text"
+    ]
+  },
+  "training": {
+    "objective": "vision-language representation learning and generation",
+    "direction": "multistage",
+    "masking": "component-dependent",
+    "target": "visual-language alignment",
+    "data": "image-text data"
+  },
+  "advantages": [
+    "Efficient reuse of frozen pretrained components",
+    "Lightweight multimodal bridge",
+    "Strong visual question answering and image understanding"
+  ],
+  "limitations": [
+    "Information bottleneck through learned queries",
+    "Depends on quality of pretrained components"
+  ],
+  "tags": [
+    "blip-2",
+    "q-former",
+    "vision-language",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models",
+      "url": "https://arxiv.org/abs/2301.12597"
+    }
+  ],
+  "relatedConcepts": [
+    "flamingo",
+    "q-former",
+    "llava"
+  ]
+},
+  {
+  "id": "vision-language-projector",
+  "name": "Vision-Language Projection",
+  "family": "Multimodal Architecture",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "modality-projector",
+  "description": "A modality projector maps representations produced by a vision encoder into the representation space expected by a language model.",
+  "architecture": {
+    "family": "encoder-projector-language-model",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "visual tokens projected into language-model space"
+  },
+  "fusion": {
+    "type": "projection",
+    "mechanism": "linear, MLP, or learned projection",
+    "crossModalAttention": false,
+    "sharedRepresentation": true
+  },
+  "modality": {
+    "input": [
+      "image features"
+    ],
+    "output": [
+      "language-model-compatible embeddings"
+    ]
+  },
+  "advantages": [
+    "Simple architecture",
+    "Easy integration with pretrained language models",
+    "Modular vision and language components"
+  ],
+  "limitations": [
+    "Projection can create an information bottleneck",
+    "Quality depends on alignment training"
+  ],
+  "tags": [
+    "projector",
+    "vision-language",
+    "multimodal",
+    "llm"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "llava",
+    "paligemma",
+    "qwen-vl"
+  ]
+},
+  {
+  "id": "llava",
+  "name": "LLaVA",
+  "family": "Vision-Language Foundation Model",
+  "organization": "University of Wisconsin–Madison / Microsoft Research / Columbia University",
+  "releaseDate": "2023-04",
+  "year": 2023,
+  "category": "foundation-model",
+  "type": "vision-language-projector-model",
+  "description": "LLaVA connects a pretrained vision encoder to a large language model through a learned projection layer, enabling visual instruction following and multimodal conversation.",
+  "architecture": {
+    "family": "vision encoder + projector + language model",
+    "visionEncoder": "CLIP-based vision encoder",
+    "textEncoder": "large language model",
+    "attention": "language-model self-attention",
+    "position": "language-model positional encoding",
+    "sparsity": "dense",
+    "sequenceStrategy": "visual tokens inserted into language sequence"
+  },
+  "fusion": {
+    "type": "projection",
+    "mechanism": "learned multimodal projection",
+    "crossModalAttention": false,
+    "sharedRepresentation": true
+  },
+  "modality": {
+    "input": [
+      "image",
+      "text"
+    ],
+    "output": [
+      "text"
+    ]
+  },
+  "training": {
+    "objective": "visual instruction tuning",
+    "direction": "autoregressive",
+    "masking": "causal",
+    "target": "instruction responses",
+    "data": "image-text instruction data"
+  },
+  "advantages": [
+    "Simple modular design",
+    "Strong visual instruction following",
+    "Easy adaptation of existing language models"
+  ],
+  "limitations": [
+    "Vision information must pass through a projector",
+    "Performance depends on vision encoder and language model"
+  ],
+  "tags": [
+    "llava",
+    "vision-language",
+    "multimodal",
+    "visual-instruction-tuning"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Visual Instruction Tuning",
+      "url": "https://arxiv.org/abs/2304.08485"
+    }
+  ],
+  "relatedConcepts": [
+    "vision-language-projector",
+    "clip",
+    "blip-2"
+  ]
+},
+  {
+  "id": "paligemma",
+  "name": "PaliGemma",
+  "family": "Vision-Language Foundation Model",
+  "organization": "Google",
+  "releaseDate": "2024-05",
+  "year": 2024,
+  "category": "foundation-model",
+  "type": "vision-language-model",
+  "description": "PaliGemma combines a SigLIP vision encoder with a Gemma language model in a compact vision-language architecture designed for image understanding and generation tasks.",
+  "architecture": {
+    "family": "vision encoder + language model",
+    "visionEncoder": "SigLIP",
+    "textEncoder": "Gemma",
+    "attention": "language-model attention",
+    "position": "component-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "multimodal token conditioning"
+  },
+  "fusion": {
+    "type": "projection",
+    "mechanism": "vision-to-language embedding projection",
+    "crossModalAttention": false,
+    "sharedRepresentation": true
+  },
+  "modality": {
+    "input": [
+      "image",
+      "text"
+    ],
+    "output": [
+      "text"
+    ]
+  },
+  "training": {
+    "objective": "vision-language pretraining and adaptation",
+    "direction": "autoregressive",
+    "masking": "causal",
+    "target": "text conditioned on visual input",
+    "data": "image-text data"
+  },
+  "advantages": [
+    "Compact multimodal architecture",
+    "Strong reusable vision-language components",
+    "Open model family"
+  ],
+  "limitations": [
+    "Architecture has a relatively constrained multimodal interface",
+    "Capability depends on model scale and adaptation"
+  ],
+  "tags": [
+    "paligemma",
+    "siglip",
+    "gemma",
+    "vision-language"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "PaliGemma",
+      "url": "https://ai.google.dev/gemma/docs/paligemma"
+    }
+  ],
+  "relatedConcepts": [
+    "siglip",
+    "gemma",
+    "llava"
+  ]
+},
+  {
+  "id": "qwen-vl",
+  "name": "Qwen-VL",
+  "family": "Vision-Language Foundation Model",
+  "organization": "Alibaba Cloud",
+  "releaseDate": "2023-08",
+  "year": 2023,
+  "category": "foundation-model",
+  "type": "vision-language-model",
+  "description": "Qwen-VL integrates visual representations with the Qwen language-model family to support image understanding, visual question answering, and multimodal generation.",
+  "architecture": {
+    "family": "vision encoder + language model",
+    "visionEncoder": "vision encoder",
+    "textEncoder": "Qwen language model",
+    "attention": "Transformer attention",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "multimodal token integration"
+  },
+  "fusion": {
+    "type": "learned multimodal interface",
+    "mechanism": "visual feature projection",
+    "crossModalAttention": "model-dependent",
+    "sharedRepresentation": true
+  },
+  "modality": {
+    "input": [
+      "image",
+      "text"
+    ],
+    "output": [
+      "text"
+    ]
+  },
+  "training": {
+    "objective": "multimodal pretraining and instruction tuning",
+    "direction": "autoregressive",
+    "masking": "causal",
+    "target": "multimodal responses",
+    "data": "image-text and visual instruction data"
+  },
+  "advantages": [
+    "Strong visual understanding",
+    "Multilingual capability",
+    "Broad multimodal task coverage"
+  ],
+  "limitations": [
+    "Architecture differs across Qwen-VL generations",
+    "Exact components should be recorded per release"
+  ],
+  "tags": [
+    "qwen-vl",
+    "vision-language",
+    "qwen",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Qwen-VL: A Versatile Vision-Language Model for Understanding, Localization, Text Reading, and Beyond",
+      "url": "https://arxiv.org/abs/2308.12966"
+    }
+  ],
+  "relatedConcepts": [
+    "qwen",
+    "llava",
+    "internvl"
+  ]
+},
+  {
+  "id": "internvl",
+  "name": "InternVL",
+  "family": "Vision-Language Foundation Model",
+  "organization": "Shanghai AI Laboratory",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "foundation-model",
+  "type": "vision-language-model",
+  "description": "InternVL is a vision-language model family that combines large-scale visual encoders with language models and progressively improves visual understanding, resolution handling, and multimodal instruction following.",
+  "architecture": {
+    "family": "vision encoder + language model",
+    "visionEncoder": "InternViT family",
+    "textEncoder": "language model",
+    "attention": "Transformer attention",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "visual token integration"
+  },
+  "fusion": {
+    "type": "projection-based multimodal fusion",
+    "mechanism": "visual feature mapping",
+    "crossModalAttention": "model-dependent",
+    "sharedRepresentation": true
+  },
+  "modality": {
+    "input": [
+      "image",
+      "text"
+    ],
+    "output": [
+      "text"
+    ]
+  },
+  "training": {
+    "objective": "vision-language pretraining and instruction tuning",
+    "direction": "autoregressive",
+    "masking": "causal",
+    "target": "multimodal responses",
+    "data": "large-scale multimodal datasets"
+  },
+  "advantages": [
+    "Strong visual understanding",
+    "High-resolution image processing",
+    "Scalable multimodal architecture"
+  ],
+  "limitations": [
+    "Architecture changes across generations",
+    "High-resolution processing can increase computational cost"
+  ],
+  "tags": [
+    "internvl",
+    "vision-language",
+    "multimodal",
+    "internvit"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "InternVL: Scaling up Vision Foundation Models and Aligning for Generic Visual-Linguistic Tasks",
+      "url": "https://arxiv.org/abs/2312.14238"
+    }
+  ],
+  "relatedConcepts": [
+    "internvit",
+    "qwen-vl",
+    "llava"
+  ]
+},
+  {
+  "id": "idefics",
+  "name": "IDEFICS",
+  "family": "Vision-Language Foundation Model",
+  "organization": "Hugging Face",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "foundation-model",
+  "type": "open-vision-language-model",
+  "description": "IDEFICS is an open vision-language model family designed for image-text understanding and generation using pretrained vision and language components.",
+  "architecture": {
+    "family": "vision encoder + language model",
+    "visionEncoder": "pretrained vision encoder",
+    "textEncoder": "language model",
+    "attention": "cross-modal / language attention",
+    "position": "component-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "multimodal conditioning"
+  },
+  "fusion": {
+    "type": "multimodal projection and attention",
+    "mechanism": "visual feature integration",
+    "crossModalAttention": true,
+    "sharedRepresentation": true
+  },
+  "modality": {
+    "input": [
+      "image",
+      "text"
+    ],
+    "output": [
+      "text"
+    ]
+  },
+  "training": {
+    "objective": "vision-language modeling",
+    "direction": "autoregressive",
+    "masking": "causal",
+    "target": "multimodal text generation",
+    "data": "image-text datasets"
+  },
+  "advantages": [
+    "Open multimodal research ecosystem",
+    "Supports image-text generation"
+  ],
+  "limitations": [
+    "Earlier generation compared with newer VLMs",
+    "Performance varies significantly by model version"
+  ],
+  "tags": [
+    "idefics",
+    "hugging-face",
+    "vision-language",
+    "open-model"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "IDEFICS: An Open Reproduction of Flamingo",
+      "url": "https://arxiv.org/abs/2304.06912"
+    }
+  ],
+  "relatedConcepts": [
+    "flamingo",
+    "llava",
+    "multimodal-language-model"
+  ]
+},
+  {
+  "id": "kosmos",
+  "name": "KOSMOS",
+  "family": "Multimodal Foundation Model",
+  "organization": "Microsoft Research",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "foundation-model",
+  "type": "multimodal-language-model",
+  "description": "KOSMOS explores a general multimodal language modeling framework capable of grounding language in visual information and supporting tasks such as image understanding and multimodal interaction.",
+  "architecture": {
+    "family": "multimodal language model",
+    "visionEncoder": "visual encoder",
+    "textEncoder": "language model",
+    "attention": "multimodal Transformer attention",
+    "position": "modality-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "multimodal token conditioning"
+  },
+  "fusion": {
+    "type": "token-level multimodal fusion",
+    "mechanism": "visual embeddings integrated into language sequence",
+    "crossModalAttention": true,
+    "sharedRepresentation": true
+  },
+  "modality": {
+    "input": [
+      "image",
+      "text"
+    ],
+    "output": [
+      "text"
+    ]
+  },
+  "training": {
+    "objective": "multimodal language modeling",
+    "direction": "autoregressive",
+    "masking": "causal",
+    "target": "multimodal sequence prediction",
+    "data": "image-text data"
+  },
+  "advantages": [
+    "General multimodal language modeling",
+    "Grounding of language in visual context"
+  ],
+  "limitations": [
+    "Earlier architecture relative to current VLM systems"
+  ],
+  "tags": [
+    "kosmos",
+    "multimodal",
+    "vision-language",
+    "grounding"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Language Is Not All You Need: Aligning Perception with Language Models",
+      "url": "https://arxiv.org/abs/2302.14045"
+    }
+  ],
+  "relatedConcepts": [
+    "flamingo",
+    "llava",
+    "multimodal-tokenization"
+  ]
+},
+  {
+  "id": "early-multimodal-fusion",
+  "name": "Early Multimodal Token Fusion",
+  "family": "Multimodal Architecture",
+  "organization": "Research community",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "early-fusion",
+  "description": "Early multimodal fusion represents multiple modalities as tokens or token-like representations that can be processed jointly by a shared autoregressive Transformer.",
+  "architecture": {
+    "family": "unified multimodal Transformer",
+    "attention": "joint self-attention",
+    "position": "multimodal positional representation",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "joint multimodal token sequence"
+  },
+  "fusion": {
+    "type": "early fusion",
+    "mechanism": "shared token sequence",
+    "crossModalAttention": true,
+    "sharedRepresentation": true
+  },
+  "modality": {
+    "input": [
+      "text",
+      "image",
+      "other modalities"
+    ],
+    "output": [
+      "text",
+      "image",
+      "other modalities"
+    ]
+  },
+  "advantages": [
+    "Deep cross-modal interaction",
+    "Unified representation space",
+    "Potentially supports multimodal generation"
+  ],
+  "limitations": [
+    "Sequence length can grow substantially",
+    "Joint tokenization is technically challenging",
+    "Computational cost can increase rapidly"
+  ],
+  "tags": [
+    "early-fusion",
+    "multimodal-tokenization",
+    "unified-transformer",
+    "chameleon"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Chameleon: Mixed-Modal Early-Fusion Foundation Models",
+      "url": "https://arxiv.org/abs/2405.09818"
+    }
+  ],
+  "relatedConcepts": [
+    "chameleon",
+    "unified-multimodal-model",
+    "multimodal-tokenization"
+  ]
+},
+  {
+  "id": "chameleon",
+  "name": "Chameleon",
+  "family": "Multimodal Foundation Model",
+  "organization": "Meta AI",
+  "releaseDate": "2024-05",
+  "year": 2024,
+  "category": "foundation-model",
+  "type": "early-fusion-multimodal-model",
+  "description": "Chameleon is a mixed-modal early-fusion foundation model that processes interleaved text and image tokens within a shared autoregressive Transformer framework.",
+  "architecture": {
+    "family": "early-fusion multimodal Transformer",
+    "visionEncoder": "multimodal tokenization pipeline",
+    "textEncoder": "shared Transformer",
+    "attention": "joint self-attention",
+    "position": "multimodal positional representation",
+    "sparsity": "dense",
+    "sequenceStrategy": "interleaved multimodal tokens"
+  },
+  "fusion": {
+    "type": "early fusion",
+    "mechanism": "joint token sequence",
+    "crossModalAttention": true,
+    "sharedRepresentation": true
+  },
+  "modality": {
+    "input": [
+      "image",
+      "text"
+    ],
+    "output": [
+      "text",
+      "image"
+    ]
+  },
+  "training": {
+    "objective": "mixed-modal autoregressive modeling",
+    "direction": "autoregressive",
+    "masking": "causal",
+    "target": "multimodal token prediction",
+    "data": "interleaved multimodal data"
+  },
+  "advantages": [
+    "Unified multimodal sequence processing",
+    "Interleaved image-text understanding",
+    "Potential multimodal generation"
+  ],
+  "limitations": [
+    "Large multimodal token sequences",
+    "More complex multimodal training"
+  ],
+  "tags": [
+    "chameleon",
+    "early-fusion",
+    "multimodal",
+    "image-generation"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Chameleon: Mixed-Modal Early-Fusion Foundation Models",
+      "url": "https://arxiv.org/abs/2405.09818"
+    }
+  ],
+  "relatedConcepts": [
+    "early-multimodal-fusion",
+    "multimodal-tokenization",
+    "janus"
+  ]
+},
+  {
+  "id": "janus",
+  "name": "Janus",
+  "family": "Multimodal Foundation Model",
+  "organization": "DeepSeek",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "foundation-model",
+  "type": "unified-multimodal-understanding-generation",
+  "description": "Janus explores unified multimodal understanding and generation while decoupling visual encoding strategies for the two tasks, allowing the system to handle both perception and image generation.",
+  "architecture": {
+    "family": "unified multimodal model with decoupled visual pathways",
+    "visionEncoder": "task-specific visual encoding",
+    "textEncoder": "language model",
+    "attention": "Transformer attention",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "unified language modeling with decoupled visual encoding"
+  },
+  "fusion": {
+    "type": "decoupled visual encoding",
+    "mechanism": "separate understanding and generation representations",
+    "crossModalAttention": true,
+    "sharedRepresentation": "partially"
+  },
+  "modality": {
+    "input": [
+      "image",
+      "text"
+    ],
+    "output": [
+      "text",
+      "image"
+    ]
+  },
+  "training": {
+    "objective": "multimodal understanding and generation",
+    "direction": "autoregressive",
+    "masking": "causal",
+    "target": "text and image token prediction",
+    "data": "multimodal datasets"
+  },
+  "advantages": [
+    "Combines multimodal understanding and image generation",
+    "Explores unified architecture with task-specific visual representations"
+  ],
+  "limitations": [
+    "Multimodal generation remains computationally demanding",
+    "Complex visual-token pipeline"
+  ],
+  "tags": [
+    "janus",
+    "deepseek",
+    "multimodal",
+    "image-generation"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Janus: Decoupling Visual Encoding for Unified Multimodal Understanding and Generation",
+      "url": "https://arxiv.org/abs/2410.13848"
+    }
+  ],
+  "relatedConcepts": [
+    "chameleon",
+    "unified-multimodal-model",
+    "vision-language-model"
+  ]
 }
