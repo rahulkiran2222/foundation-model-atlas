@@ -12460,3 +12460,1614 @@
     "bitnet-2b4t"
   ]
 }
+{
+  "id": "sparse-moe",
+  "name": "Sparsely-Gated Mixture-of-Experts",
+  "family": "Mixture-of-Experts",
+  "organization": "Google Research",
+  "releaseDate": "2017-01",
+  "year": 2017,
+  "category": "sparse-architecture",
+  "type": "sparsely-gated-moe",
+  "description": "A foundational sparse Mixture-of-Experts architecture in which a learned gating network routes each token to a small subset of specialized expert networks, allowing parameter count to grow without proportionally increasing computation per token.",
+  "architecture": {
+    "family": "Mixture-of-Experts",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "expert sparsity",
+    "sequenceStrategy": "token-level expert routing"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": "subset of experts per token"
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["text", "sequence"],
+    "output": ["text", "sequence representations"]
+  },
+  "training": {
+    "objective": "task-dependent",
+    "data": "task-dependent",
+    "postTraining": "task-dependent"
+  },
+  "license": "research",
+  "openWeights": false,
+  "tags": [
+    "moe",
+    "sparse-model",
+    "conditional-computation",
+    "expert-routing",
+    "scaling"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer",
+      "url": "https://arxiv.org/abs/1701.06538"
+    }
+  ],
+  "relatedModels": [
+    "switch-transformer",
+    "glam",
+    "mixtral",
+    "deepseek-moe"
+  ]
+},
+
+{
+  "id": "switch-transformer",
+  "name": "Switch Transformer",
+  "family": "Switch Transformer",
+  "organization": "Google Research",
+  "releaseDate": "2021-01",
+  "year": 2021,
+  "category": "sparse-architecture",
+  "type": "top-1-moe-transformer",
+  "description": "Switch Transformer simplified Mixture-of-Experts routing by sending each token to a single expert, enabling very large parameter counts while maintaining relatively low computational cost per token.",
+  "architecture": {
+    "family": "Transformer + MoE",
+    "attention": "self-attention",
+    "position": "model-dependent",
+    "sparsity": "expert sparsity",
+    "sequenceStrategy": "top-1 token routing"
+  },
+  "scale": {
+    "parameters": "up to trillion-scale",
+    "activeParameters": "single expert plus shared Transformer components"
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "language modeling",
+    "data": "large-scale text corpora",
+    "postTraining": "task-specific adaptation"
+  },
+  "license": "research",
+  "openWeights": false,
+  "tags": [
+    "moe",
+    "switch-transformer",
+    "top-1-routing",
+    "conditional-computation",
+    "sparse-model"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity",
+      "url": "https://arxiv.org/abs/2101.03961"
+    }
+  ],
+  "relatedModels": [
+    "sparse-moe",
+    "glam",
+    "mixtral"
+  ]
+},
+
+{
+  "id": "glam",
+  "name": "GLaM",
+  "family": "GLaM",
+  "organization": "Google Research",
+  "releaseDate": "2021-12",
+  "year": 2021,
+  "category": "sparse-architecture",
+  "type": "sparse-moe-language-model",
+  "description": "GLaM is a large sparse language model using Mixture-of-Experts layers to increase total parameter capacity while activating only a fraction of parameters for each token.",
+  "architecture": {
+    "family": "Transformer + Mixture-of-Experts",
+    "attention": "self-attention",
+    "position": "model-dependent",
+    "sparsity": "expert sparsity",
+    "sequenceStrategy": "top-k expert routing"
+  },
+  "scale": {
+    "parameters": "1.2T",
+    "activeParameters": "approximately 97B per token"
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual text corpus",
+    "postTraining": "few-shot and downstream adaptation"
+  },
+  "license": "research",
+  "openWeights": false,
+  "tags": [
+    "glam",
+    "moe",
+    "sparse-model",
+    "conditional-computation",
+    "large-language-model"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "GLaM: Efficient Scaling of Language Models with Mixture-of-Experts",
+      "url": "https://arxiv.org/abs/2112.06905"
+    }
+  ],
+  "relatedModels": [
+    "switch-transformer",
+    "mixtral",
+    "deepseek-moe"
+  ]
+},
+  {
+  "id": "mixtral",
+  "name": "Mixtral",
+  "family": "Mixtral",
+  "organization": "Mistral AI",
+  "releaseDate": "2023-12",
+  "year": 2023,
+  "category": "sparse-architecture",
+  "type": "sparse-mixture-of-experts-llm",
+  "description": "Mixtral applies sparse Mixture-of-Experts routing to a modern decoder-only Transformer, with each token routed to a small number of experts while retaining a large total parameter capacity.",
+  "architecture": {
+    "family": "decoder-only Transformer + MoE",
+    "attention": "grouped-query attention",
+    "position": "RoPE",
+    "sparsity": "expert sparsity",
+    "sequenceStrategy": "top-2 expert routing"
+  },
+  "scale": {
+    "parameters": "46.7B",
+    "activeParameters": "approximately 12.9B per token"
+  },
+  "context": {
+    "tokens": 32768
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual text corpus",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "mixtral",
+    "moe",
+    "sparse-model",
+    "top-2-routing",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Mixtral",
+      "url": "https://mistral.ai/news/mixtral-of-experts"
+    }
+  ],
+  "relatedModels": [
+    "mixtral-8x7b",
+    "mixtral-8x22b",
+    "switch-transformer",
+    "deepseek-moe"
+  ]
+},
+
+{
+  "id": "mixtral-8x7b",
+  "name": "Mixtral 8x7B",
+  "family": "Mixtral",
+  "organization": "Mistral AI",
+  "releaseDate": "2023-12",
+  "year": 2023,
+  "category": "foundation-model",
+  "type": "sparse-moe-llm",
+  "description": "An 8-expert sparse decoder-only Transformer in which two experts are selected for each token.",
+  "architecture": {
+    "family": "MoE Transformer",
+    "attention": "grouped-query attention",
+    "position": "RoPE",
+    "sparsity": "expert sparsity",
+    "sequenceStrategy": "top-2 routing"
+  },
+  "scale": {
+    "parameters": "46.7B",
+    "activeParameters": "12.9B"
+  },
+  "context": {
+    "tokens": 32768
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual corpus",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "moe",
+    "mixtral",
+    "8x7b",
+    "sparse",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Mixtral of Experts",
+      "url": "https://mistral.ai/news/mixtral-of-experts"
+    }
+  ],
+  "relatedModels": [
+    "mixtral",
+    "mixtral-8x22b"
+  ]
+},
+
+{
+  "id": "mixtral-8x22b",
+  "name": "Mixtral 8x22B",
+  "family": "Mixtral",
+  "organization": "Mistral AI",
+  "releaseDate": "2024-04",
+  "year": 2024,
+  "category": "foundation-model",
+  "type": "large-sparse-moe-llm",
+  "description": "A larger Mixtral generation using eight experts and activating two experts per token to provide substantially higher total model capacity.",
+  "architecture": {
+    "family": "MoE Transformer",
+    "attention": "grouped-query attention",
+    "position": "RoPE",
+    "sparsity": "expert sparsity",
+    "sequenceStrategy": "top-2 routing"
+  },
+  "scale": {
+    "parameters": "176B",
+    "activeParameters": "approximately 39B"
+  },
+  "context": {
+    "tokens": 65536
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual corpus",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "moe",
+    "mixtral",
+    "8x22b",
+    "sparse",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Mixtral 8x22B",
+      "url": "https://mistral.ai/news/mixtral-8x22b"
+    }
+  ],
+  "relatedModels": [
+    "mixtral",
+    "mixtral-8x7b"
+  ]
+},
+  {
+  "id": "dbrx",
+  "name": "DBRX",
+  "family": "DBRX",
+  "organization": "Databricks",
+  "releaseDate": "2024-03",
+  "year": 2024,
+  "category": "foundation-model",
+  "type": "fine-grained-moe-llm",
+  "description": "DBRX is an open-weight decoder-only language model using a fine-grained Mixture-of-Experts architecture with many smaller experts and top-k routing.",
+  "architecture": {
+    "family": "decoder-only Transformer + fine-grained MoE",
+    "attention": "grouped-query attention",
+    "position": "RoPE",
+    "sparsity": "expert sparsity",
+    "sequenceStrategy": "top-4 routing"
+  },
+  "scale": {
+    "parameters": "132B",
+    "activeParameters": "36B"
+  },
+  "context": {
+    "tokens": 32768
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "12T tokens",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Databricks Open Model License",
+  "openWeights": true,
+  "tags": [
+    "dbrx",
+    "moe",
+    "fine-grained-moe",
+    "open-weight",
+    "gqa"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Introducing DBRX",
+      "url": "https://www.databricks.com/blog/introducing-dbrx-new-state-art-open-llm"
+    }
+  ],
+  "relatedModels": [
+    "mixtral",
+    "deepseek-moe",
+    "qwen-moe"
+  ]
+},
+  {
+  "id": "deepseek-moe",
+  "name": "DeepSeekMoE",
+  "family": "DeepSeekMoE",
+  "organization": "DeepSeek",
+  "releaseDate": "2024-01",
+  "year": 2024,
+  "category": "sparse-architecture",
+  "type": "fine-grained-shared-expert-moe",
+  "description": "DeepSeekMoE introduced fine-grained expert segmentation and shared experts, allowing specialized experts to model different knowledge while shared experts capture common knowledge.",
+  "architecture": {
+    "family": "fine-grained MoE",
+    "attention": "Transformer attention",
+    "position": "model-dependent",
+    "sparsity": "expert sparsity",
+    "sequenceStrategy": "shared + routed expert computation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": "small subset of experts"
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual text",
+    "postTraining": "instruction and reasoning adaptation"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "deepseek-moe",
+    "moe",
+    "fine-grained-experts",
+    "shared-experts",
+    "sparse-model"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "DeepSeekMoE: Towards Ultimate Expert Specialization in Mixture-of-Experts Language Models",
+      "url": "https://arxiv.org/abs/2401.06066"
+    }
+  ],
+  "relatedModels": [
+    "deepseek-v2",
+    "deepseek-v3",
+    "dbrx",
+    "mixtral"
+  ]
+},
+
+{
+  "id": "deepseek-v2",
+  "name": "DeepSeek-V2",
+  "family": "DeepSeek",
+  "organization": "DeepSeek",
+  "releaseDate": "2024-05",
+  "year": 2024,
+  "category": "foundation-model",
+  "type": "moe-language-model",
+  "description": "DeepSeek-V2 combines fine-grained Mixture-of-Experts with Multi-head Latent Attention, substantially reducing inference cost while maintaining high total parameter capacity.",
+  "architecture": {
+    "family": "MoE Transformer",
+    "attention": "Multi-head Latent Attention",
+    "position": "RoPE",
+    "sparsity": "expert sparsity",
+    "sequenceStrategy": "routed experts + MLA"
+  },
+  "scale": {
+    "parameters": "236B",
+    "activeParameters": "21B"
+  },
+  "context": {
+    "tokens": 128000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "8.1T tokens",
+    "postTraining": "instruction and alignment training"
+  },
+  "license": "DeepSeek Model License",
+  "openWeights": true,
+  "tags": [
+    "deepseek",
+    "moe",
+    "mla",
+    "sparse-model",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "DeepSeek-V2",
+      "url": "https://arxiv.org/abs/2405.04434"
+    }
+  ],
+  "relatedModels": [
+    "deepseek-moe",
+    "deepseek-v3",
+    "mixtral"
+  ]
+},
+
+{
+  "id": "deepseek-v3",
+  "name": "DeepSeek-V3",
+  "family": "DeepSeek",
+  "organization": "DeepSeek",
+  "releaseDate": "2024-12",
+  "year": 2024,
+  "category": "foundation-model",
+  "type": "large-scale-moe-language-model",
+  "description": "DeepSeek-V3 is a large-scale MoE language model combining fine-grained routed experts, shared experts, Multi-head Latent Attention, and auxiliary-loss-free load balancing.",
+  "architecture": {
+    "family": "DeepSeekMoE Transformer",
+    "attention": "Multi-head Latent Attention",
+    "position": "RoPE",
+    "sparsity": "expert sparsity",
+    "sequenceStrategy": "shared + routed experts with dynamic load balancing"
+  },
+  "scale": {
+    "parameters": "671B",
+    "activeParameters": "37B"
+  },
+  "context": {
+    "tokens": 131072
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "14.8T tokens",
+    "postTraining": "supervised fine-tuning and reinforcement learning"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "deepseek-v3",
+    "moe",
+    "deepseek-moe",
+    "mla",
+    "shared-experts",
+    "auxiliary-loss-free"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "DeepSeek-V3 Technical Report",
+      "url": "https://arxiv.org/abs/2412.19437"
+    }
+  ],
+  "relatedModels": [
+    "deepseek-v2",
+    "deepseek-moe",
+    "deepseek-r1"
+  ]
+},
+  {
+  "id": "jamba",
+  "name": "Jamba",
+  "family": "Jamba",
+  "organization": "AI21 Labs",
+  "releaseDate": "2024-03",
+  "year": 2024,
+  "category": "hybrid-architecture",
+  "type": "mamba-moe-transformer-hybrid",
+  "description": "Jamba combines Mamba State Space layers, Transformer attention, and Mixture-of-Experts layers in a single architecture, demonstrating a hybrid route beyond pure Transformer designs.",
+  "architecture": {
+    "family": "Mamba + Transformer + MoE",
+    "attention": "hybrid attention and SSM",
+    "position": "RoPE in attention layers",
+    "sparsity": "expert sparsity + selective state space",
+    "sequenceStrategy": "hybrid recurrent and attention computation"
+  },
+  "scale": {
+    "parameters": "52B",
+    "activeParameters": "12B"
+  },
+  "context": {
+    "tokens": 256000
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale text corpus",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Jamba Open Model License",
+  "openWeights": true,
+  "tags": [
+    "jamba",
+    "mamba",
+    "moe",
+    "hybrid",
+    "long-context",
+    "transformer"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Jamba",
+      "url": "https://www.ai21.com/blog/announcing-jamba"
+    }
+  ],
+  "relatedModels": [
+    "mamba",
+    "mixtral",
+    "jamba-1.5"
+  ]
+},
+  {
+  "id": "qwen-moe",
+  "name": "Qwen MoE",
+  "family": "Qwen",
+  "organization": "Alibaba Cloud",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "foundation-model",
+  "type": "mixture-of-experts-llm",
+  "description": "The Qwen family includes sparse Mixture-of-Experts variants designed to increase total model capacity while limiting the number of active parameters for each token.",
+  "architecture": {
+    "family": "decoder-only Transformer + MoE",
+    "attention": "model-dependent",
+    "position": "RoPE-family",
+    "sparsity": "expert sparsity",
+    "sequenceStrategy": "routed expert computation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": "model-dependent"
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual and code datasets",
+    "postTraining": "instruction tuning and alignment"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "qwen",
+    "moe",
+    "sparse-model",
+    "multilingual",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Qwen",
+      "url": "https://qwenlm.github.io/"
+    }
+  ],
+  "relatedModels": [
+    "qwen1.5-moe",
+    "qwen2-moe",
+    "qwen3"
+  ]
+},
+  {
+  "id": "mixture-of-depths",
+  "name": "Mixture-of-Depths",
+  "family": "Mixture-of-Depths",
+  "organization": "Google Research",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "conditional-computation",
+  "type": "token-depth-routing",
+  "description": "Mixture-of-Depths dynamically allocates a fixed computation budget by routing only selected tokens through expensive Transformer blocks while allowing others to bypass them.",
+  "architecture": {
+    "family": "conditional-depth Transformer",
+    "attention": "Transformer attention",
+    "position": "model-dependent",
+    "sparsity": "token computation sparsity",
+    "sequenceStrategy": "token routing across depth"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": "token-dependent"
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "language datasets",
+    "postTraining": "conditional computation adaptation"
+  },
+  "license": "research",
+  "openWeights": false,
+  "tags": [
+    "mixture-of-depths",
+    "conditional-computation",
+    "token-routing",
+    "efficient-transformer"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Mixture-of-Depths: Dynamically allocating compute in Transformer-based language models",
+      "url": "https://arxiv.org/abs/2404.02258"
+    }
+  ],
+  "relatedModels": [
+    "sparse-moe",
+    "switch-transformer"
+  ]
+},
+  {
+  "id": "mha",
+  "name": "Multi-Head Attention",
+  "family": "Attention",
+  "organization": "Research community",
+  "releaseDate": "2017-06",
+  "year": 2017,
+  "category": "attention",
+  "type": "multi-head-attention",
+  "description": "The standard Transformer attention mechanism in which multiple attention heads independently project queries, keys, and values, allowing different heads to model different relationships.",
+  "architecture": {
+    "family": "scaled dot-product attention",
+    "attention": "multi-head self-attention",
+    "position": "external positional mechanism",
+    "sparsity": "dense",
+    "sequenceStrategy": "full pairwise token attention"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": "all attention heads"
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["sequence", "text"],
+    "output": ["sequence representations"]
+  },
+  "training": {
+    "objective": "model-dependent",
+    "data": "model-dependent",
+    "postTraining": "model-dependent"
+  },
+  "license": "architecture",
+  "openWeights": true,
+  "tags": [
+    "attention",
+    "mha",
+    "transformer",
+    "self-attention"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762"
+    }
+  ],
+  "relatedModels": [
+    "mqa",
+    "gqa",
+    "mla"
+  ]
+},
+
+{
+  "id": "mqa",
+  "name": "Multi-Query Attention",
+  "family": "Attention",
+  "organization": "Google Research",
+  "releaseDate": "2019-05",
+  "year": 2019,
+  "category": "attention",
+  "type": "multi-query-attention",
+  "description": "Multi-Query Attention shares a single key and value head across all query heads, dramatically reducing KV-cache memory during autoregressive decoding.",
+  "architecture": {
+    "family": "multi-query attention",
+    "attention": "multi-query self-attention",
+    "position": "external positional mechanism",
+    "sparsity": "dense",
+    "sequenceStrategy": "multiple query heads with shared K/V"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": "all query heads + shared K/V"
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["sequence", "text"],
+    "output": ["sequence representations"]
+  },
+  "training": {
+    "objective": "model-dependent",
+    "data": "model-dependent",
+    "postTraining": "model-dependent"
+  },
+  "license": "architecture",
+  "openWeights": true,
+  "tags": [
+    "mqa",
+    "attention",
+    "kv-cache",
+    "inference-efficiency"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Fast Transformer Decoding: One Write-Head is All You Need",
+      "url": "https://arxiv.org/abs/1911.02150"
+    }
+  ],
+  "relatedModels": [
+    "mha",
+    "gqa",
+    "mla"
+  ]
+},
+
+{
+  "id": "gqa",
+  "name": "Grouped-Query Attention",
+  "family": "Attention",
+  "organization": "Google Research",
+  "releaseDate": "2023-05",
+  "year": 2023,
+  "category": "attention",
+  "type": "grouped-query-attention",
+  "description": "Grouped-Query Attention divides query heads into groups that share key and value heads, providing a middle ground between the expressive capacity of MHA and the KV-cache efficiency of MQA.",
+  "architecture": {
+    "family": "grouped-query attention",
+    "attention": "grouped-query self-attention",
+    "position": "external positional mechanism",
+    "sparsity": "dense",
+    "sequenceStrategy": "query groups sharing K/V"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": "all query heads + grouped K/V"
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["sequence", "text"],
+    "output": ["sequence representations"]
+  },
+  "training": {
+    "objective": "model-dependent",
+    "data": "model-dependent",
+    "postTraining": "model-dependent"
+  },
+  "license": "architecture",
+  "openWeights": true,
+  "tags": [
+    "gqa",
+    "attention",
+    "kv-cache",
+    "inference-efficiency"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints",
+      "url": "https://arxiv.org/abs/2305.13245"
+    }
+  ],
+  "relatedModels": [
+    "mha",
+    "mqa",
+    "mla"
+  ]
+},
+  {
+  "id": "mla",
+  "name": "Multi-Head Latent Attention",
+  "family": "Attention",
+  "organization": "DeepSeek",
+  "releaseDate": "2024-01",
+  "year": 2024,
+  "category": "attention",
+  "type": "latent-kv-compression-attention",
+  "description": "Multi-Head Latent Attention compresses key-value representations into a shared low-dimensional latent representation for efficient KV caching while retaining multi-head expressive capacity.",
+  "architecture": {
+    "family": "latent attention",
+    "attention": "multi-head latent attention",
+    "position": "decoupled positional component",
+    "sparsity": "dense",
+    "sequenceStrategy": "latent KV compression + reconstructed attention"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": "all attention heads"
+  },
+  "context": {
+    "tokens": "long context"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale language data",
+    "postTraining": "instruction and reasoning adaptation"
+  },
+  "license": "architecture",
+  "openWeights": true,
+  "tags": [
+    "mla",
+    "deepseek",
+    "kv-cache",
+    "latent-attention",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "DeepSeek-V2",
+      "url": "https://arxiv.org/abs/2405.04434"
+    }
+  ],
+  "relatedModels": [
+    "deepseek-v2",
+    "deepseek-v3",
+    "mha",
+    "gqa",
+    "mqa"
+  ]
+},
+  {
+  "id": "absolute-positional-encoding",
+  "name": "Sinusoidal Positional Encoding",
+  "family": "Positional Encoding",
+  "organization": "Vaswani et al.",
+  "releaseDate": "2017-06",
+  "year": 2017,
+  "category": "positional-encoding",
+  "type": "absolute-sinusoidal-position-encoding",
+  "description": "The original Transformer positional encoding represents token positions using deterministic sine and cosine functions added to token representations.",
+  "architecture": {
+    "family": "absolute positional encoding",
+    "attention": "independent of attention variant",
+    "position": "sinusoidal absolute position",
+    "sparsity": "dense",
+    "sequenceStrategy": "position added to embeddings"
+  },
+  "scale": {
+    "parameters": "parameter-free",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["position-aware representations"]
+  },
+  "training": {
+    "objective": "position-aware sequence modeling",
+    "data": "model-dependent",
+    "postTraining": "model-dependent"
+  },
+  "license": "architecture",
+  "openWeights": true,
+  "tags": [
+    "positional-encoding",
+    "sinusoidal",
+    "transformer"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762"
+    }
+  ],
+  "relatedModels": [
+    "rope",
+    "alibi"
+  ]
+},
+
+{
+  "id": "rope",
+  "name": "RoPE",
+  "family": "Rotary Position Embedding",
+  "organization": "Research community",
+  "releaseDate": "2021-06",
+  "year": 2021,
+  "category": "positional-encoding",
+  "type": "rotary-position-embedding",
+  "description": "Rotary Position Embedding injects position information by rotating query and key representations according to their token positions, naturally encoding relative positional relationships.",
+  "architecture": {
+    "family": "rotary positional encoding",
+    "attention": "query/key rotation",
+    "position": "relative position through rotations",
+    "sparsity": "dense",
+    "sequenceStrategy": "position-aware attention"
+  },
+  "scale": {
+    "parameters": "parameter-free",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["position-aware representations"]
+  },
+  "training": {
+    "objective": "position-aware sequence modeling",
+    "data": "model-dependent",
+    "postTraining": "model-dependent"
+  },
+  "license": "architecture",
+  "openWeights": true,
+  "tags": [
+    "rope",
+    "rotary",
+    "positional-encoding",
+    "transformer"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "RoFormer: Enhanced Transformer with Rotary Position Embedding",
+      "url": "https://arxiv.org/abs/2104.09864"
+    }
+  ],
+  "relatedModels": [
+    "yarn",
+    "longrope",
+    "alibi"
+  ]
+},
+
+{
+  "id": "alibi",
+  "name": "ALiBi",
+  "family": "Attention with Linear Biases",
+  "organization": "Ofir Press / Noah A. Smith",
+  "releaseDate": "2021-01",
+  "year": 2021,
+  "category": "positional-encoding",
+  "type": "attention-linear-bias",
+  "description": "ALiBi adds position-dependent linear biases directly to attention scores instead of adding explicit positional embeddings.",
+  "architecture": {
+    "family": "attention bias",
+    "attention": "linear positional bias",
+    "position": "relative distance bias",
+    "sparsity": "dense",
+    "sequenceStrategy": "position encoded in attention logits"
+  },
+  "scale": {
+    "parameters": "parameter-free",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "long-context oriented"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["position-aware representations"]
+  },
+  "training": {
+    "objective": "language modeling",
+    "data": "language datasets",
+    "postTraining": "long-context adaptation"
+  },
+  "license": "architecture",
+  "openWeights": true,
+  "tags": [
+    "alibi",
+    "positional-encoding",
+    "attention-bias",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Train Short, Test Long",
+      "url": "https://arxiv.org/abs/2108.12409"
+    }
+  ],
+  "relatedModels": [
+    "rope",
+    "yarn",
+    "longrope"
+  ]
+},
+  {
+  "id": "yarn",
+  "name": "YaRN",
+  "family": "RoPE Scaling",
+  "organization": "Nous Research / EleutherAI / community",
+  "releaseDate": "2023-08",
+  "year": 2023,
+  "category": "long-context",
+  "type": "rope-context-extension",
+  "description": "YaRN provides an efficient method for extending the context window of RoPE-based Transformer models using frequency-aware interpolation and attention-temperature scaling.",
+  "architecture": {
+    "family": "RoPE extension",
+    "attention": "standard attention",
+    "position": "scaled RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "extended positional representation"
+  },
+  "scale": {
+    "parameters": "no architectural parameter-count change",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "extended beyond training context"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "long-context adaptation",
+    "data": "long-context data",
+    "postTraining": "continued training / fine-tuning"
+  },
+  "license": "research",
+  "openWeights": true,
+  "tags": [
+    "yarn",
+    "rope-scaling",
+    "long-context",
+    "context-extension"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "YaRN: Efficient Context Window Extension of Large Language Models",
+      "url": "https://arxiv.org/abs/2309.00071"
+    }
+  ],
+  "relatedModels": [
+    "rope",
+    "longrope"
+  ]
+},
+
+{
+  "id": "longrope",
+  "name": "LongRoPE",
+  "family": "RoPE Scaling",
+  "organization": "Microsoft Research",
+  "releaseDate": "2024-02",
+  "year": 2024,
+  "category": "long-context",
+  "type": "rope-context-extension",
+  "description": "LongRoPE extends RoPE-based context windows through non-uniform positional interpolation and evolutionary search over positional scaling factors.",
+  "architecture": {
+    "family": "RoPE extension",
+    "attention": "standard attention",
+    "position": "non-uniform scaled RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "extended positional representation"
+  },
+  "scale": {
+    "parameters": "no fundamental parameter-count change",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent; extended context"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "context extension",
+    "data": "long-context sequences",
+    "postTraining": "continued pretraining"
+  },
+  "license": "research",
+  "openWeights": true,
+  "tags": [
+    "longrope",
+    "rope-scaling",
+    "long-context",
+    "context-extension"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "LongRoPE: Extending LLM Context Window Beyond 2 Million Tokens",
+      "url": "https://arxiv.org/abs/2402.13753"
+    }
+  ],
+  "relatedModels": [
+    "rope",
+    "yarn"
+  ]
+},
+  {
+  "id": "sliding-window-attention",
+  "name": "Sliding Window Attention",
+  "family": "Sparse Attention",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "sparse-attention",
+  "type": "local-window-attention",
+  "description": "Sliding Window Attention restricts each token's attention to a local neighborhood, reducing attention computation while allowing information to propagate across layers.",
+  "architecture": {
+    "family": "local sparse attention",
+    "attention": "windowed self-attention",
+    "position": "model-dependent",
+    "sparsity": "local",
+    "sequenceStrategy": "fixed local attention window"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": "local token neighborhood"
+  },
+  "context": {
+    "tokens": "long-context"
+  },
+  "modality": {
+    "input": ["text", "sequence"],
+    "output": ["sequence representations"]
+  },
+  "training": {
+    "objective": "language modeling",
+    "data": "language datasets",
+    "postTraining": "long-context adaptation"
+  },
+  "license": "architecture",
+  "openWeights": true,
+  "tags": [
+    "sliding-window",
+    "sparse-attention",
+    "local-attention",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Longformer: The Long-Document Transformer",
+      "url": "https://arxiv.org/abs/2004.05150"
+    }
+  ],
+  "relatedModels": [
+    "longformer",
+    "mistral",
+    "sparse-attention"
+  ]
+},
+  {
+  "id": "longformer",
+  "name": "Longformer",
+  "family": "Longformer",
+  "organization": "Allen Institute for AI",
+  "releaseDate": "2020-04",
+  "year": 2020,
+  "category": "sparse-attention",
+  "type": "local-global-sparse-attention",
+  "description": "Longformer combines local sliding-window attention with selected global attention positions to efficiently process long documents.",
+  "architecture": {
+    "family": "local-global sparse attention",
+    "attention": "sliding window + global attention",
+    "position": "model-dependent",
+    "sparsity": "local + selected global",
+    "sequenceStrategy": "sparse token interaction"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": "local and global connections"
+  },
+  "context": {
+    "tokens": 4096
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text", "representations"]
+  },
+  "training": {
+    "objective": "language modeling",
+    "data": "long documents",
+    "postTraining": "document-level NLP"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "longformer",
+    "sparse-attention",
+    "long-context",
+    "local-global-attention"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Longformer: The Long-Document Transformer",
+      "url": "https://arxiv.org/abs/2004.05150"
+    }
+  ],
+  "relatedModels": [
+    "bigbird",
+    "sliding-window-attention"
+  ]
+},
+
+{
+  "id": "bigbird",
+  "name": "BigBird",
+  "family": "BigBird",
+  "organization": "Google Research",
+  "releaseDate": "2020-07",
+  "year": 2020,
+  "category": "sparse-attention",
+  "type": "random-global-local-attention",
+  "description": "BigBird combines local attention, random attention, and global attention to reduce the quadratic complexity of full attention while preserving important long-range interactions.",
+  "architecture": {
+    "family": "block sparse attention",
+    "attention": "local + random + global",
+    "position": "model-dependent",
+    "sparsity": "block sparse",
+    "sequenceStrategy": "structured sparse token interaction"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": "sparse token connections"
+  },
+  "context": {
+    "tokens": 4096
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text", "representations"]
+  },
+  "training": {
+    "objective": "language modeling",
+    "data": "long documents",
+    "postTraining": "long-document NLP"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "bigbird",
+    "sparse-attention",
+    "block-sparse",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Big Bird: Transformers for Longer Sequences",
+      "url": "https://arxiv.org/abs/2007.14062"
+    }
+  ],
+  "relatedModels": [
+    "longformer",
+    "sliding-window-attention"
+  ]
+},
+  {
+  "id": "flashattention",
+  "name": "FlashAttention",
+  "family": "Attention Kernel",
+  "organization": "Stanford / Princeton / NVIDIA / Together AI",
+  "releaseDate": "2022-05",
+  "year": 2022,
+  "category": "attention-kernel",
+  "type": "io-aware-exact-attention",
+  "description": "FlashAttention is an IO-aware exact attention algorithm that reduces high-bandwidth-memory reads and writes through tiling and kernel-level optimization without approximating the attention result.",
+  "architecture": {
+    "family": "IO-aware attention",
+    "attention": "exact attention",
+    "position": "compatible with positional mechanisms",
+    "sparsity": "dense",
+    "sequenceStrategy": "tiled GPU attention computation"
+  },
+  "scale": {
+    "parameters": "does not alter model parameters",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["sequence", "text"],
+    "output": ["sequence representations"]
+  },
+  "training": {
+    "objective": "same as underlying Transformer",
+    "data": "model-dependent",
+    "postTraining": "model-dependent"
+  },
+  "license": "BSD-3-Clause",
+  "openWeights": true,
+  "tags": [
+    "flashattention",
+    "attention-kernel",
+    "gpu-optimization",
+    "io-aware",
+    "efficient-training"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+      "url": "https://arxiv.org/abs/2205.14135"
+    },
+    {
+      "type": "github",
+      "title": "FlashAttention",
+      "url": "https://github.com/Dao-AILab/flash-attention"
+    }
+  ],
+  "relatedModels": [
+    "mha",
+    "gqa",
+    "mqa",
+    "mla"
+  ]
+},
+
+{
+  "id": "flashattention-2",
+  "name": "FlashAttention-2",
+  "family": "Attention Kernel",
+  "organization": "Stanford / Princeton / Together AI",
+  "releaseDate": "2023-07",
+  "year": 2023,
+  "category": "attention-kernel",
+  "type": "optimized-exact-attention",
+  "description": "FlashAttention-2 improves GPU work partitioning and parallelism over FlashAttention, substantially increasing attention throughput while retaining exact attention.",
+  "architecture": {
+    "family": "IO-aware attention",
+    "attention": "exact attention",
+    "position": "compatible with positional mechanisms",
+    "sparsity": "dense",
+    "sequenceStrategy": "optimized tiled attention"
+  },
+  "scale": {
+    "parameters": "does not alter model parameters",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["sequence", "text"],
+    "output": ["sequence representations"]
+  },
+  "training": {
+    "objective": "same as underlying Transformer",
+    "data": "model-dependent",
+    "postTraining": "model-dependent"
+  },
+  "license": "BSD-3-Clause",
+  "openWeights": true,
+  "tags": [
+    "flashattention-2",
+    "attention-kernel",
+    "gpu-optimization",
+    "io-aware"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning",
+      "url": "https://arxiv.org/abs/2307.08691"
+    },
+    {
+      "type": "github",
+      "title": "FlashAttention",
+      "url": "https://github.com/Dao-AILab/flash-attention"
+    }
+  ],
+  "relatedModels": [
+    "flashattention",
+    "mha",
+    "gqa",
+    "mla"
+  ]
+},
+  {
+  "id": "ring-attention",
+  "name": "Ring Attention",
+  "family": "Distributed Attention",
+  "organization": "UC Berkeley",
+  "releaseDate": "2023-09",
+  "year": 2023,
+  "category": "distributed-attention",
+  "type": "distributed-long-context-attention",
+  "description": "Ring Attention distributes long sequences across multiple devices and circulates key-value blocks around a ring, enabling attention over contexts larger than the memory of a single accelerator.",
+  "architecture": {
+    "family": "distributed attention",
+    "attention": "exact attention",
+    "position": "compatible with model positional encoding",
+    "sparsity": "dense distributed",
+    "sequenceStrategy": "sequence parallelism + KV block communication"
+  },
+  "scale": {
+    "parameters": "does not fundamentally change parameter count",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "very long distributed contexts"
+  },
+  "modality": {
+    "input": ["text", "sequence"],
+    "output": ["sequence representations"]
+  },
+  "training": {
+    "objective": "long-context training",
+    "data": "long sequence datasets",
+    "postTraining": "long-context adaptation"
+  },
+  "license": "research",
+  "openWeights": true,
+  "tags": [
+    "ring-attention",
+    "distributed-training",
+    "long-context",
+    "sequence-parallelism"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Ring Attention with Blockwise Transformers for Near-Infinite Context",
+      "url": "https://arxiv.org/abs/2310.01889"
+    }
+  ],
+  "relatedModels": [
+    "flashattention",
+    "long-context",
+    "sparse-attention"
+  ]
+},
+  {
+  "id": "nsa",
+  "name": "Native Sparse Attention",
+  "family": "Sparse Attention",
+  "organization": "DeepSeek / Peking University / University of Washington",
+  "releaseDate": "2025-02",
+  "year": 2025,
+  "category": "sparse-attention",
+  "type": "hierarchical-trainable-sparse-attention",
+  "description": "Native Sparse Attention is a trainable sparse attention mechanism using a hierarchical strategy that combines coarse-grained token compression with fine-grained token selection while co-designing the algorithm with modern hardware.",
+  "architecture": {
+    "family": "hierarchical sparse attention",
+    "attention": "dynamic sparse attention",
+    "position": "model-dependent",
+    "sparsity": "dynamic hierarchical sparsity",
+    "sequenceStrategy": "compressed global view + selected fine-grained tokens"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": "selected attention blocks/tokens"
+  },
+  "context": {
+    "tokens": "long-context"
+  },
+  "modality": {
+    "input": ["text", "sequence"],
+    "output": ["sequence representations"]
+  },
+  "training": {
+    "objective": "end-to-end sparse attention training",
+    "data": "large-scale language data",
+    "postTraining": "long-context adaptation"
+  },
+  "license": "research",
+  "openWeights": true,
+  "tags": [
+    "nsa",
+    "native-sparse-attention",
+    "deepseek",
+    "sparse-attention",
+    "long-context",
+    "hardware-aligned"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Native Sparse Attention: Hardware-Aligned and Natively Trainable Sparse Attention",
+      "url": "https://arxiv.org/abs/2502.11089"
+    },
+    {
+      "type": "conference",
+      "title": "ACL 2025",
+      "url": "https://aclanthology.org/2025.acl-long.1126/"
+    }
+  ],
+  "relatedModels": [
+    "mla",
+    "flashattention",
+    "deepseek-v3"
+  ]
+}
+  
