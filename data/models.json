@@ -9518,4 +9518,833 @@
     "vall-e",
     "bark"
   ]
+},
+  {
+  "id": "dpr",
+  "name": "Dense Passage Retrieval",
+  "family": "DPR",
+  "organization": "Facebook AI Research",
+  "releaseDate": "2020-04",
+  "year": 2020,
+  "category": "embedding",
+  "type": "dense-retrieval-model",
+  "description": "A dual-encoder retrieval architecture that learns dense representations for questions and passages and established a major paradigm for neural information retrieval.",
+  "architecture": {
+    "family": "dual encoder",
+    "attention": "Transformer encoder",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "independent query/document encoding"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["dense embedding"]
+  },
+  "training": {
+    "objective": "contrastive dense passage retrieval",
+    "data": "question-passage retrieval datasets",
+    "postTraining": "retrieval fine-tuning"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "embedding",
+    "retrieval",
+    "dense-retrieval",
+    "dual-encoder"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+      "url": "https://arxiv.org/abs/2004.04906"
+    }
+  ],
+  "relatedModels": [
+    "contriever",
+    "e5",
+    "bge"
+  ]
+},
+
+{
+  "id": "contriever",
+  "name": "Contriever",
+  "family": "Contriever",
+  "organization": "Meta AI",
+  "releaseDate": "2021-11",
+  "year": 2021,
+  "category": "embedding",
+  "type": "unsupervised-retrieval-model",
+  "description": "An unsupervised dense retrieval model trained to learn general-purpose text representations without relying heavily on supervised query-document labels.",
+  "architecture": {
+    "family": "dual encoder",
+    "attention": "Transformer encoder",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "independent text encoding"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["dense embedding"]
+  },
+  "training": {
+    "objective": "contrastive unsupervised representation learning",
+    "data": "large-scale text corpus",
+    "postTraining": "retrieval adaptation"
+  },
+  "license": "CC BY-NC 4.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "embedding",
+    "retrieval",
+    "unsupervised",
+    "dense-retrieval"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Unsupervised Dense Information Retrieval with Contrastive Learning",
+      "url": "https://arxiv.org/abs/2112.09118"
+    }
+  ],
+  "relatedModels": [
+    "dpr",
+    "e5",
+    "bge"
+  ]
+},
+
+{
+  "id": "e5",
+  "name": "E5",
+  "family": "E5",
+  "organization": "Microsoft Research",
+  "releaseDate": "2022-11",
+  "year": 2022,
+  "category": "embedding",
+  "type": "general-purpose-text-embedding-family",
+  "description": "A family of text embedding models trained using weakly supervised contrastive learning and designed for general-purpose retrieval, semantic similarity, and clustering.",
+  "architecture": {
+    "family": "Transformer encoder",
+    "attention": "self-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "independent text encoding"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["dense embedding"]
+  },
+  "training": {
+    "objective": "contrastive representation learning",
+    "data": "weakly supervised text pairs",
+    "postTraining": "retrieval and semantic-task adaptation"
+  },
+  "license": "MIT / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "embedding",
+    "retrieval",
+    "semantic-search",
+    "contrastive-learning"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Text Embeddings by Weakly-Supervised Contrastive Pre-training",
+      "url": "https://arxiv.org/abs/2212.03533"
+    }
+  ],
+  "relatedModels": [
+    "e5-large",
+    "e5-mistral",
+    "bge",
+    "gte"
+  ]
+},
+
+{
+  "id": "e5-mistral",
+  "name": "E5-Mistral-7B",
+  "family": "E5",
+  "organization": "Microsoft Research",
+  "releaseDate": "2023-12",
+  "year": 2023,
+  "category": "embedding",
+  "type": "llm-based-embedding-model",
+  "description": "An embedding model built by adapting a large language model to produce high-quality text representations for retrieval and semantic similarity.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "self-attention",
+    "position": "RoPE",
+    "sparsity": "dense",
+    "sequenceStrategy": "instruction-conditioned embedding"
+  },
+  "scale": {
+    "parameters": "7B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 32768
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["dense embedding"]
+  },
+  "training": {
+    "objective": "contrastive embedding learning",
+    "data": "retrieval and text-pair datasets",
+    "postTraining": "embedding-specific fine-tuning"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "embedding",
+    "llm-based",
+    "retrieval",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "E5-Mistral-7B-Instruct",
+      "url": "https://huggingface.co/intfloat/e5-mistral-7b-instruct"
+    }
+  ],
+  "relatedModels": [
+    "e5",
+    "bge-m3",
+    "gte-qwen"
+  ]
+},
+
+{
+  "id": "bge",
+  "name": "BGE",
+  "family": "BGE",
+  "organization": "BAAI",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "embedding",
+  "type": "general-purpose-text-embedding-family",
+  "description": "A widely used family of general-purpose text embedding models optimized for semantic retrieval, similarity, classification, and reranking workflows.",
+  "architecture": {
+    "family": "Transformer encoder",
+    "attention": "self-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "independent text encoding"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["dense embedding"]
+  },
+  "training": {
+    "objective": "contrastive embedding learning",
+    "data": "large-scale multilingual and retrieval datasets",
+    "postTraining": "retrieval-oriented fine-tuning"
+  },
+  "license": "MIT / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "embedding",
+    "retrieval",
+    "semantic-search",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "BGE",
+      "url": "https://github.com/FlagOpen/FlagEmbedding"
+    }
+  ],
+  "relatedModels": [
+    "bge-m3",
+    "bge-large",
+    "e5",
+    "gte"
+  ]
+},
+
+{
+  "id": "bge-m3",
+  "name": "BGE-M3",
+  "family": "BGE",
+  "organization": "BAAI",
+  "releaseDate": "2024-01",
+  "year": 2024,
+  "category": "embedding",
+  "type": "multilingual-multifunctional-embedding-model",
+  "description": "A multilingual embedding model designed to support dense retrieval, sparse retrieval, and multi-vector retrieval within a unified representation framework.",
+  "architecture": {
+    "family": "Transformer encoder",
+    "attention": "self-attention",
+    "position": "model-dependent",
+    "sparsity": "dense + sparse representations",
+    "sequenceStrategy": "multifunctional retrieval encoding"
+  },
+  "scale": {
+    "parameters": "568M",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 8192
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["dense embeddings", "sparse representations", "multi-vector representations"]
+  },
+  "training": {
+    "objective": "multilingual multi-functionality retrieval learning",
+    "data": "multilingual retrieval and text data",
+    "postTraining": "retrieval optimization"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "embedding",
+    "multilingual",
+    "dense-retrieval",
+    "sparse-retrieval",
+    "multi-vector"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "BGE-M3",
+      "url": "https://huggingface.co/BAAI/bge-m3"
+    }
+  ],
+  "relatedModels": [
+    "bge",
+    "colbert",
+    "e5-mistral"
+  ]
+},
+
+{
+  "id": "gte",
+  "name": "GTE",
+  "family": "GTE",
+  "organization": "Alibaba DAMO Academy",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "embedding",
+  "type": "general-text-embedding-family",
+  "description": "A family of general text embeddings designed for semantic search, retrieval, clustering, and classification across a broad range of text domains.",
+  "architecture": {
+    "family": "Transformer encoder",
+    "attention": "self-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "independent text encoding"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["dense embedding"]
+  },
+  "training": {
+    "objective": "contrastive text representation learning",
+    "data": "large-scale text and retrieval datasets",
+    "postTraining": "retrieval adaptation"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "embedding",
+    "retrieval",
+    "semantic-search",
+    "text-representation"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "GTE",
+      "url": "https://huggingface.co/thenlper/gte-large"
+    }
+  ],
+  "relatedModels": [
+    "gte-large",
+    "gte-qwen",
+    "e5",
+    "bge"
+  ]
+},
+
+{
+  "id": "gte-qwen",
+  "name": "GTE-Qwen",
+  "family": "GTE",
+  "organization": "Alibaba DAMO Academy",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "embedding",
+  "type": "llm-based-embedding-model",
+  "description": "An LLM-based embedding family using Qwen architectures to produce high-quality long-context representations for retrieval and semantic applications.",
+  "architecture": {
+    "family": "decoder-only Transformer",
+    "attention": "self-attention",
+    "position": "RoPE-family",
+    "sparsity": "dense",
+    "sequenceStrategy": "LLM-based embedding"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 32768
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["dense embedding"]
+  },
+  "training": {
+    "objective": "embedding and retrieval learning",
+    "data": "multilingual and long-context retrieval data",
+    "postTraining": "contrastive embedding optimization"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "embedding",
+    "llm-based",
+    "long-context",
+    "retrieval",
+    "multilingual"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "GTE-Qwen",
+      "url": "https://huggingface.co/Alibaba-NLP/gte-Qwen2-7B-instruct"
+    }
+  ],
+  "relatedModels": [
+    "gte",
+    "e5-mistral",
+    "bge-m3"
+  ]
+},
+
+{
+  "id": "instructor",
+  "name": "INSTRUCTOR",
+  "family": "INSTRUCTOR",
+  "organization": "HKUNLP",
+  "releaseDate": "2023-01",
+  "year": 2023,
+  "category": "embedding",
+  "type": "instruction-following-embedding-model",
+  "description": "An instruction-aware embedding model that conditions representations on explicit task instructions, enabling a single embedding model to adapt to different downstream objectives.",
+  "architecture": {
+    "family": "Transformer encoder",
+    "attention": "self-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "instruction-conditioned encoding"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["text", "instruction"],
+    "output": ["dense embedding"]
+  },
+  "training": {
+    "objective": "instruction-conditioned contrastive learning",
+    "data": "multi-task embedding datasets",
+    "postTraining": "task-conditioned representation learning"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "embedding",
+    "instruction-following",
+    "multitask",
+    "retrieval"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "One Embedder, Any Task",
+      "url": "https://arxiv.org/abs/2212.09741"
+    }
+  ],
+  "relatedModels": [
+    "e5",
+    "bge",
+    "gte"
+  ]
+},
+
+{
+  "id": "nomic-embed",
+  "name": "Nomic Embed",
+  "family": "Nomic Embed",
+  "organization": "Nomic AI",
+  "releaseDate": "2024-02",
+  "year": 2024,
+  "category": "embedding",
+  "type": "open-general-purpose-embedding-model",
+  "description": "An open embedding family designed for high-quality retrieval and semantic representation with long-context support.",
+  "architecture": {
+    "family": "Transformer encoder",
+    "attention": "self-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "text encoding"
+  },
+  "scale": {
+    "parameters": "137M class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": 8192
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["dense embedding"]
+  },
+  "training": {
+    "objective": "contrastive representation learning",
+    "data": "large-scale text and retrieval data",
+    "postTraining": "retrieval optimization"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "embedding",
+    "open-weight",
+    "retrieval",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Nomic Embed",
+      "url": "https://www.nomic.ai/blog/posts/nomic-embed-text-v1"
+    }
+  ],
+  "relatedModels": [
+    "nomic-embed-text-v1-5",
+    "e5",
+    "bge"
+  ]
+},
+
+{
+  "id": "jina-embeddings",
+  "name": "Jina Embeddings",
+  "family": "Jina Embeddings",
+  "organization": "Jina AI",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "embedding",
+  "type": "long-context-embedding-family",
+  "description": "A family of multilingual and long-context embedding models designed for semantic search, retrieval, reranking pipelines, and enterprise document processing.",
+  "architecture": {
+    "family": "Transformer encoder",
+    "attention": "self-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "long-context text encoding"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["dense embedding"]
+  },
+  "training": {
+    "objective": "multilingual semantic representation learning",
+    "data": "multilingual retrieval and document datasets",
+    "postTraining": "retrieval optimization"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "embedding",
+    "multilingual",
+    "long-context",
+    "retrieval"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Jina Embeddings",
+      "url": "https://jina.ai/embeddings/"
+    }
+  ],
+  "relatedModels": [
+    "jina-embeddings-v2",
+    "jina-embeddings-v3",
+    "bge-m3"
+  ]
+},
+
+{
+  "id": "nv-embed",
+  "name": "NV-Embed",
+  "family": "NV-Embed",
+  "organization": "NVIDIA",
+  "releaseDate": "2024-06",
+  "year": 2024,
+  "category": "embedding",
+  "type": "llm-based-embedding-model",
+  "description": "A high-performance embedding model family built from large language models and optimized for retrieval and general-purpose embedding benchmarks.",
+  "architecture": {
+    "family": "decoder-only Transformer adapted for embeddings",
+    "attention": "self-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "LLM-based representation encoding"
+  },
+  "scale": {
+    "parameters": "7B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["dense embedding"]
+  },
+  "training": {
+    "objective": "contrastive embedding learning",
+    "data": "retrieval and semantic similarity datasets",
+    "postTraining": "embedding-specific optimization"
+  },
+  "license": "NVIDIA Open Model License / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "embedding",
+    "llm-based",
+    "retrieval",
+    "nvidia"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "NV-Embed",
+      "url": "https://huggingface.co/nvidia/NV-Embed-v1"
+    }
+  ],
+  "relatedModels": [
+    "nv-embed-v2",
+    "e5-mistral",
+    "gte-qwen"
+  ]
+},
+
+{
+  "id": "stella",
+  "name": "Stella Embeddings",
+  "family": "Stella",
+  "organization": "NovaSearch",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "embedding",
+  "type": "general-purpose-embedding-family",
+  "description": "A family of high-performing text embedding models designed for semantic search, retrieval, and multilingual representation tasks.",
+  "architecture": {
+    "family": "Transformer-based embedding model",
+    "attention": "self-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "text representation encoding"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["dense embedding"]
+  },
+  "training": {
+    "objective": "contrastive embedding learning",
+    "data": "retrieval and semantic similarity datasets",
+    "postTraining": "embedding optimization"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "embedding",
+    "retrieval",
+    "semantic-search",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Stella Embeddings",
+      "url": "https://huggingface.co/dunzhang/stella_en_1.5B_v5"
+    }
+  ],
+  "relatedModels": [
+    "e5",
+    "bge",
+    "gte"
+  ]
+},
+
+{
+  "id": "colbert",
+  "name": "ColBERT",
+  "family": "ColBERT",
+  "organization": "Stanford University",
+  "releaseDate": "2020-04",
+  "year": 2020,
+  "category": "embedding",
+  "type": "late-interaction-retrieval-model",
+  "description": "A retrieval architecture using token-level contextual embeddings and late interaction, preserving more fine-grained matching information than single-vector dense retrieval.",
+  "architecture": {
+    "family": "late-interaction dual encoder",
+    "attention": "Transformer self-attention",
+    "position": "model-dependent",
+    "sparsity": "multi-vector",
+    "sequenceStrategy": "independent token-level encoding + late interaction"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "token-level embeddings"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["multi-vector embeddings"]
+  },
+  "training": {
+    "objective": "late-interaction retrieval",
+    "data": "passage retrieval datasets",
+    "postTraining": "retrieval fine-tuning"
+  },
+  "license": "MIT / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "retrieval",
+    "multi-vector",
+    "late-interaction",
+    "embedding"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "ColBERT",
+      "url": "https://arxiv.org/abs/2004.12832"
+    }
+  ],
+  "relatedModels": [
+    "colbertv2",
+    "bge-m3",
+    "dpr"
+  ]
+},
+
+{
+  "id": "colbertv2",
+  "name": "ColBERTv2",
+  "family": "ColBERT",
+  "organization": "Stanford University",
+  "releaseDate": "2021-12",
+  "year": 2021,
+  "category": "embedding",
+  "type": "late-interaction-retrieval-model",
+  "description": "An improved ColBERT generation using more efficient token-level representations and residual compression for scalable multi-vector retrieval.",
+  "architecture": {
+    "family": "late-interaction dual encoder",
+    "attention": "Transformer self-attention",
+    "position": "model-dependent",
+    "sparsity": "multi-vector",
+    "sequenceStrategy": "token-level encoding + late interaction"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "token-level embeddings"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["multi-vector embeddings"]
+  },
+  "training": {
+    "objective": "late-interaction retrieval",
+    "data": "large-scale retrieval datasets",
+    "postTraining": "retrieval optimization and compression"
+  },
+  "license": "MIT / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "retrieval",
+    "multi-vector",
+    "late-interaction",
+    "compression"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "ColBERTv2",
+      "url": "https://arxiv.org/abs/2112.01488"
+    }
+  ],
+  "relatedModels": [
+    "colbert",
+    "bge-m3",
+    "dpr"
+  ]
 }
