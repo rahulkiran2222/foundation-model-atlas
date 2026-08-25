@@ -10347,4 +10347,1115 @@
     "bge-m3",
     "dpr"
   ]
+},
+  {
+  "id": "ddpm",
+  "name": "DDPM",
+  "family": "DDPM",
+  "organization": "UC Berkeley / Google Research",
+  "releaseDate": "2020-06",
+  "year": 2020,
+  "category": "generative-vision",
+  "type": "diffusion-foundation-architecture",
+  "description": "Denoising Diffusion Probabilistic Models established the modern diffusion framework for generative modeling by learning to reverse a gradual noise-adding process.",
+  "architecture": {
+    "family": "denoising diffusion probabilistic model",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "iterative denoising"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["noise"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "denoising score/noise prediction",
+    "data": "image datasets",
+    "postTraining": "conditional generation"
+  },
+  "license": "paper/model-dependent",
+  "openWeights": true,
+  "tags": [
+    "diffusion",
+    "generative-model",
+    "image-generation",
+    "denoising"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Denoising Diffusion Probabilistic Models",
+      "url": "https://arxiv.org/abs/2006.11239"
+    }
+  ],
+  "relatedModels": [
+    "ddim",
+    "latent-diffusion",
+    "dit"
+  ]
+},
+
+{
+  "id": "ddim",
+  "name": "DDIM",
+  "family": "DDIM",
+  "organization": "University of California, Berkeley",
+  "releaseDate": "2020-10",
+  "year": 2020,
+  "category": "generative-vision",
+  "type": "diffusion-sampling-architecture",
+  "description": "Denoising Diffusion Implicit Models introduced a faster and more flexible non-Markovian sampling process for diffusion models.",
+  "architecture": {
+    "family": "implicit diffusion model",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "non-Markovian iterative sampling"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": null
+  },
+  "modality": {
+    "input": ["noise"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "diffusion denoising",
+    "data": "image datasets",
+    "postTraining": "accelerated sampling"
+  },
+  "license": "paper/model-dependent",
+  "openWeights": true,
+  "tags": [
+    "diffusion",
+    "sampling",
+    "image-generation",
+    "accelerated-inference"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Denoising Diffusion Implicit Models",
+      "url": "https://arxiv.org/abs/2010.02502"
+    }
+  ],
+  "relatedModels": [
+    "ddpm",
+    "latent-diffusion",
+    "stable-diffusion"
+  ]
+},
+
+{
+  "id": "latent-diffusion",
+  "name": "Latent Diffusion Models",
+  "family": "Latent Diffusion",
+  "organization": "CompVis / LMU Munich / Heidelberg University",
+  "releaseDate": "2021-12",
+  "year": 2021,
+  "category": "generative-vision",
+  "type": "latent-diffusion-foundation-architecture",
+  "description": "Latent Diffusion Models moved the diffusion process from pixel space into a compressed latent space, substantially reducing computational cost while enabling high-quality conditional generation.",
+  "architecture": {
+    "family": "latent diffusion + autoencoder",
+    "attention": "U-Net cross-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "latent-space iterative denoising"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "latent image representations"
+  },
+  "modality": {
+    "input": ["text", "noise"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "latent denoising with conditioning",
+    "data": "large-scale image-text datasets",
+    "postTraining": "text-to-image and image-conditioned generation"
+  },
+  "license": "CreativeML / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "latent-diffusion",
+    "text-to-image",
+    "generative-model",
+    "cross-attention"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "High-Resolution Image Synthesis with Latent Diffusion Models",
+      "url": "https://arxiv.org/abs/2112.10752"
+    }
+  ],
+  "relatedModels": [
+    "stable-diffusion",
+    "sdxl",
+    "dit"
+  ]
+},
+
+{
+  "id": "stable-diffusion",
+  "name": "Stable Diffusion",
+  "family": "Stable Diffusion",
+  "organization": "Stability AI / CompVis",
+  "releaseDate": "2022-08",
+  "year": 2022,
+  "category": "generative-vision",
+  "type": "latent-text-to-image-foundation-model",
+  "description": "A landmark open latent diffusion model that made high-quality text-to-image generation accessible on consumer hardware and established a major open generative-model ecosystem.",
+  "architecture": {
+    "family": "latent diffusion",
+    "attention": "U-Net cross-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "latent iterative denoising"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "latent image representations + text embeddings"
+  },
+  "modality": {
+    "input": ["text", "image", "noise"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "conditional latent diffusion",
+    "data": "large-scale image-text datasets",
+    "postTraining": "text-to-image, image-to-image and fine-tuning"
+  },
+  "license": "CreativeML Open RAIL-M",
+  "openWeights": true,
+  "tags": [
+    "stable-diffusion",
+    "latent-diffusion",
+    "text-to-image",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Stable Diffusion",
+      "url": "https://stability.ai/stable-diffusion"
+    }
+  ],
+  "relatedModels": [
+    "stable-diffusion-xl",
+    "stable-diffusion-3",
+    "latent-diffusion"
+  ]
+},
+
+{
+  "id": "sdxl",
+  "name": "Stable Diffusion XL",
+  "family": "Stable Diffusion",
+  "organization": "Stability AI",
+  "releaseDate": "2023-07",
+  "year": 2023,
+  "category": "generative-vision",
+  "type": "high-resolution-latent-diffusion-model",
+  "description": "A major Stable Diffusion generation designed for higher-resolution image synthesis and stronger prompt adherence through architectural and conditioning improvements.",
+  "architecture": {
+    "family": "latent diffusion",
+    "attention": "U-Net cross-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "latent iterative denoising"
+  },
+  "scale": {
+    "parameters": "3.5B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "latent image representations + multiple text embeddings"
+  },
+  "modality": {
+    "input": ["text", "image", "noise"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "high-resolution latent diffusion",
+    "data": "large-scale image-text datasets",
+    "postTraining": "text-to-image and image-to-image adaptation"
+  },
+  "license": "CreativeML Open RAIL++",
+  "openWeights": true,
+  "tags": [
+    "stable-diffusion",
+    "latent-diffusion",
+    "high-resolution",
+    "text-to-image"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Stable Diffusion XL",
+      "url": "https://stability.ai/stable-diffusion"
+    }
+  ],
+  "relatedModels": [
+    "stable-diffusion",
+    "stable-diffusion-3",
+    "sd-turbo"
+  ]
+},
+  {
+  "id": "dit",
+  "name": "DiT",
+  "family": "Diffusion Transformer",
+  "organization": "Meta AI",
+  "releaseDate": "2022-12",
+  "year": 2022,
+  "category": "generative-vision",
+  "type": "diffusion-transformer-architecture",
+  "description": "Diffusion Transformers replaced the conventional U-Net backbone with a Transformer operating on latent image patches, establishing a major alternative architecture for scalable diffusion models.",
+  "architecture": {
+    "family": "Diffusion Transformer",
+    "attention": "self-attention",
+    "position": "2D positional embeddings",
+    "sparsity": "dense",
+    "sequenceStrategy": "latent patch-token denoising"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "latent image patches"
+  },
+  "modality": {
+    "input": ["noise", "conditioning"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "latent diffusion",
+    "data": "image datasets",
+    "postTraining": "conditional image generation"
+  },
+  "license": "CC BY-NC 4.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "diffusion-transformer",
+    "dit",
+    "latent-diffusion",
+    "transformer"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Scalable Diffusion Models with Transformers",
+      "url": "https://arxiv.org/abs/2212.09748"
+    }
+  ],
+  "relatedModels": [
+    "stable-diffusion-3",
+    "flux",
+    "pixart-alpha"
+  ]
+},
+
+{
+  "id": "pixart-alpha",
+  "name": "PixArt-α",
+  "family": "PixArt",
+  "organization": "PixArt Research",
+  "releaseDate": "2023-10",
+  "year": 2023,
+  "category": "generative-vision",
+  "type": "diffusion-transformer-model",
+  "description": "A Diffusion Transformer-based text-to-image model designed to improve training efficiency while maintaining strong image quality and prompt alignment.",
+  "architecture": {
+    "family": "Diffusion Transformer",
+    "attention": "self-attention + cross-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "latent patch denoising"
+  },
+  "scale": {
+    "parameters": "0.6B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "latent image patches + text conditioning"
+  },
+  "modality": {
+    "input": ["text", "noise"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "text-conditioned diffusion",
+    "data": "large-scale image-text data",
+    "postTraining": "text-to-image adaptation"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "diffusion-transformer",
+    "text-to-image",
+    "efficient-training",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "PixArt-α",
+      "url": "https://arxiv.org/abs/2310.00426"
+    }
+  ],
+  "relatedModels": [
+    "dit",
+    "pixart-sigma",
+    "stable-diffusion-3"
+  ]
+},
+
+{
+  "id": "pixart-sigma",
+  "name": "PixArt-Σ",
+  "family": "PixArt",
+  "organization": "PixArt Research",
+  "releaseDate": "2024-02",
+  "year": 2024,
+  "category": "generative-vision",
+  "type": "high-resolution-diffusion-transformer-model",
+  "description": "An improved PixArt generation focused on high-resolution synthesis, stronger text alignment, and improved generation efficiency.",
+  "architecture": {
+    "family": "Diffusion Transformer",
+    "attention": "self-attention + cross-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "latent patch denoising"
+  },
+  "scale": {
+    "parameters": "0.6B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "latent image patches + text conditioning"
+  },
+  "modality": {
+    "input": ["text", "noise"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "high-resolution text-conditioned diffusion",
+    "data": "large-scale image-text data",
+    "postTraining": "high-resolution adaptation"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "diffusion-transformer",
+    "high-resolution",
+    "text-to-image",
+    "open-weight"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "PixArt-Σ",
+      "url": "https://arxiv.org/abs/2403.04692"
+    }
+  ],
+  "relatedModels": [
+    "pixart-alpha",
+    "dit",
+    "sana"
+  ]
+},
+
+{
+  "id": "sana",
+  "name": "Sana",
+  "family": "Sana",
+  "organization": "NVIDIA Research",
+  "releaseDate": "2024-12",
+  "year": 2024,
+  "category": "generative-vision",
+  "type": "efficient-diffusion-transformer-model",
+  "description": "An efficient text-to-image generation architecture using linear attention, a deep compression autoencoder, and efficient diffusion-transformer design.",
+  "architecture": {
+    "family": "efficient Diffusion Transformer",
+    "attention": "linear attention",
+    "position": "model-dependent",
+    "sparsity": "efficient attention",
+    "sequenceStrategy": "latent token denoising"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "compressed latent image tokens"
+  },
+  "modality": {
+    "input": ["text", "noise"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "text-conditioned diffusion",
+    "data": "large-scale image-text datasets",
+    "postTraining": "efficient high-resolution generation"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "diffusion-transformer",
+    "linear-attention",
+    "efficient-generation",
+    "text-to-image"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "SANA",
+      "url": "https://arxiv.org/abs/2410.10629"
+    }
+  ],
+  "relatedModels": [
+    "dit",
+    "pixart-sigma",
+    "flux"
+  ]
+},
+  {
+  "id": "stable-diffusion-3",
+  "name": "Stable Diffusion 3",
+  "family": "Stable Diffusion",
+  "organization": "Stability AI",
+  "releaseDate": "2024-02",
+  "year": 2024,
+  "category": "generative-vision",
+  "type": "multimodal-diffusion-transformer",
+  "description": "A major Stable Diffusion generation using Multimodal Diffusion Transformer blocks with separate parameter sets for image and language representations and flow matching.",
+  "architecture": {
+    "family": "MMDiT",
+    "attention": "joint multimodal attention with separate modality-specific weights",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "multimodal latent denoising"
+  },
+  "scale": {
+    "parameters": "800M–8B family",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "image latent tokens + text tokens"
+  },
+  "modality": {
+    "input": ["text", "image", "noise"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "flow-matching / diffusion generation",
+    "data": "large-scale image-text data",
+    "postTraining": "text-to-image and image-conditioned generation"
+  },
+  "license": "Stability AI model license",
+  "openWeights": true,
+  "tags": [
+    "stable-diffusion",
+    "mmdIt",
+    "diffusion-transformer",
+    "flow-matching",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Stable Diffusion 3",
+      "url": "https://stability.ai/news-updates/stable-diffusion-3"
+    },
+    {
+      "type": "paper",
+      "title": "Stable Diffusion 3 Research Paper",
+      "url": "https://stability.ai/news-updates/stable-diffusion-3-research-paper"
+    }
+  ],
+  "relatedModels": [
+    "stable-diffusion",
+    "sdxl",
+    "dit",
+    "flux"
+  ]
+},
+
+{
+  "id": "flux",
+  "name": "FLUX.1",
+  "family": "FLUX",
+  "organization": "Black Forest Labs",
+  "releaseDate": "2024-08-01",
+  "year": 2024,
+  "category": "generative-vision",
+  "type": "rectified-flow-transformer",
+  "description": "A 12B-class text-to-image family based on hybrid multimodal and parallel diffusion-transformer blocks trained with flow matching.",
+  "architecture": {
+    "family": "rectified-flow Transformer",
+    "attention": "multimodal and parallel attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "flow-based latent generation"
+  },
+  "scale": {
+    "parameters": "12B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "text and image latent tokens"
+  },
+  "modality": {
+    "input": ["text", "image", "noise"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "flow matching",
+    "data": "large-scale image-text data",
+    "postTraining": "guidance distillation for selected variants"
+  },
+  "license": "variant-dependent",
+  "openWeights": true,
+  "tags": [
+    "flux",
+    "rectified-flow",
+    "flow-matching",
+    "diffusion-transformer",
+    "text-to-image"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Black Forest Labs FLUX.1",
+      "url": "https://bfl.ai/blog/24-08-01-bfl"
+    },
+    {
+      "type": "official",
+      "title": "FLUX.1 model repository",
+      "url": "https://github.com/black-forest-labs/flux"
+    }
+  ],
+  "relatedModels": [
+    "flux-pro",
+    "flux-dev",
+    "flux-schnell",
+    "stable-diffusion-3"
+  ]
+},
+
+{
+  "id": "flux-schnell",
+  "name": "FLUX.1 [schnell]",
+  "family": "FLUX",
+  "organization": "Black Forest Labs",
+  "releaseDate": "2024-08-01",
+  "year": 2024,
+  "category": "generative-vision",
+  "type": "distilled-rectified-flow-model",
+  "description": "A fast FLUX variant optimized for local development and personal use through distillation and reduced sampling steps.",
+  "architecture": {
+    "family": "rectified-flow Transformer",
+    "attention": "multimodal and parallel attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "distilled flow generation"
+  },
+  "scale": {
+    "parameters": "12B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "text and image latent tokens"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "flow matching + latent adversarial diffusion distillation",
+    "data": "large-scale image-text data",
+    "postTraining": "distillation for 1–4 step generation"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "flux",
+    "fast-generation",
+    "distillation",
+    "rectified-flow"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "FLUX.1 schnell Model Card",
+      "url": "https://github.com/black-forest-labs/flux/blob/main/model_cards/FLUX.1-schnell.md"
+    }
+  ],
+  "relatedModels": [
+    "flux",
+    "flux-dev",
+    "flux-pro"
+  ]
+},
+
+{
+  "id": "flux-kontext",
+  "name": "FLUX.1 Kontext",
+  "family": "FLUX",
+  "organization": "Black Forest Labs",
+  "releaseDate": "2025-06",
+  "year": 2025,
+  "category": "generative-vision",
+  "type": "in-context-image-generation-editing-model",
+  "description": "A FLUX generation designed for instruction-based image editing and in-context generation while maintaining character, object, and style consistency across edits.",
+  "architecture": {
+    "family": "rectified-flow Transformer",
+    "attention": "multimodal Transformer attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "in-context image generation and editing"
+  },
+  "scale": {
+    "parameters": "12B class",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "text + image latent tokens"
+  },
+  "modality": {
+    "input": ["text", "image"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "flow-matching image generation and editing",
+    "data": "image and instruction data",
+    "postTraining": "guidance distillation"
+  },
+  "license": "variant-dependent",
+  "openWeights": true,
+  "tags": [
+    "image-editing",
+    "in-context-generation",
+    "rectified-flow",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "FLUX.1 Kontext",
+      "url": "https://github.com/black-forest-labs/flux/blob/main/model_cards/FLUX.1-kontext-dev.md"
+    }
+  ],
+  "relatedModels": [
+    "flux",
+    "flux-dev",
+    "flux-schnell"
+  ]
+},
+  {
+  "id": "imagen",
+  "name": "Imagen",
+  "family": "Imagen",
+  "organization": "Google Research / DeepMind",
+  "releaseDate": "2022-05",
+  "year": 2022,
+  "category": "generative-vision",
+  "type": "text-to-image-diffusion-model",
+  "description": "Google's text-to-image diffusion family combining large language-model text representations with diffusion-based image generation.",
+  "architecture": {
+    "family": "text-conditioned diffusion",
+    "attention": "Transformer text encoder + diffusion network",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "text-conditioned iterative generation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "text embeddings + image latent/pixel representations"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "text-to-image diffusion",
+    "data": "large-scale image-text datasets",
+    "postTraining": "text-conditioned generation"
+  },
+  "license": "proprietary",
+  "openWeights": false,
+  "tags": [
+    "text-to-image",
+    "diffusion",
+    "generative-model",
+    "google"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Imagen",
+      "url": "https://deepmind.google/models/imagen/"
+    }
+  ],
+  "relatedModels": [
+    "imagen-2",
+    "imagen-3",
+    "imagen-4",
+    "stable-diffusion"
+  ]
+},
+
+{
+  "id": "imagen-2",
+  "name": "Imagen 2",
+  "family": "Imagen",
+  "organization": "Google DeepMind",
+  "releaseDate": "2023-12",
+  "year": 2023,
+  "category": "generative-vision",
+  "type": "text-to-image-generation-model",
+  "description": "A later Imagen generation improving image quality, photorealism, composition, and generation capabilities.",
+  "architecture": {
+    "family": "diffusion-based generative model",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "conditional image generation"
+  },
+  "scale": {
+    "parameters": null,
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "text conditioning + image representation"
+  },
+  "modality": {
+    "input": ["text", "image"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "text-to-image generation",
+    "data": "large-scale multimodal data",
+    "postTraining": "instruction and safety optimization"
+  },
+  "license": "proprietary",
+  "openWeights": false,
+  "tags": [
+    "text-to-image",
+    "diffusion",
+    "image-generation",
+    "google"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Imagen",
+      "url": "https://deepmind.google/models/imagen/"
+    }
+  ],
+  "relatedModels": [
+    "imagen",
+    "imagen-3",
+    "imagen-4"
+  ]
+},
+
+{
+  "id": "imagen-3",
+  "name": "Imagen 3",
+  "family": "Imagen",
+  "organization": "Google DeepMind",
+  "releaseDate": "2024-08",
+  "year": 2024,
+  "category": "generative-vision",
+  "type": "text-to-image-generation-model",
+  "description": "A major Imagen generation focused on higher visual quality, improved prompt understanding, and stronger text-to-image generation.",
+  "architecture": {
+    "family": "diffusion-based generative model",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "conditional image generation"
+  },
+  "scale": {
+    "parameters": null,
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "text conditioning + image representation"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "text-to-image generation",
+    "data": "large-scale image-text data",
+    "postTraining": "quality and safety optimization"
+  },
+  "license": "proprietary",
+  "openWeights": false,
+  "tags": [
+    "text-to-image",
+    "image-generation",
+    "diffusion",
+    "google"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Imagen",
+      "url": "https://deepmind.google/models/imagen/"
+    }
+  ],
+  "relatedModels": [
+    "imagen",
+    "imagen-2",
+    "imagen-4"
+  ]
+},
+
+{
+  "id": "imagen-4",
+  "name": "Imagen 4",
+  "family": "Imagen",
+  "organization": "Google DeepMind",
+  "releaseDate": "2025",
+  "year": 2025,
+  "category": "generative-vision",
+  "type": "text-to-image-generation-model",
+  "description": "A newer Imagen generation focused on detailed, high-quality image synthesis and improved prompt adherence.",
+  "architecture": {
+    "family": "generative image model",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "conditional image generation"
+  },
+  "scale": {
+    "parameters": null,
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "text and visual representations"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "text-to-image generation",
+    "data": "large-scale image-text data",
+    "postTraining": "quality and safety optimization"
+  },
+  "license": "proprietary",
+  "openWeights": false,
+  "tags": [
+    "text-to-image",
+    "image-generation",
+    "google"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Imagen",
+      "url": "https://deepmind.google/models/imagen/"
+    }
+  ],
+  "relatedModels": [
+    "imagen-3",
+    "imagen-2"
+  ]
+},
+
+{
+  "id": "dalle",
+  "name": "DALL·E",
+  "family": "DALL·E",
+  "organization": "OpenAI",
+  "releaseDate": "2021-01",
+  "year": 2021,
+  "category": "generative-vision",
+  "type": "text-to-image-generative-model",
+  "description": "An early large-scale text-to-image model demonstrating that autoregressive Transformer modeling could generate images conditioned on natural language.",
+  "architecture": {
+    "family": "autoregressive Transformer",
+    "attention": "self-attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "autoregressive text-image token generation"
+  },
+  "scale": {
+    "parameters": "12B",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "text and discrete image tokens"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "autoregressive text-image modeling",
+    "data": "image-text pairs",
+    "postTraining": "conditional image generation"
+  },
+  "license": "proprietary",
+  "openWeights": false,
+  "tags": [
+    "text-to-image",
+    "autoregressive",
+    "image-generation",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "DALL·E",
+      "url": "https://openai.com/research/dall-e"
+    }
+  ],
+  "relatedModels": [
+    "dalle-2",
+    "dalle-3",
+    "stable-diffusion",
+    "imagen"
+  ]
+},
+
+{
+  "id": "dalle-2",
+  "name": "DALL·E 2",
+  "family": "DALL·E",
+  "organization": "OpenAI",
+  "releaseDate": "2022-04",
+  "year": 2022,
+  "category": "generative-vision",
+  "type": "text-to-image-diffusion-model",
+  "description": "A major transition in the DALL·E lineage toward diffusion-based image generation with CLIP-based semantic conditioning.",
+  "architecture": {
+    "family": "diffusion + CLIP conditioning",
+    "attention": "Transformer conditioning + diffusion network",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "latent diffusion generation"
+  },
+  "scale": {
+    "parameters": null,
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "CLIP embeddings + image latent"
+  },
+  "modality": {
+    "input": ["text", "image"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "conditional diffusion",
+    "data": "image-text data",
+    "postTraining": "text-to-image and image variation"
+  },
+  "license": "proprietary",
+  "openWeights": false,
+  "tags": [
+    "text-to-image",
+    "diffusion",
+    "image-generation",
+    "clip"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "DALL·E 2",
+      "url": "https://openai.com/index/dall-e-2/"
+    }
+  ],
+  "relatedModels": [
+    "dalle",
+    "dalle-3",
+    "stable-diffusion"
+  ]
+},
+
+{
+  "id": "dalle-3",
+  "name": "DALL·E 3",
+  "family": "DALL·E",
+  "organization": "OpenAI",
+  "releaseDate": "2023-09",
+  "year": 2023,
+  "category": "generative-vision",
+  "type": "text-to-image-generation-model",
+  "description": "A later DALL·E generation focused on improved prompt following, compositional understanding, and natural-language-controlled image generation.",
+  "architecture": {
+    "family": "diffusion-based generative model",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "text-conditioned image generation"
+  },
+  "scale": {
+    "parameters": null,
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "text conditioning + visual latent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["image"]
+  },
+  "training": {
+    "objective": "text-to-image generation",
+    "data": "image-text data with synthetic captions",
+    "postTraining": "prompt adherence optimization"
+  },
+  "license": "proprietary",
+  "openWeights": false,
+  "tags": [
+    "text-to-image",
+    "image-generation",
+    "prompt-following",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "DALL·E 3",
+      "url": "https://openai.com/index/dall-e-3/"
+    }
+  ],
+  "relatedModels": [
+    "dalle-2",
+    "dalle",
+    "stable-diffusion-3",
+    "imagen-3"
+  ]
 }
