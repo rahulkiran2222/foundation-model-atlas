@@ -22033,5 +22033,3010 @@
     "distributed-training",
     "training-efficiency"
   ]
-}
-  
+},
+  {
+  "id": "scaling-laws",
+  "name": "Scaling Laws",
+  "family": "Scaling & Efficiency",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "scaling",
+  "type": "scaling-law",
+  "description": "Scaling laws describe empirical relationships between model performance or loss and factors such as parameter count, training data, and compute.",
+  "dimensions": [
+    "parameter count",
+    "training tokens",
+    "training compute",
+    "model architecture",
+    "data quality"
+  ],
+  "principle": "Model loss often follows predictable approximate power-law relationships over substantial ranges of scale.",
+  "advantages": [
+    "Supports training-budget planning",
+    "Helps predict performance at larger scales",
+    "Provides a quantitative framework for model development"
+  ],
+  "limitations": [
+    "Scaling relationships are empirical rather than universal laws",
+    "Architecture changes can alter scaling behavior",
+    "Data quality and distribution matter",
+    "Extrapolation can fail outside observed regimes"
+  ],
+  "tags": [
+    "scaling-laws",
+    "compute",
+    "parameters",
+    "training-data"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Scaling Laws for Neural Language Models",
+      "url": "https://arxiv.org/abs/2001.08361"
+    }
+  ],
+  "relatedConcepts": [
+    "chinchilla-scaling",
+    "compute-optimal-training",
+    "parameter-scaling"
+  ]
+},
+  {
+  "id": "kaplan-scaling-laws",
+  "name": "Kaplan Scaling Laws",
+  "family": "Scaling Laws",
+  "organization": "OpenAI",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "scaling",
+  "type": "language-model-scaling",
+  "description": "The Kaplan scaling-law framework demonstrated predictable power-law relationships between language-model loss and model size, dataset size, and compute over studied regimes.",
+  "dimensions": [
+    "parameters",
+    "tokens",
+    "compute"
+  ],
+  "principle": "Performance improves predictably with scale under fixed training and architectural assumptions.",
+  "importance": [
+    "Established quantitative scaling analysis for language models",
+    "Influenced large-model training strategies",
+    "Provided a basis for compute-performance forecasting"
+  ],
+  "limitations": [
+    "Later work revised compute-optimal conclusions",
+    "Scaling depends on the training regime and data assumptions"
+  ],
+  "tags": [
+    "kaplan",
+    "scaling-laws",
+    "language-models",
+    "compute"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Scaling Laws for Neural Language Models",
+      "url": "https://arxiv.org/abs/2001.08361"
+    }
+  ],
+  "relatedConcepts": [
+    "scaling-laws",
+    "chinchilla-scaling",
+    "compute-optimal-training"
+  ]
+},
+  {
+  "id": "chinchilla-scaling",
+  "name": "Chinchilla Scaling",
+  "family": "Scaling Laws",
+  "organization": "DeepMind",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "scaling",
+  "type": "compute-optimal-scaling",
+  "description": "Chinchilla scaling demonstrated that, for a fixed training-compute budget under the studied regime, many large language models were undertrained and that increasing training tokens alongside model size could produce better compute-optimal models.",
+  "principle": "Model parameters and training tokens should be scaled together rather than maximizing parameter count alone.",
+  "dimensions": [
+    "parameters",
+    "training tokens",
+    "training compute"
+  ],
+  "importance": [
+    "Changed how compute-optimal language-model training was understood",
+    "Highlighted the importance of training-token budgets",
+    "Influenced subsequent model scaling strategies"
+  ],
+  "limitations": [
+    "The exact optimal relationship depends on assumptions",
+    "Data quality and architecture affect the tradeoff",
+    "Training compute is only one dimension of practical cost"
+  ],
+  "tags": [
+    "chinchilla",
+    "scaling",
+    "compute-optimal",
+    "training-tokens"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Training Compute-Optimal Large Language Models",
+      "url": "https://arxiv.org/abs/2203.15556"
+    }
+  ],
+  "relatedConcepts": [
+    "scaling-laws",
+    "compute-optimal-training",
+    "parameter-scaling"
+  ]
+},
+  {
+  "id": "compute-optimal-training",
+  "name": "Compute-Optimal Training",
+  "family": "Scaling & Efficiency",
+  "organization": "Research community",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "scaling",
+  "type": "compute-optimal",
+  "description": "Compute-optimal training seeks the model size and training-data allocation that maximize model quality under a fixed computational budget.",
+  "optimizationVariables": [
+    "parameter count",
+    "training tokens",
+    "number of training steps",
+    "hardware efficiency",
+    "data quality"
+  ],
+  "objective": "maximize model quality under a fixed compute budget",
+  "advantages": [
+    "Improves use of limited training compute",
+    "Provides principled model-size decisions",
+    "Separates parameter scaling from training-token scaling"
+  ],
+  "limitations": [
+    "Optimality depends on the chosen metric",
+    "Hardware utilization matters",
+    "Inference economics may favor a different training point"
+  ],
+  "tags": [
+    "compute-optimal",
+    "scaling",
+    "training-efficiency"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Training Compute-Optimal Large Language Models",
+      "url": "https://arxiv.org/abs/2203.15556"
+    }
+  ],
+  "relatedConcepts": [
+    "chinchilla-scaling",
+    "scaling-laws",
+    "training-compute"
+  ]
+},
+  {
+  "id": "parameter-scaling",
+  "name": "Parameter Scaling",
+  "family": "Scaling Laws",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "scaling",
+  "type": "parameter-scaling",
+  "description": "Parameter scaling increases the number of learned model parameters to increase representational capacity, subject to data and compute constraints.",
+  "dimensions": [
+    "parameter count",
+    "depth",
+    "width",
+    "hidden dimension",
+    "number of attention heads"
+  ],
+  "benefits": [
+    "Greater representational capacity",
+    "Potentially improved capability with sufficient data and compute"
+  ],
+  "costs": [
+    "Higher training compute",
+    "Higher memory requirements",
+    "Higher inference cost for dense models"
+  ],
+  "limitations": [
+    "More parameters do not automatically produce better models",
+    "Undertraining can reduce the value of additional parameters",
+    "Inference cost becomes important at deployment"
+  ],
+  "tags": [
+    "parameters",
+    "scaling",
+    "model-size"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "scaling-laws",
+    "chinchilla-scaling",
+    "mixture-of-experts"
+  ]
+},
+  {
+  "id": "data-scaling",
+  "name": "Data Scaling",
+  "family": "Scaling Laws",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "scaling",
+  "type": "data-scaling",
+  "description": "Data scaling increases the quantity and diversity of training examples or tokens available to a model.",
+  "dimensions": [
+    "training tokens",
+    "number of examples",
+    "domain diversity",
+    "language diversity",
+    "data quality"
+  ],
+  "benefits": [
+    "Improves learning when additional high-quality data is useful",
+    "Can reduce undertraining of large models",
+    "Can improve domain coverage"
+  ],
+  "limitations": [
+    "High-quality data is finite",
+    "Repeated data can reduce effective diversity",
+    "Additional low-quality data may provide limited benefit"
+  ],
+  "tags": [
+    "data-scaling",
+    "training-data",
+    "scaling"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "chinchilla-scaling",
+    "data-mixture",
+    "data-quality"
+  ]
+},
+  {
+  "id": "moe-compute-efficiency",
+  "name": "Mixture-of-Experts Compute Efficiency",
+  "family": "Sparse Model Scaling",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2021,
+  "category": "scaling",
+  "type": "sparse-conditional-computation",
+  "description": "Mixture-of-Experts architectures increase total parameter capacity while activating only a subset of experts for each token or input.",
+  "mechanism": {
+    "totalParameters": "large",
+    "activeParameters": "subset",
+    "routing": "learned router",
+    "computation": "conditional"
+  },
+  "benefits": [
+    "Large parameter capacity",
+    "Lower active compute than an equivalent fully dense model in some regimes",
+    "Supports scaling model capacity without proportional active computation"
+  ],
+  "costs": [
+    "Routing overhead",
+    "Communication overhead",
+    "Load balancing challenges",
+    "Memory footprint remains large"
+  ],
+  "tags": [
+    "moe",
+    "sparse-model",
+    "conditional-computation",
+    "scaling"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "mixture-of-experts",
+    "sparse-models",
+    "active-parameters"
+  ]
+},
+  {
+  "id": "active-vs-total-parameters",
+  "name": "Active vs Total Parameters",
+  "family": "Model Scaling",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "scaling",
+  "type": "parameter-accounting",
+  "description": "Total parameters describe the full stored model capacity, while active parameters describe the parameters actually involved in computing a particular token or input, especially in sparse architectures such as MoE models.",
+  "metrics": [
+    "total parameters",
+    "active parameters per token",
+    "active parameters per sequence",
+    "expert count"
+  ],
+  "importance": [
+    "Prevents misleading comparisons between dense and sparse models",
+    "Helps estimate compute requirements",
+    "Clarifies model capacity versus per-token computation"
+  ],
+  "tags": [
+    "active-parameters",
+    "total-parameters",
+    "moe",
+    "model-comparison"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "mixture-of-experts",
+    "moe-compute-efficiency",
+    "model-comparison"
+  ]
+},
+  {
+  "id": "sparse-computation",
+  "name": "Sparse Computation",
+  "family": "Efficiency Architecture",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "scaling",
+  "type": "sparse-computation",
+  "description": "Sparse computation reduces the amount of computation performed for a given input by activating only selected parameters, connections, tokens, or operations.",
+  "forms": [
+    "mixture-of-experts",
+    "sparse attention",
+    "structured sparsity",
+    "conditional computation",
+    "token pruning"
+  ],
+  "benefits": [
+    "Lower active computation",
+    "Potentially larger model capacity at similar compute",
+    "Improved efficiency for selected workloads"
+  ],
+  "limitations": [
+    "Implementation complexity",
+    "Hardware utilization can be difficult",
+    "Communication overhead may offset theoretical savings"
+  ],
+  "tags": [
+    "sparsity",
+    "efficiency",
+    "conditional-computation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "moe",
+    "sparse-attention",
+    "conditional-computation"
+  ]
+},
+  {
+  "id": "distillation-for-efficiency",
+  "name": "Distillation for Inference Efficiency",
+  "family": "Model Efficiency",
+  "organization": "Research community",
+  "releaseDate": "2015",
+  "year": 2015,
+  "category": "scaling",
+  "type": "model-compression",
+  "description": "Distillation transfers capabilities from a larger teacher model into a smaller student model to reduce inference cost while attempting to preserve useful behavior.",
+  "optimization": [
+    "latency",
+    "memory",
+    "throughput",
+    "deployment cost"
+  ],
+  "tradeoffs": [
+    "model size",
+    "quality",
+    "training cost",
+    "inference cost"
+  ],
+  "tags": [
+    "distillation",
+    "compression",
+    "inference",
+    "efficiency"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Distilling the Knowledge in a Neural Network",
+      "url": "https://arxiv.org/abs/1503.02531"
+    }
+  ],
+  "relatedConcepts": [
+    "knowledge-distillation",
+    "quantization",
+    "model-compression"
+  ]
+},
+  {
+  "id": "quantization",
+  "name": "Model Quantization",
+  "family": "Inference Optimization",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "scaling",
+  "type": "quantization",
+  "description": "Quantization represents model weights, activations, or other numerical values using lower-precision representations to reduce memory and computational requirements.",
+  "precisions": [
+    "FP32",
+    "FP16",
+    "BF16",
+    "INT8",
+    "INT4",
+    "lower-bit formats"
+  ],
+  "targets": [
+    "weights",
+    "activations",
+    "KV cache"
+  ],
+  "benefits": [
+    "Lower memory usage",
+    "Potentially faster inference",
+    "Lower deployment cost",
+    "Enables larger models on constrained hardware"
+  ],
+  "limitations": [
+    "Potential accuracy degradation",
+    "Hardware support varies",
+    "Different quantization methods have different quality-cost tradeoffs"
+  ],
+  "tags": [
+    "quantization",
+    "int8",
+    "int4",
+    "inference"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "qlora",
+    "gguf",
+    "gptq",
+    "awq"
+  ]
+},
+  {
+  "id": "post-training-quantization",
+  "name": "Post-Training Quantization",
+  "family": "Quantization",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "scaling",
+  "type": "ptq",
+  "description": "Post-training quantization converts an already trained model to lower numerical precision without requiring full retraining.",
+  "workflow": [
+    "train model",
+    "calibrate or analyze model",
+    "quantize weights or activations",
+    "evaluate quality"
+  ],
+  "advantages": [
+    "No full retraining required",
+    "Fast deployment optimization",
+    "Can substantially reduce memory"
+  ],
+  "limitations": [
+    "Quality degradation can occur",
+    "Calibration data may affect results",
+    "Very low precision can be challenging"
+  ],
+  "tags": [
+    "ptq",
+    "quantization",
+    "inference",
+    "compression"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "quantization",
+    "gptq",
+    "awq"
+  ]
+},
+  {
+  "id": "gptq",
+  "name": "GPTQ",
+  "family": "Quantization Method",
+  "organization": "Research community",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "scaling",
+  "type": "weight-quantization",
+  "description": "GPTQ is a post-training weight-quantization method designed to compress large Transformer models to low-bit precision while attempting to preserve model quality.",
+  "target": [
+    "model weights"
+  ],
+  "precision": [
+    "INT4",
+    "other low-bit formats"
+  ],
+  "advantages": [
+    "Substantial memory reduction",
+    "Useful for local LLM deployment",
+    "Supports low-bit model storage"
+  ],
+  "limitations": [
+    "Quantization error",
+    "Hardware/software support varies",
+    "Calibration and implementation affect results"
+  ],
+  "tags": [
+    "gptq",
+    "quantization",
+    "int4",
+    "llm-inference"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers",
+      "url": "https://arxiv.org/abs/2210.17323"
+    }
+  ],
+  "relatedConcepts": [
+    "quantization",
+    "post-training-quantization",
+    "awq"
+  ]
+},
+  {
+  "id": "awq",
+  "name": "AWQ",
+  "family": "Quantization Method",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "scaling",
+  "type": "activation-aware-quantization",
+  "description": "AWQ is a weight-quantization method that uses activation information to identify important weights and protect them during low-bit quantization.",
+  "target": [
+    "model weights"
+  ],
+  "principle": "Protect salient weights based on activation behavior.",
+  "advantages": [
+    "Strong low-bit inference performance",
+    "Useful for GPU deployment",
+    "Reduces model memory requirements"
+  ],
+  "limitations": [
+    "Quality depends on calibration",
+    "Hardware implementation matters",
+    "Quantization remains a tradeoff"
+  ],
+  "tags": [
+    "awq",
+    "quantization",
+    "activation-aware",
+    "int4"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration",
+      "url": "https://arxiv.org/abs/2306.00978"
+    }
+  ],
+  "relatedConcepts": [
+    "gptq",
+    "quantization",
+    "post-training-quantization"
+  ]
+},
+  {
+  "id": "kv-cache",
+  "name": "Key-Value Cache",
+  "family": "Inference Optimization",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2017,
+  "category": "scaling",
+  "type": "autoregressive-inference-cache",
+  "description": "The key-value cache stores previously computed attention keys and values during autoregressive generation so they do not need to be recomputed for every newly generated token.",
+  "stores": [
+    "attention keys",
+    "attention values"
+  ],
+  "benefits": [
+    "Reduces redundant computation during generation",
+    "Essential for efficient autoregressive inference"
+  ],
+  "costs": [
+    "Memory grows with context length",
+    "Large batch sizes increase cache requirements",
+    "Long-context inference can become memory-bound"
+  ],
+  "tags": [
+    "kv-cache",
+    "inference",
+    "attention",
+    "memory"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "gqa",
+    "mqa",
+    "mla",
+    "long-context"
+  ]
+},
+  {
+  "id": "gqa-efficiency",
+  "name": "Grouped Query Attention for Inference Efficiency",
+  "family": "Attention Efficiency",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "scaling",
+  "type": "kv-cache-optimization",
+  "description": "Grouped Query Attention reduces key-value cache size by sharing key and value heads across groups of query heads.",
+  "mechanism": {
+    "queryHeads": "many",
+    "keyHeads": "fewer",
+    "valueHeads": "fewer",
+    "sharing": "grouped"
+  },
+  "benefits": [
+    "Reduces KV-cache memory",
+    "Can improve inference throughput",
+    "Retains more query-head capacity than single-KV-head designs"
+  ],
+  "tradeoffs": [
+    "Potential quality differences compared with full multi-head attention",
+    "Architecture-specific tuning"
+  ],
+  "tags": [
+    "gqa",
+    "kv-cache",
+    "attention",
+    "inference"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints",
+      "url": "https://arxiv.org/abs/2305.13245"
+    }
+  ],
+  "relatedConcepts": [
+    "mqa",
+    "mha",
+    "kv-cache"
+  ]
+},
+  {
+  "id": "mqa-efficiency",
+  "name": "Multi-Query Attention",
+  "family": "Attention Efficiency",
+  "organization": "Research community",
+  "releaseDate": "2019",
+  "year": 2019,
+  "category": "scaling",
+  "type": "kv-cache-optimization",
+  "description": "Multi-Query Attention uses many query heads but shares a single key and value head across them, substantially reducing KV-cache memory during autoregressive inference.",
+  "mechanism": {
+    "queryHeads": "many",
+    "keyHeads": 1,
+    "valueHeads": 1
+  },
+  "benefits": [
+    "Large KV-cache reduction",
+    "Improved autoregressive decoding efficiency"
+  ],
+  "limitations": [
+    "Less expressive key-value representation than full multi-head attention",
+    "May produce quality tradeoffs"
+  ],
+  "tags": [
+    "mqa",
+    "attention",
+    "kv-cache",
+    "inference"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Fast Transformer Decoding: One Write-Head is All You Need",
+      "url": "https://arxiv.org/abs/1911.02150"
+    }
+  ],
+  "relatedConcepts": [
+    "gqa",
+    "mha",
+    "kv-cache"
+  ]
+},
+  {
+  "id": "mla",
+  "name": "Multi-head Latent Attention",
+  "family": "Attention Efficiency",
+  "organization": "DeepSeek",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "scaling",
+  "type": "latent-kv-compression",
+  "description": "Multi-head Latent Attention compresses key-value information into a lower-dimensional latent representation to reduce inference memory while retaining multi-head attention behavior.",
+  "mechanism": [
+    "latent KV representation",
+    "compressed attention states",
+    "query-dependent reconstruction"
+  ],
+  "benefits": [
+    "Reduces KV-cache memory",
+    "Supports efficient long-context inference",
+    "Retains richer attention structure than simple shared KV heads"
+  ],
+  "limitations": [
+    "More architecturally complex",
+    "Implementation and optimization are specialized"
+  ],
+  "tags": [
+    "mla",
+    "deepseek",
+    "kv-cache",
+    "attention-efficiency"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "DeepSeek-V2: A Strong Mixture-of-Experts Language Model",
+      "url": "https://arxiv.org/abs/2405.04434"
+    }
+  ],
+  "relatedConcepts": [
+    "gqa",
+    "mqa",
+    "kv-cache"
+  ]
+},
+  {
+  "id": "speculative-decoding",
+  "name": "Speculative Decoding",
+  "family": "Inference Optimization",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "scaling",
+  "type": "accelerated-decoding",
+  "description": "Speculative decoding uses a smaller draft model or auxiliary mechanism to propose multiple tokens that a larger target model verifies in parallel.",
+  "pipeline": [
+    "draft token generation",
+    "parallel target-model verification",
+    "accept valid tokens",
+    "continue generation"
+  ],
+  "benefits": [
+    "Can substantially reduce generation latency",
+    "Preserves target-model output distribution under appropriate algorithms",
+    "Reduces the number of sequential target-model decoding steps"
+  ],
+  "limitations": [
+    "Speedup depends on draft acceptance rate",
+    "Requires suitable draft or prediction mechanism",
+    "Additional system complexity"
+  ],
+  "tags": [
+    "speculative-decoding",
+    "inference",
+    "latency",
+    "acceleration"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Accelerating Large Language Model Decoding with Speculative Sampling",
+      "url": "https://arxiv.org/abs/2302.01318"
+    }
+  ],
+  "relatedConcepts": [
+    "draft-model",
+    "inference-optimization",
+    "distillation"
+  ]
+},
+  {
+  "id": "continuous-batching",
+  "name": "Continuous Batching",
+  "family": "Inference Systems",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2023,
+  "category": "scaling",
+  "type": "dynamic-batching",
+  "description": "Continuous batching dynamically adds and removes generation requests from an active batch rather than waiting for all requests in a static batch to finish.",
+  "benefits": [
+    "Higher GPU utilization",
+    "Improved serving throughput",
+    "Better handling of requests with different sequence lengths"
+  ],
+  "tradeoffs": [
+    "More complex scheduling",
+    "Requires efficient KV-cache management",
+    "Latency-throughput tradeoffs remain workload-dependent"
+  ],
+  "tags": [
+    "continuous-batching",
+    "inference",
+    "serving",
+    "throughput"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "kv-cache",
+    "inference-serving",
+    "throughput"
+  ]
+},
+  {
+  "id": "prefix-caching",
+  "name": "Prefix Caching",
+  "family": "Inference Optimization",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2023,
+  "category": "scaling",
+  "type": "prompt-cache",
+  "description": "Prefix caching reuses previously computed attention states for shared prompt prefixes across multiple requests.",
+  "useCases": [
+    "system prompts",
+    "shared documents",
+    "few-shot prompts",
+    "agent workflows",
+    "repeated context"
+  ],
+  "benefits": [
+    "Reduces repeated prefill computation",
+    "Improves latency for shared-context workloads",
+    "Can reduce serving cost"
+  ],
+  "limitations": [
+    "Requires cache management",
+    "Benefits depend on prefix reuse",
+    "Cache memory requirements can be substantial"
+  ],
+  "tags": [
+    "prefix-caching",
+    "kv-cache",
+    "inference",
+    "serving"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "kv-cache",
+    "long-context",
+    "inference-optimization"
+  ]
+},
+  {
+  "id": "test-time-compute",
+  "name": "Test-Time Compute Scaling",
+  "family": "Inference-Time Scaling",
+  "organization": "Research community",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "scaling",
+  "type": "inference-time-scaling",
+  "description": "Test-time compute scaling increases the amount of computation performed after a prompt is received, allowing a model to spend additional computation on reasoning, sampling, verification, search, or candidate selection.",
+  "methods": [
+    "longer reasoning",
+    "multiple sampling",
+    "best-of-N",
+    "self-consistency",
+    "search",
+    "verification",
+    "tool use"
+  ],
+  "benefits": [
+    "Can improve performance without increasing base-model parameter count",
+    "Useful for difficult reasoning problems",
+    "Allows adaptive computation based on task difficulty"
+  ],
+  "costs": [
+    "Higher latency",
+    "Higher inference cost",
+    "Potentially greater token consumption"
+  ],
+  "tags": [
+    "test-time-compute",
+    "reasoning",
+    "inference-scaling",
+    "o1-style"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "reasoning-model",
+    "verifiable-rewards",
+    "inference-time-scaling"
+  ]
+},
+  {
+  "id": "best-of-n",
+  "name": "Best-of-N Sampling",
+  "family": "Inference-Time Scaling",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "scaling",
+  "type": "multi-sample-inference",
+  "description": "Best-of-N sampling generates multiple candidate responses and selects the highest-scoring candidate according to a reward model, verifier, judge, or other evaluation mechanism.",
+  "pipeline": [
+    "generate N candidates",
+    "score candidates",
+    "select best candidate"
+  ],
+  "benefits": [
+    "Can improve answer quality",
+    "Simple inference-time scaling strategy"
+  ],
+  "costs": [
+    "Inference cost grows with N",
+    "Selection quality depends on evaluator quality"
+  ],
+  "tags": [
+    "best-of-n",
+    "inference",
+    "reasoning",
+    "sampling"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "test-time-compute",
+    "self-consistency",
+    "verifiable-rewards"
+  ]
+},
+  {
+  "id": "throughput-vs-latency",
+  "name": "Inference Throughput vs Latency",
+  "family": "Serving Economics",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "scaling",
+  "type": "serving-metrics",
+  "description": "Inference serving involves a tradeoff between latency for individual requests and throughput across many concurrent requests.",
+  "metrics": [
+    "time to first token",
+    "time per output token",
+    "end-to-end latency",
+    "tokens per second",
+    "requests per second",
+    "GPU utilization"
+  ],
+  "importantFactors": [
+    "batch size",
+    "sequence length",
+    "KV-cache size",
+    "model size",
+    "quantization",
+    "hardware",
+    "scheduling"
+  ],
+  "tags": [
+    "latency",
+    "throughput",
+    "inference",
+    "serving"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "continuous-batching",
+    "kv-cache",
+    "quantization"
+  ]
+},
+  {
+  "id": "scaling-efficiency-tradeoff",
+  "name": "Scaling–Efficiency Tradeoff",
+  "family": "Scaling & Efficiency",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "scaling",
+  "type": "tradeoff-framework",
+  "description": "Foundation-model design requires balancing capability, training compute, inference cost, memory, latency, throughput, and data requirements rather than maximizing model size alone.",
+  "dimensions": [
+    "capability",
+    "parameter count",
+    "training tokens",
+    "training compute",
+    "active parameters",
+    "memory",
+    "latency",
+    "throughput",
+    "energy",
+    "serving cost"
+  ],
+  "strategies": [
+    "compute-optimal scaling",
+    "mixture-of-experts",
+    "quantization",
+    "distillation",
+    "KV-cache optimization",
+    "speculative decoding",
+    "test-time compute"
+  ],
+  "principle": "The best model is workload-dependent rather than universally defined by parameter count.",
+  "tags": [
+    "scaling",
+    "efficiency",
+    "inference",
+    "training"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "scaling-laws",
+    "compute-optimal-training",
+    "inference-optimization"
+  ]
+},
+  ,
+{
+  "id": "context-window",
+  "name": "Context Window",
+  "family": "Memory & Context",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2017,
+  "category": "memory",
+  "type": "context-window",
+  "description": "The context window is the amount of input and previously generated information that a model can process within a single inference context.",
+  "dimensions": [
+    "maximum tokens",
+    "input tokens",
+    "output tokens",
+    "attention computation",
+    "KV-cache memory"
+  ],
+  "importance": [
+    "Determines how much information can be presented to the model at once",
+    "Affects long-document processing",
+    "Affects conversational memory",
+    "Affects retrieval and agent workflows"
+  ],
+  "limitations": [
+    "A larger context window does not guarantee effective use of all information",
+    "Long contexts increase memory and computation requirements",
+    "Information can be lost or underweighted within long contexts"
+  ],
+  "tags": [
+    "context-window",
+    "long-context",
+    "memory",
+    "inference"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "long-context",
+    "kv-cache",
+    "lost-in-the-middle"
+  ]
+},
+{
+  "id": "long-context",
+  "name": "Long-Context Modeling",
+  "family": "Memory & Context",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "memory",
+  "type": "long-context",
+  "description": "Long-context modeling enables foundation models to process substantially longer sequences than conventional language models while attempting to preserve useful information across the context.",
+  "approaches": [
+    "longer positional representations",
+    "attention optimization",
+    "sparse attention",
+    "context interpolation",
+    "recurrent memory",
+    "state-space models",
+    "context compression",
+    "retrieval"
+  ],
+  "evaluation": [
+    "long-context benchmarks",
+    "needle-in-a-haystack",
+    "retrieval accuracy",
+    "long-document question answering",
+    "summarization"
+  ],
+  "limitations": [
+    "Effective context utilization can be lower than advertised context length",
+    "Attention and KV-cache costs can become significant",
+    "Models may exhibit positional bias"
+  ],
+  "tags": [
+    "long-context",
+    "context-window",
+    "memory",
+    "attention"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "context-window",
+    "longbench",
+    "ruler",
+    "lost-in-the-middle"
+  ]
+},
+{
+  "id": "rope",
+  "name": "Rotary Position Embedding",
+  "family": "Positional Encoding",
+  "organization": "Research community",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "memory",
+  "type": "positional-encoding",
+  "description": "Rotary Position Embedding encodes token positions by rotating query and key representations according to position-dependent frequencies.",
+  "mechanism": [
+    "position-dependent rotations",
+    "query transformation",
+    "key transformation",
+    "relative-position information through attention interactions"
+  ],
+  "advantages": [
+    "Integrates positional information directly into attention",
+    "Works effectively in Transformer language models",
+    "Supports useful relative-position behavior"
+  ],
+  "limitations": [
+    "Extrapolation beyond the training context can be difficult",
+    "Long-context extension often requires additional techniques"
+  ],
+  "tags": [
+    "rope",
+    "positional-encoding",
+    "transformer",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "RoFormer: Enhanced Transformer with Rotary Position Embedding",
+      "url": "https://arxiv.org/abs/2104.09864"
+    }
+  ],
+  "relatedConcepts": [
+    "alibi",
+    "yarn",
+    "positional-encoding"
+  ]
+},
+{
+  "id": "alibi",
+  "name": "ALiBi",
+  "family": "Positional Encoding",
+  "organization": "Research community",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "memory",
+  "type": "attention-position-bias",
+  "description": "Attention with Linear Biases adds position-dependent linear biases to attention scores instead of injecting positional embeddings into token representations.",
+  "mechanism": [
+    "linear attention bias",
+    "distance-dependent penalty",
+    "head-specific slopes"
+  ],
+  "advantages": [
+    "Simple positional mechanism",
+    "Can support length extrapolation in some settings",
+    "Avoids explicit positional embeddings"
+  ],
+  "limitations": [
+    "Performance depends on architecture and training regime",
+    "Not universally superior to rotary position methods"
+  ],
+  "tags": [
+    "alibi",
+    "positional-encoding",
+    "attention",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Train Short, Test Long: Attention with Linear Biases Enables Input Length Extrapolation",
+      "url": "https://arxiv.org/abs/2108.12409"
+    }
+  ],
+  "relatedConcepts": [
+    "rope",
+    "positional-encoding",
+    "long-context"
+  ]
+},
+{
+  "id": "yarn",
+  "name": "YaRN",
+  "family": "Long-Context Extension",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "memory",
+  "type": "context-extension",
+  "description": "YaRN is a method for extending the effective context length of models using improved rotary-position scaling and attention-temperature adjustments.",
+  "mechanism": [
+    "RoPE interpolation",
+    "frequency scaling",
+    "attention scaling",
+    "temperature adjustment"
+  ],
+  "advantages": [
+    "Extends context length efficiently",
+    "Can require substantially less additional training than training a model from scratch at the target context length"
+  ],
+  "limitations": [
+    "Long-context quality depends on the original model",
+    "Extension does not guarantee uniform information retrieval across the entire context"
+  ],
+  "tags": [
+    "yarn",
+    "rope",
+    "long-context",
+    "context-extension"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "YaRN: Efficient Context Window Extension of Large Language Models",
+      "url": "https://arxiv.org/abs/2309.00071"
+    }
+  ],
+  "relatedConcepts": [
+    "rope",
+    "long-context",
+    "context-window"
+  ]
+},
+{
+  "id": "sliding-window-attention",
+  "name": "Sliding Window Attention",
+  "family": "Efficient Attention",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "memory",
+  "type": "local-attention",
+  "description": "Sliding Window Attention restricts each token's attention to a local neighborhood rather than the complete sequence, reducing attention computation for long sequences.",
+  "mechanism": {
+    "attention_scope": "local window",
+    "complexity": "approximately linear in sequence length for fixed window size"
+  },
+  "advantages": [
+    "Reduces attention computation",
+    "Reduces memory requirements",
+    "Supports longer sequences"
+  ],
+  "limitations": [
+    "Direct long-range interactions are restricted",
+    "Information may need to propagate across multiple layers"
+  ],
+  "tags": [
+    "sliding-window",
+    "sparse-attention",
+    "long-context",
+    "efficient-attention"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "sparse-attention",
+    "long-context",
+    "mamba"
+  ]
+},
+{
+  "id": "sparse-attention",
+  "name": "Sparse Attention",
+  "family": "Efficient Attention",
+  "organization": "Research community",
+  "releaseDate": "2019",
+  "year": 2019,
+  "category": "memory",
+  "type": "sparse-attention",
+  "description": "Sparse attention restricts attention connections so that each token attends to only a subset of other positions, reducing the computational cost of full attention.",
+  "patterns": [
+    "local attention",
+    "sliding window",
+    "block sparse attention",
+    "strided attention",
+    "global-local patterns"
+  ],
+  "advantages": [
+    "Reduces attention complexity",
+    "Enables longer contexts",
+    "Can target useful connectivity patterns"
+  ],
+  "limitations": [
+    "Sparse patterns may miss important dependencies",
+    "Implementation efficiency depends on hardware",
+    "Pattern design affects quality"
+  ],
+  "tags": [
+    "sparse-attention",
+    "attention",
+    "long-context",
+    "efficiency"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "sliding-window-attention",
+    "long-context",
+    "linear-attention"
+  ]
+},
+{
+  "id": "linear-attention",
+  "name": "Linear Attention",
+  "family": "Efficient Attention",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "memory",
+  "type": "linear-attention",
+  "description": "Linear attention methods reformulate attention so sequence processing can scale approximately linearly with sequence length under specific kernel or recurrent formulations.",
+  "principle": [
+    "reorder attention computation",
+    "avoid explicit quadratic attention matrix",
+    "maintain compressed state"
+  ],
+  "advantages": [
+    "Potentially linear sequence complexity",
+    "Lower memory requirements for long sequences",
+    "Can support recurrent processing"
+  ],
+  "limitations": [
+    "Approximation or reformulation may change attention behavior",
+    "Quality can differ substantially from full attention",
+    "Hardware efficiency varies by implementation"
+  ],
+  "tags": [
+    "linear-attention",
+    "efficient-attention",
+    "long-context"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "state-space-models",
+    "rwkv",
+    "mamba"
+  ]
+},
+{
+  "id": "recurrent-memory",
+  "name": "Recurrent Memory",
+  "family": "Memory Architecture",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "memory",
+  "type": "recurrent-memory",
+  "description": "Recurrent memory mechanisms maintain a compressed or recurrent state across sequence segments so information can persist without placing the entire history into the active attention context.",
+  "mechanisms": [
+    "segment recurrence",
+    "hidden-state memory",
+    "compressed memory",
+    "recurrent state"
+  ],
+  "advantages": [
+    "Supports sequences longer than the immediate attention window",
+    "Can reduce repeated computation",
+    "Provides persistent state across segments"
+  ],
+  "limitations": [
+    "Compression can lose information",
+    "Memory state may become difficult to interpret",
+    "Training and inference behavior depend on architecture"
+  ],
+  "tags": [
+    "recurrent-memory",
+    "memory",
+    "long-context",
+    "sequence-modeling"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "state-space-models",
+    "transformer-xl",
+    "mamba"
+  ]
+},
+{
+  "id": "state-space-memory",
+  "name": "State-Space Memory",
+  "family": "Memory Architecture",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "memory",
+  "type": "state-space",
+  "description": "State-space models process sequences through evolving latent states, providing an alternative to conventional full self-attention for long-sequence modeling.",
+  "mechanism": [
+    "latent state",
+    "state transition",
+    "input-dependent update",
+    "sequence recurrence"
+  ],
+  "advantages": [
+    "Efficient long-sequence processing",
+    "Lower asymptotic sequence complexity in relevant formulations",
+    "Compact recurrent state"
+  ],
+  "limitations": [
+    "Different inductive biases from full attention",
+    "Information retrieval behavior can differ",
+    "Architecture-specific optimization is important"
+  ],
+  "tags": [
+    "state-space",
+    "ssm",
+    "memory",
+    "long-context"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "mamba",
+    "mamba-2",
+    "rwkv"
+  ]
+},
+{
+  "id": "external-memory",
+  "name": "External Memory",
+  "family": "Memory Systems",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "memory",
+  "type": "external-memory",
+  "description": "External memory systems store information outside the model's immediate context and retrieve relevant information when required.",
+  "forms": [
+    "vector databases",
+    "document stores",
+    "key-value stores",
+    "knowledge graphs",
+    "episodic memory",
+    "persistent agent memory"
+  ],
+  "advantages": [
+    "Can store information beyond the context window",
+    "Can update information without retraining model weights",
+    "Supports persistent applications"
+  ],
+  "limitations": [
+    "Retrieval quality becomes critical",
+    "Introduces additional infrastructure",
+    "Retrieved information can be incomplete or incorrect"
+  ],
+  "tags": [
+    "external-memory",
+    "memory",
+    "retrieval",
+    "agents"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rag",
+    "vector-database",
+    "agent-memory"
+  ]
+},
+{
+  "id": "retrieval-augmented-generation",
+  "name": "Retrieval-Augmented Generation",
+  "family": "Retrieval & Grounding",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "retrieval",
+  "type": "rag",
+  "description": "Retrieval-Augmented Generation combines a generative model with an external retrieval system so relevant information can be supplied to the model at inference time.",
+  "pipeline": [
+    "user query",
+    "query transformation",
+    "retrieval",
+    "ranking",
+    "context construction",
+    "generation"
+  ],
+  "components": [
+    "retriever",
+    "index",
+    "reranker",
+    "generator"
+  ],
+  "advantages": [
+    "Provides access to external information",
+    "Can reduce dependence on parametric memory",
+    "Supports knowledge updates without full model retraining",
+    "Can improve source-grounded responses"
+  ],
+  "limitations": [
+    "Retrieval errors propagate into generation",
+    "Irrelevant context can degrade responses",
+    "Correct retrieval does not guarantee faithful generation",
+    "System quality depends on indexing and ranking"
+  ],
+  "tags": [
+    "rag",
+    "retrieval",
+    "grounding",
+    "external-memory"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "url": "https://arxiv.org/abs/2005.11401"
+    }
+  ],
+  "relatedConcepts": [
+    "retrieval",
+    "reranking",
+    "grounding",
+    "vector-database"
+  ]
+},
+{
+  "id": "dense-retrieval",
+  "name": "Dense Retrieval",
+  "family": "Retrieval",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "retrieval",
+  "type": "dense-retrieval",
+  "description": "Dense retrieval represents queries and documents as continuous vectors and retrieves items based on vector similarity.",
+  "pipeline": [
+    "encode query",
+    "encode documents",
+    "compute similarity",
+    "retrieve top-k"
+  ],
+  "commonMethods": [
+    "bi-encoder retrieval",
+    "embedding similarity",
+    "approximate nearest neighbor search"
+  ],
+  "advantages": [
+    "Semantic matching",
+    "Efficient retrieval over large collections with suitable indexes",
+    "Less dependent on exact lexical overlap"
+  ],
+  "limitations": [
+    "Embedding quality determines retrieval quality",
+    "Fine-grained exact matching can be difficult",
+    "Vector indexes introduce infrastructure and tuning requirements"
+  ],
+  "tags": [
+    "dense-retrieval",
+    "embeddings",
+    "rag",
+    "retrieval"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "embeddings",
+    "rag",
+    "reranking"
+  ]
+},
+{
+  "id": "reranking",
+  "name": "Retrieval Reranking",
+  "family": "Retrieval",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "retrieval",
+  "type": "reranker",
+  "description": "Reranking applies a more expressive scoring model after initial retrieval to reorder candidate documents according to their relevance to a query.",
+  "pipeline": [
+    "initial retrieval",
+    "candidate selection",
+    "cross-encoder or learned scoring",
+    "reranking",
+    "final context selection"
+  ],
+  "advantages": [
+    "Improves relevance after broad retrieval",
+    "Can use richer query-document interactions",
+    "Useful for reducing irrelevant context"
+  ],
+  "limitations": [
+    "Adds inference cost",
+    "Candidate count affects latency",
+    "Reranker errors can still affect final generation"
+  ],
+  "tags": [
+    "reranking",
+    "retrieval",
+    "rag",
+    "cross-encoder"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "dense-retrieval",
+    "rag",
+    "context-selection"
+  ]
+},
+{
+  "id": "vector-database",
+  "name": "Vector Database",
+  "family": "Retrieval Infrastructure",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "retrieval",
+  "type": "vector-index",
+  "description": "A vector database or vector index stores embeddings and supports similarity search over large collections of represented objects.",
+  "operations": [
+    "embedding storage",
+    "nearest-neighbor search",
+    "metadata filtering",
+    "index updates",
+    "hybrid retrieval"
+  ],
+  "indexingMethods": [
+    "HNSW",
+    "IVF",
+    "product quantization",
+    "approximate nearest-neighbor search"
+  ],
+  "advantages": [
+    "Scalable semantic search",
+    "Supports retrieval-augmented applications",
+    "Can combine vector similarity with metadata filters"
+  ],
+  "limitations": [
+    "Index configuration affects recall and latency",
+    "Embedding drift can require re-indexing",
+    "Vector similarity is not equivalent to semantic correctness"
+  ],
+  "tags": [
+    "vector-database",
+    "embeddings",
+    "retrieval",
+    "rag"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "dense-retrieval",
+    "rag",
+    "embeddings"
+  ]
+},
+{
+  "id": "hybrid-retrieval",
+  "name": "Hybrid Retrieval",
+  "family": "Retrieval",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "retrieval",
+  "type": "hybrid-search",
+  "description": "Hybrid retrieval combines lexical and semantic retrieval methods to exploit both exact term matching and semantic similarity.",
+  "methods": [
+    "BM25",
+    "dense retrieval",
+    "sparse embeddings",
+    "metadata filtering",
+    "score fusion"
+  ],
+  "advantages": [
+    "Handles exact names and identifiers well",
+    "Maintains semantic retrieval capabilities",
+    "Often improves robustness across heterogeneous corpora"
+  ],
+  "limitations": [
+    "More system complexity",
+    "Requires score calibration or fusion",
+    "Additional infrastructure"
+  ],
+  "tags": [
+    "hybrid-retrieval",
+    "bm25",
+    "dense-retrieval",
+    "rag"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "dense-retrieval",
+    "sparse-retrieval",
+    "reranking"
+  ]
+},
+{
+  "id": "context-compression",
+  "name": "Context Compression",
+  "family": "Memory & Retrieval",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2022,
+  "category": "memory",
+  "type": "context-compression",
+  "description": "Context compression reduces a large retrieved or conversational context into a smaller representation while attempting to preserve information relevant to the current task.",
+  "methods": [
+    "extractive compression",
+    "abstractive summarization",
+    "learned compression",
+    "query-focused summarization",
+    "token pruning"
+  ],
+  "advantages": [
+    "Reduces context length",
+    "Reduces inference cost",
+    "Can improve signal-to-noise ratio"
+  ],
+  "limitations": [
+    "Compression can remove critical information",
+    "Summarization may introduce factual errors",
+    "Quality depends on query relevance"
+  ],
+  "tags": [
+    "context-compression",
+    "long-context",
+    "rag",
+    "memory"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rag",
+    "long-context",
+    "context-window"
+  ]
+},
+{
+  "id": "lost-in-the-middle",
+  "name": "Lost in the Middle",
+  "family": "Long-Context Failure Modes",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "memory",
+  "type": "long-context-failure",
+  "description": "Lost-in-the-middle describes a tendency for language models to use information near the beginning or end of long contexts more effectively than information positioned in the middle.",
+  "phenomenon": [
+    "primacy effects",
+    "recency effects",
+    "reduced middle-context utilization"
+  ],
+  "implications": [
+    "Context length alone is an insufficient measure of memory capability",
+    "Document ordering can affect answers",
+    "Retrieval systems should consider context placement"
+  ],
+  "tags": [
+    "lost-in-the-middle",
+    "long-context",
+    "retrieval",
+    "memory"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "url": "https://arxiv.org/abs/2307.03172"
+    }
+  ],
+  "relatedConcepts": [
+    "long-context",
+    "context-window",
+    "rag"
+  ]
+},
+{
+  "id": "needle-in-a-haystack",
+  "name": "Needle-in-a-Haystack Evaluation",
+  "family": "Long-Context Evaluation",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "memory",
+  "type": "long-context-evaluation",
+  "description": "Needle-in-a-haystack evaluations place a specific piece of information inside increasingly large contexts and test whether the model can retrieve it.",
+  "evaluationVariables": [
+    "context length",
+    "needle position",
+    "number of distractors",
+    "question formulation"
+  ],
+  "advantages": [
+    "Simple visualization of context retrieval",
+    "Useful for probing context-length behavior"
+  ],
+  "limitations": [
+    "Synthetic retrieval is not equivalent to real long-document reasoning",
+    "Success on one needle does not establish general long-context competence"
+  ],
+  "tags": [
+    "needle-in-a-haystack",
+    "long-context",
+    "evaluation",
+    "retrieval"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "long-context",
+    "lost-in-the-middle",
+    "ruler"
+  ]
+},
+{
+  "id": "agent-memory",
+  "name": "Agent Memory",
+  "family": "Agent Memory Systems",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2023,
+  "category": "memory",
+  "type": "persistent-agent-memory",
+  "description": "Agent memory systems provide persistent information storage and retrieval across multiple interactions or tasks.",
+  "types": [
+    "episodic memory",
+    "semantic memory",
+    "procedural memory",
+    "working memory"
+  ],
+  "storage": [
+    "vector database",
+    "structured database",
+    "files",
+    "knowledge graph"
+  ],
+  "operations": [
+    "write",
+    "retrieve",
+    "update",
+    "summarize",
+    "forget"
+  ],
+  "advantages": [
+    "Supports persistent agents",
+    "Allows information to survive across sessions",
+    "Can reduce repeated context injection"
+  ],
+  "limitations": [
+    "Incorrect memories can persist",
+    "Retrieval errors can compound over time",
+    "Memory management and forgetting are difficult"
+  ],
+  "tags": [
+    "agent-memory",
+    "agents",
+    "external-memory",
+    "retrieval"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "external-memory",
+    "rag",
+    "agent"
+  ]
+},
+{
+  "id": "retrieval-grounding",
+  "name": "Retrieval Grounding",
+  "family": "Grounding",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "retrieval",
+  "type": "grounded-generation",
+  "description": "Retrieval grounding conditions generation on externally retrieved evidence with the goal of improving factual support and traceability.",
+  "pipeline": [
+    "retrieve evidence",
+    "select evidence",
+    "construct context",
+    "generate answer",
+    "optionally verify claims"
+  ],
+  "dimensions": [
+    "retrieval recall",
+    "evidence relevance",
+    "citation correctness",
+    "claim support",
+    "generation faithfulness"
+  ],
+  "advantages": [
+    "Provides explicit evidence",
+    "Can improve factuality for knowledge-intensive tasks",
+    "Supports citation-based systems"
+  ],
+  "limitations": [
+    "Retrieved evidence can itself be wrong",
+    "Models may ignore evidence",
+    "Correct retrieval does not guarantee grounded generation"
+  ],
+  "tags": [
+    "grounding",
+    "rag",
+    "retrieval",
+    "factuality"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rag",
+    "hallucination",
+    "retrieval-evaluation"
+  ]
+},
+{
+  "id": "retrieval-failure",
+  "name": "Retrieval Failure Modes",
+  "family": "Retrieval & Grounding",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "retrieval",
+  "type": "retrieval-failure",
+  "description": "Retrieval systems can fail through missed relevant documents, irrelevant retrieval, incorrect ranking, insufficient context, duplicate results, or poor query formulation.",
+  "failureModes": [
+    "low recall",
+    "low precision",
+    "ranking failure",
+    "query mismatch",
+    "metadata filtering failure",
+    "chunking failure",
+    "duplicate retrieval",
+    "stale information"
+  ],
+  "impact": [
+    "unsupported generation",
+    "incorrect answers",
+    "missing evidence",
+    "context pollution"
+  ],
+  "tags": [
+    "retrieval-failure",
+    "rag",
+    "grounding",
+    "evaluation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rag",
+    "retrieval-grounding",
+    "reranking"
+  ]
+},
+{
+  "id": "memory-vs-context-vs-retrieval",
+  "name": "Parametric Memory vs Context vs Retrieval",
+  "family": "Memory Taxonomy",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "memory",
+  "type": "memory-taxonomy",
+  "description": "Foundation-model systems can store or access information through learned parameters, temporary context, or external retrieval. These mechanisms have different update costs, capacities, and reliability characteristics.",
+  "mechanisms": {
+    "parametricMemory": {
+      "storage": "model parameters",
+      "update": "training or fine-tuning",
+      "capacity": "implicit"
+    },
+    "contextMemory": {
+      "storage": "active context",
+      "update": "inference-time",
+      "capacity": "context-window dependent"
+    },
+    "externalRetrieval": {
+      "storage": "external system",
+      "update": "database/index update",
+      "capacity": "external-store dependent"
+    }
+  },
+  "tradeoffs": [
+    "updateability",
+    "capacity",
+    "latency",
+    "cost",
+    "traceability",
+    "reliability"
+  ],
+  "tags": [
+    "parametric-memory",
+    "context",
+    "retrieval",
+    "rag",
+    "memory"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rag",
+    "external-memory",
+    "context-window"
+  ]
+},
+{
+  "id": "multimodal-foundation-model",
+  "name": "Multimodal Foundation Model",
+  "family": "Multimodal Architectures",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "multimodal",
+  "type": "multimodal-foundation-model",
+  "description": "A multimodal foundation model processes information from multiple modalities such as text, images, audio, video, or other signals within a shared or coordinated modeling system.",
+  "modalities": [
+    "text",
+    "image",
+    "audio",
+    "video"
+  ],
+  "architecturalPatterns": [
+    "modality-specific encoders with projection",
+    "cross-attention",
+    "shared token spaces",
+    "unified multimodal Transformers",
+    "interleaved multimodal sequences"
+  ],
+  "capabilities": [
+    "visual question answering",
+    "image understanding",
+    "document understanding",
+    "video understanding",
+    "speech understanding",
+    "multimodal reasoning",
+    "multimodal generation"
+  ],
+  "advantages": [
+    "Combines information from multiple modalities",
+    "Enables cross-modal reasoning",
+    "Supports richer real-world tasks"
+  ],
+  "limitations": [
+    "Multimodal training is expensive",
+    "Modalities have different representation structures",
+    "Alignment between modalities is difficult",
+    "Performance can vary substantially across modalities"
+  ],
+  "tags": [
+    "multimodal",
+    "foundation-model",
+    "vision-language",
+    "audio-language",
+    "video"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "vision-language-model",
+    "multimodal-fusion",
+    "multimodal-tokenization"
+  ]
+},
+  {
+  "id": "vision-language-model",
+  "name": "Vision-Language Model",
+  "family": "Multimodal Architectures",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "description": "A vision-language model combines visual and textual information to perform tasks such as image understanding, visual question answering, captioning, document analysis, and multimodal reasoning.",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "architecturalPatterns": [
+    "vision encoder plus language model",
+    "vision encoder plus projector",
+    "cross-attention",
+    "unified multimodal Transformer"
+  ],
+  "tasks": [
+    "image captioning",
+    "visual question answering",
+    "image classification",
+    "OCR",
+    "document understanding",
+    "visual reasoning"
+  ],
+  "tags": [
+    "vlm",
+    "vision-language",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "vision-encoder",
+    "multimodal-projector",
+    "cross-attention"
+  ]
+},
+  {
+  "id": "vision-encoder",
+  "name": "Vision Encoder",
+  "family": "Multimodal Components",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2020,
+  "category": "multimodal",
+  "type": "vision-encoder",
+  "description": "A vision encoder transforms an image or video frame into representations that can be consumed by a multimodal model.",
+  "architectures": [
+    "Vision Transformer",
+    "CNN",
+    "CLIP-style encoder",
+    "SigLIP-style encoder"
+  ],
+  "outputs": [
+    "patch embeddings",
+    "visual tokens",
+    "global representations"
+  ],
+  "advantages": [
+    "Separates visual representation learning from language modeling",
+    "Allows pretrained vision models to be reused"
+  ],
+  "limitations": [
+    "Visual resolution can be expensive",
+    "Information may be lost during compression",
+    "Encoder choice strongly affects downstream capabilities"
+  ],
+  "tags": [
+    "vision-encoder",
+    "vit",
+    "multimodal",
+    "visual-tokens"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "vision-language-model",
+    "siglip",
+    "clip"
+  ]
+},
+  {
+  "id": "clip",
+  "name": "CLIP",
+  "family": "Vision-Language Representation",
+  "organization": "OpenAI",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "multimodal",
+  "type": "contrastive-vision-language",
+  "description": "CLIP learns aligned image and text representations through contrastive learning on large collections of image-text pairs.",
+  "architecture": {
+    "imageEncoder": "vision model",
+    "textEncoder": "Transformer-based text encoder",
+    "training": "contrastive learning"
+  },
+  "objective": [
+    "image-text alignment",
+    "cross-modal representation learning"
+  ],
+  "advantages": [
+    "Strong zero-shot visual classification",
+    "General-purpose image-text representations",
+    "Foundation for later multimodal systems"
+  ],
+  "limitations": [
+    "Primarily a representation model rather than a general multimodal generator",
+    "Training data can contain web-scale biases"
+  ],
+  "tags": [
+    "clip",
+    "vision-language",
+    "contrastive-learning",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Learning Transferable Visual Models From Natural Language Supervision",
+      "url": "https://arxiv.org/abs/2103.00020"
+    }
+  ],
+  "relatedConcepts": [
+    "siglip",
+    "vision-encoder",
+    "contrastive-learning"
+  ]
+},
+  {
+  "id": "siglip",
+  "name": "SigLIP",
+  "family": "Vision-Language Representation",
+  "organization": "Google",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "vision-language-encoder",
+  "description": "SigLIP is a vision-language representation model that uses a sigmoid-based image-text matching objective rather than the softmax contrastive formulation used by CLIP.",
+  "architecture": {
+    "imageEncoder": "Vision Transformer family",
+    "textEncoder": "Transformer",
+    "objective": "sigmoid image-text matching"
+  },
+  "advantages": [
+    "Strong image-text representations",
+    "Useful as a vision encoder for multimodal systems"
+  ],
+  "limitations": [
+    "Primarily a representation encoder",
+    "Downstream multimodal capabilities depend on integration with a language model"
+  ],
+  "tags": [
+    "siglip",
+    "vision-language",
+    "vision-encoder"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Sigmoid Loss for Language Image Pre-Training",
+      "url": "https://arxiv.org/abs/2303.15343"
+    }
+  ],
+  "relatedConcepts": [
+    "clip",
+    "vision-encoder",
+    "contrastive-learning"
+  ]
+},
+  {
+  "id": "multimodal-projector",
+  "name": "Multimodal Projector",
+  "family": "Multimodal Components",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "projection-layer",
+  "description": "A multimodal projector maps representations produced by a modality-specific encoder into the representation space expected by another model, commonly a language model.",
+  "inputs": [
+    "visual features",
+    "audio features",
+    "other modality representations"
+  ],
+  "outputs": [
+    "language-model-compatible embeddings",
+    "multimodal tokens"
+  ],
+  "implementations": [
+    "linear projection",
+    "MLP",
+    "resampler",
+    "learned projection network"
+  ],
+  "advantages": [
+    "Simple modular integration",
+    "Allows pretrained encoders and language models to be combined"
+  ],
+  "limitations": [
+    "Information bottleneck can limit performance",
+    "Projection quality depends on alignment training",
+    "Simple projectors may struggle with complex modality interactions"
+  ],
+  "tags": [
+    "projector",
+    "multimodal",
+    "vision-language",
+    "alignment"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "vision-encoder",
+    "llava",
+    "flamingo"
+  ]
+},
+  {
+  "id": "cross-attention-fusion",
+  "name": "Cross-Attention Multimodal Fusion",
+  "family": "Multimodal Fusion",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "multimodal",
+  "type": "cross-attention",
+  "description": "Cross-attention allows representations from one modality to selectively attend to representations from another modality.",
+  "examples": [
+    "text attending to image features",
+    "language attending to audio features",
+    "video queries attending to frame representations"
+  ],
+  "advantages": [
+    "Flexible multimodal interaction",
+    "Allows selective information exchange",
+    "Can preserve modality-specific encoders"
+  ],
+  "limitations": [
+    "Adds computational complexity",
+    "Fusion design affects performance",
+    "Repeated cross-attention can be expensive for long sequences"
+  ],
+  "tags": [
+    "cross-attention",
+    "multimodal-fusion",
+    "vision-language"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "flamingo",
+    "multimodal-projector",
+    "multimodal-transformer"
+  ]
+},
+  {
+  "id": "flamingo",
+  "name": "Flamingo",
+  "family": "Vision-Language Models",
+  "organization": "DeepMind",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "multimodal",
+  "type": "few-shot-vision-language",
+  "description": "Flamingo is a multimodal model architecture that connects visual encoders with a language model using learned resampling and gated cross-attention mechanisms.",
+  "architecture": {
+    "visionEncoder": "pretrained vision encoder",
+    "resampler": "Perceiver-style visual resampler",
+    "languageModel": "large language model",
+    "fusion": "gated cross-attention"
+  },
+  "capabilities": [
+    "few-shot image understanding",
+    "image-text generation",
+    "interleaved image-text reasoning"
+  ],
+  "importance": [
+    "Demonstrated powerful few-shot multimodal learning",
+    "Established an influential modular multimodal architecture"
+  ],
+  "tags": [
+    "flamingo",
+    "vision-language",
+    "cross-attention",
+    "few-shot"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Flamingo: a Visual Language Model for Few-Shot Learning",
+      "url": "https://arxiv.org/abs/2204.14198"
+    }
+  ],
+  "relatedConcepts": [
+    "cross-attention-fusion",
+    "vision-encoder",
+    "multimodal-projector"
+  ]
+},
+  {
+  "id": "blip",
+  "name": "BLIP",
+  "family": "Vision-Language Models",
+  "organization": "Salesforce Research",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "multimodal",
+  "type": "vision-language-pretraining",
+  "description": "BLIP combines vision-language understanding and generation through a unified architecture and bootstrapped image-caption data.",
+  "architecture": {
+    "visionEncoder": "Vision Transformer",
+    "languageComponents": "Transformer-based",
+    "tasks": [
+      "image-text matching",
+      "image-text generation",
+      "vision-language understanding"
+    ]
+  },
+  "training": [
+    "image-text pretraining",
+    "caption bootstrapping",
+    "filtering"
+  ],
+  "tags": [
+    "blip",
+    "vision-language",
+    "captioning",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation",
+      "url": "https://arxiv.org/abs/2201.12086"
+    }
+  ],
+  "relatedConcepts": [
+    "blip-2",
+    "vision-language-model",
+    "image-captioning"
+  ]
+},
+  {
+  "id": "blip-2",
+  "name": "BLIP-2",
+  "family": "Vision-Language Models",
+  "organization": "Salesforce Research",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "frozen-encoder-language-model",
+  "description": "BLIP-2 connects a frozen image encoder to a frozen large language model through a lightweight Querying Transformer.",
+  "architecture": {
+    "visionEncoder": "frozen image encoder",
+    "connector": "Q-Former",
+    "languageModel": "frozen large language model"
+  },
+  "training": [
+    "vision-language representation learning",
+    "vision-to-language alignment"
+  ],
+  "advantages": [
+    "Efficiently connects pretrained vision and language models",
+    "Reduces the number of trainable parameters",
+    "Demonstrates strong multimodal transfer"
+  ],
+  "limitations": [
+    "Information must pass through the Q-Former bottleneck",
+    "Capabilities depend on the pretrained components"
+  ],
+  "tags": [
+    "blip-2",
+    "q-former",
+    "vision-language",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models",
+      "url": "https://arxiv.org/abs/2301.12597"
+    }
+  ],
+  "relatedConcepts": [
+    "blip",
+    "q-former",
+    "multimodal-projector"
+  ]
+},
+  {
+  "id": "llava",
+  "name": "LLaVA",
+  "family": "Vision-Language Models",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "vision-language-instruction-model",
+  "description": "LLaVA connects a pretrained vision encoder to a language model through a projection layer and trains the resulting system for visual instruction following.",
+  "architecture": {
+    "visionEncoder": "CLIP-family vision encoder",
+    "connector": "projection layer",
+    "languageModel": "large language model"
+  },
+  "training": [
+    "visual-language alignment",
+    "visual instruction tuning"
+  ],
+  "capabilities": [
+    "visual question answering",
+    "image reasoning",
+    "visual instruction following"
+  ],
+  "advantages": [
+    "Simple and influential modular architecture",
+    "Demonstrated effective visual instruction tuning"
+  ],
+  "limitations": [
+    "Projection bottleneck",
+    "Vision encoder limitations propagate to the model",
+    "Original design is primarily image-text rather than fully unified multimodal generation"
+  ],
+  "tags": [
+    "llava",
+    "vision-language",
+    "instruction-tuning",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Visual Instruction Tuning",
+      "url": "https://arxiv.org/abs/2304.08485"
+    }
+  ],
+  "relatedConcepts": [
+    "multimodal-projector",
+    "clip",
+    "vision-language-model"
+  ]
+},
+  {
+  "id": "q-former",
+  "name": "Q-Former",
+  "family": "Multimodal Components",
+  "organization": "Salesforce Research",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "querying-transformer",
+  "description": "Q-Former is a lightweight Transformer component that uses learned query representations to extract relevant information from frozen visual features before passing it to a language model.",
+  "mechanism": [
+    "learned queries",
+    "cross-attention to visual features",
+    "query-based information extraction"
+  ],
+  "purpose": [
+    "compress visual information",
+    "bridge vision and language representations",
+    "reduce multimodal interface cost"
+  ],
+  "advantages": [
+    "Compact multimodal connector",
+    "Learned information bottleneck",
+    "Works with frozen pretrained components"
+  ],
+  "limitations": [
+    "Compression can discard visual information",
+    "Connector capacity limits the information transferred"
+  ],
+  "tags": [
+    "q-former",
+    "blip-2",
+    "multimodal",
+    "cross-attention"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models",
+      "url": "https://arxiv.org/abs/2301.12597"
+    }
+  ],
+  "relatedConcepts": [
+    "blip-2",
+    "cross-attention-fusion",
+    "multimodal-projector"
+  ]
+},
+  {
+  "id": "perceiver-resampler",
+  "name": "Perceiver Resampler",
+  "family": "Multimodal Components",
+  "organization": "DeepMind",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "multimodal",
+  "type": "latent-resampler",
+  "description": "A Perceiver-style resampler converts a potentially large collection of modality-specific features into a smaller fixed-size set of latent representations.",
+  "mechanism": [
+    "learned latent queries",
+    "cross-attention",
+    "fixed-size latent representation"
+  ],
+  "uses": [
+    "image features",
+    "video features",
+    "high-dimensional modality representations"
+  ],
+  "advantages": [
+    "Controls multimodal sequence length",
+    "Reduces computational burden for downstream language models",
+    "Supports variable-sized inputs"
+  ],
+  "limitations": [
+    "Information bottleneck",
+    "Latent count affects quality and efficiency"
+  ],
+  "tags": [
+    "perceiver",
+    "resampler",
+    "multimodal",
+    "flamingo"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Flamingo: a Visual Language Model for Few-Shot Learning",
+      "url": "https://arxiv.org/abs/2204.14198"
+    }
+  ],
+  "relatedConcepts": [
+    "flamingo",
+    "q-former",
+    "multimodal-projector"
+  ]
+},
+  {
+  "id": "paligemma",
+  "name": "PaliGemma",
+  "family": "Vision-Language Models",
+  "organization": "Google",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "description": "PaliGemma combines a pretrained vision encoder with a Gemma language model to support vision-language tasks through a compact multimodal architecture.",
+  "architecture": {
+    "visionEncoder": "SigLIP family",
+    "languageModel": "Gemma family",
+    "fusion": "multimodal projection"
+  },
+  "capabilities": [
+    "image understanding",
+    "captioning",
+    "visual question answering",
+    "document and OCR-related tasks"
+  ],
+  "tags": [
+    "paligemma",
+    "gemma",
+    "siglip",
+    "vision-language"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "gemma",
+    "siglip",
+    "vision-language-model"
+  ]
+},
+  {
+  "id": "video-language-model",
+  "name": "Video-Language Model",
+  "family": "Multimodal Architectures",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "multimodal",
+  "type": "video-language",
+  "description": "Video-language models jointly process visual information across time and language to support video understanding, temporal reasoning, captioning, and video question answering.",
+  "components": [
+    "frame encoder",
+    "temporal aggregation",
+    "video resampler",
+    "language model"
+  ],
+  "tasks": [
+    "video captioning",
+    "video question answering",
+    "temporal reasoning",
+    "action understanding",
+    "long-video understanding"
+  ],
+  "challenges": [
+    "large number of visual tokens",
+    "temporal reasoning",
+    "long-duration videos",
+    "computational cost"
+  ],
+  "tags": [
+    "video",
+    "video-language",
+    "multimodal",
+    "temporal-reasoning"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "vision-language-model",
+    "video-encoder",
+    "temporal-attention"
+  ]
+},
+  {
+  "id": "audio-language-model",
+  "name": "Audio-Language Model",
+  "family": "Multimodal Architectures",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2022,
+  "category": "multimodal",
+  "type": "audio-language",
+  "description": "Audio-language models combine acoustic representations with language modeling to understand speech, environmental sounds, music, or other audio signals.",
+  "modalities": [
+    "audio",
+    "speech",
+    "text"
+  ],
+  "components": [
+    "audio encoder",
+    "speech encoder",
+    "audio tokenizer",
+    "multimodal connector",
+    "language model"
+  ],
+  "tasks": [
+    "speech recognition",
+    "audio question answering",
+    "speech understanding",
+    "audio captioning",
+    "spoken dialogue"
+  ],
+  "challenges": [
+    "high temporal resolution",
+    "speaker variation",
+    "noise",
+    "long audio sequences"
+  ],
+  "tags": [
+    "audio-language",
+    "speech",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "audio-encoder",
+    "speech-tokenization",
+    "multimodal-foundation-model"
+  ]
+},
+  {
+  "id": "multimodal-tokenization",
+  "name": "Multimodal Tokenization",
+  "family": "Multimodal Representation",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "multimodal",
+  "type": "multimodal-tokenization",
+  "description": "Multimodal tokenization converts heterogeneous modalities into discrete or continuous representations that can be processed jointly by a multimodal model.",
+  "modalities": [
+    "text",
+    "image",
+    "audio",
+    "video"
+  ],
+  "representations": [
+    "discrete tokens",
+    "continuous embeddings",
+    "latent representations",
+    "patch tokens"
+  ],
+  "designQuestions": [
+    "shared versus modality-specific vocabulary",
+    "token granularity",
+    "sequence length",
+    "information compression",
+    "cross-modal alignment"
+  ],
+  "advantages": [
+    "Provides a common interface for multimodal modeling",
+    "Can enable interleaved multimodal sequences"
+  ],
+  "limitations": [
+    "Token count can explode for high-resolution or long-duration modalities",
+    "Compression may remove information",
+    "Different modalities have fundamentally different statistical structures"
+  ],
+  "tags": [
+    "multimodal-tokenization",
+    "tokens",
+    "multimodal",
+    "representation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "visual-tokens",
+    "audio-tokens",
+    "unified-multimodal-model"
+  ]
+},
+  {
+  "id": "interleaved-multimodal-sequences",
+  "name": "Interleaved Multimodal Sequences",
+  "family": "Multimodal Architectures",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2022,
+  "category": "multimodal",
+  "type": "interleaved-input",
+  "description": "Interleaved multimodal architectures process sequences containing alternating or mixed modality elements such as text, images, audio, and video.",
+  "example": [
+    "text",
+    "image",
+    "text",
+    "image",
+    "text"
+  ],
+  "advantages": [
+    "Supports richer document and web-like inputs",
+    "Allows relationships between multiple modalities within one context"
+  ],
+  "limitations": [
+    "Sequence length grows rapidly",
+    "Modality alignment becomes more difficult",
+    "Requires robust multimodal positional representation"
+  ],
+  "tags": [
+    "interleaved",
+    "multimodal",
+    "vision-language",
+    "context"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "multimodal-tokenization",
+    "flamingo",
+    "unified-multimodal-model"
+  ]
+},
+  {
+  "id": "unified-multimodal-model",
+  "name": "Unified Multimodal Model",
+  "family": "Multimodal Architectures",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "unified-multimodal",
+  "description": "A unified multimodal model processes multiple modalities within a common modeling framework rather than treating each modality as an isolated external attachment to a language model.",
+  "modalities": [
+    "text",
+    "image",
+    "audio",
+    "video"
+  ],
+  "architecturalProperties": [
+    "shared multimodal representation",
+    "native multimodal processing",
+    "interleaved inputs",
+    "cross-modal attention",
+    "potential multimodal generation"
+  ],
+  "advantages": [
+    "More deeply integrated multimodal reasoning",
+    "Potentially consistent treatment of modalities",
+    "Supports richer input-output combinations"
+  ],
+  "limitations": [
+    "Extremely expensive training",
+    "Complex multimodal data requirements",
+    "Difficult optimization",
+    "Evaluation across modalities is challenging"
+  ],
+  "tags": [
+    "unified-model",
+    "multimodal",
+    "native-multimodal"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "multimodal-tokenization",
+    "interleaved-multimodal-sequences",
+    "multimodal-foundation-model"
+  ]
+},
+  {
+  "id": "multimodal-alignment",
+  "name": "Multimodal Alignment",
+  "family": "Multimodal Training",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "multimodal",
+  "type": "cross-modal-alignment",
+  "description": "Multimodal alignment trains representations from different modalities so that semantically related information can be associated and jointly reasoned over.",
+  "alignmentTypes": [
+    "image-text alignment",
+    "audio-text alignment",
+    "video-text alignment",
+    "cross-modal semantic alignment"
+  ],
+  "methods": [
+    "contrastive learning",
+    "cross-attention",
+    "projection learning",
+    "instruction tuning",
+    "generative objectives"
+  ],
+  "advantages": [
+    "Enables cross-modal understanding",
+    "Allows pretrained modality-specific models to work together"
+  ],
+  "limitations": [
+    "Weak alignment can create modality grounding errors",
+    "Semantic equivalence is difficult to define",
+    "Training data quality is critical"
+  ],
+  "tags": [
+    "multimodal-alignment",
+    "vision-language",
+    "cross-modal",
+    "training"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "clip",
+    "multimodal-projector",
+    "contrastive-learning"
+  ]
+},
+  {
+  "id": "multimodal-instruction-tuning",
+  "name": "Multimodal Instruction Tuning",
+  "family": "Multimodal Training",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "multimodal-sft",
+  "description": "Multimodal instruction tuning adapts a multimodal model using instructions paired with inputs and desired responses involving one or more modalities.",
+  "examples": [
+    "image + question → answer",
+    "image + instruction → description",
+    "video + question → answer",
+    "audio + instruction → response"
+  ],
+  "objectives": [
+    "multimodal instruction following",
+    "visual reasoning",
+    "cross-modal question answering",
+    "multimodal dialogue"
+  ],
+  "advantages": [
+    "Improves usability of multimodal foundation models",
+    "Connects multimodal perception with instruction following"
+  ],
+  "limitations": [
+    "Instruction datasets can be expensive",
+    "Synthetic multimodal data can contain errors",
+    "Narrow datasets can produce modality-specific weaknesses"
+  ],
+  "tags": [
+    "multimodal-sft",
+    "instruction-tuning",
+    "vision-language",
+    "alignment"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "instruction-tuning",
+    "llava",
+    "multimodal-alignment"
+  ]
+},
+  {
+  "id": "multimodal-hallucination",
+  "name": "Multimodal Hallucination",
+  "family": "Multimodal Failure Modes",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "hallucination",
+  "description": "Multimodal hallucination occurs when a model generates content that is inconsistent with, unsupported by, or absent from the provided non-textual input.",
+  "examples": [
+    "inventing objects in an image",
+    "misidentifying visual attributes",
+    "describing nonexistent text",
+    "claiming actions that do not occur in a video",
+    "producing unsupported audio interpretations"
+  ],
+  "causes": [
+    "language-model priors",
+    "weak visual grounding",
+    "projection bottlenecks",
+    "training-data bias",
+    "insufficient multimodal alignment"
+  ],
+  "evaluation": [
+    "object hallucination",
+    "attribute hallucination",
+    "relation hallucination",
+    "OCR hallucination"
+  ],
+  "tags": [
+    "multimodal-hallucination",
+    "grounding",
+    "vision-language",
+    "evaluation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "multimodal-alignment",
+    "grounding",
+    "hallucination"
+  ]
+},
