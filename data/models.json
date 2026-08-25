@@ -14069,5 +14069,928 @@
     "flashattention",
     "deepseek-v3"
   ]
+},
+  {
+  "id": "bpe",
+  "name": "Byte Pair Encoding",
+  "family": "Subword Tokenization",
+  "organization": "Research community",
+  "releaseDate": "2015",
+  "year": 2015,
+  "category": "tokenization",
+  "type": "subword-tokenizer",
+  "description": "Byte Pair Encoding iteratively merges frequent symbol pairs to construct a vocabulary of subword units. It became one of the dominant tokenization approaches for neural language models.",
+  "architecture": {
+    "family": "subword tokenization",
+    "representation": "discrete tokens",
+    "granularity": "subword",
+    "vocabulary": "learned merge vocabulary"
+  },
+  "scale": {
+    "parameters": "tokenizer-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "tokenizer-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["subword token IDs"]
+  },
+  "training": {
+    "objective": "frequency-based vocabulary construction",
+    "data": "training corpus",
+    "postTraining": "none"
+  },
+  "license": "algorithm",
+  "openWeights": true,
+  "tags": [
+    "bpe",
+    "tokenization",
+    "subword",
+    "nlp"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Neural Machine Translation of Rare Words with Subword Units",
+      "url": "https://arxiv.org/abs/1508.07909"
+    }
+  ],
+  "relatedModels": [
+    "gpt-2",
+    "gpt-3",
+    "roberta"
+  ]
+},
+
+{
+  "id": "wordpiece",
+  "name": "WordPiece",
+  "family": "Subword Tokenization",
+  "organization": "Google Research",
+  "releaseDate": "2016",
+  "year": 2016,
+  "category": "tokenization",
+  "type": "subword-tokenizer",
+  "description": "WordPiece constructs a subword vocabulary using a likelihood-oriented vocabulary selection strategy and became strongly associated with BERT-family models.",
+  "architecture": {
+    "family": "subword tokenization",
+    "representation": "discrete tokens",
+    "granularity": "subword",
+    "vocabulary": "learned vocabulary"
+  },
+  "scale": {
+    "parameters": "tokenizer-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "tokenizer-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["subword token IDs"]
+  },
+  "training": {
+    "objective": "vocabulary optimization",
+    "data": "training corpus",
+    "postTraining": "none"
+  },
+  "license": "algorithm",
+  "openWeights": true,
+  "tags": [
+    "wordpiece",
+    "tokenization",
+    "subword",
+    "bert"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Japanese and Korean Voice Search",
+      "url": "https://research.google/pubs/japanese-and-korean-voice-search/"
+    }
+  ],
+  "relatedModels": [
+    "bert",
+    "albert",
+    "electra"
+  ]
+},
+
+{
+  "id": "sentencepiece",
+  "name": "SentencePiece",
+  "family": "Tokenizer Framework",
+  "organization": "Google Research",
+  "releaseDate": "2018",
+  "year": 2018,
+  "category": "tokenization",
+  "type": "language-independent-tokenizer",
+  "description": "SentencePiece is a language-independent subword tokenizer framework that learns directly from raw text without requiring pre-tokenized word boundaries.",
+  "architecture": {
+    "family": "subword tokenizer framework",
+    "representation": "discrete tokens",
+    "granularity": "subword",
+    "vocabulary": "learned vocabulary"
+  },
+  "scale": {
+    "parameters": "tokenizer-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "tokenizer-dependent"
+  },
+  "modality": {
+    "input": ["raw text"],
+    "output": ["subword token IDs"]
+  },
+  "training": {
+    "objective": "subword vocabulary learning",
+    "data": "raw text",
+    "postTraining": "none"
+  },
+  "license": "Apache 2.0",
+  "openWeights": true,
+  "tags": [
+    "sentencepiece",
+    "tokenization",
+    "subword",
+    "multilingual"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "SentencePiece: A simple and language independent subword tokenizer and detokenizer for Neural Text Processing",
+      "url": "https://arxiv.org/abs/1808.06226"
+    },
+    {
+      "type": "github",
+      "title": "SentencePiece",
+      "url": "https://github.com/google/sentencepiece"
+    }
+  ],
+  "relatedModels": [
+    "llama",
+    "t5",
+    "mistral",
+    "gemma"
+  ]
+},
+
+{
+  "id": "unigram-tokenizer",
+  "name": "Unigram Language Model Tokenization",
+  "family": "Subword Tokenization",
+  "organization": "Research community",
+  "releaseDate": "2018",
+  "year": 2018,
+  "category": "tokenization",
+  "type": "probabilistic-subword-tokenizer",
+  "description": "The Unigram tokenizer treats tokenization as a probabilistic segmentation problem and iteratively removes vocabulary pieces while minimizing corpus likelihood loss.",
+  "architecture": {
+    "family": "probabilistic subword tokenization",
+    "representation": "discrete tokens",
+    "granularity": "subword",
+    "vocabulary": "probabilistic vocabulary"
+  },
+  "scale": {
+    "parameters": "tokenizer-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "tokenizer-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["subword token IDs"]
+  },
+  "training": {
+    "objective": "maximum-likelihood segmentation",
+    "data": "text corpus",
+    "postTraining": "none"
+  },
+  "license": "algorithm",
+  "openWeights": true,
+  "tags": [
+    "unigram",
+    "tokenization",
+    "subword",
+    "sentencepiece"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Subword Regularization: Improving Neural Network Translation Models with Multiple Subword Candidates",
+      "url": "https://arxiv.org/abs/1804.10959"
+    }
+  ],
+  "relatedModels": [
+    "sentencepiece",
+    "t5"
+  ]
+},
+  {
+  "id": "byte-level-bpe",
+  "name": "Byte-Level BPE",
+  "family": "Byte-Level Tokenization",
+  "organization": "OpenAI / Hugging Face ecosystem",
+  "releaseDate": "2019",
+  "year": 2019,
+  "category": "tokenization",
+  "type": "byte-level-subword-tokenizer",
+  "description": "Byte-Level BPE applies BPE over byte representations rather than Unicode characters, allowing a tokenizer to represent arbitrary text and reducing unknown-token problems.",
+  "architecture": {
+    "family": "byte-level BPE",
+    "representation": "byte-derived discrete tokens",
+    "granularity": "subword",
+    "vocabulary": "learned byte-pair vocabulary"
+  },
+  "scale": {
+    "parameters": "tokenizer-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "tokenizer-dependent"
+  },
+  "modality": {
+    "input": ["raw text", "bytes"],
+    "output": ["token IDs"]
+  },
+  "training": {
+    "objective": "BPE vocabulary learning",
+    "data": "raw text",
+    "postTraining": "none"
+  },
+  "license": "algorithm",
+  "openWeights": true,
+  "tags": [
+    "byte-level",
+    "bpe",
+    "tokenization",
+    "openai"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Language Models are Unsupervised Multitask Learners",
+      "url": "https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf"
+    }
+  ],
+  "relatedModels": [
+    "gpt-2",
+    "roberta"
+  ]
+},
+
+{
+  "id": "tiktoken",
+  "name": "tiktoken",
+  "family": "Tokenizer Implementation",
+  "organization": "OpenAI",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "tokenization",
+  "type": "fast-bpe-tokenizer",
+  "description": "A fast tokenizer implementation used by OpenAI model families, implementing byte-pair encoding and model-specific vocabularies.",
+  "architecture": {
+    "family": "byte-level BPE",
+    "representation": "discrete token IDs",
+    "granularity": "subword / byte-derived",
+    "vocabulary": "model-specific"
+  },
+  "scale": {
+    "parameters": "tokenizer-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["token IDs"]
+  },
+  "training": {
+    "objective": "tokenization",
+    "data": "model-specific vocabulary",
+    "postTraining": "none"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "tiktoken",
+    "bpe",
+    "tokenization",
+    "openai"
+  ],
+  "sources": [
+    {
+      "type": "github",
+      "title": "tiktoken",
+      "url": "https://github.com/openai/tiktoken"
+    }
+  ],
+  "relatedModels": [
+    "gpt-2",
+    "gpt-3",
+    "gpt-4"
+  ]
+},
+  {
+  "id": "byt5",
+  "name": "ByT5",
+  "family": "T5",
+  "organization": "Google Research",
+  "releaseDate": "2021-03",
+  "year": 2021,
+  "category": "tokenizer-free",
+  "type": "byte-level-sequence-to-sequence-model",
+  "description": "ByT5 removes the conventional subword tokenizer and operates directly on UTF-8 bytes, allowing the model to handle arbitrary text and noisy inputs without vocabulary-based tokenization.",
+  "architecture": {
+    "family": "byte-level Transformer",
+    "attention": "encoder-decoder self-attention",
+    "position": "relative position bias",
+    "sparsity": "dense",
+    "sequenceStrategy": "byte-level sequence modeling"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "bytes"
+  },
+  "modality": {
+    "input": ["raw text", "UTF-8 bytes"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "span corruption",
+    "data": "mC4 multilingual corpus",
+    "postTraining": "task-specific fine-tuning"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "byt5",
+    "tokenizer-free",
+    "byte-level",
+    "multilingual",
+    "t5"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "ByT5: Towards a Token-Free Future with Pre-trained Byte-to-Byte Models",
+      "url": "https://arxiv.org/abs/2105.13626"
+    }
+  ],
+  "relatedModels": [
+    "t5",
+    "canine",
+    "charformer"
+  ]
+},
+
+{
+  "id": "canine",
+  "name": "CANINE",
+  "family": "CANINE",
+  "organization": "Google Research",
+  "releaseDate": "2021-03",
+  "year": 2021,
+  "category": "tokenizer-free",
+  "type": "character-level-transformer",
+  "description": "CANINE operates directly on characters rather than subword tokens, using downsampling and Transformer processing to make character-level modeling computationally practical.",
+  "architecture": {
+    "family": "character-level Transformer",
+    "attention": "Transformer attention",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "character sequence with downsampling"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "characters"
+  },
+  "modality": {
+    "input": ["raw text", "characters"],
+    "output": ["text representations"]
+  },
+  "training": {
+    "objective": "masked language modeling",
+    "data": "multilingual text",
+    "postTraining": "downstream NLP adaptation"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "canine",
+    "character-level",
+    "tokenizer-free",
+    "multilingual"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "CANINE: Pre-training an Efficient Tokenization-Free Encoder for Language Representation",
+      "url": "https://arxiv.org/abs/2103.06874"
+    }
+  ],
+  "relatedModels": [
+    "byt5",
+    "charformer"
+  ]
+},
+
+{
+  "id": "charformer",
+  "name": "Charformer",
+  "family": "Charformer",
+  "organization": "Google Research",
+  "releaseDate": "2021-06",
+  "year": 2021,
+  "category": "tokenizer-free",
+  "type": "character-to-token-model",
+  "description": "Charformer learns latent subword-like representations directly from character sequences using a fast soft tokenization mechanism, avoiding a fixed external tokenizer.",
+  "architecture": {
+    "family": "character-level latent tokenization",
+    "attention": "Transformer",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "learned latent tokenization"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "characters → latent tokens"
+  },
+  "modality": {
+    "input": ["characters"],
+    "output": ["text representations"]
+  },
+  "training": {
+    "objective": "self-supervised language modeling",
+    "data": "text corpus",
+    "postTraining": "task-specific adaptation"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "charformer",
+    "tokenizer-free",
+    "soft-tokenization",
+    "character-level"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Charformer: Fast Character Transformers via Gradient-based Subword Tokenization",
+      "url": "https://arxiv.org/abs/2106.12672"
+    }
+  ],
+  "relatedModels": [
+    "byt5",
+    "canine"
+  ]
+},
+  {
+  "id": "megabyte",
+  "name": "MegaByte",
+  "family": "MegaByte",
+  "organization": "Meta AI",
+  "releaseDate": "2023-05",
+  "year": 2023,
+  "category": "tokenizer-free",
+  "type": "multi-scale-byte-language-model",
+  "description": "MegaByte performs autoregressive modeling directly over bytes using a multi-scale architecture that separates local byte modeling from longer-range patch modeling.",
+  "architecture": {
+    "family": "multi-scale byte Transformer",
+    "attention": "local + global attention",
+    "position": "model-dependent",
+    "sparsity": "hierarchical computation",
+    "sequenceStrategy": "byte patches + autoregressive local modeling"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "bytes"
+  },
+  "modality": {
+    "input": ["bytes"],
+    "output": ["bytes"]
+  },
+  "training": {
+    "objective": "autoregressive byte prediction",
+    "data": "text and byte sequences",
+    "postTraining": "generation adaptation"
+  },
+  "license": "research",
+  "openWeights": false,
+  "tags": [
+    "megabyte",
+    "byte-level",
+    "tokenizer-free",
+    "multiscale",
+    "autoregressive"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "MegaByte: Predicting Million-byte Sequences with Multiscale Transformers",
+      "url": "https://arxiv.org/abs/2305.07185"
+    }
+  ],
+  "relatedModels": [
+    "byt5",
+    "canine",
+    "charformer"
+  ]
+},
+  {
+  "id": "llama-tokenizer",
+  "name": "Llama SentencePiece Tokenization",
+  "family": "Llama",
+  "organization": "Meta AI",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "tokenization",
+  "type": "sentencepiece-bpe-tokenizer",
+  "description": "The Llama family uses a SentencePiece-based subword tokenizer with byte fallback, providing a robust multilingual text representation for decoder-only Transformer models.",
+  "architecture": {
+    "family": "SentencePiece BPE",
+    "representation": "subword token IDs",
+    "granularity": "subword",
+    "vocabulary": "model-specific"
+  },
+  "scale": {
+    "parameters": "tokenizer-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["token IDs"]
+  },
+  "training": {
+    "objective": "subword vocabulary modeling",
+    "data": "multilingual text",
+    "postTraining": "none"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "llama",
+    "sentencepiece",
+    "bpe",
+    "byte-fallback"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "Llama",
+      "url": "https://www.llama.com/"
+    }
+  ],
+  "relatedModels": [
+    "llama-2",
+    "llama-3",
+    "llama-4"
+  ]
+},
+  {
+  "id": "vit-patch-tokenization",
+  "name": "ViT Patch Embedding",
+  "family": "Vision Transformer",
+  "organization": "Google Research",
+  "releaseDate": "2020-10",
+  "year": 2020,
+  "category": "visual-representation",
+  "type": "image-patch-tokenization",
+  "description": "Vision Transformer represents an image as a sequence of fixed-size image patches that are projected into token embeddings and processed by a Transformer.",
+  "architecture": {
+    "family": "image patch embedding",
+    "attention": "Transformer self-attention",
+    "position": "positional embeddings",
+    "sparsity": "dense",
+    "sequenceStrategy": "image patches as tokens"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "image patches"
+  },
+  "modality": {
+    "input": ["image"],
+    "output": ["visual tokens"]
+  },
+  "training": {
+    "objective": "image classification / representation learning",
+    "data": "large-scale image datasets",
+    "postTraining": "vision task adaptation"
+  },
+  "license": "model-dependent",
+  "openWeights": true,
+  "tags": [
+    "vit",
+    "visual-tokenization",
+    "patch-embedding",
+    "vision-transformer"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "An Image is Worth 16x16 Words",
+      "url": "https://arxiv.org/abs/2010.11929"
+    }
+  ],
+  "relatedModels": [
+    "vit",
+    "siglip",
+    "clip"
+  ]
+},
+  {
+  "id": "vqvae",
+  "name": "VQ-VAE",
+  "family": "Vector-Quantized Autoencoder",
+  "organization": "DeepMind",
+  "releaseDate": "2017-11",
+  "year": 2017,
+  "category": "representation-learning",
+  "type": "discrete-latent-autoencoder",
+  "description": "VQ-VAE learns a discrete latent representation using vector quantization, creating a codebook of learned representations that can turn continuous inputs such as images into discrete latent tokens.",
+  "architecture": {
+    "family": "vector-quantized autoencoder",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "latent compression",
+    "sequenceStrategy": "continuous input → discrete latent codes"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "discrete latent codes"
+  },
+  "modality": {
+    "input": ["image", "audio", "other continuous data"],
+    "output": ["discrete latent representation"]
+  },
+  "training": {
+    "objective": "reconstruction + vector quantization",
+    "data": "domain-specific datasets",
+    "postTraining": "generative modeling over latent codes"
+  },
+  "license": "research",
+  "openWeights": false,
+  "tags": [
+    "vqvae",
+    "vector-quantization",
+    "discrete-latents",
+    "visual-tokenization"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Neural Discrete Representation Learning",
+      "url": "https://arxiv.org/abs/1711.00937"
+    }
+  ],
+  "relatedModels": [
+    "vqgan",
+    "dalle",
+    "image-tokenizer"
+  ]
+},
+
+{
+  "id": "vqgan",
+  "name": "VQGAN",
+  "family": "VQGAN",
+  "organization": "University of Heidelberg",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "representation-learning",
+  "type": "adversarial-vector-quantized-autoencoder",
+  "description": "VQGAN combines vector-quantized latent representations with adversarial and perceptual objectives to learn compact high-quality discrete image representations.",
+  "architecture": {
+    "family": "vector-quantized GAN autoencoder",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "latent compression",
+    "sequenceStrategy": "image → discrete latent tokens"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "discrete image tokens"
+  },
+  "modality": {
+    "input": ["image"],
+    "output": ["discrete image representation"]
+  },
+  "training": {
+    "objective": "reconstruction + perceptual + adversarial losses",
+    "data": "image datasets",
+    "postTraining": "generative modeling"
+  },
+  "license": "research",
+  "openWeights": false,
+  "tags": [
+    "vqgan",
+    "visual-tokenization",
+    "discrete-latents",
+    "generative-vision"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Taming Transformers for High-Resolution Image Synthesis",
+      "url": "https://arxiv.org/abs/2012.09841"
+    }
+  ],
+  "relatedModels": [
+    "vqvae",
+    "dalle",
+    "image-tokenizer"
+  ]
+},
+  {
+  "id": "visual-projector",
+  "name": "Vision-Language Projection",
+  "family": "Multimodal Representation",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "multimodal-representation",
+  "type": "vision-language-projector",
+  "description": "A learned projection maps visual representations produced by a vision encoder into the representation space expected by a language model, enabling multimodal token sequences.",
+  "architecture": {
+    "family": "vision-language alignment",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "visual embeddings projected into language space"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "visual + language tokens"
+  },
+  "modality": {
+    "input": ["image", "text"],
+    "output": ["multimodal representations"]
+  },
+  "training": {
+    "objective": "vision-language alignment",
+    "data": "image-text instruction data",
+    "postTraining": "multimodal instruction tuning"
+  },
+  "license": "architecture",
+  "openWeights": true,
+  "tags": [
+    "multimodal",
+    "vision-language",
+    "projector",
+    "visual-tokens"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Visual Instruction Tuning",
+      "url": "https://arxiv.org/abs/2304.08485"
+    }
+  ],
+  "relatedModels": [
+    "llava",
+    "qwen-vl",
+    "internvl"
+  ]
 }
-  
+  {
+  "id": "audio-tokenization",
+  "name": "Audio Tokenization",
+  "family": "Audio Representation",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "audio-representation",
+  "type": "discrete-or-continuous-audio-representation",
+  "description": "Audio foundation models can represent speech and sound through spectrogram features, learned continuous embeddings, or discrete acoustic tokens produced by neural codecs.",
+  "architecture": {
+    "family": "audio representation",
+    "attention": "model-dependent",
+    "position": "temporal",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "temporal acoustic representation"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "audio frames or acoustic tokens"
+  },
+  "modality": {
+    "input": ["audio", "speech"],
+    "output": ["audio representations"]
+  },
+  "training": {
+    "objective": "audio representation / speech modeling",
+    "data": "speech and audio datasets",
+    "postTraining": "speech recognition, generation, understanding"
+  },
+  "license": "architecture",
+  "openWeights": true,
+  "tags": [
+    "audio",
+    "speech",
+    "audio-tokenization",
+    "neural-codec"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "SoundStream: An End-to-End Neural Audio Codec",
+      "url": "https://arxiv.org/abs/2107.03312"
+    }
+  ],
+  "relatedModels": [
+    "soundstream",
+    "encodec",
+    "whisper"
+  ]
+},
+
+{
+  "id": "encodec",
+  "name": "EnCodec",
+  "family": "Neural Audio Codec",
+  "organization": "Meta AI",
+  "releaseDate": "2022-10",
+  "year": 2022,
+  "category": "audio-representation",
+  "type": "neural-audio-codec",
+  "description": "EnCodec is a neural audio codec that compresses audio into discrete codes, providing a representation that can be modeled by generative architectures.",
+  "architecture": {
+    "family": "neural codec",
+    "attention": "model-dependent",
+    "position": "temporal",
+    "sparsity": "compressed representation",
+    "sequenceStrategy": "audio → discrete codes"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "audio codes"
+  },
+  "modality": {
+    "input": ["audio"],
+    "output": ["discrete audio codes"]
+  },
+  "training": {
+    "objective": "audio reconstruction and compression",
+    "data": "audio datasets",
+    "postTraining": "generative audio modeling"
+  },
+  "license": "MIT",
+  "openWeights": true,
+  "tags": [
+    "encodec",
+    "audio",
+    "codec",
+    "discrete-representation",
+    "speech"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "High Fidelity Neural Audio Compression",
+      "url": "https://arxiv.org/abs/2210.13438"
+    }
+  ],
+  "relatedModels": [
+    "soundstream",
+    "bark",
+    "audio-tokenization"
+  ]
+}
