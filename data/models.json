@@ -11458,4 +11458,1005 @@
     "stable-diffusion-3",
     "imagen-3"
   ]
+},
+  {
+  "id": "s4",
+  "name": "S4",
+  "family": "Structured State Space",
+  "organization": "Stanford / Stanford Hazy Research",
+  "releaseDate": "2021-10",
+  "year": 2021,
+  "category": "alternative-architecture",
+  "type": "state-space-model",
+  "description": "Structured State Space Sequence models introduced a scalable formulation of continuous-time state-space models for long-range sequence modeling.",
+  "architecture": {
+    "family": "State Space Model",
+    "attention": "none",
+    "position": "implicit through state dynamics",
+    "sparsity": "linear-time sequence processing",
+    "sequenceStrategy": "state-space recurrence"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "arbitrary sequence length"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence representations"]
+  },
+  "training": {
+    "objective": "sequence modeling",
+    "data": "sequence datasets",
+    "postTraining": "task-specific adaptation"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "state-space-model",
+    "ssm",
+    "long-context",
+    "linear-time"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Efficiently Modeling Long Sequences with Structured State Spaces",
+      "url": "https://arxiv.org/abs/2111.00396"
+    }
+  ],
+  "relatedModels": [
+    "s5",
+    "mamba",
+    "mamba-2"
+  ]
+},
+
+{
+  "id": "s5",
+  "name": "S5",
+  "family": "Structured State Space",
+  "organization": "Stanford Hazy Research",
+  "releaseDate": "2022-11",
+  "year": 2022,
+  "category": "alternative-architecture",
+  "type": "state-space-model",
+  "description": "Simplified State Space Layers reformulated S4 into a single multi-input multi-output state-space layer while retaining efficient long-range sequence modeling.",
+  "architecture": {
+    "family": "State Space Model",
+    "attention": "none",
+    "position": "implicit through state dynamics",
+    "sparsity": "linear-time sequence processing",
+    "sequenceStrategy": "state-space recurrence"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "arbitrary sequence length"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence representations"]
+  },
+  "training": {
+    "objective": "long-range sequence modeling",
+    "data": "sequence datasets",
+    "postTraining": "task-specific adaptation"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "state-space-model",
+    "ssm",
+    "long-context",
+    "linear-time"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Simplified State Space Layers for Sequence Modeling",
+      "url": "https://arxiv.org/abs/2208.04933"
+    }
+  ],
+  "relatedModels": [
+    "s4",
+    "mamba",
+    "mamba-2"
+  ]
+},
+
+{
+  "id": "mamba",
+  "name": "Mamba",
+  "family": "Mamba",
+  "organization": "CMU / Princeton",
+  "releaseDate": "2023-12",
+  "year": 2023,
+  "category": "alternative-architecture",
+  "type": "selective-state-space-model",
+  "description": "Mamba introduced selective state spaces whose parameters depend on the input, providing content-aware sequence processing without conventional attention and with linear scaling in sequence length.",
+  "architecture": {
+    "family": "Selective State Space Model",
+    "attention": "none",
+    "position": "implicit through state dynamics",
+    "sparsity": "linear-time",
+    "sequenceStrategy": "input-dependent state-space recurrence"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "long sequences"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence representations"]
+  },
+  "training": {
+    "objective": "language and sequence modeling",
+    "data": "text and sequence datasets",
+    "postTraining": "language-model fine-tuning"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "mamba",
+    "ssm",
+    "state-space-model",
+    "linear-time",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+      "url": "https://arxiv.org/abs/2312.00752"
+    }
+  ],
+  "relatedModels": [
+    "s4",
+    "mamba-2",
+    "mamba-3",
+    "hyena"
+  ]
+},
+
+{
+  "id": "mamba-2",
+  "name": "Mamba-2",
+  "family": "Mamba",
+  "organization": "CMU / Princeton",
+  "releaseDate": "2024-05",
+  "year": 2024,
+  "category": "alternative-architecture",
+  "type": "state-space-duality-model",
+  "description": "Mamba-2 introduced the State Space Duality framework, connecting structured state-space models with attention-like computations and producing a faster simplified selective SSM.",
+  "architecture": {
+    "family": "State Space Duality / Mamba",
+    "attention": "SSD-style structured state-space computation",
+    "position": "implicit through state dynamics",
+    "sparsity": "linear-time / chunkwise",
+    "sequenceStrategy": "state-space duality"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "long sequences"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence representations"]
+  },
+  "training": {
+    "objective": "language modeling",
+    "data": "large-scale text datasets",
+    "postTraining": "language-model adaptation"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "mamba",
+    "mamba-2",
+    "state-space-duality",
+    "ssm",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Transformers are SSMs",
+      "url": "https://arxiv.org/abs/2405.21060"
+    }
+  ],
+  "relatedModels": [
+    "mamba",
+    "mamba-3",
+    "s4",
+    "retnet"
+  ]
+},
+
+{
+  "id": "mamba-3",
+  "name": "Mamba-3",
+  "family": "Mamba",
+  "organization": "Mamba Research Community",
+  "releaseDate": "2025",
+  "year": 2025,
+  "category": "alternative-architecture",
+  "type": "next-generation-state-space-model",
+  "description": "A later Mamba research generation exploring improved state-space formulations, complex-valued dynamics, and stronger long-context language modeling.",
+  "architecture": {
+    "family": "selective state-space model",
+    "attention": "none",
+    "position": "implicit state dynamics",
+    "sparsity": "linear-time",
+    "sequenceStrategy": "input-dependent state evolution"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "long sequences"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence representations"]
+  },
+  "training": {
+    "objective": "language and long-context sequence modeling",
+    "data": "text datasets",
+    "postTraining": "language-model adaptation"
+  },
+  "license": "research/model-dependent",
+  "openWeights": true,
+  "tags": [
+    "mamba",
+    "ssm",
+    "long-context",
+    "state-space-model"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Mamba-3",
+      "url": "https://arxiv.org/"
+    }
+  ],
+  "relatedModels": [
+    "mamba",
+    "mamba-2",
+    "s4"
+  ]
+},
+  {
+  "id": "rwkv",
+  "name": "RWKV",
+  "family": "RWKV",
+  "organization": "RWKV Community",
+  "releaseDate": "2023-05",
+  "year": 2023,
+  "category": "alternative-architecture",
+  "type": "linear-recurrent-language-model",
+  "description": "RWKV combines Transformer-like channel mixing with recurrent time mixing, providing parallelizable training and recurrent inference without conventional quadratic attention.",
+  "architecture": {
+    "family": "linear attention / recurrent architecture",
+    "attention": "attention-free recurrent time mixing",
+    "position": "implicit temporal recurrence",
+    "sparsity": "linear-time",
+    "sequenceStrategy": "parallel training + recurrent inference"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "long sequences"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale text datasets",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "rwkv",
+    "recurrent",
+    "linear-time",
+    "attention-free"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "RWKV: Reinventing RNNs for the Transformer Era",
+      "url": "https://arxiv.org/abs/2305.13048"
+    }
+  ],
+  "relatedModels": [
+    "rwkv-5",
+    "rwkv-6",
+    "rwkv-7"
+  ]
+},
+
+{
+  "id": "rwkv-5",
+  "name": "RWKV-5",
+  "family": "RWKV",
+  "organization": "RWKV Community",
+  "releaseDate": "2024-04",
+  "year": 2024,
+  "category": "alternative-architecture",
+  "type": "matrix-state-recurrent-language-model",
+  "description": "RWKV-5 introduced matrix-valued states and improved recurrent time mixing, providing greater representational capacity while retaining efficient recurrent inference.",
+  "architecture": {
+    "family": "RWKV matrix-state recurrent architecture",
+    "attention": "attention-free",
+    "position": "recurrent state",
+    "sparsity": "linear-time",
+    "sequenceStrategy": "dynamic recurrent state"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "long sequences"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale text datasets",
+    "postTraining": "instruction tuning"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "rwkv",
+    "recurrent",
+    "matrix-state",
+    "linear-time"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Eagle and Finch",
+      "url": "https://arxiv.org/abs/2404.05892"
+    }
+  ],
+  "relatedModels": [
+    "rwkv",
+    "rwkv-6",
+    "rwkv-7"
+  ]
+},
+
+{
+  "id": "rwkv-6",
+  "name": "RWKV-6",
+  "family": "RWKV",
+  "organization": "RWKV Community",
+  "releaseDate": "2024-04",
+  "year": 2024,
+  "category": "alternative-architecture",
+  "type": "dynamic-recurrent-language-model",
+  "description": "RWKV-6, also known as Finch, introduced dynamic recurrence mechanisms that make the recurrent state update depend more flexibly on the current input.",
+  "architecture": {
+    "family": "RWKV dynamic recurrence",
+    "attention": "attention-free",
+    "position": "dynamic recurrent state",
+    "sparsity": "linear-time",
+    "sequenceStrategy": "input-dependent recurrence"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "long sequences"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual text datasets",
+    "postTraining": "instruction and domain adaptation"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "rwkv",
+    "finch",
+    "dynamic-recurrence",
+    "linear-time"
+  ],
+  "sources": [
+    {
+      "type": "official",
+      "title": "RWKV Architecture History",
+      "url": "https://wiki.rwkv.com/basic/architecture.html"
+    },
+    {
+      "type": "paper",
+      "title": "Eagle and Finch",
+      "url": "https://arxiv.org/abs/2404.05892"
+    }
+  ],
+  "relatedModels": [
+    "rwkv-5",
+    "rwkv-7",
+    "mamba"
+  ]
+},
+
+{
+  "id": "rwkv-7",
+  "name": "RWKV-7",
+  "family": "RWKV",
+  "organization": "RWKV Community",
+  "releaseDate": "2025-03-18",
+  "year": 2025,
+  "category": "alternative-architecture",
+  "type": "dynamic-state-evolution-language-model",
+  "description": "RWKV-7, codenamed Goose, introduces generalized dynamic state evolution and moves beyond earlier attention/linear-attention formulations.",
+  "architecture": {
+    "family": "dynamic state evolution",
+    "attention": "attention-free",
+    "position": "dynamic recurrent state",
+    "sparsity": "linear-time",
+    "sequenceStrategy": "generalized delta-rule state evolution"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "long sequences"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale multilingual text data",
+    "postTraining": "instruction and reasoning adaptation"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "rwkv",
+    "rwkv-7",
+    "dynamic-state-evolution",
+    "delta-rule",
+    "linear-time"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "RWKV-7 Goose with Expressive Dynamic State Evolution",
+      "url": "https://arxiv.org/abs/2503.14456"
+    },
+    {
+      "type": "official",
+      "title": "RWKV Architecture History",
+      "url": "https://wiki.rwkv.com/basic/architecture.html"
+    }
+  ],
+  "relatedModels": [
+    "rwkv-6",
+    "rwkv-5",
+    "mamba-2"
+  ]
+},
+  {
+  "id": "hyena",
+  "name": "Hyena",
+  "family": "Hyena",
+  "organization": "Stanford / Hazy Research",
+  "releaseDate": "2023-02",
+  "year": 2023,
+  "category": "alternative-architecture",
+  "type": "long-convolution-language-model",
+  "description": "Hyena is a subquadratic sequence operator replacing attention with implicitly parameterized long convolutions and data-controlled gating.",
+  "architecture": {
+    "family": "long convolution + gating",
+    "attention": "none",
+    "position": "implicit convolutional filters",
+    "sparsity": "subquadratic",
+    "sequenceStrategy": "long-range convolution and gating"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "very long sequences"
+  },
+  "modality": {
+    "input": ["sequence", "text"],
+    "output": ["sequence representations"]
+  },
+  "training": {
+    "objective": "sequence and language modeling",
+    "data": "language datasets",
+    "postTraining": "task-specific adaptation"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "hyena",
+    "long-convolution",
+    "subquadratic",
+    "attention-free",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Hyena Hierarchy",
+      "url": "https://arxiv.org/abs/2302.10866"
+    }
+  ],
+  "relatedModels": [
+    "hyena-dna",
+    "s4",
+    "mamba"
+  ]
+},
+
+{
+  "id": "hyena-dna",
+  "name": "HyenaDNA",
+  "family": "HyenaDNA",
+  "organization": "Stanford Hazy Research",
+  "releaseDate": "2023-06",
+  "year": 2023,
+  "category": "scientific-foundation-model",
+  "type": "genomic-long-context-model",
+  "description": "A genomic foundation model using Hyena operators to model DNA sequences at single-nucleotide resolution with very long contexts.",
+  "architecture": {
+    "family": "Hyena long convolution",
+    "attention": "none",
+    "position": "implicit convolution",
+    "sparsity": "subquadratic",
+    "sequenceStrategy": "long-range genomic convolution"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "DNA nucleotides",
+    "maxContext": "1M+ tokens depending on checkpoint"
+  },
+  "modality": {
+    "input": ["DNA sequence"],
+    "output": ["genomic representations"]
+  },
+  "training": {
+    "objective": "autoregressive genomic language modeling",
+    "data": "genomic sequences",
+    "postTraining": "genomic task adaptation"
+  },
+  "license": "MIT / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "genomics",
+    "dna",
+    "hyena",
+    "long-context",
+    "scientific-ai"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "HyenaDNA",
+      "url": "https://arxiv.org/abs/2306.15794"
+    }
+  ],
+  "relatedModels": [
+    "hyena",
+    "dnabert",
+    "mamba"
+  ]
+},
+  {
+  "id": "retnet",
+  "name": "RetNet",
+  "family": "RetNet",
+  "organization": "Microsoft Research",
+  "releaseDate": "2023-07",
+  "year": 2023,
+  "category": "alternative-architecture",
+  "type": "retention-based-language-model",
+  "description": "Retentive Network replaces standard attention with a retention mechanism that supports parallel training, recurrent inference, and chunkwise recurrent computation.",
+  "architecture": {
+    "family": "retention network",
+    "attention": "retention mechanism",
+    "position": "decay-based positional structure",
+    "sparsity": "linear-time inference",
+    "sequenceStrategy": "parallel / recurrent / chunkwise"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "long sequences"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale text datasets",
+    "postTraining": "instruction tuning"
+  },
+  "license": "research/model-dependent",
+  "openWeights": true,
+  "tags": [
+    "retnet",
+    "retention",
+    "linear-time",
+    "recurrent-inference"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Retentive Network",
+      "url": "https://arxiv.org/abs/2307.08621"
+    }
+  ],
+  "relatedModels": [
+    "mamba",
+    "rwkv",
+    "linear-attention"
+  ]
+},
+  {
+  "id": "xlstm",
+  "name": "xLSTM",
+  "family": "xLSTM",
+  "organization": "NXAI / University of Vienna",
+  "releaseDate": "2024-05",
+  "year": 2024,
+  "category": "alternative-architecture",
+  "type": "extended-recurrent-language-model",
+  "description": "Extended Long Short-Term Memory revisits recurrent neural networks with exponential gating and matrix-valued memory, creating a modern recurrent architecture capable of scaling to language-model workloads.",
+  "architecture": {
+    "family": "extended LSTM",
+    "attention": "none",
+    "position": "recurrent state",
+    "sparsity": "linear-time recurrence",
+    "sequenceStrategy": "recurrent memory updates"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "long sequences"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "autoregressive language modeling",
+    "data": "large-scale text datasets",
+    "postTraining": "language-model adaptation"
+  },
+  "license": "Apache 2.0 / model-dependent",
+  "openWeights": true,
+  "tags": [
+    "xlstm",
+    "recurrent",
+    "lstm",
+    "linear-time"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "xLSTM: Extended Long Short-Term Memory",
+      "url": "https://arxiv.org/abs/2405.04517"
+    }
+  ],
+  "relatedModels": [
+    "mamba",
+    "retnet",
+    "rwkv"
+  ]
+},
+  {
+  "id": "linear-attention",
+  "name": "Linear Attention",
+  "family": "Linear Attention",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "alternative-architecture",
+  "type": "linear-attention-architecture",
+  "description": "A broad class of attention alternatives that restructure attention computation to avoid explicitly materializing the full quadratic token-to-token attention matrix.",
+  "architecture": {
+    "family": "linear attention",
+    "attention": "kernelized / associative attention",
+    "position": "variant-dependent",
+    "sparsity": "linear-time",
+    "sequenceStrategy": "associative state accumulation"
+  },
+  "scale": {
+    "parameters": "architecture family",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "long sequences"
+  },
+  "modality": {
+    "input": ["sequence"],
+    "output": ["sequence representations"]
+  },
+  "training": {
+    "objective": "sequence modeling",
+    "data": "task-dependent",
+    "postTraining": "task-dependent"
+  },
+  "license": "research",
+  "openWeights": false,
+  "tags": [
+    "linear-attention",
+    "efficient-attention",
+    "long-context",
+    "attention-alternative"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Efficient Attention",
+      "url": "https://arxiv.org/abs/1812.01243"
+    }
+  ],
+  "relatedModels": [
+    "retnet",
+    "gated-deltanet",
+    "rwkv"
+  ]
+},
+
+{
+  "id": "gated-deltanet",
+  "name": "Gated DeltaNet",
+  "family": "DeltaNet",
+  "organization": "Research community",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "alternative-architecture",
+  "type": "gated-linear-attention",
+  "description": "A gated delta-rule sequence architecture combining linear-attention state updates with selective forgetting and input-dependent memory modification.",
+  "architecture": {
+    "family": "gated delta-rule linear attention",
+    "attention": "linear attention / delta rule",
+    "position": "recurrent state",
+    "sparsity": "linear-time",
+    "sequenceStrategy": "input-dependent state update"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "long sequences"
+  },
+  "modality": {
+    "input": ["sequence", "text"],
+    "output": ["sequence representations"]
+  },
+  "training": {
+    "objective": "language and sequence modeling",
+    "data": "large-scale sequence datasets",
+    "postTraining": "language-model adaptation"
+  },
+  "license": "research/model-dependent",
+  "openWeights": true,
+  "tags": [
+    "delta-rule",
+    "linear-attention",
+    "gated-linear-attention",
+    "long-context"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Gated Delta Networks",
+      "url": "https://arxiv.org/"
+    }
+  ],
+  "relatedModels": [
+    "retnet",
+    "rwkv-7",
+    "linear-attention"
+  ]
+},
+  {
+  "id": "titans",
+  "name": "Titans",
+  "family": "Titans",
+  "organization": "Google Research",
+  "releaseDate": "2025-01",
+  "year": 2025,
+  "category": "alternative-architecture",
+  "type": "test-time-memory-architecture",
+  "description": "Titans introduces a neural long-term memory that learns during inference and combines it with short-term attention to model very long contexts.",
+  "architecture": {
+    "family": "neural long-term memory + attention",
+    "attention": "hybrid attention",
+    "position": "learned memory state",
+    "sparsity": "hybrid",
+    "sequenceStrategy": "attention + learned test-time memory"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "very long context"
+  },
+  "modality": {
+    "input": ["sequence", "text"],
+    "output": ["sequence representations"]
+  },
+  "training": {
+    "objective": "long-context sequence modeling",
+    "data": "long-context language data",
+    "postTraining": "long-context adaptation"
+  },
+  "license": "research",
+  "openWeights": false,
+  "tags": [
+    "memory",
+    "long-context",
+    "test-time-learning",
+    "attention"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Titans: Learning to Memorize at Test Time",
+      "url": "https://arxiv.org/abs/2501.00663"
+    }
+  ],
+  "relatedModels": [
+    "mamba-2",
+    "retnet",
+    "gated-deltanet"
+  ]
+},
+  {
+  "id": "bitnet",
+  "name": "BitNet",
+  "family": "BitNet",
+  "organization": "Microsoft Research",
+  "releaseDate": "2023-10",
+  "year": 2023,
+  "category": "alternative-architecture",
+  "type": "quantized-language-model-architecture",
+  "description": "BitNet explores replacing conventional dense floating-point weights with extremely low-bit representations, targeting substantial reductions in memory, energy, and computation.",
+  "architecture": {
+    "family": "1-bit Transformer",
+    "attention": "Transformer attention",
+    "position": "model-dependent",
+    "sparsity": "low-bit weights",
+    "sequenceStrategy": "autoregressive Transformer"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "language modeling with low-bit weights",
+    "data": "language datasets",
+    "postTraining": "instruction tuning / quantized adaptation"
+  },
+  "license": "research/model-dependent",
+  "openWeights": true,
+  "tags": [
+    "bitnet",
+    "1-bit",
+    "quantization",
+    "efficient-inference",
+    "transformer"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "The Era of 1-bit LLMs",
+      "url": "https://arxiv.org/abs/2310.11453"
+    }
+  ],
+  "relatedModels": [
+    "bitnet-b1-58",
+    "bitnet-2b4t",
+    "ternary-models"
+  ]
+},
+
+{
+  "id": "bitnet-b1-58",
+  "name": "BitNet b1.58",
+  "family": "BitNet",
+  "organization": "Microsoft Research",
+  "releaseDate": "2024-02",
+  "year": 2024,
+  "category": "alternative-architecture",
+  "type": "ternary-language-model-architecture",
+  "description": "BitNet b1.58 extends the 1-bit idea to ternary weights {-1, 0, +1}, aiming to preserve model capability while dramatically reducing arithmetic and memory requirements.",
+  "architecture": {
+    "family": "ternary Transformer",
+    "attention": "Transformer attention",
+    "position": "model-dependent",
+    "sparsity": "ternary weights",
+    "sequenceStrategy": "autoregressive language modeling"
+  },
+  "scale": {
+    "parameters": "model-dependent",
+    "activeParameters": null
+  },
+  "context": {
+    "tokens": "model-dependent"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "training": {
+    "objective": "language modeling with ternary parameters",
+    "data": "language datasets",
+    "postTraining": "instruction tuning"
+  },
+  "license": "research/model-dependent",
+  "openWeights": true,
+  "tags": [
+    "bitnet",
+    "ternary",
+    "1-bit",
+    "efficient-inference",
+    "quantization"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "The Era of 1-bit LLMs",
+      "url": "https://arxiv.org/abs/2310.11453"
+    }
+  ],
+  "relatedModels": [
+    "bitnet",
+    "bitnet-2b4t"
+  ]
 }
