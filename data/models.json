@@ -14993,4 +14993,1946 @@
     "bark",
     "audio-tokenization"
   ]
+},
+  {
+  "id": "causal-language-modeling",
+  "name": "Causal Language Modeling",
+  "family": "Language Modeling Objective",
+  "organization": "Research community",
+  "releaseDate": "2018",
+  "year": 2018,
+  "category": "training-objective",
+  "type": "autoregressive-language-modeling",
+  "description": "Causal language modeling trains a model to predict the next token from preceding tokens, forming the dominant pretraining objective for decoder-only foundation models.",
+  "training": {
+    "objective": "next-token prediction",
+    "direction": "left-to-right",
+    "masking": "causal",
+    "target": "next token",
+    "data": "large-scale text corpora"
+  },
+  "architecture": {
+    "family": "decoder-only Transformer or compatible sequence model",
+    "attention": "causal attention",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "autoregressive"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "advantages": [
+    "Natural text generation",
+    "Simple scalable objective",
+    "Works naturally with decoder-only architectures"
+  ],
+  "limitations": [
+    "Unidirectional training signal",
+    "Potentially inefficient use of context compared with bidirectional objectives"
+  ],
+  "tags": [
+    "clm",
+    "causal-lm",
+    "autoregressive",
+    "pretraining"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Improving Language Understanding by Generative Pre-Training",
+      "url": "https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf"
+    }
+  ],
+  "relatedModels": [
+    "gpt",
+    "llama",
+    "qwen",
+    "mistral"
+  ]
+},
+  {
+  "id": "masked-language-modeling",
+  "name": "Masked Language Modeling",
+  "family": "Language Modeling Objective",
+  "organization": "Google Research",
+  "releaseDate": "2018",
+  "year": 2018,
+  "category": "training-objective",
+  "type": "masked-language-modeling",
+  "description": "Masked Language Modeling hides selected tokens and trains the model to reconstruct them using surrounding context, enabling bidirectional representation learning.",
+  "training": {
+    "objective": "masked token reconstruction",
+    "direction": "bidirectional",
+    "masking": "random or structured token masking",
+    "target": "masked tokens",
+    "data": "large-scale text corpora"
+  },
+  "architecture": {
+    "family": "encoder Transformer",
+    "attention": "bidirectional self-attention",
+    "position": "model-dependent",
+    "sparsity": "dense or model-dependent",
+    "sequenceStrategy": "bidirectional"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["contextual representations"]
+  },
+  "advantages": [
+    "Strong bidirectional representations",
+    "Effective for language understanding",
+    "Useful for encoder architectures"
+  ],
+  "limitations": [
+    "Pretraining objective differs from natural generation",
+    "Requires masking strategy"
+  ],
+  "tags": [
+    "mlm",
+    "bert",
+    "masked-language-modeling",
+    "self-supervised"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+      "url": "https://arxiv.org/abs/1810.04805"
+    }
+  ],
+  "relatedModels": [
+    "bert",
+    "roberta",
+    "deberta"
+  ]
+},
+  {
+  "id": "span-corruption",
+  "name": "Span Corruption",
+  "family": "Sequence-to-Sequence Objective",
+  "organization": "Google Research",
+  "releaseDate": "2019",
+  "year": 2019,
+  "category": "training-objective",
+  "type": "span-denoising",
+  "description": "Span corruption masks contiguous spans of input text and trains a sequence-to-sequence model to reconstruct the missing spans, providing a general text-to-text pretraining objective.",
+  "training": {
+    "objective": "span reconstruction",
+    "direction": "encoder-decoder",
+    "masking": "contiguous spans",
+    "target": "masked spans",
+    "data": "large-scale text corpora"
+  },
+  "architecture": {
+    "family": "encoder-decoder Transformer",
+    "attention": "encoder bidirectional + decoder causal",
+    "position": "relative position bias",
+    "sparsity": "dense",
+    "sequenceStrategy": "sequence-to-sequence"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["text"]
+  },
+  "advantages": [
+    "Unified text-to-text formulation",
+    "Useful for generation and understanding",
+    "Efficient corruption objective"
+  ],
+  "limitations": [
+    "Encoder-decoder inference can be more expensive than decoder-only models for some workloads"
+  ],
+  "tags": [
+    "span-corruption",
+    "t5",
+    "seq2seq",
+    "denoising"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer",
+      "url": "https://arxiv.org/abs/1910.10683"
+    }
+  ],
+  "relatedModels": [
+    "t5",
+    "flan-t5",
+    "byt5"
+  ]
+},
+  {
+  "id": "prefix-language-modeling",
+  "name": "Prefix Language Modeling",
+  "family": "Language Modeling Objective",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "training-objective",
+  "type": "prefix-lm",
+  "description": "Prefix language modeling provides bidirectional attention within a prefix while using causal attention for subsequent tokens, combining aspects of encoder-style context understanding with autoregressive generation.",
+  "training": {
+    "objective": "conditional next-token prediction",
+    "direction": "bidirectional prefix + causal suffix",
+    "masking": "prefix-aware attention mask",
+    "target": "suffix tokens",
+    "data": "large-scale sequence data"
+  },
+  "architecture": {
+    "family": "Transformer",
+    "attention": "hybrid attention mask",
+    "position": "model-dependent",
+    "sparsity": "dense",
+    "sequenceStrategy": "prefix-conditioned generation"
+  },
+  "modality": {
+    "input": ["text", "multimodal sequences"],
+    "output": ["text"]
+  },
+  "advantages": [
+    "Strong conditioning on a known prefix",
+    "Useful for multimodal generation",
+    "Combines representation and generation behavior"
+  ],
+  "limitations": [
+    "More complicated attention masking",
+    "Less standardized than causal LM"
+  ],
+  "tags": [
+    "prefix-lm",
+    "pretraining",
+    "multimodal",
+    "autoregressive"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Unified Language Model Pre-training for Natural Language Understanding and Generation",
+      "url": "https://arxiv.org/abs/1905.03197"
+    }
+  ],
+  "relatedModels": [
+    "unilm",
+    "paligemma",
+    "multimodal-llms"
+  ]
+},
+  {
+  "id": "contrastive-learning",
+  "name": "Contrastive Learning",
+  "family": "Representation Learning",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "training-objective",
+  "type": "contrastive-representation-learning",
+  "description": "Contrastive learning trains representations by bringing positive examples closer together while separating negative examples in embedding space.",
+  "training": {
+    "objective": "contrastive representation alignment",
+    "direction": "representation-space optimization",
+    "masking": "model-dependent",
+    "target": "positive/negative relationships",
+    "data": "paired or augmented examples"
+  },
+  "architecture": {
+    "family": "model-dependent",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "representation alignment"
+  },
+  "modality": {
+    "input": ["text", "image", "audio", "multimodal"],
+    "output": ["embeddings"]
+  },
+  "advantages": [
+    "Strong embedding representations",
+    "Useful for multimodal alignment",
+    "Supports retrieval-oriented systems"
+  ],
+  "limitations": [
+    "Negative-sample design can strongly affect training",
+    "Large batches are often beneficial"
+  ],
+  "tags": [
+    "contrastive-learning",
+    "representation-learning",
+    "embeddings",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "A Simple Framework for Contrastive Learning of Visual Representations",
+      "url": "https://arxiv.org/abs/2002.05709"
+    }
+  ],
+  "relatedModels": [
+    "clip",
+    "simclr",
+    "e5"
+  ]
+},
+  {
+  "id": "clip-training",
+  "name": "CLIP-Style Image-Text Contrastive Learning",
+  "family": "Multimodal Contrastive Learning",
+  "organization": "OpenAI",
+  "releaseDate": "2021-01",
+  "year": 2021,
+  "category": "training-objective",
+  "type": "image-text-contrastive-learning",
+  "description": "CLIP-style training jointly learns image and text representations by maximizing similarity between matching image-text pairs and minimizing similarity between mismatched pairs.",
+  "training": {
+    "objective": "image-text contrastive alignment",
+    "direction": "cross-modal representation alignment",
+    "masking": "none",
+    "target": "matching image-text pairs",
+    "data": "image-text pairs"
+  },
+  "architecture": {
+    "family": "dual encoder",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "independent modality encoding + contrastive alignment"
+  },
+  "modality": {
+    "input": ["image", "text"],
+    "output": ["aligned embeddings"]
+  },
+  "advantages": [
+    "Zero-shot classification",
+    "Cross-modal retrieval",
+    "Strong semantic alignment"
+  ],
+  "limitations": [
+    "Performance depends on image-text data quality",
+    "Contrastive objective does not directly provide generative behavior"
+  ],
+  "tags": [
+    "clip",
+    "contrastive",
+    "vision-language",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Learning Transferable Visual Models From Natural Language Supervision",
+      "url": "https://arxiv.org/abs/2103.00020"
+    }
+  ],
+  "relatedModels": [
+    "clip",
+    "siglip",
+    "siglip2"
+  ]
+},
+  {
+  "id": "supervised-fine-tuning",
+  "name": "Supervised Fine-Tuning",
+  "family": "Post-Training",
+  "organization": "Research community",
+  "releaseDate": "2018",
+  "year": 2018,
+  "category": "post-training",
+  "type": "instruction-supervised-finetuning",
+  "description": "Supervised fine-tuning adapts a pretrained model using curated input-output examples, often transforming a base model into an instruction-following model.",
+  "training": {
+    "objective": "supervised next-token prediction",
+    "direction": "task-dependent",
+    "masking": "model-dependent",
+    "target": "demonstration responses",
+    "data": "instruction-response datasets"
+  },
+  "architecture": {
+    "family": "pretrained foundation model",
+    "attention": "inherited",
+    "position": "inherited",
+    "sparsity": "inherited",
+    "sequenceStrategy": "conditional generation"
+  },
+  "modality": {
+    "input": ["text", "multimodal"],
+    "output": ["task-specific response"]
+  },
+  "advantages": [
+    "Improves instruction following",
+    "Can specialize models for specific domains",
+    "Relatively straightforward optimization"
+  ],
+  "limitations": [
+    "Quality depends heavily on demonstration data",
+    "May reduce generality if fine-tuning is narrow"
+  ],
+  "tags": [
+    "sft",
+    "instruction-tuning",
+    "fine-tuning",
+    "post-training"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Training language models to follow instructions with human feedback",
+      "url": "https://arxiv.org/abs/2203.02155"
+    }
+  ],
+  "relatedModels": [
+    "instructgpt",
+    "flan",
+    "llama-instruct"
+  ]
+},
+  {
+  "id": "rlhf",
+  "name": "RLHF",
+  "family": "Preference Optimization",
+  "organization": "Research community",
+  "releaseDate": "2017",
+  "year": 2017,
+  "category": "post-training",
+  "type": "reinforcement-learning-from-human-feedback",
+  "description": "Reinforcement Learning from Human Feedback uses human preference judgments to train a reward model and then optimizes a language model toward preferred behavior.",
+  "training": {
+    "objective": "preference-based reward optimization",
+    "direction": "autoregressive generation",
+    "masking": "model-dependent",
+    "target": "human-preferred outputs",
+    "data": "human preference comparisons"
+  },
+  "architecture": {
+    "family": "pretrained language model + reward model",
+    "attention": "inherited",
+    "position": "inherited",
+    "sparsity": "inherited",
+    "sequenceStrategy": "policy optimization"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["aligned text"]
+  },
+  "advantages": [
+    "Directly incorporates human preferences",
+    "Can improve helpfulness and instruction following"
+  ],
+  "limitations": [
+    "Expensive preference collection",
+    "Reward-model errors can be exploited",
+    "Training pipeline is complex"
+  ],
+  "tags": [
+    "rlhf",
+    "human-feedback",
+    "alignment",
+    "reward-model"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Learning to Summarize from Human Feedback",
+      "url": "https://arxiv.org/abs/2009.01325"
+    }
+  ],
+  "relatedModels": [
+    "instructgpt",
+    "ppo"
+  ]
+},
+  {
+  "id": "ppo",
+  "name": "Proximal Policy Optimization",
+  "family": "Reinforcement Learning",
+  "organization": "OpenAI",
+  "releaseDate": "2017",
+  "year": 2017,
+  "category": "optimization",
+  "type": "policy-gradient-optimization",
+  "description": "PPO is a policy optimization algorithm that constrains policy updates to maintain stable learning, and became a common optimization method for RLHF pipelines.",
+  "training": {
+    "objective": "policy optimization",
+    "direction": "autoregressive policy",
+    "masking": "model-dependent",
+    "target": "reward-maximizing policy",
+    "data": "generated trajectories and rewards"
+  },
+  "architecture": {
+    "family": "model-independent optimization algorithm",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "policy gradient"
+  },
+  "modality": {
+    "input": ["sequences"],
+    "output": ["policy updates"]
+  },
+  "advantages": [
+    "Stable policy updates",
+    "Widely applicable"
+  ],
+  "limitations": [
+    "Can require substantial compute",
+    "Sensitive to reward design"
+  ],
+  "tags": [
+    "ppo",
+    "reinforcement-learning",
+    "rlhf",
+    "policy-gradient"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Proximal Policy Optimization Algorithms",
+      "url": "https://arxiv.org/abs/1707.06347"
+    }
+  ],
+  "relatedModels": [
+    "rlhf",
+    "grpo"
+  ]
+},
+  {
+  "id": "dpo",
+  "name": "Direct Preference Optimization",
+  "family": "Preference Optimization",
+  "organization": "Stanford University",
+  "releaseDate": "2023-05",
+  "year": 2023,
+  "category": "post-training",
+  "type": "direct-preference-optimization",
+  "description": "DPO directly optimizes a language model from preference pairs without requiring a separately trained reward model or an explicit reinforcement-learning loop.",
+  "training": {
+    "objective": "pairwise preference optimization",
+    "direction": "autoregressive",
+    "masking": "model-dependent",
+    "target": "preferred response over rejected response",
+    "data": "preference pairs"
+  },
+  "architecture": {
+    "family": "pretrained language model",
+    "attention": "inherited",
+    "position": "inherited",
+    "sparsity": "inherited",
+    "sequenceStrategy": "direct preference likelihood optimization"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["aligned text"]
+  },
+  "advantages": [
+    "Simpler than RLHF pipelines",
+    "No explicit reward model required",
+    "Stable supervised-style optimization"
+  ],
+  "limitations": [
+    "Requires high-quality preference pairs",
+    "Still depends on reference-policy assumptions"
+  ],
+  "tags": [
+    "dpo",
+    "preference-learning",
+    "alignment",
+    "post-training"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+      "url": "https://arxiv.org/abs/2305.18290"
+    }
+  ],
+  "relatedModels": [
+    "rlhf",
+    "ipo",
+    "simpo"
+  ]
+},
+  {
+  "id": "rlaif",
+  "name": "RLAIF",
+  "family": "Preference Optimization",
+  "organization": "Research community",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "post-training",
+  "type": "reinforcement-learning-from-ai-feedback",
+  "description": "RLAIF replaces or supplements human preference labeling with judgments generated by an AI feedback model, allowing preference data to be produced at greater scale.",
+  "training": {
+    "objective": "AI-feedback preference optimization",
+    "direction": "autoregressive",
+    "masking": "model-dependent",
+    "target": "AI-preferred outputs",
+    "data": "AI-generated preference judgments"
+  },
+  "architecture": {
+    "family": "pretrained model + evaluator",
+    "attention": "inherited",
+    "position": "inherited",
+    "sparsity": "inherited",
+    "sequenceStrategy": "feedback-based optimization"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["aligned text"]
+  },
+  "advantages": [
+    "Scales preference data generation",
+    "Reduces human annotation burden"
+  ],
+  "limitations": [
+    "Evaluator model introduces biases",
+    "AI feedback may amplify model-specific errors"
+  ],
+  "tags": [
+    "rlaif",
+    "ai-feedback",
+    "alignment",
+    "preference-learning"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Constitutional AI: Harmlessness from AI Feedback",
+      "url": "https://arxiv.org/abs/2212.08073"
+    }
+  ],
+  "relatedModels": [
+    "rlhf",
+    "constitutional-ai"
+  ]
+},
+  {
+  "id": "grpo",
+  "name": "Group Relative Policy Optimization",
+  "family": "Reasoning Post-Training",
+  "organization": "DeepSeek",
+  "releaseDate": "2025",
+  "year": 2025,
+  "category": "reasoning-training",
+  "type": "group-relative-reinforcement-learning",
+  "description": "GRPO is a policy optimization method that estimates relative advantages within groups of sampled responses and avoids requiring a separate value model, making it attractive for reinforcement learning of reasoning models.",
+  "training": {
+    "objective": "group-relative reward optimization",
+    "direction": "autoregressive reasoning",
+    "masking": "model-dependent",
+    "target": "high-reward reasoning trajectories",
+    "data": "sampled reasoning solutions and rewards"
+  },
+  "architecture": {
+    "family": "language model + policy optimization",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "group-based policy optimization"
+  },
+  "modality": {
+    "input": ["text", "reasoning problems"],
+    "output": ["reasoning trajectories", "answers"]
+  },
+  "advantages": [
+    "Avoids a separate critic/value model",
+    "Useful for reasoning tasks with verifiable rewards",
+    "Efficient relative reward estimation"
+  ],
+  "limitations": [
+    "Requires suitable reward signals",
+    "Training dynamics depend strongly on sampling and reward design"
+  ],
+  "tags": [
+    "grpo",
+    "reasoning",
+    "reinforcement-learning",
+    "deepseek",
+    "post-training"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+      "url": "https://arxiv.org/abs/2402.03300"
+    }
+  ],
+  "relatedModels": [
+    "deepseek-r1",
+    "ppo",
+    "rlhf"
+  ]
+},
+  {
+  "id": "rejection-sampling",
+  "name": "Rejection Sampling",
+  "family": "Post-Training",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "post-training",
+  "type": "reward-filtered-sampling",
+  "description": "Rejection sampling generates multiple candidate outputs and retains only responses that satisfy a reward model, verifier, or quality criterion for subsequent training.",
+  "training": {
+    "objective": "quality-filtered data generation",
+    "direction": "autoregressive",
+    "masking": "model-dependent",
+    "target": "accepted high-quality responses",
+    "data": "generated candidates + evaluator scores"
+  },
+  "architecture": {
+    "family": "model-dependent",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "sample → evaluate → filter"
+  },
+  "modality": {
+    "input": ["prompts"],
+    "output": ["filtered training examples"]
+  },
+  "advantages": [
+    "Simple conceptual pipeline",
+    "Useful for synthetic data generation",
+    "Can exploit strong verifiers"
+  ],
+  "limitations": [
+    "Potentially expensive because multiple samples are generated",
+    "Quality depends on evaluator"
+  ],
+  "tags": [
+    "rejection-sampling",
+    "synthetic-data",
+    "post-training",
+    "reasoning"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Training language models to follow instructions with human feedback",
+      "url": "https://arxiv.org/abs/2203.02155"
+    }
+  ],
+  "relatedModels": [
+    "rlhf",
+    "grpo",
+    "reasoning-models"
+  ]
+},
+  {
+  "id": "knowledge-distillation",
+  "name": "Knowledge Distillation",
+  "family": "Model Compression",
+  "organization": "Research community",
+  "releaseDate": "2015",
+  "year": 2015,
+  "category": "training-paradigm",
+  "type": "teacher-student-distillation",
+  "description": "Knowledge distillation trains a smaller student model to reproduce information contained in a larger teacher model, transferring behavior or representations while reducing deployment cost.",
+  "training": {
+    "objective": "teacher-student behavior matching",
+    "direction": "model-dependent",
+    "masking": "model-dependent",
+    "target": "teacher outputs or representations",
+    "data": "teacher-generated or labeled data"
+  },
+  "architecture": {
+    "family": "teacher-student",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "knowledge transfer"
+  },
+  "modality": {
+    "input": ["model inputs"],
+    "output": ["student model"]
+  },
+  "advantages": [
+    "Reduces inference cost",
+    "Transfers capabilities to smaller models",
+    "Useful for deployment"
+  ],
+  "limitations": [
+    "Student may fail to reproduce rare capabilities",
+    "Teacher errors can be transferred"
+  ],
+  "tags": [
+    "distillation",
+    "knowledge-distillation",
+    "compression",
+    "teacher-student"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Distilling the Knowledge in a Neural Network",
+      "url": "https://arxiv.org/abs/1503.02531"
+    }
+  ],
+  "relatedModels": [
+    "distilbert",
+    "small-language-models"
+  ]
+},
+  {
+  "id": "continued-pretraining",
+  "name": "Continued Pretraining",
+  "family": "Adaptation",
+  "organization": "Research community",
+  "releaseDate": "2019",
+  "year": 2019,
+  "category": "training-paradigm",
+  "type": "domain-adaptive-pretraining",
+  "description": "Continued pretraining extends the original pretraining process using additional domain-specific, language-specific, temporal, or higher-quality data before supervised or preference-based post-training.",
+  "training": {
+    "objective": "continued self-supervised learning",
+    "direction": "model-dependent",
+    "masking": "model-dependent",
+    "target": "domain-adapted representations",
+    "data": "domain-specific or additional corpus"
+  },
+  "architecture": {
+    "family": "pretrained foundation model",
+    "attention": "inherited",
+    "position": "inherited",
+    "sparsity": "inherited",
+    "sequenceStrategy": "continued pretraining"
+  },
+  "modality": {
+    "input": ["text", "domain-specific data"],
+    "output": ["adapted model"]
+  },
+  "advantages": [
+    "Domain adaptation",
+    "Can improve specialized knowledge",
+    "Preserves pretrained architecture"
+  ],
+  "limitations": [
+    "Can cause catastrophic forgetting",
+    "Requires substantial compute"
+  ],
+  "tags": [
+    "continued-pretraining",
+    "domain-adaptation",
+    "pretraining",
+    "specialization"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Don't Stop Pretraining: Adapt Language Models to Domains and Tasks",
+      "url": "https://arxiv.org/abs/2004.10964"
+    }
+  ],
+  "relatedModels": [
+    "domain-adaptation",
+    "instruction-tuning"
+  ]
+},
+  {
+  "id": "synthetic-data-training",
+  "name": "Synthetic Data Training",
+  "family": "Data-Centric Training",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "training-paradigm",
+  "type": "synthetic-data-generation-and-training",
+  "description": "Synthetic data training uses models, simulators, verifiers, or programmatic processes to generate additional training examples, often targeting specific capabilities or data distributions.",
+  "training": {
+    "objective": "task-dependent",
+    "direction": "model-dependent",
+    "masking": "model-dependent",
+    "target": "synthetic training examples",
+    "data": "generated data"
+  },
+  "architecture": {
+    "family": "model-dependent",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "data generation → training"
+  },
+  "modality": {
+    "input": ["synthetic examples"],
+    "output": ["trained model"]
+  },
+  "advantages": [
+    "Scales training data",
+    "Can target difficult capabilities",
+    "Can generate rare examples"
+  ],
+  "limitations": [
+    "Model-generated errors can compound",
+    "Distribution quality is difficult to guarantee",
+    "Synthetic data can reduce diversity if poorly constructed"
+  ],
+  "tags": [
+    "synthetic-data",
+    "data-generation",
+    "self-training",
+    "distillation"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Self-Instruct: Aligning Language Models with Self-Generated Instructions",
+      "url": "https://arxiv.org/abs/2212.10560"
+    }
+  ],
+  "relatedModels": [
+    "self-instruct",
+    "distillation",
+    "reasoning-models"
+  ]
+},
+  {
+  "id": "constitutional-ai",
+  "name": "Constitutional AI",
+  "family": "AI Feedback",
+  "organization": "Anthropic",
+  "releaseDate": "2022-12",
+  "year": 2022,
+  "category": "post-training",
+  "type": "constitution-guided-ai-feedback",
+  "description": "Constitutional AI uses explicit principles to critique and revise model responses and can use AI-generated feedback instead of relying exclusively on human preference labels.",
+  "training": {
+    "objective": "principle-guided alignment",
+    "direction": "autoregressive",
+    "masking": "model-dependent",
+    "target": "constitution-consistent outputs",
+    "data": "AI-generated critiques, revisions, and preference data"
+  },
+  "architecture": {
+    "family": "language model + evaluator",
+    "attention": "inherited",
+    "position": "inherited",
+    "sparsity": "inherited",
+    "sequenceStrategy": "critique → revision → preference optimization"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["aligned text"]
+  },
+  "advantages": [
+    "Reduces dependence on direct human preference labels",
+    "Makes alignment principles explicit",
+    "Supports scalable AI feedback"
+  ],
+  "limitations": [
+    "Quality depends on the chosen principles and evaluator",
+    "Does not eliminate alignment specification challenges"
+  ],
+  "tags": [
+    "constitutional-ai",
+    "rlaif",
+    "alignment",
+    "anthropic"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Constitutional AI: Harmlessness from AI Feedback",
+      "url": "https://arxiv.org/abs/2212.08073"
+    }
+  ],
+  "relatedModels": [
+    "rlaif",
+    "rlhf",
+    "dpo"
+  ]
+},
+  {
+  "id": "parameter-scaling",
+  "name": "Parameter Scaling",
+  "family": "Scaling Laws",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "scaling",
+  "type": "model-parameter-scaling",
+  "description": "Parameter scaling studies how increasing the number of learned parameters affects model capability, loss, compute requirements, memory consumption, and downstream performance.",
+  "scaling": {
+    "dimension": "parameter count",
+    "variable": "number of learned parameters",
+    "effect": "increased model capacity",
+    "tradeoffs": [
+      "training compute",
+      "memory",
+      "inference cost",
+      "data requirements"
+    ]
+  },
+  "architecture": {
+    "family": "model-independent",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "model-dependent"
+  },
+  "modality": {
+    "input": ["model-dependent"],
+    "output": ["model-dependent"]
+  },
+  "advantages": [
+    "Increases representational capacity",
+    "Can improve performance with sufficient data and compute"
+  ],
+  "limitations": [
+    "Higher memory requirements",
+    "Higher inference cost for dense models",
+    "Requires sufficient training data and compute"
+  ],
+  "tags": [
+    "scaling",
+    "parameters",
+    "model-size",
+    "compute"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Scaling Laws for Neural Language Models",
+      "url": "https://arxiv.org/abs/2001.08361"
+    }
+  ],
+  "relatedConcepts": [
+    "compute-scaling",
+    "data-scaling",
+    "chinchilla"
+  ]
+},
+  {
+  "id": "scaling-laws",
+  "name": "Neural Scaling Laws",
+  "family": "Scaling Laws",
+  "organization": "OpenAI",
+  "releaseDate": "2020-01",
+  "year": 2020,
+  "category": "scaling",
+  "type": "empirical-neural-scaling-laws",
+  "description": "Neural scaling laws describe empirical relationships between model loss and quantities such as model size, dataset size, and compute budget.",
+  "scaling": {
+    "dimension": "model size, data, compute",
+    "variable": "parameters, training tokens, compute",
+    "effect": "predictable changes in loss",
+    "tradeoffs": [
+      "model size",
+      "dataset size",
+      "training compute"
+    ]
+  },
+  "training": {
+    "objective": "predictive scaling analysis",
+    "direction": "model-independent",
+    "masking": "model-dependent",
+    "target": "loss scaling behavior",
+    "data": "multiple model/data/compute regimes"
+  },
+  "advantages": [
+    "Enables compute planning",
+    "Helps predict larger-model performance",
+    "Provides empirical guidance for model design"
+  ],
+  "limitations": [
+    "Scaling relationships are empirical approximations",
+    "Downstream capabilities may not scale identically to pretraining loss"
+  ],
+  "tags": [
+    "scaling-laws",
+    "compute",
+    "parameters",
+    "data"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Scaling Laws for Neural Language Models",
+      "url": "https://arxiv.org/abs/2001.08361"
+    }
+  ],
+  "relatedConcepts": [
+    "parameter-scaling",
+    "chinchilla",
+    "compute-optimal-training"
+  ]
+},
+  {
+  "id": "chinchilla",
+  "name": "Chinchilla Compute-Optimal Scaling",
+  "family": "Scaling Laws",
+  "organization": "DeepMind",
+  "releaseDate": "2022-03",
+  "year": 2022,
+  "category": "scaling",
+  "type": "compute-optimal-training",
+  "description": "Chinchilla demonstrated that many large language models were undertrained relative to their parameter count and showed that, under a fixed compute budget, model size and training data should be scaled together.",
+  "scaling": {
+    "dimension": "parameters + training tokens + compute",
+    "variable": "model size and data size",
+    "effect": "compute-efficient pretraining",
+    "tradeoffs": [
+      "parameter count",
+      "training tokens",
+      "FLOPs"
+    ]
+  },
+  "training": {
+    "objective": "compute-optimal autoregressive language modeling",
+    "direction": "causal",
+    "masking": "causal",
+    "target": "next-token prediction",
+    "data": "large-scale text corpus"
+  },
+  "advantages": [
+    "Improves compute efficiency",
+    "Highlights importance of training data",
+    "Changed how large language models were sized"
+  ],
+  "limitations": [
+    "Optimal ratios depend on assumptions and regime",
+    "Inference economics can favor different parameter/data choices"
+  ],
+  "tags": [
+    "chinchilla",
+    "scaling-laws",
+    "compute-optimal",
+    "training-tokens"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Training Compute-Optimal Large Language Models",
+      "url": "https://arxiv.org/abs/2203.15556"
+    }
+  ],
+  "relatedConcepts": [
+    "scaling-laws",
+    "parameter-scaling",
+    "data-scaling"
+  ]
+},
+  {
+  "id": "data-scaling",
+  "name": "Data Scaling",
+  "family": "Scaling Laws",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "scaling",
+  "type": "training-data-scaling",
+  "description": "Data scaling studies how increasing the amount, diversity, quality, and repetition characteristics of training data affects foundation-model performance.",
+  "scaling": {
+    "dimension": "training data",
+    "variable": "tokens, examples, diversity, quality",
+    "effect": "improved learned representations and capabilities",
+    "tradeoffs": [
+      "data acquisition",
+      "data quality",
+      "deduplication",
+      "compute",
+      "training duration"
+    ]
+  },
+  "training": {
+    "objective": "model-dependent",
+    "direction": "model-dependent",
+    "masking": "model-dependent",
+    "target": "model-dependent",
+    "data": "large-scale datasets"
+  },
+  "advantages": [
+    "Can improve capability without proportionally increasing parameter count",
+    "Supports compute-optimal training"
+  ],
+  "limitations": [
+    "High-quality data is difficult to obtain",
+    "Data contamination and duplication can distort training"
+  ],
+  "tags": [
+    "data-scaling",
+    "training-data",
+    "dataset-quality",
+    "scaling-laws"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Training Compute-Optimal Large Language Models",
+      "url": "https://arxiv.org/abs/2203.15556"
+    }
+  ],
+  "relatedConcepts": [
+    "chinchilla",
+    "scaling-laws",
+    "synthetic-data"
+  ]
+},
+  {
+  "id": "moe-scaling",
+  "name": "Sparse Mixture-of-Experts Scaling",
+  "family": "Efficient Scaling",
+  "organization": "Research community",
+  "releaseDate": "2017",
+  "year": 2017,
+  "category": "scaling",
+  "type": "sparse-parameter-scaling",
+  "description": "Sparse Mixture-of-Experts allows total parameter capacity to increase while activating only a subset of experts for each token, reducing the compute growth associated with dense parameter scaling.",
+  "scaling": {
+    "dimension": "parameter capacity vs active compute",
+    "variable": "total experts and active experts",
+    "effect": "higher parameter capacity at lower per-token computation",
+    "tradeoffs": [
+      "routing overhead",
+      "communication",
+      "load balancing",
+      "memory"
+    ]
+  },
+  "architecture": {
+    "family": "Mixture-of-Experts",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "expert sparsity",
+    "sequenceStrategy": "conditional expert activation"
+  },
+  "advantages": [
+    "Large total parameter capacity",
+    "Lower active computation than equivalent dense model",
+    "Expert specialization"
+  ],
+  "limitations": [
+    "Expert routing complexity",
+    "Device communication overhead",
+    "Load balancing challenges",
+    "Large memory footprint"
+  ],
+  "tags": [
+    "moe",
+    "sparse-scaling",
+    "conditional-computation",
+    "expert-routing"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer",
+      "url": "https://arxiv.org/abs/1701.06538"
+    }
+  ],
+  "relatedConcepts": [
+    "mixtral",
+    "deepseek-moe",
+    "switch-transformer"
+  ]
+},
+  {
+  "id": "quantization",
+  "name": "Neural Network Quantization",
+  "family": "Model Compression",
+  "organization": "Research community",
+  "releaseDate": "2016",
+  "year": 2016,
+  "category": "efficiency",
+  "type": "numerical-precision-reduction",
+  "description": "Quantization reduces the numerical precision used to represent model weights, activations, or both, reducing memory usage and potentially improving inference efficiency.",
+  "scaling": {
+    "dimension": "numerical precision",
+    "variable": "bits per parameter",
+    "effect": "lower memory and potentially faster inference",
+    "tradeoffs": [
+      "accuracy",
+      "hardware support",
+      "calibration",
+      "activation precision"
+    ]
+  },
+  "architecture": {
+    "family": "model-independent",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "none",
+    "sequenceStrategy": "unchanged computation graph"
+  },
+  "modality": {
+    "input": ["model weights", "activations"],
+    "output": ["lower-precision model"]
+  },
+  "advantages": [
+    "Reduces model memory",
+    "Can improve inference throughput",
+    "Enables deployment on smaller hardware"
+  ],
+  "limitations": [
+    "Accuracy degradation at aggressive precision",
+    "Hardware-dependent speedups"
+  ],
+  "tags": [
+    "quantization",
+    "compression",
+    "int8",
+    "int4",
+    "inference"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Quantization and Training of Neural Networks for Efficient Integer-Arithmetic-Only Inference",
+      "url": "https://arxiv.org/abs/1712.05877"
+    }
+  ],
+  "relatedConcepts": [
+    "gptq",
+    "awq",
+    "bitsandbytes"
+  ]
+},
+  {
+  "id": "gptq",
+  "name": "GPTQ",
+  "family": "Post-Training Quantization",
+  "organization": "IST Austria / ETH Zurich / Stanford / others",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "efficiency",
+  "type": "weight-only-post-training-quantization",
+  "description": "GPTQ performs approximate second-order post-training quantization of large language model weights, enabling highly compressed low-bit models without retraining the full network.",
+  "scaling": {
+    "dimension": "weight precision",
+    "variable": "bits per weight",
+    "effect": "lower model memory",
+    "tradeoffs": [
+      "quantization error",
+      "hardware kernels",
+      "calibration data"
+    ]
+  },
+  "architecture": {
+    "family": "model-independent",
+    "attention": "unchanged",
+    "position": "unchanged",
+    "sparsity": "none",
+    "sequenceStrategy": "weight-only quantization"
+  },
+  "modality": {
+    "input": ["LLM weights"],
+    "output": ["quantized weights"]
+  },
+  "advantages": [
+    "Low-bit LLM deployment",
+    "No full retraining required",
+    "Substantial memory reduction"
+  ],
+  "limitations": [
+    "Quantization error",
+    "Performance depends on implementation"
+  ],
+  "tags": [
+    "gptq",
+    "quantization",
+    "int4",
+    "post-training",
+    "llm-inference"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "GPTQ: Accurate Post-Training Quantization for Generative Pre-trained Transformers",
+      "url": "https://arxiv.org/abs/2210.17323"
+    }
+  ],
+  "relatedConcepts": [
+    "quantization",
+    "awq"
+  ]
+},
+  {
+  "id": "awq",
+  "name": "AWQ",
+  "family": "Post-Training Quantization",
+  "organization": "MIT / community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "efficiency",
+  "type": "activation-aware-weight-quantization",
+  "description": "Activation-aware Weight Quantization protects salient weight channels identified through activation statistics while quantizing the majority of weights to low precision.",
+  "scaling": {
+    "dimension": "weight precision",
+    "variable": "low-bit weights",
+    "effect": "memory-efficient inference",
+    "tradeoffs": [
+      "quantization error",
+      "calibration",
+      "kernel support"
+    ]
+  },
+  "architecture": {
+    "family": "model-independent",
+    "attention": "unchanged",
+    "position": "unchanged",
+    "sparsity": "none",
+    "sequenceStrategy": "activation-aware weight quantization"
+  },
+  "modality": {
+    "input": ["LLM weights", "activation statistics"],
+    "output": ["quantized model"]
+  },
+  "advantages": [
+    "Strong low-bit accuracy",
+    "Useful for LLM inference",
+    "Hardware-friendly implementations"
+  ],
+  "limitations": [
+    "Requires calibration data",
+    "Speed depends on hardware kernels"
+  ],
+  "tags": [
+    "awq",
+    "quantization",
+    "int4",
+    "llm-inference"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "AWQ: Activation-aware Weight Quantization for LLM Compression and Acceleration",
+      "url": "https://arxiv.org/abs/2306.00978"
+    }
+  ],
+  "relatedConcepts": [
+    "quantization",
+    "gptq"
+  ]
+},
+  {
+  "id": "neural-network-pruning",
+  "name": "Neural Network Pruning",
+  "family": "Model Compression",
+  "organization": "Research community",
+  "releaseDate": "2015",
+  "year": 2015,
+  "category": "efficiency",
+  "type": "parameter-pruning",
+  "description": "Pruning removes weights, neurons, heads, channels, or structured components judged to be unnecessary, reducing model size or computation.",
+  "scaling": {
+    "dimension": "model sparsity",
+    "variable": "fraction of removed parameters",
+    "effect": "lower parameter count or computation",
+    "tradeoffs": [
+      "accuracy",
+      "sparsity structure",
+      "hardware utilization"
+    ]
+  },
+  "architecture": {
+    "family": "model-independent",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "weight or structured sparsity",
+    "sequenceStrategy": "reduced computation"
+  },
+  "modality": {
+    "input": ["model"],
+    "output": ["compressed model"]
+  },
+  "advantages": [
+    "Reduces model size",
+    "Can reduce computation",
+    "Can preserve much of the original capability"
+  ],
+  "limitations": [
+    "Unstructured sparsity may not provide real hardware speedups",
+    "Aggressive pruning can reduce accuracy"
+  ],
+  "tags": [
+    "pruning",
+    "sparsity",
+    "compression",
+    "model-efficiency"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Learning both Weights and Connections for Efficient Neural Networks",
+      "url": "https://arxiv.org/abs/1506.02626"
+    }
+  ],
+  "relatedConcepts": [
+    "sparsity",
+    "quantization",
+    "distillation"
+  ]
+},
+  {
+  "id": "kv-cache",
+  "name": "KV Cache",
+  "family": "Inference Optimization",
+  "organization": "Research community",
+  "releaseDate": "2017",
+  "year": 2017,
+  "category": "inference",
+  "type": "attention-key-value-caching",
+  "description": "KV caching stores previously computed key and value representations during autoregressive generation so that they do not need to be recomputed for every newly generated token.",
+  "scaling": {
+    "dimension": "autoregressive inference",
+    "variable": "cached sequence length × KV representation size",
+    "effect": "reduces repeated computation",
+    "tradeoffs": [
+      "GPU memory",
+      "context length",
+      "batch size",
+      "KV-head count"
+    ]
+  },
+  "architecture": {
+    "family": "Transformer inference",
+    "attention": "causal attention",
+    "position": "model-dependent",
+    "sparsity": "none",
+    "sequenceStrategy": "incremental decoding with cached K/V"
+  },
+  "modality": {
+    "input": ["text", "sequence"],
+    "output": ["generated tokens"]
+  },
+  "advantages": [
+    "Avoids recomputation of previous K/V states",
+    "Essential for efficient autoregressive generation"
+  ],
+  "limitations": [
+    "Memory grows with context length",
+    "Can become the dominant inference-memory cost"
+  ],
+  "tags": [
+    "kv-cache",
+    "inference",
+    "autoregressive",
+    "memory"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Fast Transformer Decoding: One Write-Head is All You Need",
+      "url": "https://arxiv.org/abs/1911.02150"
+    }
+  ],
+  "relatedConcepts": [
+    "mqa",
+    "gqa",
+    "mla",
+    "paged-attention"
+  ]
+},
+  {
+  "id": "paged-attention",
+  "name": "PagedAttention",
+  "family": "Inference Systems",
+  "organization": "UC Berkeley / vLLM",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "inference",
+  "type": "paged-kv-memory-management",
+  "description": "PagedAttention manages KV-cache memory using non-contiguous blocks inspired by virtual memory systems, improving memory utilization and serving throughput for large language model inference.",
+  "scaling": {
+    "dimension": "KV-cache memory management",
+    "variable": "memory blocks",
+    "effect": "better cache utilization and batching",
+    "tradeoffs": [
+      "memory management complexity",
+      "implementation overhead"
+    ]
+  },
+  "architecture": {
+    "family": "LLM serving system",
+    "attention": "Transformer attention",
+    "position": "model-dependent",
+    "sparsity": "none",
+    "sequenceStrategy": "paged KV cache"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["generated text"]
+  },
+  "advantages": [
+    "Improved memory utilization",
+    "Continuous batching support",
+    "Higher serving throughput"
+  ],
+  "limitations": [
+    "Primarily a serving-system optimization",
+    "Requires compatible runtime"
+  ],
+  "tags": [
+    "paged-attention",
+    "vllm",
+    "kv-cache",
+    "serving",
+    "inference"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+      "url": "https://arxiv.org/abs/2309.06180"
+    },
+    {
+      "type": "github",
+      "title": "vLLM",
+      "url": "https://github.com/vllm-project/vllm"
+    }
+  ],
+  "relatedConcepts": [
+    "kv-cache",
+    "continuous-batching"
+  ]
+},
+  {
+  "id": "speculative-decoding",
+  "name": "Speculative Decoding",
+  "family": "Inference Optimization",
+  "organization": "Google Research",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "inference",
+  "type": "draft-and-verify-decoding",
+  "description": "Speculative decoding uses a smaller draft model to propose multiple tokens that are then verified in parallel by a larger target model, potentially increasing generation throughput without changing the target model's output distribution.",
+  "scaling": {
+    "dimension": "generation latency",
+    "variable": "draft-model speed and acceptance rate",
+    "effect": "faster autoregressive decoding",
+    "tradeoffs": [
+      "draft model cost",
+      "acceptance rate",
+      "hardware utilization"
+    ]
+  },
+  "architecture": {
+    "family": "model-independent inference method",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "draft → parallel verification"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["generated text"]
+  },
+  "advantages": [
+    "Reduces generation latency",
+    "Can preserve target-model sampling behavior",
+    "Useful for autoregressive models"
+  ],
+  "limitations": [
+    "Requires an effective draft model",
+    "Speedup depends on acceptance rate"
+  ],
+  "tags": [
+    "speculative-decoding",
+    "inference",
+    "latency",
+    "draft-model"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Fast Inference from Transformers via Speculative Decoding",
+      "url": "https://arxiv.org/abs/2211.17192"
+    }
+  ],
+  "relatedConcepts": [
+    "medusa",
+    "kv-cache",
+    "inference"
+  ]
+},
+  {
+  "id": "medusa",
+  "name": "Medusa",
+  "family": "Inference Optimization",
+  "organization": "Together AI",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "inference",
+  "type": "multi-head-speculative-decoding",
+  "description": "Medusa adds multiple decoding heads to a language model so that several future tokens can be predicted simultaneously and verified efficiently during generation.",
+  "scaling": {
+    "dimension": "generation throughput",
+    "variable": "number of decoding heads",
+    "effect": "faster autoregressive generation",
+    "tradeoffs": [
+      "additional model parameters",
+      "acceptance rate",
+      "training or fine-tuning cost"
+    ]
+  },
+  "architecture": {
+    "family": "augmented decoder-only model",
+    "attention": "model-dependent",
+    "position": "model-dependent",
+    "sparsity": "model-dependent",
+    "sequenceStrategy": "multi-token prediction"
+  },
+  "modality": {
+    "input": ["text"],
+    "output": ["generated text"]
+  },
+  "advantages": [
+    "Can accelerate decoding without a separate draft model",
+    "Parallelizes future-token proposals"
+  ],
+  "limitations": [
+    "Requires model modification or training",
+    "Speedup depends on acceptance"
+  ],
+  "tags": [
+    "medusa",
+    "speculative-decoding",
+    "multi-token",
+    "inference"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Medusa: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads",
+      "url": "https://arxiv.org/abs/2401.10774"
+    }
+  ],
+  "relatedConcepts": [
+    "speculative-decoding",
+    "multi-token-prediction"
+  ]
+},
+  {
+  "id": "data-parallelism",
+  "name": "Data Parallelism",
+  "family": "Distributed Training",
+  "organization": "Research community",
+  "releaseDate": "2010",
+  "year": 2010,
+  "category": "distributed-training",
+  "type": "data-parallel-training",
+  "description": "Data parallelism replicates a model across devices and assigns different batches of training data to each replica, synchronizing gradients across workers.",
+  "scaling": {
+    "dimension": "training throughput",
+    "variable": "number of data replicas",
+    "effect": "larger effective batch and parallel training",
+    "tradeoffs": [
+      "communication",
+      "batch size",
+      "memory per replica"
+    ]
+  },
+  "advantages": [
+    "Simple conceptual scaling strategy",
+    "Widely supported by training frameworks"
+  ],
+  "limitations": [
+    "Each device must hold the model or relevant shard",
+    "Communication overhead grows with scale"
+  ],
+  "tags": [
+    "data-parallelism",
+    "distributed-training",
+    "multi-gpu"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Large Scale Distributed Deep Networks",
+      "url": "https://arxiv.org/abs/1312.6209"
+    }
+  ],
+  "relatedConcepts": [
+    "tensor-parallelism",
+    "pipeline-parallelism",
+    "zero"
+  ]
+},
+  {
+  "id": "tensor-parallelism",
+  "name": "Tensor Parallelism",
+  "family": "Distributed Training",
+  "organization": "NVIDIA / Megatron-LM",
+  "releaseDate": "2019",
+  "year": 2019,
+  "category": "distributed-training",
+  "type": "intra-layer-model-parallelism",
+  "description": "Tensor parallelism partitions individual neural-network operations such as matrix multiplications across multiple devices so that a single layer is computed collaboratively.",
+  "scaling": {
+    "dimension": "model memory and computation",
+    "variable": "tensor partition count",
+    "effect": "distributes individual layers",
+    "tradeoffs": [
+      "GPU communication",
+      "network bandwidth",
+      "implementation complexity"
+    ]
+  },
+  "advantages": [
+    "Allows layers larger than one device's memory",
+    "Distributes computation within layers"
+  ],
+  "limitations": [
+    "Communication-intensive",
+    "Requires high-bandwidth interconnects"
+  ],
+  "tags": [
+    "tensor-parallelism",
+    "model-parallelism",
+    "megatron",
+    "distributed-training"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism",
+      "url": "https://arxiv.org/abs/1909.08053"
+    }
+  ],
+  "relatedConcepts": [
+    "data-parallelism",
+    "pipeline-parallelism",
+    "expert-parallelism"
+  ]
+},
+  {
+  "id": "pipeline-parallelism",
+  "name": "Pipeline Parallelism",
+  "family": "Distributed Training",
+  "organization": "Microsoft Research",
+  "releaseDate": "2018",
+  "year": 2018,
+  "category": "distributed-training",
+  "type": "inter-layer-model-parallelism",
+  "description": "Pipeline parallelism partitions a neural network into sequential stages placed on different devices and processes multiple microbatches concurrently through the pipeline.",
+  "scaling": {
+    "dimension": "model depth and memory",
+    "variable": "pipeline stages",
+    "effect": "distributes layers across devices",
+    "tradeoffs": [
+      "pipeline bubbles",
+      "communication",
+      "stage balancing"
+    ]
+  },
+  "advantages": [
+    "Allows very large models to span devices",
+    "Reduces per-device model memory"
+  ],
+  "limitations": [
+    "Pipeline bubbles",
+    "Load balancing complexity",
+    "Inter-stage communication"
+  ],
+  "tags": [
+    "pipeline-parallelism",
+    "model-parallelism",
+    "distributed-training"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "PipeDream: Generalized Pipeline Parallelism for DNN Training",
+      "url": "https://arxiv.org/abs/1806.03377"
+    }
+  ],
+  "relatedConcepts": [
+    "tensor-parallelism",
+    "data-parallelism"
+  ]
+},
+  {
+  "id": "zero",
+  "name": "ZeRO",
+  "family": "Distributed Memory Optimization",
+  "organization": "Microsoft Research",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "distributed-training",
+  "type": "optimizer-state-and-parameter-sharding",
+  "description": "ZeRO partitions optimizer states, gradients, and optionally model parameters across data-parallel workers, substantially reducing redundant memory consumption.",
+  "scaling": {
+    "dimension": "training memory",
+    "variable": "sharded optimizer states, gradients, parameters",
+    "effect": "larger models on distributed hardware",
+    "tradeoffs": [
+      "communication",
+      "implementation complexity",
+      "network bandwidth"
+    ]
+  },
+  "advantages": [
+    "Reduces memory redundancy",
+    "Enables larger model training",
+    "Works with data parallelism"
+  ],
+  "limitations": [
+    "Additional communication",
+    "Performance depends on interconnect"
+  ],
+  "tags": [
+    "zero",
+    "memory-optimization",
+    "distributed-training",
+    "sharding"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "ZeRO: Memory Optimizations Toward Training Trillion Parameter Models",
+      "url": "https://arxiv.org/abs/1910.02054"
+    }
+  ],
+  "relatedConcepts": [
+    "data-parallelism",
+    "tensor-parallelism",
+    "pipeline-parallelism"
+  ]
+},
+  {
+  "id": "expert-parallelism",
+  "name": "Expert Parallelism",
+  "family": "Distributed MoE Training",
+  "organization": "Research community",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "distributed-training",
+  "type": "moe-expert-distribution",
+  "description": "Expert parallelism distributes different Mixture-of-Experts expert networks across devices and routes tokens between devices according to the gating decisions.",
+  "scaling": {
+    "dimension": "MoE expert capacity",
+    "variable": "number of distributed experts",
+    "effect": "scales sparse expert models",
+    "tradeoffs": [
+      "all-to-all communication",
+      "load balancing",
+      "network bandwidth"
+    ]
+  },
+  "advantages": [
+    "Scales very large MoE models",
+    "Distributes expert memory",
+    "Supports sparse conditional computation"
+  ],
+  "limitations": [
+    "Heavy communication requirements",
+    "Expert load imbalance"
+  ],
+  "tags": [
+    "expert-parallelism",
+    "moe",
+    "distributed-training",
+    "all-to-all"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Switch Transformers",
+      "url": "https://arxiv.org/abs/2101.03961"
+    }
+  ],
+  "relatedConcepts": [
+    "moe-scaling",
+    "tensor-parallelism",
+    "data-parallelism"
+  ]
 }
