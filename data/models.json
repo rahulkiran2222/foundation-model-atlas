@@ -18886,4 +18886,862 @@
     "unified-multimodal-model",
     "vision-language-model"
   ]
+},
+{
+  "id": "word-tokenization",
+  "name": "Word-Level Tokenization",
+  "family": "Text Representation",
+  "organization": "Research community",
+  "releaseDate": "pre-2010",
+  "year": 2000,
+  "category": "tokenization",
+  "type": "word-level",
+  "description": "Word-level tokenization represents text primarily as complete words or whitespace-delimited units. It is conceptually simple but produces very large vocabularies and struggles with rare, unseen, and morphologically complex words.",
+  "representation": {
+    "unit": "word",
+    "vocabulary": "large",
+    "unknownToken": "typically required",
+    "subwordDecomposition": false,
+    "byteFallback": false
+  },
+  "efficiency": {
+    "sequenceLength": "shorter than subword tokenization for many texts",
+    "vocabularySize": "large",
+    "memory": "high vocabulary embedding/output cost"
+  },
+  "advantages": [
+    "Simple representation",
+    "Human-interpretable units",
+    "Short sequences for common text"
+  ],
+  "limitations": [
+    "Large vocabulary",
+    "Poor handling of unseen words",
+    "Weak handling of morphology",
+    "Out-of-vocabulary problem"
+  ],
+  "tags": [
+    "tokenization",
+    "word-level",
+    "nlp",
+    "text-representation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "subword-tokenization",
+    "bpe",
+    "wordpiece"
+  ]
+},
+  {
+  "id": "character-level-tokenization",
+  "name": "Character-Level Representation",
+  "family": "Text Representation",
+  "organization": "Research community",
+  "releaseDate": "pre-2010",
+  "year": 2000,
+  "category": "tokenization",
+  "type": "character-level",
+  "description": "Character-level representation treats individual characters as the basic sequence units, avoiding vocabulary-level unknown words at the cost of much longer sequences.",
+  "representation": {
+    "unit": "character",
+    "vocabulary": "small",
+    "unknownToken": "often unnecessary for known character sets",
+    "subwordDecomposition": false,
+    "byteFallback": false
+  },
+  "efficiency": {
+    "sequenceLength": "very long",
+    "vocabularySize": "small",
+    "memory": "low vocabulary cost but high sequence-processing cost"
+  },
+  "advantages": [
+    "Handles arbitrary words through character composition",
+    "Small vocabulary",
+    "Robust to spelling variation"
+  ],
+  "limitations": [
+    "Very long sequences",
+    "Higher computational cost for long text",
+    "More difficult long-range modeling"
+  ],
+  "tags": [
+    "character-level",
+    "tokenization",
+    "text-representation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "byte-level",
+    "tokenizer-free",
+    "subword-tokenization"
+  ]
+},
+  {
+  "id": "bpe",
+  "name": "Byte Pair Encoding",
+  "family": "Subword Tokenization",
+  "organization": "Research community",
+  "releaseDate": "2016",
+  "year": 2016,
+  "category": "tokenization",
+  "type": "bpe",
+  "description": "Byte Pair Encoding builds a subword vocabulary by iteratively merging frequently occurring symbol pairs. In neural language modeling it provides a compromise between character-level flexibility and word-level efficiency.",
+  "representation": {
+    "unit": "subword",
+    "vocabulary": "configurable",
+    "unknownToken": "implementation-dependent",
+    "subwordDecomposition": true,
+    "byteFallback": "implementation-dependent"
+  },
+  "efficiency": {
+    "sequenceLength": "moderate",
+    "vocabularySize": "configurable",
+    "memory": "vocabulary-dependent"
+  },
+  "advantages": [
+    "Handles rare words through decomposition",
+    "Balances vocabulary size and sequence length",
+    "Widely adopted"
+  ],
+  "limitations": [
+    "Token boundaries are data-dependent",
+    "Different tokenizers produce different segmentations",
+    "Can be inefficient for some languages and domains"
+  ],
+  "tags": [
+    "bpe",
+    "subword",
+    "tokenization",
+    "nlp"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Neural Machine Translation of Rare Words with Subword Units",
+      "url": "https://arxiv.org/abs/1508.07909"
+    }
+  ],
+  "relatedConcepts": [
+    "byte-level-bpe",
+    "sentencepiece",
+    "wordpiece"
+  ]
+},
+  {
+  "id": "wordpiece",
+  "name": "WordPiece",
+  "family": "Subword Tokenization",
+  "organization": "Google Research",
+  "releaseDate": "2012",
+  "year": 2012,
+  "category": "tokenization",
+  "type": "wordpiece",
+  "description": "WordPiece represents text using a learned vocabulary of subword units and was widely used in Transformer encoder models such as BERT.",
+  "representation": {
+    "unit": "subword",
+    "vocabulary": "learned",
+    "unknownToken": "typically available",
+    "subwordDecomposition": true,
+    "byteFallback": "implementation-dependent"
+  },
+  "efficiency": {
+    "sequenceLength": "moderate",
+    "vocabularySize": "configurable",
+    "memory": "vocabulary-dependent"
+  },
+  "advantages": [
+    "Handles unknown and rare words better than word-level tokenization",
+    "Effective for multilingual and general NLP settings",
+    "Widely established"
+  ],
+  "limitations": [
+    "Segmentation depends on learned vocabulary",
+    "Can produce inefficient sequences for some languages"
+  ],
+  "tags": [
+    "wordpiece",
+    "subword",
+    "bert",
+    "tokenization"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Google's Neural Machine Translation System",
+      "url": "https://arxiv.org/abs/1609.08144"
+    }
+  ],
+  "relatedConcepts": [
+    "bert",
+    "bpe",
+    "unigram"
+  ]
+},
+  {
+  "id": "sentencepiece",
+  "name": "SentencePiece",
+  "family": "Tokenization Framework",
+  "organization": "Google Research",
+  "releaseDate": "2018",
+  "year": 2018,
+  "category": "tokenization",
+  "type": "subword-tokenization-framework",
+  "description": "SentencePiece is a language-independent tokenization framework that learns subword segmentation directly from raw text without requiring whitespace-based preprocessing.",
+  "representation": {
+    "unit": "subword or character",
+    "vocabulary": "learned",
+    "unknownToken": "implementation-dependent",
+    "subwordDecomposition": true,
+    "byteFallback": "implementation-dependent"
+  },
+  "efficiency": {
+    "sequenceLength": "moderate",
+    "vocabularySize": "configurable",
+    "memory": "vocabulary-dependent"
+  },
+  "advantages": [
+    "Language-independent preprocessing",
+    "Works directly on raw text",
+    "Supports multiple segmentation algorithms",
+    "Widely used in multilingual models"
+  ],
+  "limitations": [
+    "Tokenizer behavior depends on training configuration",
+    "Segmentation can differ substantially across model families"
+  ],
+  "tags": [
+    "sentencepiece",
+    "tokenization",
+    "subword",
+    "multilingual"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "SentencePiece: A simple and language independent subword tokenizer and detokenizer for Neural Text Processing",
+      "url": "https://arxiv.org/abs/1808.06226"
+    }
+  ],
+  "relatedConcepts": [
+    "bpe",
+    "unigram",
+    "wordpiece"
+  ]
+},
+  {
+  "id": "unigram-tokenization",
+  "name": "Unigram Language Model Tokenization",
+  "family": "Subword Tokenization",
+  "organization": "Research community",
+  "releaseDate": "2018",
+  "year": 2018,
+  "category": "tokenization",
+  "type": "unigram-language-model",
+  "description": "Unigram tokenization starts from a large candidate vocabulary and iteratively removes pieces according to a probabilistic language-model objective, selecting segmentations based on likelihood.",
+  "representation": {
+    "unit": "subword",
+    "vocabulary": "probabilistically learned",
+    "unknownToken": "implementation-dependent",
+    "subwordDecomposition": true,
+    "byteFallback": "implementation-dependent"
+  },
+  "efficiency": {
+    "sequenceLength": "moderate",
+    "vocabularySize": "configurable",
+    "memory": "vocabulary-dependent"
+  },
+  "advantages": [
+    "Probabilistic segmentation",
+    "Multiple possible segmentations can be modeled",
+    "Useful for multilingual tokenization"
+  ],
+  "limitations": [
+    "More complex training procedure",
+    "Tokenizer quality depends on corpus"
+  ],
+  "tags": [
+    "unigram",
+    "sentencepiece",
+    "subword",
+    "tokenization"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Subword Regularization: Improving Neural Network Translation Models with Multiple Subword Candidates",
+      "url": "https://arxiv.org/abs/1804.10959"
+    }
+  ],
+  "relatedConcepts": [
+    "sentencepiece",
+    "bpe",
+    "wordpiece"
+  ]
+},
+  {
+  "id": "byte-level-bpe",
+  "name": "Byte-Level BPE",
+  "family": "Subword Tokenization",
+  "organization": "OpenAI / research community",
+  "releaseDate": "2019",
+  "year": 2019,
+  "category": "tokenization",
+  "type": "byte-level-bpe",
+  "description": "Byte-level BPE applies BPE-style merging over byte representations, allowing arbitrary text and Unicode content to be represented without relying on a fixed character vocabulary.",
+  "representation": {
+    "unit": "byte-derived subword",
+    "vocabulary": "learned",
+    "unknownToken": "typically unnecessary for arbitrary byte sequences",
+    "subwordDecomposition": true,
+    "byteFallback": true
+  },
+  "efficiency": {
+    "sequenceLength": "moderate",
+    "vocabularySize": "configurable",
+    "memory": "vocabulary-dependent"
+  },
+  "advantages": [
+    "Robust coverage of arbitrary text",
+    "Avoids many unknown-token cases",
+    "Works across languages and unusual strings"
+  ],
+  "limitations": [
+    "Some languages can require many tokens",
+    "Token efficiency depends strongly on vocabulary and corpus"
+  ],
+  "tags": [
+    "byte-level",
+    "bpe",
+    "gpt",
+    "tokenization"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Language Models are Unsupervised Multitask Learners",
+      "url": "https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf"
+    }
+  ],
+  "relatedConcepts": [
+    "bpe",
+    "gpt",
+    "token-free-models"
+  ]
+},
+  {
+  "id": "byte-level-representation",
+  "name": "Byte-Level Representation",
+  "family": "Text Representation",
+  "organization": "Research community",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "tokenization",
+  "type": "raw-byte-sequence",
+  "description": "Byte-level representation processes raw byte sequences directly or with minimal learned segmentation, providing universal coverage of textual data while potentially increasing sequence length.",
+  "representation": {
+    "unit": "byte",
+    "vocabulary": "small fixed byte vocabulary",
+    "unknownToken": false,
+    "subwordDecomposition": false,
+    "byteFallback": true
+  },
+  "efficiency": {
+    "sequenceLength": "long",
+    "vocabularySize": "very small",
+    "memory": "low vocabulary cost but potentially high sequence-processing cost"
+  },
+  "advantages": [
+    "Universal input coverage",
+    "No unknown tokens",
+    "Language-independent base representation"
+  ],
+  "limitations": [
+    "Longer sequences",
+    "Higher compute for equivalent text"
+  ],
+  "tags": [
+    "bytes",
+    "byte-level",
+    "tokenization",
+    "tokenizer-free"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "byte-level-bpe",
+    "bytenet",
+    "token-free-models"
+  ]
+},
+  {
+  "id": "vision-patch-tokenization",
+  "name": "Vision Patch Tokenization",
+  "family": "Visual Representation",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "multimodal-tokenization",
+  "type": "image-patch-tokenization",
+  "description": "Vision patch tokenization divides an image into fixed-size or structured patches and maps each patch to an embedding that can be processed as a sequence of visual tokens.",
+  "representation": {
+    "unit": "image patch",
+    "vocabulary": "continuous embedding space",
+    "unknownToken": false,
+    "subwordDecomposition": false,
+    "byteFallback": false
+  },
+  "efficiency": {
+    "sequenceLength": "proportional to image area and inverse patch area",
+    "vocabularySize": "continuous",
+    "memory": "depends on visual token count"
+  },
+  "advantages": [
+    "Simple conversion of images into Transformer-compatible sequences",
+    "Scales naturally with Vision Transformers",
+    "Supports multimodal token integration"
+  ],
+  "limitations": [
+    "High-resolution images create many tokens",
+    "Fixed patch size may lose fine-grained information"
+  ],
+  "tags": [
+    "vision-transformer",
+    "patches",
+    "visual-tokens",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+      "url": "https://arxiv.org/abs/2010.11929"
+    }
+  ],
+  "relatedConcepts": [
+    "vit",
+    "visual-tokenization",
+    "multimodal-tokenization"
+  ]
+},
+  {
+  "id": "discrete-image-tokenization",
+  "name": "Discrete Image Tokenization",
+  "family": "Visual Representation",
+  "organization": "Research community",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "multimodal-tokenization",
+  "type": "discrete-visual-codebook",
+  "description": "Discrete image tokenization converts continuous visual information into a sequence of discrete codebook indices, allowing image content to be modeled using token-prediction architectures.",
+  "representation": {
+    "unit": "discrete visual code",
+    "vocabulary": "learned codebook",
+    "unknownToken": false,
+    "subwordDecomposition": false,
+    "byteFallback": false
+  },
+  "efficiency": {
+    "sequenceLength": "depends on latent resolution",
+    "vocabularySize": "codebook-dependent",
+    "memory": "depends on visual token count"
+  },
+  "advantages": [
+    "Allows image generation using token prediction",
+    "Compatible with autoregressive sequence models",
+    "Provides discrete visual vocabulary"
+  ],
+  "limitations": [
+    "Quantization can lose visual information",
+    "Codebook quality strongly affects reconstruction"
+  ],
+  "tags": [
+    "image-tokens",
+    "vq",
+    "vqvae",
+    "visual-tokenization",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Neural Discrete Representation Learning",
+      "url": "https://arxiv.org/abs/1711.00937"
+    }
+  ],
+  "relatedConcepts": [
+    "vqvae",
+    "vqgan",
+    "image-generation",
+    "janus"
+  ]
+},
+  {
+  "id": "audio-tokenization",
+  "name": "Audio Tokenization",
+  "family": "Audio Representation",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "multimodal-tokenization",
+  "type": "audio-codec-tokenization",
+  "description": "Audio tokenization converts speech, music, or general audio into compact continuous or discrete representations that can be processed by sequence models.",
+  "representation": {
+    "unit": "audio frame or discrete codec code",
+    "vocabulary": "continuous or learned codebook",
+    "unknownToken": false,
+    "subwordDecomposition": false,
+    "byteFallback": false
+  },
+  "efficiency": {
+    "sequenceLength": "depends on frame rate and compression",
+    "vocabularySize": "codec-dependent",
+    "memory": "depends on temporal resolution"
+  },
+  "advantages": [
+    "Enables language-model-style processing of audio",
+    "Can support speech generation and understanding",
+    "Compact codec representations"
+  ],
+  "limitations": [
+    "Temporal sequences can remain very long",
+    "Codec quality affects downstream performance"
+  ],
+  "tags": [
+    "audio-tokenization",
+    "speech",
+    "codec",
+    "audio-language-model"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "audio-codec",
+    "speech-tokenization",
+    "multimodal-tokenization"
+  ]
+},
+  {
+  "id": "encodec",
+  "name": "EnCodec",
+  "family": "Neural Audio Codec",
+  "organization": "Meta AI",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "audio-representation",
+  "type": "neural-audio-codec",
+  "description": "EnCodec is a neural audio codec that compresses audio into discrete latent representations using an encoder, quantization mechanism, and decoder.",
+  "representation": {
+    "unit": "discrete codec code",
+    "vocabulary": "learned codebooks",
+    "unknownToken": false,
+    "subwordDecomposition": false,
+    "byteFallback": false
+  },
+  "efficiency": {
+    "sequenceLength": "compressed relative to raw waveform",
+    "vocabularySize": "codebook-dependent",
+    "memory": "codec-rate dependent"
+  },
+  "advantages": [
+    "High-quality audio compression",
+    "Discrete representations suitable for generative modeling",
+    "Supports speech and music applications"
+  ],
+  "limitations": [
+    "Compression introduces reconstruction tradeoffs",
+    "Multiple codebooks can increase sequence complexity"
+  ],
+  "tags": [
+    "encodec",
+    "audio-codec",
+    "audio-tokens",
+    "speech"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "High Fidelity Neural Audio Compression",
+      "url": "https://arxiv.org/abs/2210.13438"
+    }
+  ],
+  "relatedConcepts": [
+    "audio-tokenization",
+    "audiogen",
+    "speech-tokenization"
+  ]
+},
+  {
+  "id": "speech-tokenization",
+  "name": "Speech Tokenization",
+  "family": "Speech Representation",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "multimodal-tokenization",
+  "type": "speech-unit-representation",
+  "description": "Speech tokenization represents spoken language as learned acoustic, phonetic, semantic, or codec units that can be modeled by sequence architectures.",
+  "representation": {
+    "unit": "speech unit",
+    "vocabulary": "learned or codec-based",
+    "unknownToken": false,
+    "subwordDecomposition": false,
+    "byteFallback": false
+  },
+  "efficiency": {
+    "sequenceLength": "depends on temporal resolution",
+    "vocabularySize": "model-dependent",
+    "memory": "sequence-rate dependent"
+  },
+  "advantages": [
+    "Allows speech to be modeled as discrete sequences",
+    "Can unify speech and language modeling",
+    "Supports speech generation and understanding"
+  ],
+  "limitations": [
+    "Speech contains information at multiple timescales",
+    "Token design strongly affects quality"
+  ],
+  "tags": [
+    "speech",
+    "speech-tokens",
+    "audio",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "encodec",
+    "audio-tokenization",
+    "speech-language-model"
+  ]
+},
+  {
+  "id": "video-tokenization",
+  "name": "Video Tokenization",
+  "family": "Video Representation",
+  "organization": "Research community",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "multimodal-tokenization",
+  "type": "spatiotemporal-tokenization",
+  "description": "Video tokenization converts spatial and temporal visual information into sequences of visual tokens representing frames, patches, or compressed spatiotemporal units.",
+  "representation": {
+    "unit": "spatiotemporal patch or visual token",
+    "vocabulary": "continuous or discrete",
+    "unknownToken": false,
+    "subwordDecomposition": false,
+    "byteFallback": false
+  },
+  "efficiency": {
+    "sequenceLength": "grows with spatial and temporal resolution",
+    "vocabularySize": "representation-dependent",
+    "memory": "potentially very high"
+  },
+  "advantages": [
+    "Supports video-language modeling",
+    "Captures temporal dynamics",
+    "Compatible with multimodal Transformers"
+  ],
+  "limitations": [
+    "Very large token counts",
+    "High compute and memory requirements",
+    "Temporal compression can lose information"
+  ],
+  "tags": [
+    "video",
+    "video-tokens",
+    "spatiotemporal",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "vision-patch-tokenization",
+    "video-language-model",
+    "multimodal-tokenization"
+  ]
+},
+  {
+  "id": "unified-multimodal-token-space",
+  "name": "Unified Multimodal Token Space",
+  "family": "Multimodal Representation",
+  "organization": "Research community",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "multimodal-tokenization",
+  "type": "unified-token-space",
+  "description": "A unified multimodal token space represents multiple modalities using compatible token-like representations that can be processed within a common sequence-modeling framework.",
+  "representation": {
+    "unit": "modality-specific or shared token",
+    "vocabulary": "shared or coordinated modality vocabularies",
+    "unknownToken": "model-dependent",
+    "subwordDecomposition": "modality-dependent",
+    "byteFallback": "model-dependent"
+  },
+  "efficiency": {
+    "sequenceLength": "depends on modality compression",
+    "vocabularySize": "model-dependent",
+    "memory": "depends on total multimodal token count"
+  },
+  "fusion": {
+    "type": "early or interleaved fusion",
+    "mechanism": "shared sequence modeling",
+    "crossModalAttention": true,
+    "sharedRepresentation": true
+  },
+  "advantages": [
+    "Unified multimodal processing",
+    "Natural interleaving of modalities",
+    "Potentially supports multimodal generation"
+  ],
+  "limitations": [
+    "Token counts can become extremely large",
+    "Different modalities have very different information densities",
+    "Requires careful tokenization and alignment"
+  ],
+  "tags": [
+    "multimodal",
+    "token-space",
+    "unified-representation",
+    "multimodal-tokenization"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "chameleon",
+    "janus",
+    "multimodal-tokenization"
+  ]
+},
+  {
+  "id": "tokenizer-free-modeling",
+  "name": "Tokenizer-Free Modeling",
+  "family": "Alternative Text Representation",
+  "organization": "Research community",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "tokenization",
+  "type": "tokenizer-free",
+  "description": "Tokenizer-free models process byte-level or character-level representations directly rather than relying on a conventional learned subword tokenizer, aiming to simplify multilingual and arbitrary-text processing.",
+  "representation": {
+    "unit": "byte or character",
+    "vocabulary": "small fixed representation",
+    "unknownToken": false,
+    "subwordDecomposition": false,
+    "byteFallback": true
+  },
+  "efficiency": {
+    "sequenceLength": "typically longer than subword tokenization",
+    "vocabularySize": "small",
+    "memory": "low vocabulary cost but potentially higher sequence-processing cost"
+  },
+  "advantages": [
+    "No separate tokenizer dependency",
+    "Universal text coverage",
+    "Avoids tokenizer vocabulary limitations",
+    "Potentially better handling of unusual strings"
+  ],
+  "limitations": [
+    "Longer sequences",
+    "Higher compute requirements for equivalent text",
+    "Requires architectures optimized for long sequences"
+  ],
+  "tags": [
+    "tokenizer-free",
+    "byte-level",
+    "character-level",
+    "text-representation"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "ByT5: Towards a Token-Free Future with Pre-trained Byte-to-Byte Models",
+      "url": "https://arxiv.org/abs/2105.13626"
+    }
+  ],
+  "relatedConcepts": [
+    "byt5",
+    "byte-level-representation",
+    "character-level-tokenization"
+  ]
+},
+  {
+  "id": "byt5",
+  "name": "ByT5",
+  "family": "Tokenizer-Free Language Model",
+  "organization": "Google Research",
+  "releaseDate": "2021-05",
+  "year": 2021,
+  "category": "foundation-model",
+  "type": "byte-to-byte-transformer",
+  "description": "ByT5 is a tokenizer-free sequence-to-sequence Transformer that operates directly on UTF-8 byte sequences rather than conventional subword tokens.",
+  "architecture": {
+    "family": "encoder-decoder Transformer",
+    "attention": "self-attention",
+    "position": "relative position",
+    "sparsity": "dense",
+    "sequenceStrategy": "byte-level sequence-to-sequence"
+  },
+  "representation": {
+    "unit": "UTF-8 byte",
+    "vocabulary": "small fixed byte vocabulary",
+    "unknownToken": false,
+    "subwordDecomposition": false,
+    "byteFallback": true
+  },
+  "efficiency": {
+    "sequenceLength": "longer than subword-based T5",
+    "vocabularySize": "small",
+    "memory": "sequence-length dependent"
+  },
+  "modality": {
+    "input": [
+      "text bytes"
+    ],
+    "output": [
+      "text bytes"
+    ]
+  },
+  "training": {
+    "objective": "span corruption",
+    "direction": "encoder-decoder",
+    "masking": "span corruption",
+    "target": "corrupted byte spans",
+    "data": "multilingual text"
+  },
+  "advantages": [
+    "No tokenizer",
+    "Strong multilingual robustness",
+    "Handles arbitrary strings"
+  ],
+  "limitations": [
+    "Longer sequences",
+    "Higher computational requirements"
+  ],
+  "tags": [
+    "byt5",
+    "tokenizer-free",
+    "byte-level",
+    "t5"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "ByT5: Towards a Token-Free Future with Pre-trained Byte-to-Byte Models",
+      "url": "https://arxiv.org/abs/2105.13626"
+    }
+  ],
+  "relatedConcepts": [
+    "tokenizer-free-modeling",
+    "t5",
+    "byte-level-representation"
+  ]
+  "representation": {
+  "tokenizer": "",
+  "tokenizerType": "",
+  "tokenUnit": "",
+  "vocabularySize": null,
+  "byteFallback": false,
+  "specialTokens": [],
+  "multilingualCoverage": [],
+  "imageRepresentation": "",
+  "audioRepresentation": "",
+  "videoRepresentation": "",
+  "tokenEfficiencyNotes": ""
 }
