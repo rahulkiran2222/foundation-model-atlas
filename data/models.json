@@ -26071,5 +26071,927 @@
     "retrieval-grounding",
     "vision-language-model"
   ]
+},
+{
+  "id": "tokenization",
+  "name": "Tokenization",
+  "family": "Tokenization & Representation",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2015,
+  "category": "representation",
+  "type": "tokenization",
+  "description": "Tokenization converts raw input text or other modalities into units that a model can process as discrete tokens or structured representations.",
+  "textUnits": [
+    "characters",
+    "bytes",
+    "subwords",
+    "words",
+    "special tokens"
+  ],
+  "goals": [
+    "represent text compactly",
+    "control vocabulary size",
+    "handle rare words",
+    "support multilingual text",
+    "provide efficient model inputs"
+  ],
+  "tradeoffs": [
+    "sequence length",
+    "vocabulary size",
+    "training efficiency",
+    "multilingual coverage",
+    "unknown-token behavior"
+  ],
+  "tags": [
+    "tokenization",
+    "tokens",
+    "nlp",
+    "representation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "bpe",
+    "wordpiece",
+    "sentencepiece",
+    "byte-level-tokenization"
+  ]
+},
+  {
+  "id": "bpe",
+  "name": "Byte Pair Encoding",
+  "family": "Tokenization",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2016,
+  "category": "representation",
+  "type": "subword-tokenization",
+  "description": "Byte Pair Encoding constructs a subword vocabulary by iteratively merging frequent symbol or token pairs.",
+  "mechanism": [
+    "initialize symbols",
+    "count adjacent pairs",
+    "merge frequent pairs",
+    "repeat until vocabulary target is reached"
+  ],
+  "advantages": [
+    "Balances vocabulary size and sequence length",
+    "Handles rare words through subword decomposition",
+    "Widely used in language models"
+  ],
+  "limitations": [
+    "Token boundaries can be linguistically arbitrary",
+    "Token efficiency varies across languages",
+    "Tokenizer behavior can affect downstream model performance"
+  ],
+  "tags": [
+    "bpe",
+    "tokenization",
+    "subword",
+    "nlp"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "byte-level-bpe",
+    "wordpiece",
+    "sentencepiece"
+  ]
+},
+  {
+  "id": "byte-level-bpe",
+  "name": "Byte-Level BPE",
+  "family": "Tokenization",
+  "organization": "Research community",
+  "releaseDate": "2019",
+  "year": 2019,
+  "category": "representation",
+  "type": "byte-level-subword-tokenization",
+  "description": "Byte-Level BPE performs subword tokenization over byte representations, allowing arbitrary text to be represented without requiring a fixed character vocabulary.",
+  "mechanism": [
+    "convert text to bytes",
+    "apply BPE merges",
+    "produce token IDs"
+  ],
+  "advantages": [
+    "Can represent arbitrary text",
+    "Avoids unknown characters in many settings",
+    "Works across diverse writing systems"
+  ],
+  "limitations": [
+    "Some inputs require many tokens",
+    "Token boundaries are not necessarily linguistically meaningful",
+    "Token efficiency varies across scripts"
+  ],
+  "tags": [
+    "byte-level",
+    "bpe",
+    "tokenization",
+    "gpt"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "bpe",
+    "byte-tokenization",
+    "tokenizer-free-model"
+  ]
+},
+  {
+  "id": "wordpiece",
+  "name": "WordPiece",
+  "family": "Tokenization",
+  "organization": "Google",
+  "releaseDate": "2010s",
+  "year": 2016,
+  "category": "representation",
+  "type": "subword-tokenization",
+  "description": "WordPiece is a subword tokenization method that constructs a vocabulary designed to efficiently represent text while balancing vocabulary size and sequence length.",
+  "mechanism": [
+    "initialize vocabulary",
+    "identify useful subword units",
+    "construct vocabulary",
+    "segment input text"
+  ],
+  "advantages": [
+    "Effective handling of rare words",
+    "Compact vocabulary",
+    "Widely used in encoder language models"
+  ],
+  "limitations": [
+    "Tokenization can vary significantly across languages",
+    "Subword boundaries are not equivalent to linguistic morphemes"
+  ],
+  "tags": [
+    "wordpiece",
+    "bert",
+    "tokenization",
+    "subword"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "bert",
+    "bpe",
+    "sentencepiece"
+  ]
+},
+  {
+  "id": "sentencepiece",
+  "name": "SentencePiece",
+  "family": "Tokenization",
+  "organization": "Research community",
+  "releaseDate": "2018",
+  "year": 2018,
+  "category": "representation",
+  "type": "language-independent-tokenizer",
+  "description": "SentencePiece is a tokenizer framework that trains subword segmentation models directly from raw text without requiring language-specific whitespace preprocessing.",
+  "algorithms": [
+    "BPE",
+    "Unigram"
+  ],
+  "advantages": [
+    "Works directly on raw text",
+    "Useful for multilingual models",
+    "Does not require language-specific tokenization rules"
+  ],
+  "limitations": [
+    "Token efficiency depends on the trained vocabulary",
+    "Different languages can receive substantially different tokenization efficiency"
+  ],
+  "tags": [
+    "sentencepiece",
+    "tokenization",
+    "bpe",
+    "unigram"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "bpe",
+    "unigram-tokenization",
+    "multilingual-tokenization"
+  ]
+},
+  {
+  "id": "unigram-tokenization",
+  "name": "Unigram Language Model Tokenization",
+  "family": "Tokenization",
+  "organization": "Research community",
+  "releaseDate": "2018",
+  "year": 2018,
+  "category": "representation",
+  "type": "probabilistic-subword-tokenization",
+  "description": "Unigram tokenization models text as sequences of subword units and selects segmentations according to learned probabilities.",
+  "mechanism": [
+    "initialize candidate vocabulary",
+    "estimate subword probabilities",
+    "remove low-value candidates",
+    "select probable segmentations"
+  ],
+  "advantages": [
+    "Probabilistic segmentation",
+    "Useful for multilingual and diverse text",
+    "Can provide multiple possible segmentations"
+  ],
+  "limitations": [
+    "Vocabulary training is more complex",
+    "Segmentation behavior depends on the learned vocabulary"
+  ],
+  "tags": [
+    "unigram",
+    "sentencepiece",
+    "tokenization",
+    "subword"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "sentencepiece",
+    "bpe",
+    "wordpiece"
+  ]
+},
+  {
+  "id": "multilingual-tokenization",
+  "name": "Multilingual Tokenization",
+  "family": "Tokenization",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "representation",
+  "type": "multilingual-tokenization",
+  "description": "Multilingual tokenization determines how a shared tokenizer represents text across languages, scripts, writing systems, and linguistic structures.",
+  "dimensions": [
+    "tokens per character",
+    "tokens per word",
+    "vocabulary allocation",
+    "script coverage",
+    "language coverage"
+  ],
+  "problems": [
+    "unequal token efficiency",
+    "underrepresented scripts",
+    "vocabulary imbalance",
+    "longer sequences for some languages"
+  ],
+  "impact": [
+    "higher inference cost",
+    "larger context consumption",
+    "different effective information density",
+    "potential downstream performance differences"
+  ],
+  "tags": [
+    "multilingual",
+    "tokenization",
+    "language-modeling",
+    "fairness"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "tokenization",
+    "byte-level-tokenization",
+    "tokenizer-free-model"
+  ]
+},
+  {
+  "id": "token-fertility",
+  "name": "Token Fertility",
+  "family": "Tokenization Metrics",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "representation",
+  "type": "token-efficiency",
+  "description": "Token fertility measures how many tokens are required to represent a given unit of text, such as a word, character sequence, or semantic content.",
+  "metrics": [
+    "tokens per word",
+    "tokens per character",
+    "tokens per byte",
+    "tokens per sentence"
+  ],
+  "importance": [
+    "Provides a practical measure of tokenizer efficiency",
+    "Affects context utilization",
+    "Affects inference and training cost",
+    "Useful for multilingual comparisons"
+  ],
+  "limitations": [
+    "Lower token count does not automatically imply better representations",
+    "Tokenization quality is language- and task-dependent"
+  ],
+  "tags": [
+    "token-fertility",
+    "tokenization",
+    "efficiency",
+    "multilingual"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "multilingual-tokenization",
+    "tokenization"
+  ]
+},
+  {
+  "id": "tokenizer-free-model",
+  "name": "Tokenizer-Free Model",
+  "family": "Tokenization Alternatives",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2021,
+  "category": "representation",
+  "type": "tokenizer-free",
+  "description": "Tokenizer-free models process text directly at the byte or character level rather than relying on a conventional subword tokenizer.",
+  "inputUnits": [
+    "bytes",
+    "characters",
+    "raw text representations"
+  ],
+  "advantages": [
+    "Avoids fixed subword vocabulary",
+    "Naturally represents arbitrary text",
+    "Can simplify multilingual and unusual-text handling",
+    "Eliminates tokenizer mismatch between languages or domains"
+  ],
+  "limitations": [
+    "Sequence lengths can become substantially longer",
+    "Requires efficient architectures to process fine-grained inputs",
+    "Training and inference efficiency can be challenging"
+  ],
+  "tags": [
+    "tokenizer-free",
+    "byte-level",
+    "character-level",
+    "language-modeling"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "byT5",
+    "canine",
+    "blt",
+    "byte-tokenization"
+  ]
+},
+  {
+  "id": "byt5",
+  "name": "ByT5",
+  "family": "Tokenizer-Free Models",
+  "organization": "Google Research",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "representation",
+  "type": "byte-level-encoder-decoder",
+  "description": "ByT5 is a byte-level sequence-to-sequence Transformer that operates directly on UTF-8 bytes rather than using a conventional subword tokenizer.",
+  "architecture": {
+    "type": "encoder-decoder Transformer",
+    "inputRepresentation": "UTF-8 bytes",
+    "tokenizer": "none in the conventional subword sense"
+  },
+  "advantages": [
+    "Handles arbitrary text",
+    "Robust to spelling and noise",
+    "Avoids language-specific subword vocabulary design"
+  ],
+  "limitations": [
+    "Much longer input sequences",
+    "Higher computational cost without architectural efficiency techniques"
+  ],
+  "tags": [
+    "byt5",
+    "tokenizer-free",
+    "byte-level",
+    "encoder-decoder"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "ByT5: Towards a Token-Free Future with Pre-trained Byte-to-Byte Models",
+      "url": "https://arxiv.org/abs/2105.13626"
+    }
+  ],
+  "relatedConcepts": [
+    "tokenizer-free-model",
+    "canine",
+    "byte-tokenization"
+  ]
+},
+  {
+  "id": "canine",
+  "name": "CANINE",
+  "family": "Tokenizer-Free Models",
+  "organization": "Google Research",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "representation",
+  "type": "character-level-encoder",
+  "description": "CANINE is a character-level Transformer architecture designed to process text without a conventional subword tokenizer while using downsampling and local processing to control sequence length.",
+  "architecture": [
+    "character input",
+    "local processing",
+    "downsampling",
+    "Transformer layers"
+  ],
+  "advantages": [
+    "Avoids subword tokenization",
+    "Handles arbitrary Unicode text",
+    "Can improve robustness to spelling variation"
+  ],
+  "limitations": [
+    "Character sequences are much longer",
+    "Requires specialized architecture to manage sequence length"
+  ],
+  "tags": [
+    "canine",
+    "character-level",
+    "tokenizer-free",
+    "transformer"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "CANINE: Pre-training an Efficient Tokenization-Free Encoder for Language Representation",
+      "url": "https://arxiv.org/abs/2103.06874"
+    }
+  ],
+  "relatedConcepts": [
+    "byt5",
+    "tokenizer-free-model",
+    "character-model"
+  ]
+},
+  {
+  "id": "blt",
+  "name": "Byte Latent Transformer",
+  "family": "Tokenizer-Free Models",
+  "organization": "Meta",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "representation",
+  "type": "byte-latent-model",
+  "description": "Byte Latent Transformer is a tokenizer-free architecture that operates on raw bytes while dynamically creating latent patches of bytes for more efficient computation.",
+  "architecture": {
+    "input": "raw bytes",
+    "patching": "dynamic byte patches",
+    "latentProcessing": "Transformer",
+    "design": "compute allocated according to byte-level information"
+  },
+  "advantages": [
+    "Avoids fixed tokenizer vocabulary",
+    "Can allocate computation adaptively",
+    "Addresses the sequence-length problem of raw-byte modeling"
+  ],
+  "limitations": [
+    "Architecture is more complex than conventional tokenized Transformers",
+    "Byte-level processing still requires efficient sequence compression"
+  ],
+  "tags": [
+    "blt",
+    "byte-level",
+    "tokenizer-free",
+    "latent"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "tokenizer-free-model",
+    "byt5",
+    "dynamic-patching"
+  ]
+},
+  {
+  "id": "embeddings",
+  "name": "Embeddings",
+  "family": "Representation",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2013,
+  "category": "representation",
+  "type": "embedding",
+  "description": "An embedding is a learned or constructed vector representation that maps discrete or structured inputs into a continuous numerical space.",
+  "types": [
+    "token embeddings",
+    "sentence embeddings",
+    "document embeddings",
+    "image embeddings",
+    "multimodal embeddings"
+  ],
+  "properties": [
+    "dimensionality",
+    "semantic structure",
+    "similarity geometry",
+    "context dependence"
+  ],
+  "uses": [
+    "language modeling",
+    "semantic search",
+    "retrieval",
+    "classification",
+    "clustering",
+    "recommendation"
+  ],
+  "tags": [
+    "embeddings",
+    "representation",
+    "vectors"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "token-embeddings",
+    "sentence-embeddings",
+    "dense-retrieval"
+  ]
+},
+  {
+  "id": "token-embeddings",
+  "name": "Token Embeddings",
+  "family": "Representation",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2013,
+  "category": "representation",
+  "type": "token-embedding",
+  "description": "Token embeddings map discrete token IDs to continuous vectors that form the initial representation of tokens entering a neural language model.",
+  "mechanism": [
+    "token ID",
+    "embedding lookup",
+    "continuous vector"
+  ],
+  "properties": [
+    "embedding dimension",
+    "vocabulary size",
+    "learned representation"
+  ],
+  "limitations": [
+    "A token's initial embedding does not fully represent contextual meaning",
+    "Contextual representations are created by subsequent model layers"
+  ],
+  "tags": [
+    "token-embedding",
+    "embedding",
+    "transformer"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "embeddings",
+    "contextual-representation",
+    "tokenization"
+  ]
+},
+  {
+  "id": "contextual-representation",
+  "name": "Contextual Representation",
+  "family": "Representation",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "representation",
+  "type": "contextual-embedding",
+  "description": "Contextual representations are token or sequence representations whose values depend on surrounding input and the transformations performed by the model.",
+  "examples": [
+    "Transformer hidden states",
+    "contextual token representations"
+  ],
+  "properties": [
+    "context-dependent",
+    "layer-dependent",
+    "position-dependent"
+  ],
+  "advantages": [
+    "Represents different meanings of the same token in different contexts",
+    "Supports complex semantic and syntactic reasoning"
+  ],
+  "limitations": [
+    "Representations are distributed and difficult to interpret directly",
+    "Different layers encode different information"
+  ],
+  "tags": [
+    "contextual-embedding",
+    "hidden-state",
+    "representation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "token-embeddings",
+    "transformer",
+    "hidden-state"
+  ]
+},
+  {
+  "id": "sentence-embeddings",
+  "name": "Sentence Embeddings",
+  "family": "Embedding Models",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2019,
+  "category": "representation",
+  "type": "sentence-embedding",
+  "description": "Sentence embeddings represent complete sentences or short text passages as vectors intended to capture semantic information useful for similarity and retrieval.",
+  "uses": [
+    "semantic search",
+    "clustering",
+    "retrieval",
+    "duplicate detection",
+    "classification"
+  ],
+  "evaluation": [
+    "semantic similarity",
+    "retrieval recall",
+    "clustering quality"
+  ],
+  "limitations": [
+    "Compression into a single vector can lose fine-grained information",
+    "Embedding similarity does not guarantee factual equivalence"
+  ],
+  "tags": [
+    "sentence-embedding",
+    "embeddings",
+    "semantic-search"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "dense-retrieval",
+    "embedding-model",
+    "document-embeddings"
+  ]
+},
+  {
+  "id": "dense-representation",
+  "name": "Dense Representation",
+  "family": "Representation",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2013,
+  "category": "representation",
+  "type": "dense-vector",
+  "description": "A dense representation stores information across many dimensions of a continuous vector, with most dimensions containing non-zero values.",
+  "advantages": [
+    "Compact semantic representation",
+    "Efficient vector operations",
+    "Well suited to neural similarity learning"
+  ],
+  "limitations": [
+    "Individual dimensions are often difficult to interpret",
+    "Dense similarity can miss exact lexical constraints"
+  ],
+  "tags": [
+    "dense-vector",
+    "embedding",
+    "representation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "sparse-representation",
+    "dense-retrieval",
+    "embeddings"
+  ]
+},
+  {
+  "id": "sparse-representation",
+  "name": "Sparse Representation",
+  "family": "Representation",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "representation",
+  "type": "sparse-vector",
+  "description": "A sparse representation contains many zero or inactive dimensions and concentrates information in a relatively small subset of features.",
+  "examples": [
+    "bag-of-words",
+    "TF-IDF",
+    "sparse neural retrieval representations",
+    "sparse attention patterns"
+  ],
+  "advantages": [
+    "Interpretable feature activation in some systems",
+    "Efficient exact matching",
+    "Can represent rare lexical features effectively"
+  ],
+  "limitations": [
+    "Often less compact for dense semantic information",
+    "Large sparse spaces require specialized indexing"
+  ],
+  "tags": [
+    "sparse-representation",
+    "sparse-retrieval",
+    "representation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "dense-representation",
+    "hybrid-retrieval",
+    "embeddings"
+  ]
+},
+  {
+  "id": "sparse-representation",
+  "name": "Sparse Representation",
+  "family": "Representation",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "representation",
+  "type": "sparse-vector",
+  "description": "A sparse representation contains many zero or inactive dimensions and concentrates information in a relatively small subset of features.",
+  "examples": [
+    "bag-of-words",
+    "TF-IDF",
+    "sparse neural retrieval representations",
+    "sparse attention patterns"
+  ],
+  "advantages": [
+    "Interpretable feature activation in some systems",
+    "Efficient exact matching",
+    "Can represent rare lexical features effectively"
+  ],
+  "limitations": [
+    "Often less compact for dense semantic information",
+    "Large sparse spaces require specialized indexing"
+  ],
+  "tags": [
+    "sparse-representation",
+    "sparse-retrieval",
+    "representation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "dense-representation",
+    "hybrid-retrieval",
+    "embeddings"
+  ]
+},
+  {
+  "id": "learned-positional-embedding",
+  "name": "Learned Positional Embeddings",
+  "family": "Positional Representation",
+  "organization": "Research community",
+  "releaseDate": "2017",
+  "year": 2017,
+  "category": "representation",
+  "type": "learned-position",
+  "description": "Learned positional embeddings assign trainable vectors to sequence positions so that Transformer models can distinguish token order.",
+  "mechanism": [
+    "position ID",
+    "learned position vector",
+    "addition to token representation"
+  ],
+  "advantages": [
+    "Simple implementation",
+    "Directly learned from training data"
+  ],
+  "limitations": [
+    "Often tied to a fixed maximum position range",
+    "Extrapolation to longer contexts can be difficult"
+  ],
+  "tags": [
+    "positional-embedding",
+    "transformer",
+    "position"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rope",
+    "alibi",
+    "positional-encoding"
+  ]
+},
+  {
+  "id": "absolute-vs-relative-position",
+  "name": "Absolute vs Relative Position Representation",
+  "family": "Positional Representation",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2017,
+  "category": "representation",
+  "type": "positional-representation",
+  "description": "Positional representations can encode absolute sequence positions directly or represent relative relationships between positions.",
+  "types": [
+    "absolute positional embeddings",
+    "relative positional embeddings",
+    "rotary position encoding",
+    "attention biases"
+  ],
+  "tradeoffs": [
+    "context extrapolation",
+    "implementation complexity",
+    "attention behavior",
+    "memory requirements"
+  ],
+  "tags": [
+    "position",
+    "rope",
+    "alibi",
+    "transformer"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rope",
+    "alibi",
+    "learned-positional-embedding"
+  ]
+},
+  {
+  "id": "tokenizer-induced-bias",
+  "name": "Tokenizer-Induced Bias",
+  "family": "Tokenization Failure Modes",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "representation",
+  "type": "tokenization-bias",
+  "description": "Tokenizer-induced bias occurs when tokenization choices systematically affect the computational cost, representation quality, or model behavior for particular languages, scripts, domains, or text patterns.",
+  "effects": [
+    "unequal token counts",
+    "different context utilization",
+    "unequal inference cost",
+    "difficulty representing rare strings",
+    "language-dependent performance"
+  ],
+  "causes": [
+    "vocabulary allocation",
+    "training-corpus composition",
+    "subword segmentation",
+    "language imbalance"
+  ],
+  "tags": [
+    "tokenizer-bias",
+    "multilingual",
+    "tokenization",
+    "fairness"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "multilingual-tokenization",
+    "token-fertility",
+    "tokenizer-free-model"
+  ]
+},
+  {
+  "id": "tokens-vs-semantic-units",
+  "name": "Tokens vs Semantic Units",
+  "family": "Representation Concepts",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "representation",
+  "type": "token-semantics",
+  "description": "A model token is a computational unit and does not necessarily correspond to a word, morpheme, concept, or semantic unit.",
+  "distinctions": [
+    "token",
+    "character",
+    "byte",
+    "word",
+    "morpheme",
+    "phrase",
+    "semantic concept"
+  ],
+  "importance": [
+    "Prevents misleading interpretation of token counts",
+    "Clarifies why token statistics differ across languages",
+    "Separates computational representation from linguistic structure"
+  ],
+  "tags": [
+    "tokens",
+    "semantics",
+    "tokenization",
+    "representation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "tokenization",
+    "token-fertility",
+    "multilingual-tokenization"
+  ]
 }
 ]
+{
+  "id": "tokens-vs-semantic-units",
+  "name": "Tokens vs Semantic Units",
+  "family": "Representation Concepts",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "representation",
+  "type": "token-semantics",
+  "description": "A model token is a computational unit and does not necessarily correspond to a word, morpheme, concept, or semantic unit.",
+  "distinctions": [
+    "token",
+    "character",
+    "byte",
+    "word",
+    "morpheme",
+    "phrase",
+    "semantic concept"
+  ],
+  "importance": [
+    "Prevents misleading interpretation of token counts",
+    "Clarifies why token statistics differ across languages",
+    "Separates computational representation from linguistic structure"
+  ],
+  "tags": [
+    "tokens",
+    "semantics",
+    "tokenization",
+    "representation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "tokenization",
+    "token-fertility",
+    "multilingual-tokenization"
+  ]
+}
+]
+
