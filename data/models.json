@@ -37923,4 +37923,1217 @@
   ],
   "sources": [],
   "relatedModels": []
+}, ,
+{
+  "id": "whisper",
+  "name": "Whisper",
+  "family": "Whisper",
+  "organization": "OpenAI",
+  "year": 2022,
+  "category": "audio",
+  "type": "automatic-speech-recognition-model",
+  "modalities": [
+    "audio",
+    "text"
+  ],
+  "architecture": "encoder-decoder transformer",
+  "focus": [
+    "speech recognition",
+    "speech translation",
+    "multilingual transcription"
+  ],
+  "openWeights": true,
+  "tags": [
+    "whisper",
+    "speech",
+    "asr",
+    "audio"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "whisper-large-v3"
+  ]
+},
+{
+  "id": "whisper-large-v3",
+  "name": "Whisper Large-v3",
+  "family": "Whisper",
+  "organization": "OpenAI",
+  "year": 2023,
+  "category": "audio",
+  "type": "automatic-speech-recognition-model",
+  "modalities": [
+    "audio",
+    "text"
+  ],
+  "architecture": "encoder-decoder transformer",
+  "focus": [
+    "speech recognition",
+    "multilingual transcription",
+    "speech translation"
+  ],
+  "openWeights": true,
+  "tags": [
+    "whisper",
+    "large-v3",
+    "asr"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "whisper"
+  ]
+},
+{
+  "id": "wav2vec2",
+  "name": "wav2vec 2.0",
+  "family": "wav2vec",
+  "organization": "Meta",
+  "year": 2020,
+  "category": "audio",
+  "type": "self-supervised-speech-model",
+  "modalities": [
+    "audio"
+  ],
+  "architecture": "convolutional feature encoder plus transformer",
+  "training": [
+    "self-supervised learning"
+  ],
+  "focus": [
+    "speech representation learning",
+    "automatic speech recognition"
+  ],
+  "openWeights": true,
+  "tags": [
+    "wav2vec",
+    "speech",
+    "self-supervised"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "wav2vec2-xls-r"
+  ]
+},
+{
+  "id": "wav2vec2-xls-r",
+  "name": "XLS-R",
+  "family": "wav2vec",
+  "organization": "Meta",
+  "year": 2021,
+  "category": "audio",
+  "type": "multilingual-speech-model",
+  "modalities": [
+    "audio"
+  ],
+  "architecture": "self-supervised speech transformer",
+  "focus": [
+    "multilingual speech",
+    "cross-lingual representation learning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "wav2vec",
+    "xls-r",
+    "multilingual"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "wav2vec2"
+  ]
+},
+{
+  "id": "hubert",
+  "name": "HuBERT",
+  "family": "HuBERT",
+  "organization": "Meta",
+  "year": 2021,
+  "category": "audio",
+  "type": "self-supervised-speech-model",
+  "modalities": [
+    "audio"
+  ],
+  "architecture": "convolutional encoder plus transformer",
+  "training": [
+    "self-supervised learning",
+    "masked prediction"
+  ],
+  "focus": [
+    "speech representation learning",
+    "speech recognition"
+  ],
+  "openWeights": true,
+  "tags": [
+    "hubert",
+    "speech",
+    "self-supervised"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "seamlessm4t",
+  "name": "SeamlessM4T",
+  "family": "Seamless",
+  "organization": "Meta",
+  "year": 2023,
+  "category": "audio",
+  "type": "multimodal-speech-translation-model",
+  "modalities": [
+    "audio",
+    "text"
+  ],
+  "focus": [
+    "speech translation",
+    "speech recognition",
+    "multilingual communication"
+  ],
+  "openWeights": true,
+  "tags": [
+    "seamless",
+    "speech-translation",
+    "multilingual"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "seamlessm4t-v2"
+  ]
+},
+{
+  "id": "seamlessm4t-v2",
+  "name": "SeamlessM4T v2",
+  "family": "Seamless",
+  "organization": "Meta",
+  "year": 2024,
+  "category": "audio",
+  "type": "multimodal-speech-translation-model",
+  "modalities": [
+    "audio",
+    "text"
+  ],
+  "focus": [
+    "speech translation",
+    "multilingual speech"
+  ],
+  "openWeights": true,
+  "tags": [
+    "seamless",
+    "speech",
+    "translation"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "seamlessm4t"
+  ]
+},
+{
+  "id": "musicgen",
+  "name": "MusicGen",
+  "family": "MusicGen",
+  "organization": "Meta",
+  "year": 2023,
+  "category": "audio",
+  "type": "music-generation-model",
+  "modalities": [
+    "text",
+    "audio"
+  ],
+  "architecture": "autoregressive transformer over audio tokens",
+  "focus": [
+    "text-to-music",
+    "music generation"
+  ],
+  "openWeights": true,
+  "tags": [
+    "musicgen",
+    "audio-generation",
+    "generative-ai"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "musicgen-stereo"
+  ]
+},
+{
+  "id": "musicgen-stereo",
+  "name": "MusicGen Stereo",
+  "family": "MusicGen",
+  "organization": "Meta",
+  "year": 2024,
+  "category": "audio",
+  "type": "music-generation-model",
+  "modalities": [
+    "text",
+    "audio"
+  ],
+  "focus": [
+    "text-to-music",
+    "stereo music generation"
+  ],
+  "openWeights": true,
+  "tags": [
+    "musicgen",
+    "audio-generation"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "musicgen"
+  ]
+},
+{
+  "id": "audiogen",
+  "name": "AudioGen",
+  "family": "AudioGen",
+  "organization": "Meta",
+  "year": 2023,
+  "category": "audio",
+  "type": "audio-generation-model",
+  "modalities": [
+    "text",
+    "audio"
+  ],
+  "architecture": "autoregressive transformer over audio tokens",
+  "focus": [
+    "text-to-audio",
+    "sound generation"
+  ],
+  "openWeights": true,
+  "tags": [
+    "audiogen",
+    "audio-generation"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "audioldm",
+  "name": "AudioLDM",
+  "family": "AudioLDM",
+  "organization": "University research / open community",
+  "year": 2023,
+  "category": "audio",
+  "type": "audio-diffusion-model",
+  "modalities": [
+    "text",
+    "audio"
+  ],
+  "architecture": "latent diffusion",
+  "focus": [
+    "text-to-audio",
+    "sound generation"
+  ],
+  "openWeights": true,
+  "tags": [
+    "audioldm",
+    "diffusion",
+    "audio-generation"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "stable-audio",
+  "name": "Stable Audio",
+  "family": "Stable Audio",
+  "organization": "Stability AI",
+  "year": 2023,
+  "category": "audio",
+  "type": "audio-generation-model",
+  "modalities": [
+    "text",
+    "audio"
+  ],
+  "architecture": "latent diffusion",
+  "focus": [
+    "text-to-audio",
+    "music generation",
+    "sound effects"
+  ],
+  "openWeights": false,
+  "tags": [
+    "stable-audio",
+    "stability-ai",
+    "audio-generation"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "stable-audio-open"
+  ]
+},
+{
+  "id": "stable-audio-open",
+  "name": "Stable Audio Open",
+  "family": "Stable Audio",
+  "organization": "Stability AI",
+  "year": 2024,
+  "category": "audio",
+  "type": "open-audio-generation-model",
+  "modalities": [
+    "text",
+    "audio"
+  ],
+  "architecture": "latent diffusion",
+  "focus": [
+    "text-to-audio",
+    "audio generation"
+  ],
+  "openWeights": true,
+  "tags": [
+    "stable-audio",
+    "open-model",
+    "audio-generation"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "stable-audio"
+  ]
+},
+{
+  "id": "clap",
+  "name": "CLAP",
+  "family": "CLAP",
+  "organization": "LAION / community",
+  "year": 2022,
+  "category": "audio",
+  "type": "audio-text-embedding-model",
+  "modalities": [
+    "audio",
+    "text"
+  ],
+  "architecture": "contrastive audio-text encoder",
+  "training": [
+    "contrastive learning"
+  ],
+  "focus": [
+    "audio-text retrieval",
+    "audio classification",
+    "multimodal embeddings"
+  ],
+  "openWeights": true,
+  "tags": [
+    "clap",
+    "audio",
+    "embeddings",
+    "contrastive"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "dalle",
+  "name": "DALL-E",
+  "family": "DALL-E",
+  "organization": "OpenAI",
+  "year": 2021,
+  "category": "image-generation",
+  "type": "text-to-image-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "text-to-image",
+    "image generation"
+  ],
+  "openWeights": false,
+  "tags": [
+    "dalle",
+    "image-generation",
+    "generative-ai"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "dalle-2",
+    "dalle-3"
+  ]
+},
+{
+  "id": "dalle-2",
+  "name": "DALL-E 2",
+  "family": "DALL-E",
+  "organization": "OpenAI",
+  "year": 2022,
+  "category": "image-generation",
+  "type": "text-to-image-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "text-to-image",
+    "image editing",
+    "image variations"
+  ],
+  "openWeights": false,
+  "tags": [
+    "dalle",
+    "image-generation"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "dalle",
+    "dalle-3"
+  ]
+},
+{
+  "id": "dalle-3",
+  "name": "DALL-E 3",
+  "family": "DALL-E",
+  "organization": "OpenAI",
+  "year": 2023,
+  "category": "image-generation",
+  "type": "text-to-image-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "text-to-image",
+    "prompt following",
+    "image generation"
+  ],
+  "openWeights": false,
+  "tags": [
+    "dalle-3",
+    "image-generation"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "dalle-2"
+  ]
+},
+{
+  "id": "stable-diffusion",
+  "name": "Stable Diffusion",
+  "family": "Stable Diffusion",
+  "organization": "Stability AI",
+  "year": 2022,
+  "category": "image-generation",
+  "type": "latent-diffusion-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "architecture": "latent diffusion",
+  "focus": [
+    "text-to-image",
+    "image generation",
+    "image editing"
+  ],
+  "openWeights": true,
+  "tags": [
+    "stable-diffusion",
+    "diffusion",
+    "image-generation"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "stable-diffusion-xl",
+    "stable-diffusion-3"
+  ]
+},
+{
+  "id": "stable-diffusion-xl",
+  "name": "Stable Diffusion XL",
+  "family": "Stable Diffusion",
+  "organization": "Stability AI",
+  "year": 2023,
+  "category": "image-generation",
+  "type": "latent-diffusion-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "architecture": "latent diffusion",
+  "focus": [
+    "text-to-image",
+    "high-resolution image generation"
+  ],
+  "openWeights": true,
+  "tags": [
+    "stable-diffusion",
+    "sdxl",
+    "diffusion"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "stable-diffusion"
+  ]
+},
+{
+  "id": "stable-diffusion-3",
+  "name": "Stable Diffusion 3",
+  "family": "Stable Diffusion",
+  "organization": "Stability AI",
+  "year": 2024,
+  "category": "image-generation",
+  "type": "diffusion-transformer",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "architecture": "diffusion transformer",
+  "focus": [
+    "text-to-image",
+    "prompt understanding",
+    "image generation"
+  ],
+  "openWeights": true,
+  "tags": [
+    "stable-diffusion",
+    "sd3",
+    "diffusion-transformer"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "stable-diffusion-xl"
+  ]
+},
+{
+  "id": "flux",
+  "name": "FLUX",
+  "family": "FLUX",
+  "organization": "Black Forest Labs",
+  "year": 2024,
+  "category": "image-generation",
+  "type": "diffusion-transformer",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "architecture": "flow-matching diffusion transformer",
+  "focus": [
+    "text-to-image",
+    "high-quality image generation"
+  ],
+  "openWeights": true,
+  "tags": [
+    "flux",
+    "diffusion-transformer",
+    "image-generation"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "flux-1-dev",
+    "flux-1-schnell",
+    "flux-1-1-pro"
+  ]
+},
+{
+  "id": "flux-1-dev",
+  "name": "FLUX.1-dev",
+  "family": "FLUX",
+  "organization": "Black Forest Labs",
+  "year": 2024,
+  "category": "image-generation",
+  "type": "diffusion-transformer",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "architecture": "flow-matching diffusion transformer",
+  "focus": [
+    "research",
+    "text-to-image",
+    "image generation"
+  ],
+  "openWeights": true,
+  "tags": [
+    "flux",
+    "dev",
+    "image-generation"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "flux"
+  ]
+},
+{
+  "id": "flux-1-schnell",
+  "name": "FLUX.1-schnell",
+  "family": "FLUX",
+  "organization": "Black Forest Labs",
+  "year": 2024,
+  "category": "image-generation",
+  "type": "fast-diffusion-transformer",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "architecture": "flow-matching diffusion transformer",
+  "focus": [
+    "fast inference",
+    "text-to-image"
+  ],
+  "openWeights": true,
+  "tags": [
+    "flux",
+    "schnell",
+    "fast-inference"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "flux"
+  ]
+},
+{
+  "id": "flux-1-1-pro",
+  "name": "FLUX1.1 Pro",
+  "family": "FLUX",
+  "organization": "Black Forest Labs",
+  "year": 2024,
+  "category": "image-generation",
+  "type": "image-generation-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "high-quality image generation",
+    "production generation"
+  ],
+  "openWeights": false,
+  "tags": [
+    "flux",
+    "pro",
+    "image-generation"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "flux"
+  ]
+},
+{
+  "id": "imagen",
+  "name": "Imagen",
+  "family": "Imagen",
+  "organization": "Google",
+  "year": 2022,
+  "category": "image-generation",
+  "type": "text-to-image-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "text-to-image",
+    "photorealistic generation"
+  ],
+  "openWeights": false,
+  "tags": [
+    "imagen",
+    "google",
+    "image-generation"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "imagen-2",
+    "imagen-3"
+  ]
+},
+{
+  "id": "imagen-2",
+  "name": "Imagen 2",
+  "family": "Imagen",
+  "organization": "Google",
+  "year": 2023,
+  "category": "image-generation",
+  "type": "text-to-image-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "text-to-image",
+    "image editing"
+  ],
+  "openWeights": false,
+  "tags": [
+    "imagen",
+    "google",
+    "image-generation"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "imagen"
+  ]
+},
+{
+  "id": "imagen-3",
+  "name": "Imagen 3",
+  "family": "Imagen",
+  "organization": "Google",
+  "year": 2024,
+  "category": "image-generation",
+  "type": "text-to-image-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "text-to-image",
+    "photorealistic generation",
+    "prompt following"
+  ],
+  "openWeights": false,
+  "tags": [
+    "imagen",
+    "google",
+    "image-generation"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "imagen-2"
+  ]
+},
+{
+  "id": "parti",
+  "name": "Parti",
+  "family": "Parti",
+  "organization": "Google Research",
+  "year": 2022,
+  "category": "image-generation",
+  "type": "autoregressive-image-generation-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "architecture": "autoregressive transformer",
+  "focus": [
+    "text-to-image",
+    "image generation research"
+  ],
+  "openWeights": false,
+  "tags": [
+    "parti",
+    "google",
+    "image-generation"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "imagen-video",
+  "name": "Imagen Video",
+  "family": "Imagen",
+  "organization": "Google Research",
+  "year": 2022,
+  "category": "video-generation",
+  "type": "text-to-video-model",
+  "modalities": [
+    "text",
+    "video"
+  ],
+  "architecture": "diffusion-based video model",
+  "focus": [
+    "text-to-video",
+    "video generation"
+  ],
+  "openWeights": false,
+  "tags": [
+    "imagen",
+    "video-generation",
+    "diffusion"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "imagen"
+  ]
+},
+{
+  "id": "phenaki",
+  "name": "Phenaki",
+  "family": "Phenaki",
+  "organization": "Google Research",
+  "year": 2022,
+  "category": "video-generation",
+  "type": "text-to-video-model",
+  "modalities": [
+    "text",
+    "video"
+  ],
+  "architecture": "causal video tokenization plus transformer",
+  "focus": [
+    "text-to-video",
+    "long-form video generation"
+  ],
+  "openWeights": false,
+  "tags": [
+    "phenaki",
+    "video-generation"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "sora",
+  "name": "Sora",
+  "family": "Sora",
+  "organization": "OpenAI",
+  "year": 2024,
+  "category": "video-generation",
+  "type": "video-generation-model",
+  "modalities": [
+    "text",
+    "image",
+    "video"
+  ],
+  "architecture": "diffusion transformer",
+  "focus": [
+    "text-to-video",
+    "image-to-video",
+    "video generation"
+  ],
+  "openWeights": false,
+  "tags": [
+    "sora",
+    "video-generation",
+    "diffusion-transformer"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "video-poet",
+  "name": "VideoPoet",
+  "family": "VideoPoet",
+  "organization": "Google Research",
+  "year": 2023,
+  "category": "video-generation",
+  "type": "multimodal-video-generation-model",
+  "modalities": [
+    "text",
+    "image",
+    "video",
+    "audio"
+  ],
+  "architecture": "autoregressive multimodal language model",
+  "focus": [
+    "video generation",
+    "video editing",
+    "multimodal generation"
+  ],
+  "openWeights": false,
+  "tags": [
+    "videopoet",
+    "video-generation",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "gen-2",
+  "name": "Gen-2",
+  "family": "Gen",
+  "organization": "Runway",
+  "year": 2023,
+  "category": "video-generation",
+  "type": "video-generation-model",
+  "modalities": [
+    "text",
+    "image",
+    "video"
+  ],
+  "focus": [
+    "text-to-video",
+    "image-to-video",
+    "video generation"
+  ],
+  "openWeights": false,
+  "tags": [
+    "gen-2",
+    "runway",
+    "video-generation"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "gen-3-alpha"
+  ]
+},
+{
+  "id": "gen-3-alpha",
+  "name": "Gen-3 Alpha",
+  "family": "Gen",
+  "organization": "Runway",
+  "year": 2024,
+  "category": "video-generation",
+  "type": "video-generation-model",
+  "modalities": [
+    "text",
+    "image",
+    "video"
+  ],
+  "focus": [
+    "text-to-video",
+    "image-to-video",
+    "video editing"
+  ],
+  "openWeights": false,
+  "tags": [
+    "gen-3",
+    "runway",
+    "video-generation"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "gen-2"
+  ]
+},
+{
+  "id": "kling",
+  "name": "Kling",
+  "family": "Kling",
+  "organization": "Kuaishou",
+  "year": 2024,
+  "category": "video-generation",
+  "type": "video-generation-model",
+  "modalities": [
+    "text",
+    "image",
+    "video"
+  ],
+  "focus": [
+    "text-to-video",
+    "image-to-video",
+    "video generation"
+  ],
+  "openWeights": false,
+  "tags": [
+    "kling",
+    "video-generation"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "wan",
+  "name": "Wan",
+  "family": "Wan",
+  "organization": "Alibaba",
+  "year": 2025,
+  "category": "video-generation",
+  "type": "video-generation-model",
+  "modalities": [
+    "text",
+    "image",
+    "video"
+  ],
+  "architecture": "diffusion transformer",
+  "focus": [
+    "text-to-video",
+    "image-to-video",
+    "video generation"
+  ],
+  "openWeights": true,
+  "tags": [
+    "wan",
+    "video-generation",
+    "diffusion-transformer"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "cogvideox",
+  "name": "CogVideoX",
+  "family": "CogVideo",
+  "organization": "Zhipu AI / THUDM",
+  "year": 2024,
+  "category": "video-generation",
+  "type": "text-to-video-model",
+  "modalities": [
+    "text",
+    "video"
+  ],
+  "architecture": "diffusion transformer",
+  "focus": [
+    "text-to-video",
+    "video generation"
+  ],
+  "openWeights": true,
+  "tags": [
+    "cogvideox",
+    "video-generation",
+    "diffusion-transformer"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "cogvideo"
+  ]
+},
+{
+  "id": "hunyuan-video",
+  "name": "HunyuanVideo",
+  "family": "Hunyuan",
+  "organization": "Tencent",
+  "year": 2024,
+  "category": "video-generation",
+  "type": "video-generation-model",
+  "modalities": [
+    "text",
+    "video"
+  ],
+  "architecture": "diffusion transformer",
+  "focus": [
+    "text-to-video",
+    "high-quality video generation"
+  ],
+  "openWeights": true,
+  "tags": [
+    "hunyuan",
+    "video-generation",
+    "diffusion-transformer"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "hunyuan"
+  ]
+},
+{
+  "id": "sdxl-turbo",
+  "name": "SDXL Turbo",
+  "family": "Stable Diffusion",
+  "organization": "Stability AI",
+  "year": 2023,
+  "category": "image-generation",
+  "type": "real-time-image-generation-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "architecture": "adversarial diffusion distillation",
+  "focus": [
+    "real-time generation",
+    "fast inference",
+    "text-to-image"
+  ],
+  "openWeights": true,
+  "tags": [
+    "stable-diffusion",
+    "sdxl-turbo",
+    "real-time"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "stable-diffusion-xl"
+  ]
+},
+{
+  "id": "controlnet",
+  "name": "ControlNet",
+  "family": "ControlNet",
+  "organization": "University research / open community",
+  "year": 2023,
+  "category": "image-generation",
+  "type": "conditional-diffusion-control-model",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "architecture": "controlled diffusion network",
+  "focus": [
+    "controllable image generation",
+    "pose control",
+    "edge control",
+    "structure preservation"
+  ],
+  "openWeights": true,
+  "tags": [
+    "controlnet",
+    "diffusion",
+    "controllable-generation"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "stable-diffusion"
+  ]
+},
+{
+  "id": "clip",
+  "name": "CLIP",
+  "family": "CLIP",
+  "organization": "OpenAI",
+  "year": 2021,
+  "category": "multimodal",
+  "type": "vision-language-encoder",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "architecture": "dual encoder",
+  "training": [
+    "contrastive learning"
+  ],
+  "focus": [
+    "image-text alignment",
+    "zero-shot classification",
+    "multimodal embeddings"
+  ],
+  "openWeights": true,
+  "tags": [
+    "clip",
+    "vision-language",
+    "contrastive"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "siglip-2"
+  ]
+},
+{
+  "id": "blip-2",
+  "name": "BLIP-2",
+  "family": "BLIP",
+  "organization": "Salesforce Research",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "architecture": "vision encoder plus Q-Former plus language model",
+  "focus": [
+    "image captioning",
+    "visual question answering",
+    "vision-language reasoning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "blip-2",
+    "vision-language",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "blip"
+  ]
+},
+{
+  "id": "instructblip",
+  "name": "InstructBLIP",
+  "family": "BLIP",
+  "organization": "Salesforce Research",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "instruction-tuned-vision-language-model",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "architecture": "vision encoder plus Q-Former plus language model",
+  "focus": [
+    "visual instruction following",
+    "image understanding",
+    "multimodal reasoning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "instructblip",
+    "vision-language",
+    "instruction-tuning"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "blip-2"
+  ]
 }
