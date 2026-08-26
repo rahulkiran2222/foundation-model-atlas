@@ -34875,4 +34875,997 @@
   "relatedModels": [
     "nemotron"
   ]
+},
+,
+{
+  "id": "mistral-7b",
+  "name": "Mistral 7B",
+  "family": "Mistral",
+  "organization": "Mistral AI",
+  "year": 2023,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "attention": [
+    "Grouped-Query Attention",
+    "Sliding-Window Attention"
+  ],
+  "focus": [
+    "efficient inference",
+    "open-weight language modeling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "mistral",
+    "7b",
+    "gqa",
+    "swa"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "mixtral"
+  ]
+},
+{
+  "id": "mixtral-8x7b",
+  "name": "Mixtral 8x7B",
+  "family": "Mistral",
+  "organization": "Mistral AI",
+  "year": 2023,
+  "category": "llm",
+  "type": "mixture-of-experts",
+  "modalities": ["text"],
+  "architecture": "sparse mixture-of-experts transformer",
+  "experts": 8,
+  "focus": [
+    "sparse computation",
+    "efficient inference"
+  ],
+  "openWeights": true,
+  "tags": [
+    "mixtral",
+    "moe",
+    "mistral"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "mistral-7b",
+    "mixtral-8x22b"
+  ]
+},
+{
+  "id": "mixtral-8x22b",
+  "name": "Mixtral 8x22B",
+  "family": "Mistral",
+  "organization": "Mistral AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "mixture-of-experts",
+  "modalities": ["text"],
+  "architecture": "sparse mixture-of-experts transformer",
+  "experts": 8,
+  "focus": [
+    "large-scale sparse modeling",
+    "multilingual",
+    "code"
+  ],
+  "openWeights": true,
+  "tags": [
+    "mixtral",
+    "moe",
+    "mistral"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "mixtral-8x7b"
+  ]
+},
+{
+  "id": "mistral-large",
+  "name": "Mistral Large",
+  "family": "Mistral",
+  "organization": "Mistral AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "large-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "reasoning",
+    "multilingual",
+    "enterprise"
+  ],
+  "openWeights": false,
+  "tags": [
+    "mistral-large",
+    "mistral"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "mistral-7b",
+    "mixtral-8x22b"
+  ]
+},
+{
+  "id": "mistral-small",
+  "name": "Mistral Small",
+  "family": "Mistral",
+  "organization": "Mistral AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "small-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "efficient inference",
+    "enterprise"
+  ],
+  "openWeights": false,
+  "tags": [
+    "mistral-small",
+    "mistral"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "mistral-large"
+  ]
+},
+{
+  "id": "mistral-nemo",
+  "name": "Mistral Nemo",
+  "family": "Mistral",
+  "organization": "Mistral AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "multilingual",
+    "long-context",
+    "efficient inference"
+  ],
+  "openWeights": true,
+  "tags": [
+    "mistral-nemo",
+    "mistral"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "mistral-7b"
+  ]
+},
+{
+  "id": "codestral",
+  "name": "Codestral",
+  "family": "Mistral",
+  "organization": "Mistral AI",
+  "year": 2024,
+  "category": "code",
+  "type": "code-language-model",
+  "modalities": ["text", "code"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "code generation",
+    "code completion",
+    "software engineering"
+  ],
+  "openWeights": false,
+  "tags": [
+    "codestral",
+    "mistral",
+    "code"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "mistral-7b"
+  ]
+},
+{
+  "id": "pixtral-12b",
+  "name": "Pixtral 12B",
+  "family": "Pixtral",
+  "organization": "Mistral AI",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "architecture": "vision-language transformer",
+  "focus": [
+    "image understanding",
+    "document understanding"
+  ],
+  "openWeights": true,
+  "tags": [
+    "pixtral",
+    "mistral",
+    "vision-language"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "pixtral"
+  ]
+},
+{
+  "id": "ministral",
+  "name": "Ministral",
+  "family": "Mistral",
+  "organization": "Mistral AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "small-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "edge deployment",
+    "local inference",
+    "efficiency"
+  ],
+  "openWeights": true,
+  "tags": [
+    "ministral",
+    "mistral",
+    "edge-ai"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "mistral-small"
+  ]
+},
+{
+  "id": "deepseek-llm",
+  "name": "DeepSeek LLM",
+  "family": "DeepSeek",
+  "organization": "DeepSeek",
+  "year": 2024,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "language modeling",
+    "reasoning",
+    "code"
+  ],
+  "openWeights": true,
+  "tags": [
+    "deepseek",
+    "open-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "deepseek-coder",
+    "deepseek-v2"
+  ]
+},
+{
+  "id": "deepseek-coder",
+  "name": "DeepSeek Coder",
+  "family": "DeepSeek",
+  "organization": "DeepSeek",
+  "year": 2024,
+  "category": "code",
+  "type": "code-language-model",
+  "modalities": ["text", "code"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "code generation",
+    "code completion",
+    "software engineering"
+  ],
+  "openWeights": true,
+  "tags": [
+    "deepseek",
+    "coder",
+    "code"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "deepseek-llm",
+    "deepseek-coder-v2"
+  ]
+},
+{
+  "id": "deepseek-coder-v2",
+  "name": "DeepSeek-Coder-V2",
+  "family": "DeepSeek",
+  "organization": "DeepSeek",
+  "year": 2024,
+  "category": "code",
+  "type": "mixture-of-experts",
+  "modalities": [
+    "text",
+    "code"
+  ],
+  "architecture": "sparse mixture-of-experts transformer",
+  "focus": [
+    "code",
+    "mathematics",
+    "long-context"
+  ],
+  "openWeights": true,
+  "tags": [
+    "deepseek",
+    "coder",
+    "moe"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "deepseek-coder"
+  ]
+},
+{
+  "id": "deepseek-v2",
+  "name": "DeepSeek-V2",
+  "family": "DeepSeek",
+  "organization": "DeepSeek",
+  "year": 2024,
+  "category": "llm",
+  "type": "mixture-of-experts",
+  "modalities": ["text"],
+  "architecture": "sparse mixture-of-experts transformer",
+  "components": [
+    "Mixture-of-Experts",
+    "Multi-head Latent Attention"
+  ],
+  "focus": [
+    "efficient inference",
+    "long-context"
+  ],
+  "openWeights": true,
+  "tags": [
+    "deepseek-v2",
+    "moe",
+    "mla"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "deepseek-v2-lite",
+    "deepseek-v3"
+  ]
+},
+{
+  "id": "deepseek-v2-lite",
+  "name": "DeepSeek-V2-Lite",
+  "family": "DeepSeek",
+  "organization": "DeepSeek",
+  "year": 2024,
+  "category": "llm",
+  "type": "mixture-of-experts",
+  "modalities": ["text"],
+  "architecture": "sparse mixture-of-experts transformer",
+  "components": [
+    "Mixture-of-Experts",
+    "Multi-head Latent Attention"
+  ],
+  "focus": [
+    "efficient inference",
+    "research"
+  ],
+  "openWeights": true,
+  "tags": [
+    "deepseek",
+    "moe",
+    "mla"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "deepseek-v2"
+  ]
+},
+{
+  "id": "deepseek-v3",
+  "name": "DeepSeek-V3",
+  "family": "DeepSeek",
+  "organization": "DeepSeek",
+  "year": 2024,
+  "category": "llm",
+  "type": "mixture-of-experts",
+  "modalities": ["text"],
+  "architecture": "sparse mixture-of-experts transformer",
+  "components": [
+    "Mixture-of-Experts",
+    "Multi-head Latent Attention",
+    "Multi-token prediction"
+  ],
+  "focus": [
+    "reasoning",
+    "code",
+    "mathematics",
+    "efficient training"
+  ],
+  "openWeights": true,
+  "tags": [
+    "deepseek-v3",
+    "moe",
+    "mla",
+    "multi-token-prediction"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "deepseek-v2",
+    "deepseek-r1"
+  ]
+},
+{
+  "id": "deepseek-r1",
+  "name": "DeepSeek-R1",
+  "family": "DeepSeek",
+  "organization": "DeepSeek",
+  "year": 2025,
+  "category": "reasoning",
+  "type": "reasoning-model",
+  "modalities": ["text"],
+  "architecture": "DeepSeek-V3-derived language model",
+  "focus": [
+    "reasoning",
+    "mathematics",
+    "coding",
+    "long-chain problem solving"
+  ],
+  "training": [
+    "reinforcement learning",
+    "reasoning-oriented post-training"
+  ],
+  "openWeights": true,
+  "tags": [
+    "deepseek-r1",
+    "reasoning",
+    "rl"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "deepseek-v3"
+  ]
+},
+{
+  "id": "deepseek-r1-distill",
+  "name": "DeepSeek-R1 Distill",
+  "family": "DeepSeek",
+  "organization": "DeepSeek",
+  "year": 2025,
+  "category": "reasoning",
+  "type": "distilled-reasoning-model",
+  "modalities": ["text"],
+  "focus": [
+    "reasoning",
+    "small-model deployment"
+  ],
+  "training": [
+    "distillation",
+    "reasoning-data training"
+  ],
+  "openWeights": true,
+  "tags": [
+    "deepseek-r1",
+    "distillation",
+    "reasoning"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "deepseek-r1"
+  ]
+},
+{
+  "id": "qwen",
+  "name": "Qwen",
+  "family": "Qwen",
+  "organization": "Alibaba Cloud",
+  "year": 2023,
+  "category": "llm",
+  "type": "language-model-family",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "multilingual",
+    "reasoning",
+    "code"
+  ],
+  "openWeights": true,
+  "tags": [
+    "qwen",
+    "alibaba"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "qwen1-5",
+    "qwen2",
+    "qwen2-5",
+    "qwen3"
+  ]
+},
+{
+  "id": "qwen1-5",
+  "name": "Qwen1.5",
+  "family": "Qwen",
+  "organization": "Alibaba Cloud",
+  "year": 2024,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "multilingual",
+    "code",
+    "reasoning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "qwen",
+    "qwen1-5"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "qwen"
+  ]
+},
+{
+  "id": "qwen2",
+  "name": "Qwen2",
+  "family": "Qwen",
+  "organization": "Alibaba Cloud",
+  "year": 2024,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "multilingual",
+    "code",
+    "reasoning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "qwen2",
+    "qwen"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "qwen2-5",
+    "qwen2-math",
+    "qwen2-audio"
+  ]
+},
+{
+  "id": "qwen2-5",
+  "name": "Qwen2.5",
+  "family": "Qwen",
+  "organization": "Alibaba Cloud",
+  "year": 2024,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "reasoning",
+    "coding",
+    "mathematics",
+    "multilingual"
+  ],
+  "openWeights": true,
+  "tags": [
+    "qwen2-5",
+    "qwen"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "qwen2",
+    "qwen2-5-coder",
+    "qwen2-5-math",
+    "qwen2-5-vl"
+  ]
+},
+{
+  "id": "qwen2-5-coder",
+  "name": "Qwen2.5-Coder",
+  "family": "Qwen",
+  "organization": "Alibaba Cloud",
+  "year": 2024,
+  "category": "code",
+  "type": "code-language-model",
+  "modalities": [
+    "text",
+    "code"
+  ],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "code generation",
+    "code completion",
+    "software engineering"
+  ],
+  "openWeights": true,
+  "tags": [
+    "qwen",
+    "qwen2-5",
+    "code"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "qwen2-5"
+  ]
+},
+{
+  "id": "qwen2-5-math",
+  "name": "Qwen2.5-Math",
+  "family": "Qwen",
+  "organization": "Alibaba Cloud",
+  "year": 2024,
+  "category": "reasoning",
+  "type": "mathematical-reasoning-model",
+  "modalities": ["text"],
+  "focus": [
+    "mathematical reasoning",
+    "problem solving"
+  ],
+  "openWeights": true,
+  "tags": [
+    "qwen",
+    "math",
+    "reasoning"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "qwen2-5"
+  ]
+},
+{
+  "id": "qwen2-audio",
+  "name": "Qwen2-Audio",
+  "family": "Qwen",
+  "organization": "Alibaba Cloud",
+  "year": 2024,
+  "category": "audio",
+  "type": "audio-language-model",
+  "modalities": [
+    "audio",
+    "text"
+  ],
+  "focus": [
+    "audio understanding",
+    "speech",
+    "audio reasoning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "qwen",
+    "audio",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "qwen2"
+  ]
+},
+{
+  "id": "qwen2-5-vl",
+  "name": "Qwen2.5-VL",
+  "family": "Qwen",
+  "organization": "Alibaba Cloud",
+  "year": 2025,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "modalities": [
+    "text",
+    "image",
+    "video"
+  ],
+  "focus": [
+    "visual reasoning",
+    "document understanding",
+    "video understanding",
+    "OCR"
+  ],
+  "openWeights": true,
+  "tags": [
+    "qwen",
+    "vision-language",
+    "video"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "qwen2-vl",
+    "qwen2-5"
+  ]
+},
+{
+  "id": "qwen3",
+  "name": "Qwen3",
+  "family": "Qwen",
+  "organization": "Alibaba Cloud",
+  "year": 2025,
+  "category": "llm",
+  "type": "language-model-family",
+  "modalities": ["text"],
+  "focus": [
+    "reasoning",
+    "coding",
+    "agentic tasks",
+    "multilingual"
+  ],
+  "openWeights": true,
+  "tags": [
+    "qwen3",
+    "qwen",
+    "reasoning"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "qwen2-5"
+  ]
+},
+{
+  "id": "gemma",
+  "name": "Gemma",
+  "family": "Gemma",
+  "organization": "Google",
+  "year": 2024,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "small language models",
+    "responsible AI",
+    "efficient inference"
+  ],
+  "openWeights": true,
+  "tags": [
+    "gemma",
+    "google",
+    "open-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "gemma-2",
+    "gemma-3"
+  ]
+},
+{
+  "id": "gemma-2",
+  "name": "Gemma 2",
+  "family": "Gemma",
+  "organization": "Google",
+  "year": 2024,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "efficient inference",
+    "reasoning",
+    "small-model deployment"
+  ],
+  "openWeights": true,
+  "tags": [
+    "gemma-2",
+    "google"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "gemma"
+  ]
+},
+{
+  "id": "gemma-3",
+  "name": "Gemma 3",
+  "family": "Gemma",
+  "organization": "Google",
+  "year": 2025,
+  "category": "multimodal",
+  "type": "multimodal-language-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "multimodal understanding",
+    "reasoning",
+    "efficient inference"
+  ],
+  "openWeights": true,
+  "tags": [
+    "gemma-3",
+    "google",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "gemma-2"
+  ]
+},
+{
+  "id": "gemma-3n",
+  "name": "Gemma 3n",
+  "family": "Gemma",
+  "organization": "Google",
+  "year": 2025,
+  "category": "multimodal",
+  "type": "efficient-multimodal-model",
+  "modalities": [
+    "text",
+    "image",
+    "audio",
+    "video"
+  ],
+  "focus": [
+    "on-device AI",
+    "multimodal",
+    "efficient inference"
+  ],
+  "openWeights": true,
+  "tags": [
+    "gemma",
+    "on-device",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "gemma-3"
+  ]
+},
+{
+  "id": "llama-2",
+  "name": "Llama 2",
+  "family": "Llama",
+  "organization": "Meta",
+  "year": 2023,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "open-weight language modeling",
+    "instruction following"
+  ],
+  "openWeights": true,
+  "tags": [
+    "llama",
+    "meta",
+    "open-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "llama",
+    "llama-3"
+  ]
+},
+{
+  "id": "llama-3",
+  "name": "Llama 3",
+  "family": "Llama",
+  "organization": "Meta",
+  "year": 2024,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "general language modeling",
+    "reasoning",
+    "code"
+  ],
+  "openWeights": true,
+  "tags": [
+    "llama-3",
+    "meta"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "llama-3-1",
+    "llama-3-2",
+    "llama-3-3"
+  ]
+},
+{
+  "id": "llama-3-1",
+  "name": "Llama 3.1",
+  "family": "Llama",
+  "organization": "Meta",
+  "year": 2024,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "long-context",
+    "reasoning",
+    "code",
+    "multilingual"
+  ],
+  "openWeights": true,
+  "tags": [
+    "llama-3-1",
+    "llama",
+    "meta"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "llama-3",
+    "llama-3-2"
+  ]
+},
+{
+  "id": "llama-3-2",
+  "name": "Llama 3.2",
+  "family": "Llama",
+  "organization": "Meta",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "multimodal-language-model-family",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "vision",
+    "edge deployment",
+    "small-model inference"
+  ],
+  "openWeights": true,
+  "tags": [
+    "llama-3-2",
+    "llama",
+    "vision"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "llama-3-1",
+    "llama-3-3"
+  ]
+},
+{
+  "id": "llama-3-3",
+  "name": "Llama 3.3",
+  "family": "Llama",
+  "organization": "Meta",
+  "year": 2024,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "reasoning",
+    "instruction following",
+    "efficient deployment"
+  ],
+  "openWeights": true,
+  "tags": [
+    "llama-3-3",
+    "llama"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "llama-3-1"
+  ]
+},
+{
+  "id": "llama-4",
+  "name": "Llama 4",
+  "family": "Llama",
+  "organization": "Meta",
+  "year": 2025,
+  "category": "multimodal",
+  "type": "mixture-of-experts-multimodal-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "architecture": "sparse mixture-of-experts transformer",
+  "focus": [
+    "multimodal understanding",
+    "long-context",
+    "reasoning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "llama-4",
+    "llama",
+    "moe",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "llama-3-3"
+  ]
 }
