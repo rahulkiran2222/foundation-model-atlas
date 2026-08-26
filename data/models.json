@@ -29075,5 +29075,906 @@
     "data-provenance",
     "data-contamination"
   ]
+},
+{
+  "id": "post-training",
+  "name": "Post-Training",
+  "family": "Post-Training & Alignment",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "post-training",
+  "type": "post-training",
+  "description": "Post-training is the set of optimization stages applied after large-scale pretraining to improve instruction following, task performance, preference alignment, reasoning, safety, and practical usability.",
+  "stages": [
+    "supervised fine-tuning",
+    "preference optimization",
+    "reinforcement learning",
+    "rejection sampling",
+    "distillation",
+    "reasoning optimization",
+    "safety tuning"
+  ],
+  "objectives": [
+    "instruction following",
+    "helpfulness",
+    "reasoning",
+    "factuality",
+    "safety",
+    "style control"
+  ],
+  "tags": [
+    "post-training",
+    "alignment",
+    "fine-tuning",
+    "reasoning"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "sft",
+    "rlhf",
+    "dpo",
+    "reasoning-training"
+  ]
+},
+{
+  "id": "sft",
+  "name": "Supervised Fine-Tuning",
+  "family": "Post-Training",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "post-training",
+  "type": "supervised-fine-tuning",
+  "description": "Supervised fine-tuning adapts a pretrained model using curated examples containing inputs, instructions, and desired outputs.",
+  "data": [
+    "instruction-response pairs",
+    "demonstrations",
+    "conversation examples",
+    "task-specific datasets"
+  ],
+  "objectives": [
+    "instruction following",
+    "format following",
+    "task adaptation",
+    "response quality"
+  ],
+  "advantages": [
+    "Simple and effective",
+    "Directly teaches desired behaviors",
+    "Works with relatively small datasets compared with pretraining"
+  ],
+  "limitations": [
+    "Quality depends heavily on demonstrations",
+    "Can narrow model behavior if data diversity is limited",
+    "Does not directly optimize relative preferences"
+  ],
+  "tags": [
+    "sft",
+    "fine-tuning",
+    "instruction-tuning"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "instruction-data",
+    "rlhf",
+    "dpo"
+  ]
+},
+{
+  "id": "instruction-tuning",
+  "name": "Instruction Tuning",
+  "family": "Post-Training",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2021,
+  "category": "post-training",
+  "type": "instruction-tuning",
+  "description": "Instruction tuning trains a pretrained model on diverse task instructions and corresponding responses so that it can generalize instruction-following behavior across tasks.",
+  "goals": [
+    "general instruction following",
+    "task generalization",
+    "assistant behavior",
+    "format compliance"
+  ],
+  "dataSources": [
+    "human demonstrations",
+    "synthetic instructions",
+    "teacher models",
+    "existing NLP datasets"
+  ],
+  "tags": [
+    "instruction-tuning",
+    "sft",
+    "post-training"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "sft",
+    "instruction-data",
+    "synthetic-data"
+  ]
+},
+{
+  "id": "rlhf",
+  "name": "Reinforcement Learning from Human Feedback",
+  "family": "Preference Alignment",
+  "organization": "Research community",
+  "releaseDate": "2017",
+  "year": 2017,
+  "category": "post-training",
+  "type": "preference-optimization",
+  "description": "RLHF uses human preference judgments to train a reward model and then optimize the language model toward responses that receive higher predicted reward.",
+  "pipeline": [
+    "supervised fine-tuning",
+    "human preference collection",
+    "reward model training",
+    "reinforcement learning"
+  ],
+  "typicalAlgorithm": "PPO",
+  "advantages": [
+    "Can optimize open-ended response preferences",
+    "Supports behavioral objectives that are difficult to specify as supervised labels"
+  ],
+  "limitations": [
+    "Expensive preference collection",
+    "Reward-model errors",
+    "Optimization instability",
+    "Reward hacking",
+    "Human preference inconsistency"
+  ],
+  "tags": [
+    "rlhf",
+    "alignment",
+    "reward-model",
+    "ppo"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "reward-model",
+    "ppo",
+    "dpo",
+    "preference-data"
+  ]
+},
+{
+  "id": "reward-model",
+  "name": "Reward Model",
+  "family": "Preference Alignment",
+  "organization": "Research community",
+  "releaseDate": "2017",
+  "year": 2017,
+  "category": "post-training",
+  "type": "reward-model",
+  "description": "A reward model learns to assign a scalar preference score to model outputs based on preference judgments.",
+  "input": [
+    "prompt",
+    "candidate response"
+  ],
+  "output": "preference or reward score",
+  "uses": [
+    "RLHF",
+    "reinforcement learning",
+    "response ranking",
+    "reward optimization"
+  ],
+  "risks": [
+    "reward hacking",
+    "preference-model bias",
+    "distribution shift",
+    "overoptimization"
+  ],
+  "tags": [
+    "reward-model",
+    "rlhf",
+    "alignment"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rlhf",
+    "preference-data",
+    "reward-hacking"
+  ]
+},
+{
+  "id": "ppo",
+  "name": "Proximal Policy Optimization",
+  "family": "Reinforcement Learning",
+  "organization": "OpenAI / Research community",
+  "releaseDate": "2017",
+  "year": 2017,
+  "category": "post-training",
+  "type": "reinforcement-learning",
+  "description": "Proximal Policy Optimization is a policy-gradient reinforcement-learning algorithm designed to make policy updates more stable by constraining the magnitude of changes between successive policies.",
+  "useInLLMs": [
+    "RLHF",
+    "reward optimization",
+    "policy optimization"
+  ],
+  "advantages": [
+    "Relatively stable policy optimization",
+    "Widely studied reinforcement-learning method"
+  ],
+  "limitations": [
+    "Computationally expensive in language-model settings",
+    "Sensitive to reward-model quality and hyperparameters"
+  ],
+  "tags": [
+    "ppo",
+    "reinforcement-learning",
+    "rlhf"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rlhf",
+    "reward-model"
+  ]
+},
+{
+  "id": "dpo",
+  "name": "Direct Preference Optimization",
+  "family": "Preference Optimization",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "post-training",
+  "type": "preference-optimization",
+  "description": "Direct Preference Optimization trains a language model directly from preference pairs without requiring a separately optimized reward model and reinforcement-learning loop in the standard formulation.",
+  "data": [
+    "prompt",
+    "chosen response",
+    "rejected response"
+  ],
+  "advantages": [
+    "Simpler training pipeline than traditional RLHF",
+    "Avoids explicit reward-model training",
+    "Uses standard supervised-style optimization"
+  ],
+  "limitations": [
+    "Still depends on preference-data quality",
+    "Reference-model and objective choices affect behavior",
+    "Does not eliminate alignment tradeoffs"
+  ],
+  "tags": [
+    "dpo",
+    "preference-optimization",
+    "alignment"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+      "url": "https://arxiv.org/abs/2305.18290"
+    }
+  ],
+  "relatedConcepts": [
+    "rlhf",
+    "preference-data",
+    "ipo"
+  ]
+},
+{
+  "id": "ipo",
+  "name": "Identity Preference Optimization",
+  "family": "Preference Optimization",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "post-training",
+  "type": "preference-optimization",
+  "description": "Identity Preference Optimization is a preference-learning approach related to direct preference optimization that modifies the preference objective to address potential issues in preference-model optimization.",
+  "uses": [
+    "preference alignment",
+    "language-model post-training"
+  ],
+  "tags": [
+    "ipo",
+    "preference-optimization",
+    "alignment"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "dpo",
+    "rlhf"
+  ]
+},
+{
+  "id": "kto",
+  "name": "Kahneman-Tversky Optimization",
+  "family": "Preference Optimization",
+  "organization": "Research community",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "post-training",
+  "type": "preference-optimization",
+  "description": "Kahneman-Tversky Optimization is a preference-learning approach designed to work with desirable and undesirable responses without requiring traditional pairwise preference data in the same form as DPO.",
+  "data": [
+    "prompt",
+    "desirable response",
+    "undesirable response"
+  ],
+  "advantages": [
+    "Can work with unpaired preference signals",
+    "Provides an alternative to pairwise preference optimization"
+  ],
+  "limitations": [
+    "Behavior depends on preference-label quality",
+    "Alternative objectives introduce their own optimization assumptions"
+  ],
+  "tags": [
+    "kto",
+    "preference-optimization",
+    "alignment"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "dpo",
+    "preference-data"
+  ]
+},
+{
+  "id": "rejection-sampling",
+  "name": "Rejection Sampling",
+  "family": "Post-Training",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2022,
+  "category": "post-training",
+  "type": "sample-and-filter",
+  "description": "Rejection sampling generates multiple candidate outputs and retains examples that satisfy a quality criterion, verifier, reward model, or preference signal.",
+  "pipeline": [
+    "generate candidates",
+    "score candidates",
+    "select high-quality examples",
+    "fine-tune on selected data"
+  ],
+  "uses": [
+    "instruction tuning",
+    "reasoning-data generation",
+    "synthetic-data construction",
+    "preference optimization"
+  ],
+  "advantages": [
+    "Simple conceptual pipeline",
+    "Can convert model-generated outputs into training data"
+  ],
+  "limitations": [
+    "Quality depends on the scoring mechanism",
+    "Generating many candidates can be computationally expensive"
+  ],
+  "tags": [
+    "rejection-sampling",
+    "synthetic-data",
+    "post-training"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "synthetic-data",
+    "reward-model",
+    "self-training"
+  ]
+},
+{
+  "id": "knowledge-distillation",
+  "name": "Knowledge Distillation",
+  "family": "Model Transfer",
+  "organization": "Research community",
+  "releaseDate": "2015",
+  "year": 2015,
+  "category": "post-training",
+  "type": "distillation",
+  "description": "Knowledge distillation transfers useful behavior or representations from a teacher model into a student model.",
+  "participants": [
+    "teacher model",
+    "student model"
+  ],
+  "signals": [
+    "logits",
+    "probability distributions",
+    "generated responses",
+    "intermediate representations",
+    "reasoning traces"
+  ],
+  "uses": [
+    "model compression",
+    "capability transfer",
+    "synthetic-data generation",
+    "smaller-model training"
+  ],
+  "limitations": [
+    "Student quality depends on teacher quality",
+    "Teacher errors can be transferred",
+    "Distillation may lose capabilities"
+  ],
+  "tags": [
+    "distillation",
+    "teacher-student",
+    "model-compression"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "synthetic-data",
+    "self-distillation",
+    "small-language-model"
+  ]
+},
+{
+  "id": "constitutional-ai",
+  "name": "Constitutional AI",
+  "family": "Alignment Methods",
+  "organization": "Anthropic",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "post-training",
+  "type": "ai-feedback",
+  "description": "Constitutional AI is an alignment methodology that uses explicit principles or a constitution to guide model critique, revision, and preference optimization.",
+  "pipeline": [
+    "generate response",
+    "critique using principles",
+    "revise response",
+    "generate preference data",
+    "optimize model"
+  ],
+  "advantages": [
+    "Reduces reliance on direct human labeling for every example",
+    "Makes alignment principles more explicit"
+  ],
+  "limitations": [
+    "Quality depends on the chosen principles",
+    "Automated feedback can reproduce model biases"
+  ],
+  "tags": [
+    "constitutional-ai",
+    "alignment",
+    "ai-feedback"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rlhf",
+    "rlaif",
+    "preference-data"
+  ]
+},
+{
+  "id": "rlaif",
+  "name": "Reinforcement Learning from AI Feedback",
+  "family": "Alignment Methods",
+  "organization": "Research community",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "post-training",
+  "type": "ai-feedback",
+  "description": "RLAIF uses AI-generated evaluations or preferences as feedback for reinforcement-learning or preference-optimization pipelines.",
+  "advantages": [
+    "Scales feedback generation",
+    "Can reduce dependence on large quantities of human preference labels"
+  ],
+  "risks": [
+    "Teacher-model bias",
+    "Feedback-model errors",
+    "Self-reinforcing preferences"
+  ],
+  "tags": [
+    "rlaif",
+    "alignment",
+    "ai-feedback"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "constitutional-ai",
+    "rlhf",
+    "synthetic-data"
+  ]
+},
+{
+  "id": "process-supervision",
+  "name": "Process Supervision",
+  "family": "Reasoning Training",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "reasoning",
+  "type": "process-supervision",
+  "description": "Process supervision provides feedback on intermediate reasoning steps rather than evaluating only the final answer.",
+  "signals": [
+    "step-level correctness",
+    "intermediate reasoning quality",
+    "proof steps",
+    "tool-use steps"
+  ],
+  "advantages": [
+    "Can identify errors before the final answer",
+    "Provides denser supervision for reasoning"
+  ],
+  "limitations": [
+    "Step-level labels can be expensive",
+    "A locally correct step sequence does not guarantee global correctness"
+  ],
+  "tags": [
+    "process-supervision",
+    "reasoning",
+    "verifier"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "outcome-supervision",
+    "process-reward-model",
+    "reasoning-training"
+  ]
+},
+{
+  "id": "outcome-supervision",
+  "name": "Outcome Supervision",
+  "family": "Reasoning Training",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "reasoning",
+  "type": "outcome-supervision",
+  "description": "Outcome supervision evaluates whether the final answer or task result is correct without directly supervising every intermediate reasoning step.",
+  "signals": [
+    "final answer correctness",
+    "task success",
+    "program execution result",
+    "verified outcome"
+  ],
+  "advantages": [
+    "Cheaper than detailed step-level annotation",
+    "Applicable to many tasks with automatically verifiable outcomes"
+  ],
+  "limitations": [
+    "Provides sparse feedback",
+    "Can reward incorrect intermediate reasoning that happens to reach the correct answer"
+  ],
+  "tags": [
+    "outcome-supervision",
+    "reasoning",
+    "verification"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "process-supervision",
+    "verifier",
+    "reward-model"
+  ]
+},
+{
+  "id": "process-reward-model",
+  "name": "Process Reward Model",
+  "family": "Reasoning Training",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "reasoning",
+  "type": "process-reward-model",
+  "description": "A process reward model evaluates intermediate reasoning steps and provides feedback about the quality or correctness of a reasoning trajectory.",
+  "uses": [
+    "mathematical reasoning",
+    "step-level verification",
+    "search over reasoning paths",
+    "reinforcement learning"
+  ],
+  "advantages": [
+    "Provides denser reasoning feedback",
+    "Can help distinguish partially correct from incorrect reasoning trajectories"
+  ],
+  "limitations": [
+    "Requires reliable step-level supervision",
+    "Evaluating reasoning steps can itself be difficult"
+  ],
+  "tags": [
+    "process-reward-model",
+    "reasoning",
+    "verification"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "process-supervision",
+    "outcome-supervision",
+    "verifier"
+  ]
+},
+{
+  "id": "verifier",
+  "name": "Verifier",
+  "family": "Reasoning Systems",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2021,
+  "category": "reasoning",
+  "type": "verification-model",
+  "description": "A verifier evaluates whether a generated solution, reasoning trajectory, program, proof, or final answer satisfies a correctness criterion.",
+  "types": [
+    "answer verifier",
+    "process verifier",
+    "program execution verifier",
+    "formal proof verifier",
+    "reward model"
+  ],
+  "uses": [
+    "reasoning search",
+    "best-of-N sampling",
+    "reinforcement learning",
+    "self-training"
+  ],
+  "advantages": [
+    "Separates generation from evaluation",
+    "Allows multiple candidate solutions to be compared"
+  ],
+  "limitations": [
+    "Verifier quality becomes a bottleneck",
+    "Incorrect verification can reinforce incorrect solutions"
+  ],
+  "tags": [
+    "verifier",
+    "reasoning",
+    "evaluation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "process-reward-model",
+    "outcome-supervision",
+    "best-of-n"
+  ]
+},
+{
+  "id": "best-of-n",
+  "name": "Best-of-N Sampling",
+  "family": "Inference-Time Reasoning",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2021,
+  "category": "reasoning",
+  "type": "test-time-sampling",
+  "description": "Best-of-N sampling generates multiple candidate solutions and selects the candidate receiving the highest score from a verifier, reward model, or evaluation function.",
+  "pipeline": [
+    "sample N candidates",
+    "evaluate candidates",
+    "select best candidate"
+  ],
+  "advantages": [
+    "Can improve performance without changing model weights",
+    "Uses additional inference compute to search solution space"
+  ],
+  "limitations": [
+    "Inference cost increases with N",
+    "Depends on reliable candidate scoring"
+  ],
+  "tags": [
+    "best-of-n",
+    "reasoning",
+    "test-time-compute"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "verifier",
+    "test-time-compute",
+    "self-consistency"
+  ]
+},
+{
+  "id": "self-consistency",
+  "name": "Self-Consistency",
+  "family": "Inference-Time Reasoning",
+  "organization": "Research community",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "reasoning",
+  "type": "sampling-based-reasoning",
+  "description": "Self-consistency samples multiple reasoning paths and selects an answer based on agreement among the generated solutions.",
+  "pipeline": [
+    "sample multiple reasoning paths",
+    "extract final answers",
+    "aggregate answers",
+    "select consensus"
+  ],
+  "advantages": [
+    "Can improve reasoning accuracy without parameter updates",
+    "Uses diversity of sampled solutions"
+  ],
+  "limitations": [
+    "Requires multiple generations",
+    "Consensus does not guarantee correctness"
+  ],
+  "tags": [
+    "self-consistency",
+    "reasoning",
+    "test-time-compute"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "best-of-n",
+    "test-time-compute"
+  ]
+},
+{
+  "id": "test-time-compute",
+  "name": "Test-Time Compute",
+  "family": "Inference-Time Reasoning",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2024,
+  "category": "reasoning",
+  "type": "inference-scaling",
+  "description": "Test-time compute increases the amount of computation or search performed during inference in order to improve the quality of generated solutions.",
+  "methods": [
+    "multiple sampling",
+    "self-consistency",
+    "best-of-N",
+    "tree search",
+    "verification",
+    "tool use",
+    "iterative refinement"
+  ],
+  "tradeoffs": [
+    "accuracy",
+    "latency",
+    "inference cost",
+    "search complexity"
+  ],
+  "importance": [
+    "Introduces a second axis of scaling beyond model parameter count",
+    "Can trade additional inference compute for improved task performance"
+  ],
+  "tags": [
+    "test-time-compute",
+    "reasoning",
+    "inference-scaling"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "best-of-n",
+    "self-consistency",
+    "reasoning-model"
+  ]
+},
+{
+  "id": "reasoning-model",
+  "name": "Reasoning Model",
+  "family": "Reasoning Systems",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2024,
+  "category": "reasoning",
+  "type": "reasoning-oriented-model",
+  "description": "A reasoning model is a model explicitly trained, optimized, or deployed to allocate additional computation or structured generation toward difficult reasoning tasks.",
+  "capabilities": [
+    "mathematics",
+    "coding",
+    "planning",
+    "scientific reasoning",
+    "multi-step problem solving"
+  ],
+  "trainingApproaches": [
+    "reinforcement learning",
+    "process supervision",
+    "outcome supervision",
+    "synthetic reasoning data",
+    "verifier-guided optimization"
+  ],
+  "inferenceApproaches": [
+    "extended generation",
+    "search",
+    "verification",
+    "test-time compute"
+  ],
+  "limitations": [
+    "Higher latency",
+    "Higher inference cost",
+    "Reasoning traces do not necessarily guarantee factual correctness"
+  ],
+  "tags": [
+    "reasoning-model",
+    "reasoning",
+    "test-time-compute"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "reasoning-training",
+    "process-supervision",
+    "test-time-compute"
+  ]
+},
+{
+  "id": "reasoning-training",
+  "name": "Reasoning-Oriented Training",
+  "family": "Reasoning Training",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2024,
+  "category": "reasoning",
+  "type": "reasoning-training",
+  "description": "Reasoning-oriented training increases a model's ability to solve multi-step problems through supervised reasoning examples, reinforcement learning, verification, synthetic data, or combinations of these methods.",
+  "methods": [
+    "reasoning demonstrations",
+    "reinforcement learning",
+    "process supervision",
+    "outcome supervision",
+    "verifier-guided learning",
+    "synthetic reasoning data"
+  ],
+  "targetTasks": [
+    "mathematics",
+    "coding",
+    "science",
+    "planning",
+    "logic"
+  ],
+  "tags": [
+    "reasoning-training",
+    "reasoning-model",
+    "post-training"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "process-supervision",
+    "verifier",
+    "test-time-compute"
+  ]
+},
+{
+  "id": "reward-hacking",
+  "name": "Reward Hacking",
+  "family": "Alignment Failure Modes",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "post-training",
+  "type": "reward-hacking",
+  "description": "Reward hacking occurs when a model discovers behaviors that increase the measured reward without actually achieving the intended objective.",
+  "examples": [
+    "exploiting evaluation artifacts",
+    "optimizing superficial features",
+    "gaming a reward model",
+    "producing persuasive but incorrect outputs"
+  ],
+  "causes": [
+    "imperfect reward functions",
+    "reward-model misspecification",
+    "incomplete objectives"
+  ],
+  "risks": [
+    "misaligned behavior",
+    "overoptimization",
+    "degraded generalization"
+  ],
+  "tags": [
+    "reward-hacking",
+    "alignment",
+    "reward-model"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rlhf",
+    "reward-model",
+    "specification-gaming"
+  ]
+},
+{
+  "id": "specification-gaming",
+  "name": "Specification Gaming",
+  "family": "Alignment Failure Modes",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2016,
+  "category": "alignment",
+  "type": "objective-misspecification",
+  "description": "Specification gaming occurs when a system satisfies the literal or measurable specification of an objective while violating the intended goal.",
+  "principle": "Optimizing the metric is not always equivalent to achieving the intended objective.",
+  "examples": [
+    "reward exploitation",
+    "shortcut behavior",
+    "metric gaming"
+  ],
+  "tags": [
+    "specification-gaming",
+    "alignment",
+    "reward-hacking"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "reward-hacking",
+    "alignment"
+  ]
 }
 ]
