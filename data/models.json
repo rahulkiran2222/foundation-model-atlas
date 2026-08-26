@@ -25040,3 +25040,1036 @@
     "hallucination"
   ]
 },
+,
+{
+  "id": "multimodal-foundation-model",
+  "name": "Multimodal Foundation Model",
+  "family": "Multimodal Architectures",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "multimodal",
+  "type": "multimodal-foundation-model",
+  "description": "A multimodal foundation model processes information from multiple modalities such as text, images, audio, video, or other signals within a shared or coordinated modeling system.",
+  "modalities": [
+    "text",
+    "image",
+    "audio",
+    "video"
+  ],
+  "architecturalPatterns": [
+    "modality-specific encoders with projection",
+    "cross-attention",
+    "shared token spaces",
+    "unified multimodal Transformers",
+    "interleaved multimodal sequences"
+  ],
+  "capabilities": [
+    "visual question answering",
+    "image understanding",
+    "document understanding",
+    "video understanding",
+    "speech understanding",
+    "multimodal reasoning",
+    "multimodal generation"
+  ],
+  "advantages": [
+    "Combines information from multiple modalities",
+    "Enables cross-modal reasoning",
+    "Supports richer real-world tasks"
+  ],
+  "limitations": [
+    "Multimodal training is expensive",
+    "Modalities have different representation structures",
+    "Alignment between modalities is difficult",
+    "Performance can vary substantially across modalities"
+  ],
+  "tags": [
+    "multimodal",
+    "foundation-model",
+    "vision-language",
+    "audio-language",
+    "video"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "vision-language-model",
+    "multimodal-fusion",
+    "multimodal-tokenization"
+  ]
+},
+  {
+  "id": "vision-language-model",
+  "name": "Vision-Language Model",
+  "family": "Multimodal Architectures",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "description": "A vision-language model combines visual and textual information to perform tasks such as image understanding, visual question answering, captioning, document analysis, and multimodal reasoning.",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "architecturalPatterns": [
+    "vision encoder plus language model",
+    "vision encoder plus projector",
+    "cross-attention",
+    "unified multimodal Transformer"
+  ],
+  "tasks": [
+    "image captioning",
+    "visual question answering",
+    "image classification",
+    "OCR",
+    "document understanding",
+    "visual reasoning"
+  ],
+  "tags": [
+    "vlm",
+    "vision-language",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "vision-encoder",
+    "multimodal-projector",
+    "cross-attention"
+  ]
+},
+  {
+  "id": "vision-encoder",
+  "name": "Vision Encoder",
+  "family": "Multimodal Components",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2020,
+  "category": "multimodal",
+  "type": "vision-encoder",
+  "description": "A vision encoder transforms an image or video frame into representations that can be consumed by a multimodal model.",
+  "architectures": [
+    "Vision Transformer",
+    "CNN",
+    "CLIP-style encoder",
+    "SigLIP-style encoder"
+  ],
+  "outputs": [
+    "patch embeddings",
+    "visual tokens",
+    "global representations"
+  ],
+  "advantages": [
+    "Separates visual representation learning from language modeling",
+    "Allows pretrained vision models to be reused"
+  ],
+  "limitations": [
+    "Visual resolution can be expensive",
+    "Information may be lost during compression",
+    "Encoder choice strongly affects downstream capabilities"
+  ],
+  "tags": [
+    "vision-encoder",
+    "vit",
+    "multimodal",
+    "visual-tokens"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "vision-language-model",
+    "siglip",
+    "clip"
+  ]
+},
+  {
+  "id": "clip",
+  "name": "CLIP",
+  "family": "Vision-Language Representation",
+  "organization": "OpenAI",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "multimodal",
+  "type": "contrastive-vision-language",
+  "description": "CLIP learns aligned image and text representations through contrastive learning on large collections of image-text pairs.",
+  "architecture": {
+    "imageEncoder": "vision model",
+    "textEncoder": "Transformer-based text encoder",
+    "training": "contrastive learning"
+  },
+  "objective": [
+    "image-text alignment",
+    "cross-modal representation learning"
+  ],
+  "advantages": [
+    "Strong zero-shot visual classification",
+    "General-purpose image-text representations",
+    "Foundation for later multimodal systems"
+  ],
+  "limitations": [
+    "Primarily a representation model rather than a general multimodal generator",
+    "Training data can contain web-scale biases"
+  ],
+  "tags": [
+    "clip",
+    "vision-language",
+    "contrastive-learning",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Learning Transferable Visual Models From Natural Language Supervision",
+      "url": "https://arxiv.org/abs/2103.00020"
+    }
+  ],
+  "relatedConcepts": [
+    "siglip",
+    "vision-encoder",
+    "contrastive-learning"
+  ]
+},
+  {
+  "id": "siglip",
+  "name": "SigLIP",
+  "family": "Vision-Language Representation",
+  "organization": "Google",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "vision-language-encoder",
+  "description": "SigLIP is a vision-language representation model that uses a sigmoid-based image-text matching objective rather than the softmax contrastive formulation used by CLIP.",
+  "architecture": {
+    "imageEncoder": "Vision Transformer family",
+    "textEncoder": "Transformer",
+    "objective": "sigmoid image-text matching"
+  },
+  "advantages": [
+    "Strong image-text representations",
+    "Useful as a vision encoder for multimodal systems"
+  ],
+  "limitations": [
+    "Primarily a representation encoder",
+    "Downstream multimodal capabilities depend on integration with a language model"
+  ],
+  "tags": [
+    "siglip",
+    "vision-language",
+    "vision-encoder"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Sigmoid Loss for Language Image Pre-Training",
+      "url": "https://arxiv.org/abs/2303.15343"
+    }
+  ],
+  "relatedConcepts": [
+    "clip",
+    "vision-encoder",
+    "contrastive-learning"
+  ]
+},
+  {
+  "id": "multimodal-projector",
+  "name": "Multimodal Projector",
+  "family": "Multimodal Components",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "projection-layer",
+  "description": "A multimodal projector maps representations produced by a modality-specific encoder into the representation space expected by another model, commonly a language model.",
+  "inputs": [
+    "visual features",
+    "audio features",
+    "other modality representations"
+  ],
+  "outputs": [
+    "language-model-compatible embeddings",
+    "multimodal tokens"
+  ],
+  "implementations": [
+    "linear projection",
+    "MLP",
+    "resampler",
+    "learned projection network"
+  ],
+  "advantages": [
+    "Simple modular integration",
+    "Allows pretrained encoders and language models to be combined"
+  ],
+  "limitations": [
+    "Information bottleneck can limit performance",
+    "Projection quality depends on alignment training",
+    "Simple projectors may struggle with complex modality interactions"
+  ],
+  "tags": [
+    "projector",
+    "multimodal",
+    "vision-language",
+    "alignment"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "vision-encoder",
+    "llava",
+    "flamingo"
+  ]
+},
+  {
+  "id": "cross-attention-fusion",
+  "name": "Cross-Attention Multimodal Fusion",
+  "family": "Multimodal Fusion",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "multimodal",
+  "type": "cross-attention",
+  "description": "Cross-attention allows representations from one modality to selectively attend to representations from another modality.",
+  "examples": [
+    "text attending to image features",
+    "language attending to audio features",
+    "video queries attending to frame representations"
+  ],
+  "advantages": [
+    "Flexible multimodal interaction",
+    "Allows selective information exchange",
+    "Can preserve modality-specific encoders"
+  ],
+  "limitations": [
+    "Adds computational complexity",
+    "Fusion design affects performance",
+    "Repeated cross-attention can be expensive for long sequences"
+  ],
+  "tags": [
+    "cross-attention",
+    "multimodal-fusion",
+    "vision-language"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "flamingo",
+    "multimodal-projector",
+    "multimodal-transformer"
+  ]
+},
+  {
+  "id": "flamingo",
+  "name": "Flamingo",
+  "family": "Vision-Language Models",
+  "organization": "DeepMind",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "multimodal",
+  "type": "few-shot-vision-language",
+  "description": "Flamingo is a multimodal model architecture that connects visual encoders with a language model using learned resampling and gated cross-attention mechanisms.",
+  "architecture": {
+    "visionEncoder": "pretrained vision encoder",
+    "resampler": "Perceiver-style visual resampler",
+    "languageModel": "large language model",
+    "fusion": "gated cross-attention"
+  },
+  "capabilities": [
+    "few-shot image understanding",
+    "image-text generation",
+    "interleaved image-text reasoning"
+  ],
+  "importance": [
+    "Demonstrated powerful few-shot multimodal learning",
+    "Established an influential modular multimodal architecture"
+  ],
+  "tags": [
+    "flamingo",
+    "vision-language",
+    "cross-attention",
+    "few-shot"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Flamingo: a Visual Language Model for Few-Shot Learning",
+      "url": "https://arxiv.org/abs/2204.14198"
+    }
+  ],
+  "relatedConcepts": [
+    "cross-attention-fusion",
+    "vision-encoder",
+    "multimodal-projector"
+  ]
+},
+  {
+  "id": "blip",
+  "name": "BLIP",
+  "family": "Vision-Language Models",
+  "organization": "Salesforce Research",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "multimodal",
+  "type": "vision-language-pretraining",
+  "description": "BLIP combines vision-language understanding and generation through a unified architecture and bootstrapped image-caption data.",
+  "architecture": {
+    "visionEncoder": "Vision Transformer",
+    "languageComponents": "Transformer-based",
+    "tasks": [
+      "image-text matching",
+      "image-text generation",
+      "vision-language understanding"
+    ]
+  },
+  "training": [
+    "image-text pretraining",
+    "caption bootstrapping",
+    "filtering"
+  ],
+  "tags": [
+    "blip",
+    "vision-language",
+    "captioning",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation",
+      "url": "https://arxiv.org/abs/2201.12086"
+    }
+  ],
+  "relatedConcepts": [
+    "blip-2",
+    "vision-language-model",
+    "image-captioning"
+  ]
+},
+  {
+  "id": "blip-2",
+  "name": "BLIP-2",
+  "family": "Vision-Language Models",
+  "organization": "Salesforce Research",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "frozen-encoder-language-model",
+  "description": "BLIP-2 connects a frozen image encoder to a frozen large language model through a lightweight Querying Transformer.",
+  "architecture": {
+    "visionEncoder": "frozen image encoder",
+    "connector": "Q-Former",
+    "languageModel": "frozen large language model"
+  },
+  "training": [
+    "vision-language representation learning",
+    "vision-to-language alignment"
+  ],
+  "advantages": [
+    "Efficiently connects pretrained vision and language models",
+    "Reduces the number of trainable parameters",
+    "Demonstrates strong multimodal transfer"
+  ],
+  "limitations": [
+    "Information must pass through the Q-Former bottleneck",
+    "Capabilities depend on the pretrained components"
+  ],
+  "tags": [
+    "blip-2",
+    "q-former",
+    "vision-language",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models",
+      "url": "https://arxiv.org/abs/2301.12597"
+    }
+  ],
+  "relatedConcepts": [
+    "blip",
+    "q-former",
+    "multimodal-projector"
+  ]
+},
+  {
+  "id": "llava",
+  "name": "LLaVA",
+  "family": "Vision-Language Models",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "vision-language-instruction-model",
+  "description": "LLaVA connects a pretrained vision encoder to a language model through a projection layer and trains the resulting system for visual instruction following.",
+  "architecture": {
+    "visionEncoder": "CLIP-family vision encoder",
+    "connector": "projection layer",
+    "languageModel": "large language model"
+  },
+  "training": [
+    "visual-language alignment",
+    "visual instruction tuning"
+  ],
+  "capabilities": [
+    "visual question answering",
+    "image reasoning",
+    "visual instruction following"
+  ],
+  "advantages": [
+    "Simple and influential modular architecture",
+    "Demonstrated effective visual instruction tuning"
+  ],
+  "limitations": [
+    "Projection bottleneck",
+    "Vision encoder limitations propagate to the model",
+    "Original design is primarily image-text rather than fully unified multimodal generation"
+  ],
+  "tags": [
+    "llava",
+    "vision-language",
+    "instruction-tuning",
+    "multimodal"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Visual Instruction Tuning",
+      "url": "https://arxiv.org/abs/2304.08485"
+    }
+  ],
+  "relatedConcepts": [
+    "multimodal-projector",
+    "clip",
+    "vision-language-model"
+  ]
+},
+  {
+  "id": "q-former",
+  "name": "Q-Former",
+  "family": "Multimodal Components",
+  "organization": "Salesforce Research",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "querying-transformer",
+  "description": "Q-Former is a lightweight Transformer component that uses learned query representations to extract relevant information from frozen visual features before passing it to a language model.",
+  "mechanism": [
+    "learned queries",
+    "cross-attention to visual features",
+    "query-based information extraction"
+  ],
+  "purpose": [
+    "compress visual information",
+    "bridge vision and language representations",
+    "reduce multimodal interface cost"
+  ],
+  "advantages": [
+    "Compact multimodal connector",
+    "Learned information bottleneck",
+    "Works with frozen pretrained components"
+  ],
+  "limitations": [
+    "Compression can discard visual information",
+    "Connector capacity limits the information transferred"
+  ],
+  "tags": [
+    "q-former",
+    "blip-2",
+    "multimodal",
+    "cross-attention"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models",
+      "url": "https://arxiv.org/abs/2301.12597"
+    }
+  ],
+  "relatedConcepts": [
+    "blip-2",
+    "cross-attention-fusion",
+    "multimodal-projector"
+  ]
+},
+  {
+  "id": "perceiver-resampler",
+  "name": "Perceiver Resampler",
+  "family": "Multimodal Components",
+  "organization": "DeepMind",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "multimodal",
+  "type": "latent-resampler",
+  "description": "A Perceiver-style resampler converts a potentially large collection of modality-specific features into a smaller fixed-size set of latent representations.",
+  "mechanism": [
+    "learned latent queries",
+    "cross-attention",
+    "fixed-size latent representation"
+  ],
+  "uses": [
+    "image features",
+    "video features",
+    "high-dimensional modality representations"
+  ],
+  "advantages": [
+    "Controls multimodal sequence length",
+    "Reduces computational burden for downstream language models",
+    "Supports variable-sized inputs"
+  ],
+  "limitations": [
+    "Information bottleneck",
+    "Latent count affects quality and efficiency"
+  ],
+  "tags": [
+    "perceiver",
+    "resampler",
+    "multimodal",
+    "flamingo"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Flamingo: a Visual Language Model for Few-Shot Learning",
+      "url": "https://arxiv.org/abs/2204.14198"
+    }
+  ],
+  "relatedConcepts": [
+    "flamingo",
+    "q-former",
+    "multimodal-projector"
+  ]
+},
+  {
+  "id": "paligemma",
+  "name": "PaliGemma",
+  "family": "Vision-Language Models",
+  "organization": "Google",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "description": "PaliGemma combines a pretrained vision encoder with a Gemma language model to support vision-language tasks through a compact multimodal architecture.",
+  "architecture": {
+    "visionEncoder": "SigLIP family",
+    "languageModel": "Gemma family",
+    "fusion": "multimodal projection"
+  },
+  "capabilities": [
+    "image understanding",
+    "captioning",
+    "visual question answering",
+    "document and OCR-related tasks"
+  ],
+  "tags": [
+    "paligemma",
+    "gemma",
+    "siglip",
+    "vision-language"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "gemma",
+    "siglip",
+    "vision-language-model"
+  ]
+},
+  {
+  "id": "video-language-model",
+  "name": "Video-Language Model",
+  "family": "Multimodal Architectures",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "multimodal",
+  "type": "video-language",
+  "description": "Video-language models jointly process visual information across time and language to support video understanding, temporal reasoning, captioning, and video question answering.",
+  "components": [
+    "frame encoder",
+    "temporal aggregation",
+    "video resampler",
+    "language model"
+  ],
+  "tasks": [
+    "video captioning",
+    "video question answering",
+    "temporal reasoning",
+    "action understanding",
+    "long-video understanding"
+  ],
+  "challenges": [
+    "large number of visual tokens",
+    "temporal reasoning",
+    "long-duration videos",
+    "computational cost"
+  ],
+  "tags": [
+    "video",
+    "video-language",
+    "multimodal",
+    "temporal-reasoning"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "vision-language-model",
+    "video-encoder",
+    "temporal-attention"
+  ]
+},
+  {
+  "id": "audio-language-model",
+  "name": "Audio-Language Model",
+  "family": "Multimodal Architectures",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2022,
+  "category": "multimodal",
+  "type": "audio-language",
+  "description": "Audio-language models combine acoustic representations with language modeling to understand speech, environmental sounds, music, or other audio signals.",
+  "modalities": [
+    "audio",
+    "speech",
+    "text"
+  ],
+  "components": [
+    "audio encoder",
+    "speech encoder",
+    "audio tokenizer",
+    "multimodal connector",
+    "language model"
+  ],
+  "tasks": [
+    "speech recognition",
+    "audio question answering",
+    "speech understanding",
+    "audio captioning",
+    "spoken dialogue"
+  ],
+  "challenges": [
+    "high temporal resolution",
+    "speaker variation",
+    "noise",
+    "long audio sequences"
+  ],
+  "tags": [
+    "audio-language",
+    "speech",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "audio-encoder",
+    "speech-tokenization",
+    "multimodal-foundation-model"
+  ]
+},
+  {
+  "id": "multimodal-tokenization",
+  "name": "Multimodal Tokenization",
+  "family": "Multimodal Representation",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "multimodal",
+  "type": "multimodal-tokenization",
+  "description": "Multimodal tokenization converts heterogeneous modalities into discrete or continuous representations that can be processed jointly by a multimodal model.",
+  "modalities": [
+    "text",
+    "image",
+    "audio",
+    "video"
+  ],
+  "representations": [
+    "discrete tokens",
+    "continuous embeddings",
+    "latent representations",
+    "patch tokens"
+  ],
+  "designQuestions": [
+    "shared versus modality-specific vocabulary",
+    "token granularity",
+    "sequence length",
+    "information compression",
+    "cross-modal alignment"
+  ],
+  "advantages": [
+    "Provides a common interface for multimodal modeling",
+    "Can enable interleaved multimodal sequences"
+  ],
+  "limitations": [
+    "Token count can explode for high-resolution or long-duration modalities",
+    "Compression may remove information",
+    "Different modalities have fundamentally different statistical structures"
+  ],
+  "tags": [
+    "multimodal-tokenization",
+    "tokens",
+    "multimodal",
+    "representation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "visual-tokens",
+    "audio-tokens",
+    "unified-multimodal-model"
+  ]
+},
+  {
+  "id": "interleaved-multimodal-sequences",
+  "name": "Interleaved Multimodal Sequences",
+  "family": "Multimodal Architectures",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2022,
+  "category": "multimodal",
+  "type": "interleaved-input",
+  "description": "Interleaved multimodal architectures process sequences containing alternating or mixed modality elements such as text, images, audio, and video.",
+  "example": [
+    "text",
+    "image",
+    "text",
+    "image",
+    "text"
+  ],
+  "advantages": [
+    "Supports richer document and web-like inputs",
+    "Allows relationships between multiple modalities within one context"
+  ],
+  "limitations": [
+    "Sequence length grows rapidly",
+    "Modality alignment becomes more difficult",
+    "Requires robust multimodal positional representation"
+  ],
+  "tags": [
+    "interleaved",
+    "multimodal",
+    "vision-language",
+    "context"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "multimodal-tokenization",
+    "flamingo",
+    "unified-multimodal-model"
+  ]
+},
+  {
+  "id": "unified-multimodal-model",
+  "name": "Unified Multimodal Model",
+  "family": "Multimodal Architectures",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "unified-multimodal",
+  "description": "A unified multimodal model processes multiple modalities within a common modeling framework rather than treating each modality as an isolated external attachment to a language model.",
+  "modalities": [
+    "text",
+    "image",
+    "audio",
+    "video"
+  ],
+  "architecturalProperties": [
+    "shared multimodal representation",
+    "native multimodal processing",
+    "interleaved inputs",
+    "cross-modal attention",
+    "potential multimodal generation"
+  ],
+  "advantages": [
+    "More deeply integrated multimodal reasoning",
+    "Potentially consistent treatment of modalities",
+    "Supports richer input-output combinations"
+  ],
+  "limitations": [
+    "Extremely expensive training",
+    "Complex multimodal data requirements",
+    "Difficult optimization",
+    "Evaluation across modalities is challenging"
+  ],
+  "tags": [
+    "unified-model",
+    "multimodal",
+    "native-multimodal"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "multimodal-tokenization",
+    "interleaved-multimodal-sequences",
+    "multimodal-foundation-model"
+  ]
+},
+  {
+  "id": "multimodal-alignment",
+  "name": "Multimodal Alignment",
+  "family": "Multimodal Training",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "multimodal",
+  "type": "cross-modal-alignment",
+  "description": "Multimodal alignment trains representations from different modalities so that semantically related information can be associated and jointly reasoned over.",
+  "alignmentTypes": [
+    "image-text alignment",
+    "audio-text alignment",
+    "video-text alignment",
+    "cross-modal semantic alignment"
+  ],
+  "methods": [
+    "contrastive learning",
+    "cross-attention",
+    "projection learning",
+    "instruction tuning",
+    "generative objectives"
+  ],
+  "advantages": [
+    "Enables cross-modal understanding",
+    "Allows pretrained modality-specific models to work together"
+  ],
+  "limitations": [
+    "Weak alignment can create modality grounding errors",
+    "Semantic equivalence is difficult to define",
+    "Training data quality is critical"
+  ],
+  "tags": [
+    "multimodal-alignment",
+    "vision-language",
+    "cross-modal",
+    "training"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "clip",
+    "multimodal-projector",
+    "contrastive-learning"
+  ]
+},
+  {
+  "id": "multimodal-instruction-tuning",
+  "name": "Multimodal Instruction Tuning",
+  "family": "Multimodal Training",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "multimodal-sft",
+  "description": "Multimodal instruction tuning adapts a multimodal model using instructions paired with inputs and desired responses involving one or more modalities.",
+  "examples": [
+    "image + question → answer",
+    "image + instruction → description",
+    "video + question → answer",
+    "audio + instruction → response"
+  ],
+  "objectives": [
+    "multimodal instruction following",
+    "visual reasoning",
+    "cross-modal question answering",
+    "multimodal dialogue"
+  ],
+  "advantages": [
+    "Improves usability of multimodal foundation models",
+    "Connects multimodal perception with instruction following"
+  ],
+  "limitations": [
+    "Instruction datasets can be expensive",
+    "Synthetic multimodal data can contain errors",
+    "Narrow datasets can produce modality-specific weaknesses"
+  ],
+  "tags": [
+    "multimodal-sft",
+    "instruction-tuning",
+    "vision-language",
+    "alignment"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "instruction-tuning",
+    "llava",
+    "multimodal-alignment"
+  ]
+},
+  {
+  "id": "multimodal-hallucination",
+  "name": "Multimodal Hallucination",
+  "family": "Multimodal Failure Modes",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "hallucination",
+  "description": "Multimodal hallucination occurs when a model generates content that is inconsistent with, unsupported by, or absent from the provided non-textual input.",
+  "examples": [
+    "inventing objects in an image",
+    "misidentifying visual attributes",
+    "describing nonexistent text",
+    "claiming actions that do not occur in a video",
+    "producing unsupported audio interpretations"
+  ],
+  "causes": [
+    "language-model priors",
+    "weak visual grounding",
+    "projection bottlenecks",
+    "training-data bias",
+    "insufficient multimodal alignment"
+  ],
+  "evaluation": [
+    "object hallucination",
+    "attribute hallucination",
+    "relation hallucination",
+    "OCR hallucination"
+  ],
+  "tags": [
+    "multimodal-hallucination",
+    "grounding",
+    "vision-language",
+    "evaluation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "multimodal-alignment",
+    "grounding",
+    "hallucination"
+  ]
+},
+  {
+  "id": "multimodal-grounding",
+  "name": "Multimodal Grounding",
+  "family": "Multimodal Reliability",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "multimodal",
+  "type": "grounding",
+  "description": "Multimodal grounding measures or enables correspondence between model outputs and specific evidence contained in visual, auditory, textual, or other input modalities.",
+  "groundingTargets": [
+    "objects",
+    "regions",
+    "text spans",
+    "audio segments",
+    "video timestamps",
+    "events"
+  ],
+  "dimensions": [
+    "evidence localization",
+    "claim support",
+    "cross-modal consistency",
+    "faithfulness"
+  ],
+  "importance": [
+    "Separates fluent generation from evidence-supported generation",
+    "Provides a basis for evaluating multimodal reliability"
+  ],
+  "limitations": [
+    "Grounding metrics are task-dependent",
+    "A model may identify evidence without faithfully using it",
+    "Localization does not automatically imply reasoning correctness"
+  ],
+  "tags": [
+    "multimodal-grounding",
+    "grounding",
+    "reliability",
+    "vision-language"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "multimodal-hallucination",
+    "retrieval-grounding",
+    "vision-language-model"
+  ]
+}
+]
