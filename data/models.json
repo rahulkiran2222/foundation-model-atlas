@@ -36998,4 +36998,929 @@
   "relatedModels": [
     "gpt-neox-20b"
   ]
+},
+,
+{
+  "id": "opt",
+  "name": "OPT",
+  "family": "OPT",
+  "organization": "Meta",
+  "year": 2022,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "open research",
+    "language modeling",
+    "reproducibility"
+  ],
+  "openWeights": true,
+  "tags": [
+    "opt",
+    "meta",
+    "open-research"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "opt-1-3b",
+    "opt-6-7b",
+    "opt-13b",
+    "opt-30b",
+    "opt-66b"
+  ]
+},
+{
+  "id": "opt-1-3b",
+  "name": "OPT-1.3B",
+  "family": "OPT",
+  "organization": "Meta",
+  "year": 2022,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "1.3B",
+  "openWeights": true,
+  "tags": [
+    "opt",
+    "1.3b"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "opt"
+  ]
+},
+{
+  "id": "opt-6-7b",
+  "name": "OPT-6.7B",
+  "family": "OPT",
+  "organization": "Meta",
+  "year": 2022,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "6.7B",
+  "openWeights": true,
+  "tags": [
+    "opt",
+    "6.7b"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "opt"
+  ]
+},
+{
+  "id": "opt-13b",
+  "name": "OPT-13B",
+  "family": "OPT",
+  "organization": "Meta",
+  "year": 2022,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "13B",
+  "openWeights": true,
+  "tags": [
+    "opt",
+    "13b"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "opt"
+  ]
+},
+{
+  "id": "opt-30b",
+  "name": "OPT-30B",
+  "family": "OPT",
+  "organization": "Meta",
+  "year": 2022,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "30B",
+  "openWeights": true,
+  "tags": [
+    "opt",
+    "30b"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "opt"
+  ]
+},
+{
+  "id": "opt-66b",
+  "name": "OPT-66B",
+  "family": "OPT",
+  "organization": "Meta",
+  "year": 2022,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "66B",
+  "openWeights": true,
+  "tags": [
+    "opt",
+    "66b"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "opt"
+  ]
+},
+{
+  "id": "gpt-neo",
+  "name": "GPT-Neo",
+  "family": "GPT-Neo",
+  "organization": "EleutherAI",
+  "year": 2021,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "open research",
+    "language modeling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "gpt-neo",
+    "eleutherai"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "gpt-neo-1-3b",
+    "gpt-neo-2-7b"
+  ]
+},
+{
+  "id": "gpt-neo-1-3b",
+  "name": "GPT-Neo 1.3B",
+  "family": "GPT-Neo",
+  "organization": "EleutherAI",
+  "year": 2021,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "1.3B",
+  "openWeights": true,
+  "tags": [
+    "gpt-neo",
+    "1.3b"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "gpt-neo"
+  ]
+},
+{
+  "id": "gpt-neo-2-7b",
+  "name": "GPT-Neo 2.7B",
+  "family": "GPT-Neo",
+  "organization": "EleutherAI",
+  "year": 2021,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "2.7B",
+  "openWeights": true,
+  "tags": [
+    "gpt-neo",
+    "2.7b"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "gpt-neo"
+  ]
+},
+{
+  "id": "gpt-bigcode",
+  "name": "GPT BigCode",
+  "family": "BigCode",
+  "organization": "BigCode",
+  "year": 2023,
+  "category": "code",
+  "type": "code-language-model",
+  "modalities": [
+    "text",
+    "code"
+  ],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "code generation",
+    "open code research"
+  ],
+  "openWeights": true,
+  "tags": [
+    "bigcode",
+    "code"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "starcoder"
+  ]
+},
+{
+  "id": "bloom-3b",
+  "name": "BLOOM 3B",
+  "family": "BLOOM",
+  "organization": "BigScience",
+  "year": 2022,
+  "category": "llm",
+  "type": "multilingual-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "3B",
+  "openWeights": true,
+  "tags": [
+    "bloom",
+    "multilingual"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "bloom"
+  ]
+},
+{
+  "id": "bloom-7b1",
+  "name": "BLOOM 7.1B",
+  "family": "BLOOM",
+  "organization": "BigScience",
+  "year": 2022,
+  "category": "llm",
+  "type": "multilingual-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "7.1B",
+  "openWeights": true,
+  "tags": [
+    "bloom",
+    "multilingual"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "bloom"
+  ]
+},
+{
+  "id": "bloom-176b",
+  "name": "BLOOM 176B",
+  "family": "BLOOM",
+  "organization": "BigScience",
+  "year": 2022,
+  "category": "llm",
+  "type": "large-multilingual-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "176B",
+  "openWeights": true,
+  "tags": [
+    "bloom",
+    "176b",
+    "multilingual"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "bloom"
+  ]
+},
+{
+  "id": "falcon-mamba",
+  "name": "Falcon Mamba",
+  "family": "Falcon",
+  "organization": "Technology Innovation Institute",
+  "year": 2024,
+  "category": "llm",
+  "type": "state-space-language-model",
+  "modalities": ["text"],
+  "architecture": "state-space model",
+  "focus": [
+    "long-context",
+    "efficient sequence processing",
+    "alternative to attention"
+  ],
+  "openWeights": true,
+  "tags": [
+    "falcon",
+    "mamba",
+    "state-space-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "falcon"
+  ]
+},
+{
+  "id": "yi-coder",
+  "name": "Yi-Coder",
+  "family": "Yi",
+  "organization": "01.AI",
+  "year": 2024,
+  "category": "code",
+  "type": "code-language-model",
+  "modalities": [
+    "text",
+    "code"
+  ],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "code generation",
+    "code completion",
+    "long-context coding"
+  ],
+  "openWeights": true,
+  "tags": [
+    "yi",
+    "code",
+    "01-ai"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "yi-1-5"
+  ]
+},
+{
+  "id": "yi-vl",
+  "name": "Yi-VL",
+  "family": "Yi",
+  "organization": "01.AI",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "image understanding",
+    "visual question answering"
+  ],
+  "openWeights": true,
+  "tags": [
+    "yi",
+    "vision-language"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "yi-1-5"
+  ]
+},
+{
+  "id": "internlm2-5",
+  "name": "InternLM2.5",
+  "family": "InternLM",
+  "organization": "Shanghai AI Laboratory",
+  "year": 2024,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "reasoning",
+    "long-context",
+    "tool use"
+  ],
+  "openWeights": true,
+  "tags": [
+    "internlm",
+    "reasoning",
+    "long-context"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "internlm2",
+    "internlm3"
+  ]
+},
+{
+  "id": "internvl2",
+  "name": "InternVL2",
+  "family": "InternVL",
+  "organization": "OpenGVLab",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "modalities": [
+    "text",
+    "image",
+    "video"
+  ],
+  "focus": [
+    "visual reasoning",
+    "document understanding",
+    "video understanding"
+  ],
+  "openWeights": true,
+  "tags": [
+    "internvl",
+    "vision-language",
+    "video"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "internvl"
+  ]
+},
+{
+  "id": "minicpm",
+  "name": "MiniCPM",
+  "family": "MiniCPM",
+  "organization": "OpenBMB",
+  "year": 2024,
+  "category": "llm",
+  "type": "small-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "edge deployment",
+    "small-model inference",
+    "efficient language modeling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "minicpm",
+    "small-language-model",
+    "edge-ai"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "minicpm-2b",
+    "minicpm3"
+  ]
+},
+{
+  "id": "minicpm-v",
+  "name": "MiniCPM-V",
+  "family": "MiniCPM",
+  "organization": "OpenBMB",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "vision-language understanding",
+    "OCR",
+    "edge multimodal inference"
+  ],
+  "openWeights": true,
+  "tags": [
+    "minicpm-v",
+    "minicpm",
+    "vision-language"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "minicpm"
+  ]
+},
+{
+  "id": "minicpm-o",
+  "name": "MiniCPM-o",
+  "family": "MiniCPM",
+  "organization": "OpenBMB",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "omni-modal-model",
+  "modalities": [
+    "text",
+    "image",
+    "audio",
+    "video"
+  ],
+  "focus": [
+    "omni-modal interaction",
+    "speech",
+    "vision",
+    "edge deployment"
+  ],
+  "openWeights": true,
+  "tags": [
+    "minicpm",
+    "omni-modal",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "minicpm-v"
+  ]
+},
+{
+  "id": "internimage",
+  "name": "InternImage",
+  "family": "InternImage",
+  "organization": "OpenGVLab",
+  "year": 2023,
+  "category": "vision",
+  "type": "vision-foundation-model",
+  "modalities": ["image"],
+  "architecture": "deformable convolutional vision architecture",
+  "focus": [
+    "computer vision",
+    "image recognition",
+    "dense prediction"
+  ],
+  "openWeights": true,
+  "tags": [
+    "internimage",
+    "vision"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "beit",
+  "name": "BEiT",
+  "family": "BEiT",
+  "organization": "Microsoft Research",
+  "year": 2021,
+  "category": "vision",
+  "type": "vision-foundation-model",
+  "modalities": ["image"],
+  "architecture": "Vision Transformer",
+  "focus": [
+    "self-supervised vision",
+    "representation learning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "beit",
+    "vision-transformer",
+    "self-supervised"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "beit-2",
+    "beit-3"
+  ]
+},
+{
+  "id": "beit-2",
+  "name": "BEiT v2",
+  "family": "BEiT",
+  "organization": "Microsoft Research",
+  "year": 2022,
+  "category": "vision",
+  "type": "vision-foundation-model",
+  "modalities": ["image"],
+  "architecture": "Vision Transformer",
+  "focus": [
+    "self-supervised representation learning",
+    "vision"
+  ],
+  "openWeights": true,
+  "tags": [
+    "beit",
+    "vision-transformer"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "beit"
+  ]
+},
+{
+  "id": "beit-3",
+  "name": "BEiT-3",
+  "family": "BEiT",
+  "organization": "Microsoft Research",
+  "year": 2022,
+  "category": "multimodal",
+  "type": "multimodal-foundation-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "vision-language",
+    "multimodal representation learning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "beit-3",
+    "multimodal",
+    "vision-language"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "beit"
+  ]
+},
+{
+  "id": "eva",
+  "name": "EVA",
+  "family": "EVA",
+  "organization": "BAAI",
+  "year": 2022,
+  "category": "vision",
+  "type": "vision-foundation-model",
+  "modalities": ["image"],
+  "architecture": "Vision Transformer",
+  "focus": [
+    "visual representation learning",
+    "vision-language"
+  ],
+  "openWeights": true,
+  "tags": [
+    "eva",
+    "vision-transformer"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "eva-02"
+  ]
+},
+{
+  "id": "eva-02",
+  "name": "EVA-02",
+  "family": "EVA",
+  "organization": "BAAI",
+  "year": 2023,
+  "category": "vision",
+  "type": "vision-foundation-model",
+  "modalities": ["image"],
+  "architecture": "Vision Transformer",
+  "focus": [
+    "visual representation learning",
+    "efficient vision"
+  ],
+  "openWeights": true,
+  "tags": [
+    "eva-02",
+    "vision-transformer"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "eva"
+  ]
+},
+{
+  "id": "dinov2",
+  "name": "DINOv2",
+  "family": "DINO",
+  "organization": "Meta",
+  "year": 2023,
+  "category": "vision",
+  "type": "self-supervised-vision-model",
+  "modalities": ["image"],
+  "architecture": "Vision Transformer",
+  "training": [
+    "self-supervised learning"
+  ],
+  "focus": [
+    "visual representation learning",
+    "dense prediction",
+    "image retrieval"
+  ],
+  "openWeights": true,
+  "tags": [
+    "dinov2",
+    "self-supervised",
+    "vision-transformer"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "dino"
+  ]
+},
+{
+  "id": "sam",
+  "name": "Segment Anything Model",
+  "family": "SAM",
+  "organization": "Meta",
+  "year": 2023,
+  "category": "vision",
+  "type": "vision-foundation-model",
+  "modalities": ["image"],
+  "architecture": "vision transformer with promptable segmentation",
+  "focus": [
+    "image segmentation",
+    "promptable vision",
+    "zero-shot segmentation"
+  ],
+  "openWeights": true,
+  "tags": [
+    "sam",
+    "segmentation",
+    "vision-foundation-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "sam-2"
+  ]
+},
+{
+  "id": "sam-2",
+  "name": "SAM 2",
+  "family": "SAM",
+  "organization": "Meta",
+  "year": 2024,
+  "category": "vision",
+  "type": "video-vision-foundation-model",
+  "modalities": [
+    "image",
+    "video"
+  ],
+  "focus": [
+    "image segmentation",
+    "video segmentation",
+    "promptable vision"
+  ],
+  "openWeights": true,
+  "tags": [
+    "sam-2",
+    "segmentation",
+    "video"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "sam"
+  ]
+},
+{
+  "id": "siglip-2",
+  "name": "SigLIP 2",
+  "family": "SigLIP",
+  "organization": "Google",
+  "year": 2025,
+  "category": "vision-language",
+  "type": "vision-language-encoder",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "focus": [
+    "image-text representation learning",
+    "vision-language retrieval",
+    "multimodal encoders"
+  ],
+  "openWeights": true,
+  "tags": [
+    "siglip",
+    "vision-language",
+    "encoder"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "siglip"
+  ]
+},
+{
+  "id": "e5",
+  "name": "E5",
+  "family": "E5",
+  "organization": "Microsoft Research",
+  "year": 2022,
+  "category": "embedding",
+  "type": "text-embedding-model",
+  "modalities": ["text"],
+  "focus": [
+    "semantic search",
+    "retrieval",
+    "text embeddings"
+  ],
+  "openWeights": true,
+  "tags": [
+    "e5",
+    "embeddings",
+    "retrieval"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "multilingual-e5"
+  ]
+},
+{
+  "id": "multilingual-e5",
+  "name": "Multilingual E5",
+  "family": "E5",
+  "organization": "Microsoft Research",
+  "year": 2024,
+  "category": "embedding",
+  "type": "multilingual-embedding-model",
+  "modalities": ["text"],
+  "focus": [
+    "multilingual retrieval",
+    "semantic search",
+    "cross-lingual embeddings"
+  ],
+  "openWeights": true,
+  "tags": [
+    "e5",
+    "multilingual",
+    "embeddings"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "e5"
+  ]
+},
+{
+  "id": "bge",
+  "name": "BGE",
+  "family": "BGE",
+  "organization": "BAAI",
+  "year": 2023,
+  "category": "embedding",
+  "type": "text-embedding-model",
+  "modalities": ["text"],
+  "focus": [
+    "retrieval",
+    "semantic search",
+    "embeddings"
+  ],
+  "openWeights": true,
+  "tags": [
+    "bge",
+    "embeddings",
+    "retrieval"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "bge-m3"
+  ]
+},
+{
+  "id": "bge-m3",
+  "name": "BGE-M3",
+  "family": "BGE",
+  "organization": "BAAI",
+  "year": 2024,
+  "category": "embedding",
+  "type": "multilingual-multifunctional-embedding-model",
+  "modalities": ["text"],
+  "focus": [
+    "multilingual retrieval",
+    "dense retrieval",
+    "sparse retrieval",
+    "multi-vector retrieval"
+  ],
+  "openWeights": true,
+  "tags": [
+    "bge",
+    "bge-m3",
+    "retrieval"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "bge"
+  ]
+},
+{
+  "id": "gte",
+  "name": "GTE",
+  "family": "GTE",
+  "organization": "Alibaba DAMO Academy",
+  "year": 2023,
+  "category": "embedding",
+  "type": "text-embedding-model",
+  "modalities": ["text"],
+  "focus": [
+    "semantic search",
+    "retrieval",
+    "embeddings"
+  ],
+  "openWeights": true,
+  "tags": [
+    "gte",
+    "embeddings",
+    "retrieval"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "gte-large"
+  ]
+},
+{
+  "id": "nomic-embed",
+  "name": "Nomic Embed",
+  "family": "Nomic Embed",
+  "organization": "Nomic AI",
+  "year": 2024,
+  "category": "embedding",
+  "type": "text-embedding-model",
+  "modalities": ["text"],
+  "focus": [
+    "semantic search",
+    "long-context embeddings",
+    "retrieval"
+  ],
+  "openWeights": true,
+  "tags": [
+    "nomic",
+    "embeddings",
+    "retrieval"
+  ],
+  "sources": [],
+  "relatedModels": []
 }
