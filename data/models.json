@@ -40180,4 +40180,941 @@
   ],
   "sources": [],
   "relatedModels": []
+},
+,
+{
+  "id": "granite",
+  "name": "Granite",
+  "family": "Granite",
+  "organization": "IBM",
+  "year": 2024,
+  "category": "llm",
+  "type": "enterprise-language-model-family",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "enterprise AI",
+    "coding",
+    "instruction following",
+    "tool use"
+  ],
+  "openWeights": true,
+  "tags": [
+    "granite",
+    "ibm",
+    "enterprise",
+    "open-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "granite-3",
+    "granite-3-2"
+  ]
+},
+{
+  "id": "granite-3",
+  "name": "Granite 3",
+  "family": "Granite",
+  "organization": "IBM",
+  "year": 2024,
+  "category": "llm",
+  "type": "enterprise-language-model-family",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "enterprise reasoning",
+    "coding",
+    "tool use",
+    "multilingual"
+  ],
+  "openWeights": true,
+  "tags": [
+    "granite",
+    "ibm",
+    "enterprise"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "granite",
+    "granite-3-2"
+  ]
+},
+{
+  "id": "granite-3-2",
+  "name": "Granite 3.2",
+  "family": "Granite",
+  "organization": "IBM",
+  "year": 2025,
+  "category": "llm",
+  "type": "enterprise-language-model-family",
+  "modalities": ["text"],
+  "focus": [
+    "reasoning",
+    "coding",
+    "enterprise agents",
+    "tool use"
+  ],
+  "openWeights": true,
+  "tags": [
+    "granite",
+    "ibm",
+    "reasoning",
+    "agents"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "granite-3"
+  ]
+},
+{
+  "id": "jamba",
+  "name": "Jamba",
+  "family": "Jamba",
+  "organization": "AI21 Labs",
+  "year": 2024,
+  "category": "llm",
+  "type": "hybrid-language-model",
+  "modalities": ["text"],
+  "architecture": "hybrid Transformer-Mamba",
+  "focus": [
+    "long-context",
+    "efficient inference",
+    "language modeling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "jamba",
+    "mamba",
+    "transformer",
+    "hybrid-architecture"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "jamba-1-5"
+  ]
+},
+{
+  "id": "jamba-1-5",
+  "name": "Jamba 1.5",
+  "family": "Jamba",
+  "organization": "AI21 Labs",
+  "year": 2024,
+  "category": "llm",
+  "type": "hybrid-language-model",
+  "modalities": ["text"],
+  "architecture": "hybrid Transformer-Mamba",
+  "focus": [
+    "long-context",
+    "reasoning",
+    "efficient inference"
+  ],
+  "openWeights": true,
+  "tags": [
+    "jamba",
+    "mamba",
+    "long-context"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "jamba"
+  ]
+},
+{
+  "id": "command-r7b",
+  "name": "Command R7B",
+  "family": "Command",
+  "organization": "Cohere",
+  "year": 2024,
+  "category": "llm",
+  "type": "small-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "enterprise applications",
+    "RAG",
+    "tool use",
+    "efficient inference"
+  ],
+  "openWeights": true,
+  "tags": [
+    "command",
+    "cohere",
+    "rag",
+    "small-language-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "command-r",
+    "command-r-plus"
+  ]
+},
+{
+  "id": "aya-23",
+  "name": "Aya 23",
+  "family": "Aya",
+  "organization": "Cohere For AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "multilingual-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "multilingual generation",
+    "cross-lingual instruction following",
+    "low-resource languages"
+  ],
+  "openWeights": true,
+  "tags": [
+    "aya",
+    "cohere",
+    "multilingual"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "aya-101"
+  ]
+},
+{
+  "id": "aya-expanse",
+  "name": "Aya Expanse",
+  "family": "Aya",
+  "organization": "Cohere For AI",
+  "year": 2024,
+  "category": "reasoning",
+  "type": "multilingual-reasoning-model",
+  "modalities": ["text"],
+  "focus": [
+    "multilingual reasoning",
+    "instruction following",
+    "cross-lingual generalization"
+  ],
+  "openWeights": true,
+  "tags": [
+    "aya",
+    "multilingual",
+    "reasoning"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "aya-23"
+  ]
+},
+{
+  "id": "nemotron",
+  "name": "Nemotron",
+  "family": "Nemotron",
+  "organization": "NVIDIA",
+  "year": 2023,
+  "category": "llm",
+  "type": "language-model-family",
+  "modalities": ["text"],
+  "focus": [
+    "enterprise AI",
+    "reasoning",
+    "synthetic data"
+  ],
+  "openWeights": true,
+  "tags": [
+    "nemotron",
+    "nvidia",
+    "enterprise"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "nemotron-4",
+    "nemotron-70b"
+  ]
+},
+{
+  "id": "nemotron-4",
+  "name": "Nemotron-4",
+  "family": "Nemotron",
+  "organization": "NVIDIA",
+  "year": 2023,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "synthetic data generation",
+    "instruction tuning",
+    "alignment research"
+  ],
+  "openWeights": true,
+  "tags": [
+    "nemotron",
+    "synthetic-data",
+    "alignment"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "nemotron"
+  ]
+},
+{
+  "id": "nemotron-70b",
+  "name": "Llama-3.1-Nemotron-Ultra",
+  "family": "Nemotron",
+  "organization": "NVIDIA",
+  "year": 2025,
+  "category": "reasoning",
+  "type": "post-trained-reasoning-model",
+  "modalities": ["text"],
+  "focus": [
+    "reasoning",
+    "coding",
+    "agentic workflows",
+    "instruction following"
+  ],
+  "openWeights": true,
+  "tags": [
+    "nemotron",
+    "reasoning",
+    "nvidia"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "nemotron"
+  ]
+},
+{
+  "id": "olmo",
+  "name": "OLMo",
+  "family": "OLMo",
+  "organization": "Allen Institute for AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "fully-open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "open science",
+    "transparent training",
+    "language modeling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "olmo",
+    "ai2",
+    "open-science"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "olmo-2",
+    "olmo-3"
+  ]
+},
+{
+  "id": "olmo-2",
+  "name": "OLMo 2",
+  "family": "OLMo",
+  "organization": "Allen Institute for AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "fully-open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "open science",
+    "reasoning",
+    "language modeling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "olmo",
+    "open-science",
+    "reasoning"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "olmo"
+  ]
+},
+{
+  "id": "olmoe",
+  "name": "OLMoE",
+  "family": "OLMo",
+  "organization": "Allen Institute for AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "mixture-of-experts-language-model",
+  "modalities": ["text"],
+  "architecture": "sparse mixture-of-experts transformer",
+  "focus": [
+    "efficient scaling",
+    "open research",
+    "language modeling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "olmo",
+    "moe",
+    "open-science"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "olmo"
+  ]
+},
+{
+  "id": "tulu",
+  "name": "Tulu",
+  "family": "Tulu",
+  "organization": "Allen Institute for AI",
+  "year": 2023,
+  "category": "llm",
+  "type": "instruction-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "instruction following",
+    "alignment",
+    "open research"
+  ],
+  "openWeights": true,
+  "tags": [
+    "tulu",
+    "ai2",
+    "alignment"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "tulu-2",
+    "tulu-3"
+  ]
+},
+{
+  "id": "tulu-2",
+  "name": "Tulu 2",
+  "family": "Tulu",
+  "organization": "Allen Institute for AI",
+  "year": 2023,
+  "category": "instruction",
+  "type": "instruction-tuned-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "instruction following",
+    "preference alignment",
+    "open research"
+  ],
+  "openWeights": true,
+  "tags": [
+    "tulu",
+    "instruction-tuning",
+    "alignment"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "tulu"
+  ]
+},
+{
+  "id": "tulu-3",
+  "name": "Tulu 3",
+  "family": "Tulu",
+  "organization": "Allen Institute for AI",
+  "year": 2024,
+  "category": "reasoning",
+  "type": "post-trained-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "instruction following",
+    "reasoning",
+    "alignment"
+  ],
+  "openWeights": true,
+  "tags": [
+    "tulu",
+    "reasoning",
+    "alignment"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "tulu-2",
+    "olmo-2"
+  ]
+},
+{
+  "id": "smollm",
+  "name": "SmolLM",
+  "family": "SmolLM",
+  "organization": "Hugging Face",
+  "year": 2024,
+  "category": "llm",
+  "type": "small-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "on-device AI",
+    "small-model research",
+    "efficient inference"
+  ],
+  "openWeights": true,
+  "tags": [
+    "smollm",
+    "hugging-face",
+    "small-language-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "smollm2",
+    "smollm3"
+  ]
+},
+{
+  "id": "smollm2",
+  "name": "SmolLM2",
+  "family": "SmolLM",
+  "organization": "Hugging Face",
+  "year": 2024,
+  "category": "llm",
+  "type": "small-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "on-device AI",
+    "instruction following",
+    "reasoning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "smollm",
+    "small-language-model",
+    "edge-ai"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "smollm"
+  ]
+},
+{
+  "id": "mamba",
+  "name": "Mamba",
+  "family": "Mamba",
+  "organization": "Carnegie Mellon University / Princeton University",
+  "year": 2023,
+  "category": "sequence-model",
+  "type": "state-space-language-model",
+  "modalities": ["text"],
+  "architecture": "selective state-space model",
+  "focus": [
+    "long sequences",
+    "efficient sequence modeling",
+    "alternative to attention"
+  ],
+  "openWeights": true,
+  "tags": [
+    "mamba",
+    "state-space-model",
+    "sequence-modeling"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "mamba-2",
+    "falcon-mamba",
+    "jamba"
+  ]
+},
+{
+  "id": "mamba-2",
+  "name": "Mamba-2",
+  "family": "Mamba",
+  "organization": "Carnegie Mellon University / Princeton University",
+  "year": 2024,
+  "category": "sequence-model",
+  "type": "state-space-language-model",
+  "modalities": ["text"],
+  "architecture": "selective state-space model",
+  "focus": [
+    "efficient sequence modeling",
+    "long-context processing",
+    "state-space architectures"
+  ],
+  "openWeights": true,
+  "tags": [
+    "mamba",
+    "state-space-model",
+    "long-context"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "mamba"
+  ]
+},
+{
+  "id": "rwkv",
+  "name": "RWKV",
+  "family": "RWKV",
+  "organization": "RWKV community",
+  "year": 2023,
+  "category": "sequence-model",
+  "type": "recurrent-language-model",
+  "modalities": ["text"],
+  "architecture": "recurrent neural architecture",
+  "focus": [
+    "efficient inference",
+    "long-context",
+    "alternative to transformers"
+  ],
+  "openWeights": true,
+  "tags": [
+    "rwkv",
+    "recurrent",
+    "sequence-modeling"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "rwkv-6",
+    "rwkv-7"
+  ]
+},
+{
+  "id": "rwkv-6",
+  "name": "RWKV-6",
+  "family": "RWKV",
+  "organization": "RWKV community",
+  "year": 2024,
+  "category": "sequence-model",
+  "type": "recurrent-language-model",
+  "modalities": ["text"],
+  "architecture": "recurrent neural architecture",
+  "focus": [
+    "efficient inference",
+    "long-context"
+  ],
+  "openWeights": true,
+  "tags": [
+    "rwkv",
+    "recurrent"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "rwkv"
+  ]
+},
+{
+  "id": "rwkv-7",
+  "name": "RWKV-7",
+  "family": "RWKV",
+  "organization": "RWKV community",
+  "year": 2025,
+  "category": "sequence-model",
+  "type": "recurrent-language-model",
+  "modalities": ["text"],
+  "architecture": "recurrent neural architecture",
+  "focus": [
+    "efficient sequence modeling",
+    "long-context",
+    "open research"
+  ],
+  "openWeights": true,
+  "tags": [
+    "rwkv",
+    "recurrent",
+    "sequence-modeling"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "rwkv-6"
+  ]
+},
+{
+  "id": "phi-3",
+  "name": "Phi-3",
+  "family": "Phi",
+  "organization": "Microsoft",
+  "year": 2024,
+  "category": "llm",
+  "type": "small-language-model-family",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "small-model reasoning",
+    "on-device AI",
+    "coding"
+  ],
+  "openWeights": true,
+  "tags": [
+    "phi-3",
+    "microsoft",
+    "small-language-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "phi-3-5",
+    "phi-4"
+  ]
+},
+{
+  "id": "phi-3-5",
+  "name": "Phi-3.5",
+  "family": "Phi",
+  "organization": "Microsoft",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "small-multimodal-model-family",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "small-model reasoning",
+    "vision",
+    "long-context"
+  ],
+  "openWeights": true,
+  "tags": [
+    "phi-3-5",
+    "microsoft",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "phi-3",
+    "phi-4-multimodal"
+  ]
+},
+{
+  "id": "phi-4",
+  "name": "Phi-4",
+  "family": "Phi",
+  "organization": "Microsoft",
+  "year": 2024,
+  "category": "reasoning",
+  "type": "small-reasoning-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "reasoning",
+    "mathematics",
+    "coding",
+    "small-model deployment"
+  ],
+  "openWeights": true,
+  "tags": [
+    "phi-4",
+    "microsoft",
+    "reasoning"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "phi-3-5",
+    "phi-4-multimodal"
+  ]
+},
+{
+  "id": "deepseek-r1-zero",
+  "name": "DeepSeek-R1-Zero",
+  "family": "DeepSeek",
+  "organization": "DeepSeek",
+  "year": 2025,
+  "category": "reasoning",
+  "type": "reinforcement-learning-reasoning-model",
+  "modalities": ["text"],
+  "focus": [
+    "reasoning",
+    "reinforcement learning",
+    "self-evolution of reasoning"
+  ],
+  "training": [
+    "large-scale reinforcement learning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "deepseek",
+    "r1-zero",
+    "reasoning",
+    "reinforcement-learning"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "deepseek-r1"
+  ]
+},
+{
+  "id": "kimi",
+  "name": "Kimi",
+  "family": "Kimi",
+  "organization": "Moonshot AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "long-context-language-model-family",
+  "modalities": ["text"],
+  "focus": [
+    "long-context reasoning",
+    "document understanding",
+    "coding"
+  ],
+  "openWeights": false,
+  "tags": [
+    "kimi",
+    "moonshot-ai",
+    "long-context"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "kimi-k1-5",
+    "kimi-k2"
+  ]
+},
+{
+  "id": "kimi-k1-5",
+  "name": "Kimi K1.5",
+  "family": "Kimi",
+  "organization": "Moonshot AI",
+  "year": 2025,
+  "category": "reasoning",
+  "type": "multimodal-reasoning-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "reasoning",
+    "multimodal reasoning",
+    "long-context"
+  ],
+  "openWeights": false,
+  "tags": [
+    "kimi",
+    "reasoning",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "kimi"
+  ]
+},
+{
+  "id": "kimi-k2",
+  "name": "Kimi K2",
+  "family": "Kimi",
+  "organization": "Moonshot AI",
+  "year": 2025,
+  "category": "llm",
+  "type": "mixture-of-experts-language-model",
+  "modalities": ["text"],
+  "architecture": "sparse mixture-of-experts transformer",
+  "focus": [
+    "agentic coding",
+    "reasoning",
+    "tool use"
+  ],
+  "openWeights": true,
+  "tags": [
+    "kimi",
+    "moe",
+    "agents",
+    "coding"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "kimi-k1-5"
+  ]
+},
+{
+  "id": "glm",
+  "name": "GLM",
+  "family": "GLM",
+  "organization": "Zhipu AI / THUDM",
+  "year": 2022,
+  "category": "llm",
+  "type": "language-model-family",
+  "modalities": ["text"],
+  "architecture": "general language model architecture",
+  "focus": [
+    "language understanding",
+    "generation",
+    "bilingual modeling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "glm",
+    "zhipu",
+    "thudm"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "chatglm",
+    "glm-4"
+  ]
+},
+{
+  "id": "chatglm",
+  "name": "ChatGLM",
+  "family": "GLM",
+  "organization": "Zhipu AI / THUDM",
+  "year": 2023,
+  "category": "llm",
+  "type": "chat-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "Chinese-English dialogue",
+    "instruction following",
+    "chat"
+  ],
+  "openWeights": true,
+  "tags": [
+    "chatglm",
+    "glm",
+    "multilingual"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "glm"
+  ]
+},
+{
+  "id": "glm-4",
+  "name": "GLM-4",
+  "family": "GLM",
+  "organization": "Zhipu AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "large-language-model-family",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "reasoning",
+    "coding",
+    "multilingual",
+    "tool use"
+  ],
+  "openWeights": false,
+  "tags": [
+    "glm-4",
+    "zhipu",
+    "reasoning"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "glm",
+    "chatglm"
+  ]
+},
+{
+  "id": "glm-4-5",
+  "name": "GLM-4.5",
+  "family": "GLM",
+  "organization": "Zhipu AI",
+  "year": 2025,
+  "category": "reasoning",
+  "type": "reasoning-language-model-family",
+  "modalities": [
+    "text"
+  ],
+  "focus": [
+    "reasoning",
+    "coding",
+    "agentic tasks",
+    "tool use"
+  ],
+  "openWeights": true,
+  "tags": [
+    "glm",
+    "reasoning",
+    "agents"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "glm-4"
+  ]
 }
+  ]
