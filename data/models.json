@@ -33112,4 +33112,1767 @@
     "vision-language-model",
     "video-understanding"
   ]
+},
+{
+  "id": "command-r",
+  "name": "Command R",
+  "family": "Command",
+  "organization": "Cohere",
+  "year": 2024,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "enterprise",
+    "retrieval-augmented generation",
+    "tool use",
+    "long-context"
+  ],
+  "openWeights": true,
+  "tags": [
+    "command",
+    "cohere",
+    "enterprise",
+    "rag"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "command-r-plus"
+  ]
+},
+{
+  "id": "command-r-plus",
+  "name": "Command R+",
+  "family": "Command",
+  "organization": "Cohere",
+  "year": 2024,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "enterprise",
+    "reasoning",
+    "retrieval-augmented generation",
+    "tool use"
+  ],
+  "openWeights": true,
+  "tags": [
+    "command-r-plus",
+    "cohere",
+    "enterprise",
+    "rag"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "command-r"
+  ]
+},
+{
+  "id": "aya",
+  "name": "Aya",
+  "family": "Aya",
+  "organization": "Cohere For AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "multilingual-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "multilingual",
+    "cross-lingual"
+  ],
+  "openWeights": true,
+  "tags": [
+    "aya",
+    "multilingual",
+    "cohere"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "aya-23",
+    "aya-expanse"
+  ]
+},
+{
+  "id": "aya-23",
+  "name": "Aya 23",
+  "family": "Aya",
+  "organization": "Cohere For AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "multilingual-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "multilingual",
+    "instruction following"
+  ],
+  "openWeights": true,
+  "tags": [
+    "aya-23",
+    "multilingual"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "aya"
+  ]
+},
+{
+  "id": "aya-expanse",
+  "name": "Aya Expanse",
+  "family": "Aya",
+  "organization": "Cohere For AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "multilingual-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "multilingual",
+    "post-training",
+    "instruction following"
+  ],
+  "openWeights": true,
+  "tags": [
+    "aya-expanse",
+    "multilingual"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "aya-23"
+  ]
+},
+{
+  "id": "granite",
+  "name": "Granite",
+  "family": "Granite",
+  "organization": "IBM",
+  "year": 2023,
+  "category": "llm",
+  "type": "enterprise-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "enterprise",
+    "code",
+    "language"
+  ],
+  "openWeights": true,
+  "tags": [
+    "granite",
+    "ibm",
+    "enterprise"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "granite-3",
+    "granite-code"
+  ]
+},
+{
+  "id": "granite-3",
+  "name": "Granite 3",
+  "family": "Granite",
+  "organization": "IBM",
+  "year": 2024,
+  "category": "llm",
+  "type": "enterprise-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "enterprise",
+    "instruction following",
+    "tool use"
+  ],
+  "openWeights": true,
+  "tags": [
+    "granite-3",
+    "ibm",
+    "enterprise"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "granite"
+  ]
+},
+{
+  "id": "granite-code",
+  "name": "Granite Code",
+  "family": "Granite",
+  "organization": "IBM",
+  "year": 2024,
+  "category": "code",
+  "type": "code-language-model",
+  "modalities": ["text", "code"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "code generation",
+    "code completion",
+    "software engineering"
+  ],
+  "openWeights": true,
+  "tags": [
+    "granite",
+    "code",
+    "ibm"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "granite"
+  ]
+},
+{
+  "id": "falcon",
+  "name": "Falcon",
+  "family": "Falcon",
+  "organization": "Technology Innovation Institute",
+  "year": 2023,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "trainingData": [
+    "RefinedWeb"
+  ],
+  "openWeights": true,
+  "tags": [
+    "falcon",
+    "tii",
+    "open-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "falcon-40b",
+    "falcon-180b"
+  ]
+},
+{
+  "id": "falcon-40b",
+  "name": "Falcon 40B",
+  "family": "Falcon",
+  "organization": "Technology Innovation Institute",
+  "year": 2023,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "40B",
+  "openWeights": true,
+  "tags": [
+    "falcon",
+    "40b"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "falcon"
+  ]
+},
+{
+  "id": "falcon-180b",
+  "name": "Falcon 180B",
+  "family": "Falcon",
+  "organization": "Technology Innovation Institute",
+  "year": 2023,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "180B",
+  "openWeights": true,
+  "tags": [
+    "falcon",
+    "180b"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "falcon"
+  ]
+},
+{
+  "id": "falcon-2",
+  "name": "Falcon 2",
+  "family": "Falcon",
+  "organization": "Technology Innovation Institute",
+  "year": 2024,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "openWeights": true,
+  "tags": [
+    "falcon",
+    "tii"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "falcon"
+  ]
+},
+{
+  "id": "olmo",
+  "name": "OLMo",
+  "family": "OLMo",
+  "organization": "AI2",
+  "year": 2024,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "open research",
+    "reproducibility",
+    "language modeling"
+  ],
+  "openWeights": true,
+  "trainingData": [
+    "Dolma"
+  ],
+  "tags": [
+    "olmo",
+    "ai2",
+    "open-science"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "olmo-2",
+    "olmoe"
+  ]
+},
+{
+  "id": "olmo-2",
+  "name": "OLMo 2",
+  "family": "OLMo",
+  "organization": "AI2",
+  "year": 2024,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "open research",
+    "language modeling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "olmo-2",
+    "ai2",
+    "open-science"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "olmo"
+  ]
+},
+{
+  "id": "olmoe",
+  "name": "OLMoE",
+  "family": "OLMo",
+  "organization": "AI2",
+  "year": 2024,
+  "category": "llm",
+  "type": "mixture-of-experts",
+  "modalities": ["text"],
+  "architecture": "sparse mixture-of-experts transformer",
+  "focus": [
+    "open research",
+    "sparse modeling",
+    "efficiency"
+  ],
+  "openWeights": true,
+  "tags": [
+    "olmoe",
+    "moe",
+    "ai2"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "olmo"
+  ]
+},
+{
+  "id": "phi-2",
+  "name": "Phi-2",
+  "family": "Phi",
+  "organization": "Microsoft",
+  "year": 2023,
+  "category": "llm",
+  "type": "small-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "small-model research",
+    "reasoning",
+    "knowledge"
+  ],
+  "openWeights": true,
+  "tags": [
+    "phi",
+    "small-language-model",
+    "microsoft"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "phi-3"
+  ]
+},
+{
+  "id": "phi-3",
+  "name": "Phi-3",
+  "family": "Phi",
+  "organization": "Microsoft",
+  "year": 2024,
+  "category": "llm",
+  "type": "small-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "small language models",
+    "reasoning",
+    "edge deployment"
+  ],
+  "openWeights": true,
+  "tags": [
+    "phi-3",
+    "small-language-model",
+    "microsoft"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "phi-2",
+    "phi-3-mini",
+    "phi-3-small",
+    "phi-3-medium"
+  ]
+},
+{
+  "id": "phi-3-mini",
+  "name": "Phi-3 Mini",
+  "family": "Phi",
+  "organization": "Microsoft",
+  "year": 2024,
+  "category": "llm",
+  "type": "small-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "edge deployment",
+    "small-model inference"
+  ],
+  "openWeights": true,
+  "tags": [
+    "phi-3",
+    "small-language-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "phi-3"
+  ]
+},
+{
+  "id": "phi-3-small",
+  "name": "Phi-3 Small",
+  "family": "Phi",
+  "organization": "Microsoft",
+  "year": 2024,
+  "category": "llm",
+  "type": "small-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "openWeights": true,
+  "tags": [
+    "phi-3",
+    "small-language-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "phi-3"
+  ]
+},
+{
+  "id": "phi-3-medium",
+  "name": "Phi-3 Medium",
+  "family": "Phi",
+  "organization": "Microsoft",
+  "year": 2024,
+  "category": "llm",
+  "type": "small-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "openWeights": true,
+  "tags": [
+    "phi-3",
+    "small-language-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "phi-3"
+  ]
+},
+{
+  "id": "phi-3-5",
+  "name": "Phi-3.5",
+  "family": "Phi",
+  "organization": "Microsoft",
+  "year": 2024,
+  "category": "llm",
+  "type": "small-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "small-model reasoning",
+    "multimodal learning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "phi-3.5",
+    "microsoft"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "phi-3"
+  ]
+},
+{
+  "id": "phi-4",
+  "name": "Phi-4",
+  "family": "Phi",
+  "organization": "Microsoft",
+  "year": 2024,
+  "category": "llm",
+  "type": "small-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "reasoning",
+    "mathematics",
+    "small-model efficiency"
+  ],
+  "openWeights": true,
+  "tags": [
+    "phi-4",
+    "microsoft",
+    "reasoning"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "phi-3-5"
+  ]
+},
+{
+  "id": "stablelm",
+  "name": "StableLM",
+  "family": "StableLM",
+  "organization": "Stability AI",
+  "year": 2023,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "openWeights": true,
+  "tags": [
+    "stablelm",
+    "stability-ai"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "stablelm-2"
+  ]
+},
+{
+  "id": "stablelm-2",
+  "name": "StableLM 2",
+  "family": "StableLM",
+  "organization": "Stability AI",
+  "year": 2023,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "openWeights": true,
+  "tags": [
+    "stablelm",
+    "stability-ai"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "stablelm"
+  ]
+},
+{
+  "id": "openelm",
+  "name": "OpenELM",
+  "family": "OpenELM",
+  "organization": "Apple",
+  "year": 2024,
+  "category": "llm",
+  "type": "small-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "on-device AI",
+    "efficient language modeling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "openelm",
+    "apple",
+    "on-device"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "jamba",
+  "name": "Jamba",
+  "family": "Jamba",
+  "organization": "AI21 Labs",
+  "year": 2024,
+  "category": "llm",
+  "type": "hybrid-language-model",
+  "modalities": ["text"],
+  "architecture": "hybrid transformer-state-space architecture",
+  "components": [
+    "Transformer",
+    "Mamba-style state-space layers",
+    "Mixture-of-Experts"
+  ],
+  "focus": [
+    "long-context",
+    "efficiency"
+  ],
+  "openWeights": true,
+  "tags": [
+    "jamba",
+    "mamba",
+    "moe",
+    "hybrid"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "jamba-1-5"
+  ]
+},
+{
+  "id": "jamba-1-5",
+  "name": "Jamba 1.5",
+  "family": "Jamba",
+  "organization": "AI21 Labs",
+  "year": 2024,
+  "category": "llm",
+  "type": "hybrid-language-model",
+  "modalities": ["text"],
+  "architecture": "hybrid transformer-state-space architecture",
+  "components": [
+    "Transformer",
+    "state-space layers",
+    "Mixture-of-Experts"
+  ],
+  "focus": [
+    "long-context",
+    "enterprise",
+    "efficiency"
+  ],
+  "openWeights": true,
+  "tags": [
+    "jamba",
+    "jamba-1-5",
+    "moe",
+    "long-context"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "jamba"
+  ]
+},
+{
+  "id": "dbrx",
+  "name": "DBRX",
+  "family": "DBRX",
+  "organization": "Databricks",
+  "year": 2024,
+  "category": "llm",
+  "type": "mixture-of-experts",
+  "modalities": ["text"],
+  "architecture": "sparse mixture-of-experts transformer",
+  "focus": [
+    "enterprise",
+    "code",
+    "language"
+  ],
+  "openWeights": true,
+  "tags": [
+    "dbrx",
+    "databricks",
+    "moe"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "nemotron",
+  "name": "Nemotron",
+  "family": "Nemotron",
+  "organization": "NVIDIA",
+  "year": 2023,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "focus": [
+    "enterprise",
+    "reasoning",
+    "synthetic-data",
+    "model-alignment"
+  ],
+  "openWeights": true,
+  "tags": [
+    "nemotron",
+    "nvidia",
+    "enterprise"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "nemotron-4",
+    "llama-3-70b-nemotron"
+  ]
+},
+{
+  "id": "nemotron-4",
+  "name": "Nemotron-4",
+  "family": "Nemotron",
+  "organization": "NVIDIA",
+  "year": 2023,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "synthetic-data-generation",
+    "training-data"
+  ],
+  "openWeights": true,
+  "tags": [
+    "nemotron-4",
+    "nvidia",
+    "synthetic-data"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "nemotron"
+  ]
+},
+{
+  "id": "llama-3-70b-nemotron",
+  "name": "Llama 3 70B Nemotron",
+  "family": "Nemotron",
+  "organization": "NVIDIA",
+  "year": 2024,
+  "category": "llm",
+  "type": "post-trained-language-model",
+  "modalities": ["text"],
+  "architecture": "Llama 3 70B based",
+  "focus": [
+    "instruction following",
+    "alignment",
+    "helpfulness"
+  ],
+  "openWeights": true,
+  "tags": [
+    "nemotron",
+    "llama",
+    "post-training"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "llama-3-70b",
+    "nemotron"
+  ]
+},
+{
+  "id": "command-a",
+  "name": "Command A",
+  "family": "Command",
+  "organization": "Cohere",
+  "year": 2025,
+  "category": "llm",
+  "type": "enterprise-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "enterprise",
+    "tool use",
+    "reasoning",
+    "agents"
+  ],
+  "openWeights": false,
+  "tags": [
+    "command-a",
+    "cohere",
+    "enterprise"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "command-r-plus"
+  ]
+},
+{
+  "id": "granite-4",
+  "name": "Granite 4",
+  "family": "Granite",
+  "organization": "IBM",
+  "year": 2025,
+  "category": "llm",
+  "type": "enterprise-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "enterprise",
+    "efficient inference",
+    "agents"
+  ],
+  "openWeights": true,
+  "tags": [
+    "granite",
+    "ibm",
+    "enterprise"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "granite-3"
+  ]
+},
+{
+  "id": "minimax",
+  "name": "MiniMax",
+  "family": "MiniMax",
+  "organization": "MiniMax",
+  "year": 2024,
+  "category": "llm",
+  "type": "foundation-model-family",
+  "modalities": [
+    "text",
+    "audio",
+    "video"
+  ],
+  "focus": [
+    "long-context",
+    "multimodal",
+    "generation"
+  ],
+  "openWeights": false,
+  "tags": [
+    "minimax",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "minimax-01",
+    "minimax-2"
+  ]
+},
+{
+  "id": "minimax-01",
+  "name": "MiniMax-01",
+  "family": "MiniMax",
+  "organization": "MiniMax",
+  "year": 2025,
+  "category": "llm",
+  "type": "long-context-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "long-context",
+    "efficient-attention"
+  ],
+  "openWeights": true,
+  "tags": [
+    "minimax",
+    "long-context"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "minimax"
+  ]
+},
+{
+  "id": "internlm",
+  "name": "InternLM",
+  "family": "InternLM",
+  "organization": "Shanghai AI Laboratory",
+  "year": 2023,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "openWeights": true,
+  "tags": [
+    "internlm",
+    "open-model",
+    "china"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "internlm2",
+    "internlm3"
+  ]
+},
+{
+  "id": "internlm2",
+  "name": "InternLM2",
+  "family": "InternLM",
+  "organization": "Shanghai AI Laboratory",
+  "year": 2023,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "long-context",
+    "reasoning",
+    "tool use"
+  ],
+  "openWeights": true,
+  "tags": [
+    "internlm2",
+    "open-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "internlm"
+  ]
+},
+{
+  "id": "internlm3",
+  "name": "InternLM3",
+  "family": "InternLM",
+  "organization": "Shanghai AI Laboratory",
+  "year": 2024,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "reasoning",
+    "tool use",
+    "instruction following"
+  ],
+  "openWeights": true,
+  "tags": [
+    "internlm3",
+    "open-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "internlm2"
+  ]
+},
+{
+  "id": "glm",
+  "name": "GLM",
+  "family": "GLM",
+  "organization": "Zhipu AI",
+  "year": 2021,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "general language model",
+  "focus": [
+    "language modeling",
+    "multilingual"
+  ],
+  "openWeights": true,
+  "tags": [
+    "glm",
+    "zhipu",
+    "china"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "chatglm",
+    "glm-4"
+  ]
+},
+{
+  "id": "chatglm",
+  "name": "ChatGLM",
+  "family": "GLM",
+  "organization": "Zhipu AI",
+  "year": 2023,
+  "category": "llm",
+  "type": "instruction-language-model",
+  "modalities": ["text"],
+  "architecture": "GLM-family transformer",
+  "focus": [
+    "conversation",
+    "bilingual language modeling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "chatglm",
+    "glm"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "glm"
+  ]
+},
+{
+  "id": "glm-4",
+  "name": "GLM-4",
+  "family": "GLM",
+  "organization": "Zhipu AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "reasoning",
+    "multimodal",
+    "tool use"
+  ],
+  "openWeights": false,
+  "tags": [
+    "glm-4",
+    "zhipu",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "glm"
+  ]
+},
+{
+  "id": "yi",
+  "name": "Yi",
+  "family": "Yi",
+  "organization": "01.AI",
+  "year": 2023,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "bilingual",
+    "general language modeling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "yi",
+    "01-ai",
+    "open-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "yi-1-5"
+  ]
+},
+{
+  "id": "yi-1-5",
+  "name": "Yi-1.5",
+  "family": "Yi",
+  "organization": "01.AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "bilingual",
+    "reasoning",
+    "coding"
+  ],
+  "openWeights": true,
+  "tags": [
+    "yi-1-5",
+    "01-ai"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "yi"
+  ]
+},
+{
+  "id": "baichuan",
+  "name": "Baichuan",
+  "family": "Baichuan",
+  "organization": "Baichuan Intelligence",
+  "year": 2023,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "Chinese",
+    "multilingual"
+  ],
+  "openWeights": true,
+  "tags": [
+    "baichuan",
+    "china",
+    "open-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "baichuan-2"
+  ]
+},
+{
+  "id": "baichuan-2",
+  "name": "Baichuan 2",
+  "family": "Baichuan",
+  "organization": "Baichuan Intelligence",
+  "year": 2023,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "Chinese",
+    "multilingual",
+    "general language modeling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "baichuan-2",
+    "china"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "baichuan"
+  ]
+},
+{
+  "id": "xverse",
+  "name": "XVERSE",
+  "family": "XVERSE",
+  "organization": "XVERSE Technology",
+  "year": 2023,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "multilingual",
+    "Chinese"
+  ],
+  "openWeights": true,
+  "tags": [
+    "xverse",
+    "china",
+    "open-model"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "hunyuan",
+  "name": "Hunyuan",
+  "family": "Hunyuan",
+  "organization": "Tencent",
+  "year": 2024,
+  "category": "foundation-model-family",
+  "type": "multimodal-foundation-model-family",
+  "modalities": [
+    "text",
+    "image",
+    "video",
+    "3d"
+  ],
+  "focus": [
+    "language",
+    "vision",
+    "video",
+    "3d"
+  ],
+  "openWeights": true,
+  "tags": [
+    "hunyuan",
+    "tencent",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "hunyuan-large",
+    "hunyuan-video",
+    "hunyuan-3d"
+  ]
+},
+{
+  "id": "hunyuan-large",
+  "name": "Hunyuan-Large",
+  "family": "Hunyuan",
+  "organization": "Tencent",
+  "year": 2024,
+  "category": "llm",
+  "type": "large-language-model",
+  "modalities": ["text"],
+  "architecture": "mixture-of-experts transformer",
+  "focus": [
+    "language",
+    "reasoning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "hunyuan",
+    "moe",
+    "tencent"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "hunyuan"
+  ]
+},
+{
+  "id": "hunyuan-video",
+  "name": "HunyuanVideo",
+  "family": "Hunyuan",
+  "organization": "Tencent",
+  "year": 2024,
+  "category": "video",
+  "type": "video-generation-model",
+  "modalities": [
+    "text",
+    "video"
+  ],
+  "architecture": "diffusion-transformer",
+  "focus": [
+    "text-to-video",
+    "video generation"
+  ],
+  "openWeights": true,
+  "tags": [
+    "hunyuan-video",
+    "video-generation",
+    "tencent"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "hunyuan"
+  ]
+},
+{
+  "id": "hunyuan-3d",
+  "name": "Hunyuan3D",
+  "family": "Hunyuan",
+  "organization": "Tencent",
+  "year": 2025,
+  "category": "3d",
+  "type": "3d-generation-model",
+  "modalities": [
+    "text",
+    "image",
+    "3d"
+  ],
+  "focus": [
+    "3d generation",
+    "image-to-3d",
+    "text-to-3d"
+  ],
+  "openWeights": true,
+  "tags": [
+    "hunyuan-3d",
+    "3d",
+    "tencent"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "hunyuan"
+  ]
+},
+{
+  "id": "kimi",
+  "name": "Kimi",
+  "family": "Kimi",
+  "organization": "Moonshot AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "long-context-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "long-context",
+    "reasoning",
+    "research"
+  ],
+  "openWeights": false,
+  "tags": [
+    "kimi",
+    "moonshot",
+    "long-context"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "kimi-k1-5",
+    "kimi-k2"
+  ]
+},
+{
+  "id": "kimi-k1-5",
+  "name": "Kimi k1.5",
+  "family": "Kimi",
+  "organization": "Moonshot AI",
+  "year": 2025,
+  "category": "reasoning",
+  "type": "reasoning-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "reasoning",
+    "multimodal",
+    "long-context"
+  ],
+  "openWeights": false,
+  "tags": [
+    "kimi",
+    "reasoning",
+    "moonshot"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "kimi"
+  ]
+},
+{
+  "id": "kimi-k2",
+  "name": "Kimi K2",
+  "family": "Kimi",
+  "organization": "Moonshot AI",
+  "year": 2025,
+  "category": "llm",
+  "type": "mixture-of-experts",
+  "modalities": ["text"],
+  "architecture": "sparse mixture-of-experts transformer",
+  "focus": [
+    "reasoning",
+    "coding",
+    "agents"
+  ],
+  "openWeights": true,
+  "tags": [
+    "kimi-k2",
+    "moe",
+    "moonshot"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "kimi"
+  ]
+},
+{
+  "id": "arctic",
+  "name": "Arctic",
+  "family": "Arctic",
+  "organization": "Snowflake",
+  "year": 2024,
+  "category": "llm",
+  "type": "mixture-of-experts",
+  "modalities": ["text"],
+  "architecture": "sparse mixture-of-experts transformer",
+  "focus": [
+    "enterprise",
+    "code",
+    "efficient inference"
+  ],
+  "openWeights": true,
+  "tags": [
+    "arctic",
+    "snowflake",
+    "moe"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "smollm",
+  "name": "SmolLM",
+  "family": "SmolLM",
+  "organization": "Hugging Face",
+  "year": 2024,
+  "category": "llm",
+  "type": "small-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "small models",
+    "on-device inference",
+    "education"
+  ],
+  "openWeights": true,
+  "tags": [
+    "smollm",
+    "hugging-face",
+    "small-language-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "smollm2"
+  ]
+},
+{
+  "id": "smollm2",
+  "name": "SmolLM2",
+  "family": "SmolLM",
+  "organization": "Hugging Face",
+  "year": 2024,
+  "category": "llm",
+  "type": "small-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "on-device inference",
+    "small-model efficiency"
+  ],
+  "openWeights": true,
+  "tags": [
+    "smollm2",
+    "hugging-face",
+    "small-language-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "smollm"
+  ]
+},
+{
+  "id": "exaone",
+  "name": "EXAONE",
+  "family": "EXAONE",
+  "organization": "LG AI Research",
+  "year": 2023,
+  "category": "llm",
+  "type": "foundation-model-family",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "Korean",
+    "multilingual",
+    "multimodal"
+  ],
+  "openWeights": true,
+  "tags": [
+    "exaone",
+    "lg",
+    "korean"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "exaone-3-0",
+    "exaone-3-5"
+  ]
+},
+{
+  "id": "exaone-3-0",
+  "name": "EXAONE 3.0",
+  "family": "EXAONE",
+  "organization": "LG AI Research",
+  "year": 2024,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "Korean",
+    "English",
+    "reasoning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "exaone",
+    "korean"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "exaone"
+  ]
+},
+{
+  "id": "exaone-3-5",
+  "name": "EXAONE 3.5",
+  "family": "EXAONE",
+  "organization": "LG AI Research",
+  "year": 2024,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "reasoning",
+    "long-context",
+    "Korean"
+  ],
+  "openWeights": true,
+  "tags": [
+    "exaone-3-5",
+    "korean"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "exaone-3-0"
+  ]
+},
+{
+  "id": "sarvam",
+  "name": "Sarvam",
+  "family": "Sarvam",
+  "organization": "Sarvam AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "multilingual-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "Indian languages",
+    "multilingual",
+    "enterprise"
+  ],
+  "openWeights": true,
+  "tags": [
+    "sarvam",
+    "india",
+    "multilingual"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "sarvam-2b"
+  ]
+},
+{
+  "id": "sarvam-2b",
+  "name": "Sarvam 2B",
+  "family": "Sarvam",
+  "organization": "Sarvam AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "small-multilingual-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "Indian languages",
+    "efficient inference"
+  ],
+  "openWeights": true,
+  "tags": [
+    "sarvam",
+    "india",
+    "small-language-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "sarvam"
+  ]
+},
+{
+  "id": "sarvam-m",
+  "name": "Sarvam-M",
+  "family": "Sarvam",
+  "organization": "Sarvam AI",
+  "year": 2025,
+  "category": "llm",
+  "type": "multilingual-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "Indian languages",
+    "multilingual reasoning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "sarvam",
+    "india",
+    "multilingual"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "sarvam"
+  ]
+},
+{
+  "id": "seed",
+  "name": "Seed",
+  "family": "Seed",
+  "organization": "ByteDance",
+  "year": 2024,
+  "category": "foundation-model-family",
+  "type": "multimodal-foundation-model-family",
+  "modalities": [
+    "text",
+    "image",
+    "video",
+    "audio"
+  ],
+  "focus": [
+    "multimodal generation",
+    "multimodal understanding"
+  ],
+  "openWeights": false,
+  "tags": [
+    "seed",
+    "bytedance",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "seed-1-5",
+    "seedream",
+    "seedance"
+  ]
+},
+{
+  "id": "seed-1-5",
+  "name": "Seed 1.5",
+  "family": "Seed",
+  "organization": "ByteDance",
+  "year": 2025,
+  "category": "multimodal",
+  "type": "multimodal-model",
+  "modalities": [
+    "text",
+    "image",
+    "video"
+  ],
+  "focus": [
+    "multimodal understanding",
+    "reasoning"
+  ],
+  "openWeights": false,
+  "tags": [
+    "seed",
+    "bytedance",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "seed"
+  ]
+},
+{
+  "id": "arcee",
+  "name": "Arcee",
+  "family": "Arcee",
+  "organization": "Arcee AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "open-language-model-family",
+  "modalities": ["text"],
+  "focus": [
+    "enterprise",
+    "small models",
+    "efficient inference"
+  ],
+  "openWeights": true,
+  "tags": [
+    "arcee",
+    "open-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "arcee-lite",
+    "arcee-spark"
+  ]
+},
+{
+  "id": "aya-expanse-32b",
+  "name": "Aya Expanse 32B",
+  "family": "Aya",
+  "organization": "Cohere For AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "multilingual-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "multilingual",
+    "instruction following"
+  ],
+  "parameters": "32B",
+  "openWeights": true,
+  "tags": [
+    "aya",
+    "multilingual"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "aya-expanse"
+  ]
+},
+{
+  "id": "aya-expanse-8b",
+  "name": "Aya Expanse 8B",
+  "family": "Aya",
+  "organization": "Cohere For AI",
+  "year": 2024,
+  "category": "llm",
+  "type": "multilingual-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "multilingual",
+    "efficient inference"
+  ],
+  "parameters": "8B",
+  "openWeights": true,
+  "tags": [
+    "aya",
+    "multilingual"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "aya-expanse"
+  ]
+},
+{
+  "id": "olmo-3",
+  "name": "OLMo 3",
+  "family": "OLMo",
+  "organization": "AI2",
+  "year": 2025,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "open research",
+    "reasoning",
+    "post-training"
+  ],
+  "openWeights": true,
+  "tags": [
+    "olmo",
+    "ai2",
+    "open-science",
+    "reasoning"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "olmo-2"
+  ]
+},
+{
+  "id": "nemotron-3",
+  "name": "Nemotron 3",
+  "family": "Nemotron",
+  "organization": "NVIDIA",
+  "year": 2025,
+  "category": "llm",
+  "type": "foundation-model-family",
+  "modalities": [
+    "text",
+    "multimodal"
+  ],
+  "focus": [
+    "enterprise",
+    "reasoning",
+    "agents"
+  ],
+  "openWeights": true,
+  "tags": [
+    "nemotron",
+    "nvidia",
+    "agents"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "nemotron"
+  ]
 }
