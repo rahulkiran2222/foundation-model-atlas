@@ -26992,6 +26992,1116 @@
     "token-fertility",
     "multilingual-tokenization"
   ]
+},
+,
+{
+  "id": "model-evaluation",
+  "name": "Foundation Model Evaluation",
+  "family": "Evaluation & Benchmarks",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "evaluation",
+  "type": "model-evaluation",
+  "description": "Foundation model evaluation measures capabilities, limitations, robustness, reliability, efficiency, and safety across standardized or task-specific tests.",
+  "dimensions": [
+    "knowledge",
+    "reasoning",
+    "mathematics",
+    "coding",
+    "language understanding",
+    "multilingual ability",
+    "multimodal understanding",
+    "long-context behavior",
+    "factuality",
+    "robustness",
+    "calibration",
+    "safety",
+    "efficiency"
+  ],
+  "evaluationMethods": [
+    "static benchmarks",
+    "dynamic benchmarks",
+    "human evaluation",
+    "expert evaluation",
+    "automated evaluation",
+    "adversarial evaluation",
+    "real-world task evaluation"
+  ],
+  "limitations": [
+    "Benchmark scores are incomplete measurements of capability",
+    "Models can overfit to benchmark formats",
+    "Training-data contamination can inflate performance",
+    "Different prompting and evaluation protocols can change results"
+  ],
+  "tags": [
+    "evaluation",
+    "benchmarks",
+    "foundation-models",
+    "reliability"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "benchmark",
+    "benchmark-contamination",
+    "human-evaluation",
+    "model-reliability"
+  ]
+},
+{
+  "id": "benchmark",
+  "name": "Benchmark",
+  "family": "Evaluation & Benchmarks",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "evaluation",
+  "type": "benchmark",
+  "description": "A benchmark is a standardized evaluation dataset, task, protocol, or suite designed to compare model performance on a defined capability or problem class.",
+  "components": [
+    "dataset",
+    "task definition",
+    "evaluation protocol",
+    "metric",
+    "baseline"
+  ],
+  "properties": [
+    "coverage",
+    "difficulty",
+    "reproducibility",
+    "discrimination",
+    "contamination risk"
+  ],
+  "limitations": [
+    "A benchmark measures only the capability encoded by its design",
+    "Leaderboard rankings may depend on evaluation details",
+    "Benchmark saturation reduces discriminatory power"
+  ],
+  "tags": [
+    "benchmark",
+    "evaluation",
+    "leaderboard"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "benchmark-suite",
+    "benchmark-contamination",
+    "evaluation-protocol"
+  ]
+},
+{
+  "id": "mmlu",
+  "name": "MMLU",
+  "family": "Knowledge & Reasoning Benchmarks",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "evaluation",
+  "type": "knowledge-benchmark",
+  "description": "Massive Multitask Language Understanding evaluates models across a broad collection of academic and professional subjects using multiple-choice questions.",
+  "capabilities": [
+    "world knowledge",
+    "academic knowledge",
+    "professional knowledge",
+    "reasoning"
+  ],
+  "format": "multiple-choice",
+  "importance": [
+    "Became a widely used general-purpose language-model benchmark",
+    "Provides broad subject coverage"
+  ],
+  "limitations": [
+    "Multiple-choice format does not represent all real-world reasoning",
+    "Benchmark contamination is possible",
+    "Performance can approach saturation for newer models"
+  ],
+  "tags": [
+    "mmlu",
+    "knowledge",
+    "reasoning",
+    "benchmark"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Measuring Massive Multitask Language Understanding",
+      "url": "https://arxiv.org/abs/2009.03300"
+    }
+  ],
+  "relatedConcepts": [
+    "knowledge-evaluation",
+    "benchmark-contamination"
+  ]
+},
+{
+  "id": "mmlu-pro",
+  "name": "MMLU-Pro",
+  "family": "Knowledge & Reasoning Benchmarks",
+  "organization": "Research community",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "evaluation",
+  "type": "advanced-knowledge-benchmark",
+  "description": "MMLU-Pro is an enhanced evaluation designed to provide more challenging and reasoning-oriented questions than the original MMLU.",
+  "capabilities": [
+    "advanced knowledge",
+    "reasoning",
+    "problem solving"
+  ],
+  "format": "multiple-choice",
+  "advantages": [
+    "More challenging questions",
+    "Greater emphasis on reasoning"
+  ],
+  "limitations": [
+    "Still represents a constrained benchmark format",
+    "Does not establish broad real-world competence"
+  ],
+  "tags": [
+    "mmlu-pro",
+    "reasoning",
+    "knowledge",
+    "benchmark"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "mmlu",
+    "reasoning-benchmark"
+  ]
+},
+{
+  "id": "gpqa",
+  "name": "GPQA",
+  "family": "Expert Reasoning Benchmarks",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "evaluation",
+  "type": "expert-reasoning-benchmark",
+  "description": "Graduate-Level Google-Proof Q&A evaluates advanced scientific reasoning using difficult questions written by domain experts.",
+  "domains": [
+    "biology",
+    "physics",
+    "chemistry"
+  ],
+  "target": "graduate-level expert reasoning",
+  "format": "multiple-choice",
+  "importance": [
+    "Targets difficult questions intended to resist straightforward web lookup",
+    "Useful for evaluating advanced scientific reasoning"
+  ],
+  "limitations": [
+    "Limited domain coverage",
+    "Multiple-choice format remains constrained",
+    "Results can depend on evaluation prompting"
+  ],
+  "tags": [
+    "gpqa",
+    "reasoning",
+    "science",
+    "benchmark"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "GPQA: A Graduate-Level Google-Proof Q&A Benchmark",
+      "url": "https://arxiv.org/abs/2311.12022"
+    }
+  ],
+  "relatedConcepts": [
+    "expert-evaluation",
+    "reasoning-benchmark"
+  ]
+},
+{
+  "id": "gsm8k",
+  "name": "GSM8K",
+  "family": "Mathematical Reasoning Benchmarks",
+  "organization": "OpenAI",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "evaluation",
+  "type": "grade-school-math",
+  "description": "GSM8K evaluates multi-step mathematical reasoning using grade-school word problems.",
+  "capabilities": [
+    "arithmetic",
+    "multi-step reasoning",
+    "word-problem solving"
+  ],
+  "format": "free-form answer",
+  "importance": [
+    "Became a widely used mathematical reasoning benchmark for language models"
+  ],
+  "limitations": [
+    "Problem distribution is relatively narrow",
+    "Modern reasoning models can saturate the benchmark",
+    "Does not represent advanced mathematical reasoning"
+  ],
+  "tags": [
+    "gsm8k",
+    "mathematics",
+    "reasoning",
+    "benchmark"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Training Verifiers to Solve Math Word Problems",
+      "url": "https://arxiv.org/abs/2110.14168"
+    }
+  ],
+  "relatedConcepts": [
+    "math-benchmark",
+    "reasoning-benchmark"
+  ]
+},
+{
+  "id": "math-benchmark",
+  "name": "MATH",
+  "family": "Mathematical Reasoning Benchmarks",
+  "organization": "Research community",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "evaluation",
+  "type": "advanced-mathematics",
+  "description": "The MATH benchmark evaluates mathematical problem solving across competition-style mathematics problems with varying difficulty.",
+  "domains": [
+    "algebra",
+    "geometry",
+    "number theory",
+    "counting",
+    "probability",
+    "precalculus"
+  ],
+  "capabilities": [
+    "symbolic reasoning",
+    "multi-step mathematics",
+    "problem solving"
+  ],
+  "tags": [
+    "math",
+    "reasoning",
+    "benchmark"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Measuring Mathematical Problem Solving With the MATH Dataset",
+      "url": "https://arxiv.org/abs/2103.03874"
+    }
+  ],
+  "relatedConcepts": [
+    "gsm8k",
+    "math-reasoning"
+  ]
+},
+{
+  "id": "human-eval",
+  "name": "HumanEval",
+  "family": "Code Benchmarks",
+  "organization": "OpenAI",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "evaluation",
+  "type": "code-generation",
+  "description": "HumanEval evaluates code-generation models on programming problems using functional correctness tests.",
+  "capabilities": [
+    "code generation",
+    "program synthesis",
+    "functional correctness"
+  ],
+  "metric": "pass@k",
+  "importance": [
+    "Established functional testing as an important method for evaluating code generation"
+  ],
+  "limitations": [
+    "Small benchmark",
+    "Limited representation of real software engineering",
+    "Potential contamination concerns"
+  ],
+  "tags": [
+    "humaneval",
+    "coding",
+    "code-generation",
+    "benchmark"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Evaluating Large Language Models Trained on Code",
+      "url": "https://arxiv.org/abs/2107.03374"
+    }
+  ],
+  "relatedConcepts": [
+    "pass-at-k",
+    "swe-bench",
+    "code-evaluation"
+  ]
+},
+{
+  "id": "swe-bench",
+  "name": "SWE-bench",
+  "family": "Software Engineering Benchmarks",
+  "organization": "Princeton / Research community",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "evaluation",
+  "type": "software-engineering",
+  "description": "SWE-bench evaluates models on real-world software engineering tasks drawn from GitHub repositories, including issue resolution and code changes.",
+  "tasks": [
+    "issue understanding",
+    "repository navigation",
+    "code modification",
+    "test execution",
+    "bug fixing"
+  ],
+  "importance": [
+    "Moves code evaluation beyond isolated programming problems",
+    "Tests interaction with real repositories and software engineering workflows"
+  ],
+  "limitations": [
+    "Results depend on repository environments",
+    "Patch success does not capture every aspect of engineering quality"
+  ],
+  "tags": [
+    "swe-bench",
+    "software-engineering",
+    "coding",
+    "agents"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?",
+      "url": "https://arxiv.org/abs/2310.06770"
+    }
+  ],
+  "relatedConcepts": [
+    "human-eval",
+    "coding-agent",
+    "agent-evaluation"
+  ]
+},
+{
+  "id": "humaneval-plus",
+  "name": "HumanEval+",
+  "family": "Code Benchmarks",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "evaluation",
+  "type": "code-robustness",
+  "description": "HumanEval+ expands the HumanEval test suite with additional automatically generated tests to provide stronger functional correctness evaluation.",
+  "purpose": [
+    "increase test coverage",
+    "reduce false positives",
+    "test generated programs more thoroughly"
+  ],
+  "tags": [
+    "humaneval-plus",
+    "coding",
+    "evaluation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "human-eval",
+    "code-evaluation"
+  ]
+},
+{
+  "id": "mmmu",
+  "name": "MMMU",
+  "family": "Multimodal Benchmarks",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "evaluation",
+  "type": "multimodal-reasoning",
+  "description": "MMMU evaluates multimodal reasoning using university-level questions that require understanding both visual and textual information.",
+  "domains": [
+    "arts",
+    "science",
+    "medicine",
+    "engineering",
+    "business",
+    "humanities"
+  ],
+  "capabilities": [
+    "visual understanding",
+    "domain knowledge",
+    "multimodal reasoning"
+  ],
+  "format": "multiple-choice",
+  "tags": [
+    "mmmu",
+    "multimodal",
+    "reasoning",
+    "benchmark"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "multimodal-evaluation",
+    "reasoning-benchmark"
+  ]
+},
+{
+  "id": "big-bench",
+  "name": "BIG-bench",
+  "family": "General Capability Benchmarks",
+  "organization": "Research community",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "evaluation",
+  "type": "multitask-benchmark",
+  "description": "BIG-bench is a broad collaborative benchmark containing hundreds of tasks designed to probe diverse capabilities and limitations of language models.",
+  "capabilities": [
+    "language understanding",
+    "reasoning",
+    "knowledge",
+    "social reasoning",
+    "symbolic tasks"
+  ],
+  "importance": [
+    "Provides broad task diversity",
+    "Useful for studying emergent and unusual capabilities"
+  ],
+  "limitations": [
+    "Large task diversity makes aggregate interpretation difficult",
+    "Individual tasks vary substantially in difficulty and relevance"
+  ],
+  "tags": [
+    "big-bench",
+    "multitask",
+    "evaluation"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models",
+      "url": "https://arxiv.org/abs/2206.04615"
+    }
+  ],
+  "relatedConcepts": [
+    "benchmark",
+    "emergent-capabilities"
+  ]
+},
+{
+  "id": "hellaswag",
+  "name": "HellaSwag",
+  "family": "Language Understanding Benchmarks",
+  "organization": "Research community",
+  "releaseDate": "2019",
+  "year": 2019,
+  "category": "evaluation",
+  "type": "commonsense-completion",
+  "description": "HellaSwag evaluates commonsense reasoning by asking models to select the most plausible continuation of a scenario.",
+  "capabilities": [
+    "commonsense reasoning",
+    "language understanding",
+    "scenario completion"
+  ],
+  "format": "multiple-choice",
+  "tags": [
+    "hellaswag",
+    "commonsense",
+    "reasoning"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "commonsense-reasoning",
+    "benchmark"
+  ]
+},
+{
+  "id": "arc-benchmark",
+  "name": "AI2 Reasoning Challenge",
+  "family": "Reasoning Benchmarks",
+  "organization": "Allen Institute for AI",
+  "releaseDate": "2018",
+  "year": 2018,
+  "category": "evaluation",
+  "type": "science-reasoning",
+  "description": "The AI2 Reasoning Challenge evaluates science-question answering with a focus on reasoning beyond simple retrieval.",
+  "capabilities": [
+    "science knowledge",
+    "reasoning",
+    "question answering"
+  ],
+  "formats": [
+    "ARC-Easy",
+    "ARC-Challenge"
+  ],
+  "tags": [
+    "arc",
+    "science",
+    "reasoning"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "knowledge-benchmark",
+    "reasoning-benchmark"
+  ]
+},
+{
+  "id": "truthfulqa",
+  "name": "TruthfulQA",
+  "family": "Factuality Benchmarks",
+  "organization": "Research community",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "evaluation",
+  "type": "truthfulness",
+  "description": "TruthfulQA evaluates whether models produce truthful responses to questions designed to trigger common misconceptions and false beliefs.",
+  "capabilities": [
+    "truthfulness",
+    "misconception resistance",
+    "factuality"
+  ],
+  "importance": [
+    "Highlights the distinction between plausible language generation and truthful responses"
+  ],
+  "limitations": [
+    "Truthfulness is difficult to capture with a single benchmark",
+    "Evaluation judgments can depend on answer interpretation"
+  ],
+  "tags": [
+    "truthfulqa",
+    "truthfulness",
+    "factuality"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "hallucination",
+    "factuality",
+    "reliability"
+  ]
+},
+{
+  "id": "longbench",
+  "name": "LongBench",
+  "family": "Long-Context Benchmarks",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "evaluation",
+  "type": "long-context",
+  "description": "LongBench evaluates long-context language-model performance across multiple tasks and domains rather than relying only on synthetic context retrieval.",
+  "tasks": [
+    "single-document QA",
+    "multi-document QA",
+    "summarization",
+    "few-shot learning",
+    "code understanding"
+  ],
+  "importance": [
+    "Tests practical long-context use",
+    "Provides broader evaluation than a single needle-in-a-haystack test"
+  ],
+  "limitations": [
+    "Performance depends on task distribution",
+    "Long-context capability remains difficult to summarize with one score"
+  ],
+  "tags": [
+    "longbench",
+    "long-context",
+    "evaluation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "long-context",
+    "needle-in-a-haystack",
+    "ruler"
+  ]
+},
+{
+  "id": "ruler",
+  "name": "RULER",
+  "family": "Long-Context Benchmarks",
+  "organization": "Research community",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "evaluation",
+  "type": "long-context-evaluation",
+  "description": "RULER evaluates long-context capabilities using controlled synthetic tasks designed to probe retrieval and reasoning at different context lengths.",
+  "capabilities": [
+    "retrieval",
+    "aggregation",
+    "multi-hop reasoning",
+    "context utilization"
+  ],
+  "advantages": [
+    "Provides controlled evaluation across context lengths",
+    "Can expose degradation hidden by advertised context windows"
+  ],
+  "limitations": [
+    "Synthetic tasks do not fully represent real-world long documents"
+  ],
+  "tags": [
+    "ruler",
+    "long-context",
+    "retrieval",
+    "reasoning"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "longbench",
+    "needle-in-a-haystack",
+    "context-window"
+  ]
+},
+{
+  "id": "benchmark-contamination",
+  "name": "Benchmark Contamination",
+  "family": "Evaluation Failure Modes",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "evaluation",
+  "type": "contamination",
+  "description": "Benchmark contamination occurs when evaluation examples or information derived from them appear in a model's training data, potentially inflating measured performance.",
+  "forms": [
+    "direct example exposure",
+    "near-duplicate exposure",
+    "benchmark documentation exposure",
+    "solution exposure"
+  ],
+  "risks": [
+    "inflated benchmark scores",
+    "reduced validity of comparisons",
+    "misleading capability claims"
+  ],
+  "mitigations": [
+    "private evaluation sets",
+    "dynamic benchmarks",
+    "contamination analysis",
+    "temporal holdouts",
+    "novel task construction"
+  ],
+  "tags": [
+    "benchmark-contamination",
+    "evaluation",
+    "data-contamination"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "benchmark",
+    "data-contamination",
+    "evaluation-protocol"
+  ]
+},
+{
+  "id": "benchmark-saturation",
+  "name": "Benchmark Saturation",
+  "family": "Evaluation Failure Modes",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "evaluation",
+  "type": "benchmark-saturation",
+  "description": "Benchmark saturation occurs when many capable models achieve near-ceiling performance, reducing the benchmark's ability to distinguish between them.",
+  "effects": [
+    "compressed leaderboard rankings",
+    "reduced discrimination",
+    "greater importance of minor protocol differences"
+  ],
+  "mitigations": [
+    "harder benchmarks",
+    "expert-level tasks",
+    "dynamic evaluation",
+    "real-world evaluation",
+    "process-based evaluation"
+  ],
+  "tags": [
+    "benchmark-saturation",
+    "evaluation",
+    "leaderboard"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "benchmark",
+    "evaluation-protocol"
+  ]
+},
+{
+  "id": "evaluation-protocol",
+  "name": "Evaluation Protocol",
+  "family": "Evaluation Methodology",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "evaluation",
+  "type": "evaluation-protocol",
+  "description": "An evaluation protocol defines how a model is prompted, sampled, scored, constrained, and compared during a benchmark evaluation.",
+  "variables": [
+    "prompt format",
+    "few-shot examples",
+    "temperature",
+    "sampling strategy",
+    "number of runs",
+    "answer normalization",
+    "tool access",
+    "retrieval access"
+  ],
+  "importance": [
+    "The same model can produce different scores under different protocols",
+    "Reproducibility requires protocol transparency"
+  ],
+  "tags": [
+    "evaluation-protocol",
+    "benchmark",
+    "reproducibility"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "benchmark",
+    "human-evaluation",
+    "model-comparison"
+  ]
+},
+{
+  "id": "human-evaluation",
+  "name": "Human Evaluation",
+  "family": "Evaluation Methodology",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2017,
+  "category": "evaluation",
+  "type": "human-evaluation",
+  "description": "Human evaluation uses human judgments to assess qualities that are difficult to capture reliably with automated metrics.",
+  "dimensions": [
+    "helpfulness",
+    "quality",
+    "factuality",
+    "coherence",
+    "instruction following",
+    "preference"
+  ],
+  "methods": [
+    "pairwise comparison",
+    "rating scales",
+    "expert review",
+    "rubric-based evaluation"
+  ],
+  "limitations": [
+    "Expensive",
+    "Subjective",
+    "Inter-rater disagreement",
+    "Evaluator bias"
+  ],
+  "tags": [
+    "human-evaluation",
+    "evaluation",
+    "model-quality"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "llm-as-a-judge",
+    "expert-evaluation",
+    "model-comparison"
+  ]
+},
+{
+  "id": "llm-as-a-judge",
+  "name": "LLM-as-a-Judge",
+  "family": "Evaluation Methodology",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "evaluation",
+  "type": "model-based-evaluation",
+  "description": "LLM-as-a-Judge uses a language model to evaluate or compare outputs generated by other models.",
+  "methods": [
+    "pairwise preference",
+    "rubric scoring",
+    "reference-based evaluation",
+    "reference-free evaluation"
+  ],
+  "advantages": [
+    "Scalable evaluation",
+    "Can assess open-ended outputs",
+    "Lower cost than large-scale human evaluation"
+  ],
+  "risks": [
+    "Judge bias",
+    "Position bias",
+    "Verbosity bias",
+    "Preference inconsistency",
+    "Self-preference",
+    "Prompt sensitivity"
+  ],
+  "tags": [
+    "llm-as-a-judge",
+    "evaluation",
+    "alignment"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "human-evaluation",
+    "model-comparison",
+    "judge-bias"
+  ]
+},
+{
+  "id": "model-calibration",
+  "name": "Model Calibration",
+  "family": "Reliability",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2017,
+  "category": "evaluation",
+  "type": "calibration",
+  "description": "Calibration measures whether a model's confidence corresponds appropriately to the probability that its predictions are correct.",
+  "metrics": [
+    "expected calibration error",
+    "reliability diagrams",
+    "Brier score"
+  ],
+  "importance": [
+    "Separates confidence from correctness",
+    "Important for high-stakes decision systems"
+  ],
+  "limitations": [
+    "Calibration can vary by task and distribution",
+    "Language-model confidence is difficult to interpret directly"
+  ],
+  "tags": [
+    "calibration",
+    "reliability",
+    "confidence"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "uncertainty",
+    "reliability",
+    "hallucination"
+  ]
+},
+{
+  "id": "robustness-evaluation",
+  "name": "Robustness Evaluation",
+  "family": "Reliability",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "evaluation",
+  "type": "robustness",
+  "description": "Robustness evaluation measures whether model behavior remains reliable when inputs, wording, domains, distributions, or environmental conditions change.",
+  "tests": [
+    "paraphrase robustness",
+    "distribution shift",
+    "noise robustness",
+    "adversarial inputs",
+    "format variation",
+    "prompt variation"
+  ],
+  "importance": [
+    "Measures stability outside ideal benchmark conditions"
+  ],
+  "limitations": [
+    "No finite test suite can cover all possible shifts"
+  ],
+  "tags": [
+    "robustness",
+    "evaluation",
+    "distribution-shift"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "adversarial-evaluation",
+    "distribution-shift",
+    "reliability"
+  ]
+},
+{
+  "id": "adversarial-evaluation",
+  "name": "Adversarial Evaluation",
+  "family": "Reliability & Safety",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "evaluation",
+  "type": "adversarial-testing",
+  "description": "Adversarial evaluation intentionally constructs difficult or malicious inputs to discover model weaknesses, unsafe behavior, or reliability failures.",
+  "targets": [
+    "prompt manipulation",
+    "jailbreaks",
+    "instruction conflicts",
+    "misleading inputs",
+    "adversarial examples",
+    "data extraction"
+  ],
+  "advantages": [
+    "Finds failure modes that ordinary benchmarks may miss",
+    "Useful for safety testing and red teaming"
+  ],
+  "limitations": [
+    "Attack space is extremely large",
+    "Success against one attack does not establish universal robustness"
+  ],
+  "tags": [
+    "adversarial",
+    "red-team",
+    "evaluation",
+    "safety"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "red-teaming",
+    "prompt-injection",
+    "robustness-evaluation"
+  ]
+},
+{
+  "id": "real-world-evaluation",
+  "name": "Real-World Task Evaluation",
+  "family": "Evaluation Methodology",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2023,
+  "category": "evaluation",
+  "type": "real-world-evaluation",
+  "description": "Real-world evaluation measures model performance within realistic workflows, environments, tools, constraints, and user objectives rather than isolated benchmark questions.",
+  "dimensions": [
+    "task completion",
+    "error rate",
+    "latency",
+    "cost",
+    "tool use",
+    "human oversight",
+    "reliability"
+  ],
+  "advantages": [
+    "Closer to practical deployment",
+    "Captures system-level failure modes"
+  ],
+  "limitations": [
+    "Harder to reproduce",
+    "More expensive",
+    "Results depend heavily on environment design"
+  ],
+  "tags": [
+    "real-world-evaluation",
+    "agents",
+    "evaluation",
+    "deployment"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "agent-evaluation",
+    "swe-bench",
+    "evaluation-protocol"
+  ]
+},
+{
+  "id": "benchmark-overfitting",
+  "name": "Benchmark Overfitting",
+  "family": "Evaluation Failure Modes",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "evaluation",
+  "type": "benchmark-overfitting",
+  "description": "Benchmark overfitting occurs when model development or prompt engineering becomes excessively optimized for known evaluation sets rather than general capability.",
+  "causes": [
+    "repeated benchmark optimization",
+    "public leaderboard feedback",
+    "benchmark-specific prompting",
+    "training on benchmark-like data"
+  ],
+  "risks": [
+    "poor generalization",
+    "inflated leaderboard performance",
+    "reduced validity of benchmark comparisons"
+  ],
+  "mitigations": [
+    "held-out evaluations",
+    "dynamic benchmarks",
+    "private test sets",
+    "real-world evaluation"
+  ],
+  "tags": [
+    "benchmark-overfitting",
+    "evaluation",
+    "generalization"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "benchmark-contamination",
+    "benchmark-saturation",
+    "evaluation-protocol"
+  ]
+},
+{
+  "id": "benchmark-suite",
+  "name": "Benchmark Suite",
+  "family": "Evaluation & Benchmarks",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "evaluation",
+  "type": "benchmark-suite",
+  "description": "A benchmark suite combines multiple evaluations to measure different capabilities rather than reducing model quality to a single task or score.",
+  "dimensions": [
+    "knowledge",
+    "reasoning",
+    "coding",
+    "mathematics",
+    "multilingual",
+    "multimodal",
+    "long-context",
+    "safety"
+  ],
+  "advantages": [
+    "Provides broader capability coverage",
+    "Reduces dependence on one benchmark"
+  ],
+  "limitations": [
+    "Aggregate scores can hide important weaknesses",
+    "Different benchmarks may have different contamination and difficulty levels"
+  ],
+  "tags": [
+    "benchmark-suite",
+    "evaluation",
+    "model-comparison"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "benchmark",
+    "model-evaluation",
+    "leaderboard"
+  ]
+},
+{
+  "id": "capability-vs-benchmark",
+  "name": "Benchmark Score vs Actual Capability",
+  "family": "Evaluation Methodology",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "evaluation",
+  "type": "evaluation-interpretation",
+  "description": "Benchmark performance is evidence about a specific tested capability, not a complete measurement of a model's general intelligence, reliability, or real-world usefulness.",
+  "distinctions": [
+    "benchmark performance",
+    "generalization",
+    "real-world performance",
+    "robustness",
+    "reliability",
+    "task completion"
+  ],
+  "principle": "A benchmark score should be interpreted together with its task definition, evaluation protocol, contamination risk, and deployment context.",
+  "tags": [
+    "benchmark",
+    "evaluation",
+    "capability",
+    "reliability"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "benchmark",
+    "real-world-evaluation",
+    "benchmark-contamination"
+  ]
 }
 ]
-
