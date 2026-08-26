@@ -29976,5 +29976,1062 @@
     "reward-hacking",
     "alignment"
   ]
+},
+{
+  "id": "scaling-laws",
+  "name": "Scaling Laws",
+  "family": "Scaling & Efficiency",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "scaling",
+  "type": "scaling-law",
+  "description": "Scaling laws describe empirical relationships between model performance, model size, dataset size, and computational budget.",
+  "dimensions": [
+    "parameter count",
+    "training tokens",
+    "compute",
+    "training loss",
+    "inference compute"
+  ],
+  "principle": "Model performance often improves predictably as relevant scale dimensions increase, although the relationship depends on architecture, data quality, objective, and evaluation task.",
+  "importance": [
+    "Guides training-budget decisions",
+    "Helps estimate returns from additional compute",
+    "Provides a framework for comparing model size and dataset size"
+  ],
+  "limitations": [
+    "Scaling relationships are empirical rather than universal laws",
+    "Different tasks can scale differently",
+    "Data quality and architecture can change scaling behavior"
+  ],
+  "tags": [
+    "scaling-laws",
+    "compute",
+    "training",
+    "efficiency"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "chinchilla-scaling",
+    "compute-optimal-training",
+    "training-compute"
+  ]
+},
+{
+  "id": "kaplan-scaling-laws",
+  "name": "Kaplan Scaling Laws",
+  "family": "Scaling Laws",
+  "organization": "OpenAI",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "scaling",
+  "type": "empirical-scaling-law",
+  "description": "Kaplan et al. studied empirical scaling relationships between language-model loss and model size, dataset size, and compute.",
+  "dimensions": [
+    "parameters",
+    "dataset size",
+    "compute"
+  ],
+  "importance": [
+    "Established an influential framework for predicting language-model scaling behavior",
+    "Helped motivate larger model and compute investments"
+  ],
+  "limitations": [
+    "Later work revised conclusions about compute-optimal allocation",
+    "Results depend on training regime and assumptions"
+  ],
+  "tags": [
+    "kaplan",
+    "scaling-laws",
+    "language-models"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Scaling Laws for Neural Language Models",
+      "url": "https://arxiv.org/abs/2001.08361"
+    }
+  ],
+  "relatedConcepts": [
+    "chinchilla-scaling",
+    "scaling-laws"
+  ]
+},
+{
+  "id": "chinchilla-scaling",
+  "name": "Chinchilla Scaling",
+  "family": "Scaling Laws",
+  "organization": "DeepMind",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "scaling",
+  "type": "compute-optimal-scaling",
+  "description": "Chinchilla scaling describes compute-optimal training results suggesting that many large language models were undertrained relative to their parameter count and that additional training data can be highly valuable.",
+  "principle": "For a fixed compute budget, model size and training-token count should be balanced rather than allocating nearly all scaling to parameters.",
+  "importance": [
+    "Changed how researchers think about parameter count versus training data",
+    "Motivated smaller models trained on substantially more tokens"
+  ],
+  "limitations": [
+    "Optimal ratios depend on architecture, data quality, optimizer, and training regime",
+    "The original conclusions concern training compute rather than every deployment scenario"
+  ],
+  "tags": [
+    "chinchilla",
+    "scaling-laws",
+    "compute-optimal"
+  ],
+  "sources": [
+    {
+      "type": "paper",
+      "title": "Training Compute-Optimal Large Language Models",
+      "url": "https://arxiv.org/abs/2203.15556"
+    }
+  ],
+  "relatedConcepts": [
+    "compute-optimal-training",
+    "scaling-laws",
+    "training-tokens"
+  ]
+},
+{
+  "id": "compute-optimal-training",
+  "name": "Compute-Optimal Training",
+  "family": "Scaling & Efficiency",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2022,
+  "category": "scaling",
+  "type": "compute-allocation",
+  "description": "Compute-optimal training attempts to maximize model quality for a fixed computational budget by jointly choosing model size, training data, and training duration.",
+  "variables": [
+    "parameter count",
+    "training tokens",
+    "FLOPs",
+    "batch size",
+    "training steps"
+  ],
+  "objective": "maximize capability or minimize loss for a fixed compute budget",
+  "tags": [
+    "compute-optimal",
+    "scaling",
+    "training"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "chinchilla-scaling",
+    "training-compute",
+    "scaling-laws"
+  ]
+},
+{
+  "id": "training-compute",
+  "name": "Training Compute",
+  "family": "Compute",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "scaling",
+  "type": "training-compute",
+  "description": "Training compute represents the computational work required to optimize a model over its training data.",
+  "measures": [
+    "FLOPs",
+    "GPU-hours",
+    "TPU-hours",
+    "accelerator-days",
+    "energy consumption"
+  ],
+  "factors": [
+    "model size",
+    "sequence length",
+    "training tokens",
+    "batch size",
+    "hardware utilization",
+    "number of training steps"
+  ],
+  "tags": [
+    "compute",
+    "training",
+    "flops"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "flops",
+    "training-cost",
+    "scaling-laws"
+  ]
+},
+{
+  "id": "flops",
+  "name": "FLOPs",
+  "family": "Compute Metrics",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "scaling",
+  "type": "compute-metric",
+  "description": "FLOPs, or floating-point operations, provide a measure of the number of arithmetic operations performed during model training or inference.",
+  "uses": [
+    "training-compute estimation",
+    "hardware comparison",
+    "inference-cost estimation",
+    "scaling analysis"
+  ],
+  "caution": "FLOPs measure computational work but do not directly equal wall-clock time, monetary cost, or energy consumption.",
+  "tags": [
+    "flops",
+    "compute",
+    "hardware"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "training-compute",
+    "inference-compute",
+    "hardware-utilization"
+  ]
+},
+{
+  "id": "parameter-count",
+  "name": "Parameter Count",
+  "family": "Model Scale",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "scaling",
+  "type": "model-size",
+  "description": "Parameter count measures the number of learned numerical parameters in a model.",
+  "uses": [
+    "communicating model scale",
+    "memory estimation",
+    "comparing dense architectures"
+  ],
+  "caution": "Parameter count alone does not determine capability, training compute, inference cost, or active computation in sparse models.",
+  "tags": [
+    "parameters",
+    "model-size",
+    "scaling"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "active-parameters",
+    "moe",
+    "model-size"
+  ]
+},
+{
+  "id": "active-parameters",
+  "name": "Active Parameters",
+  "family": "Sparse Model Metrics",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2021,
+  "category": "scaling",
+  "type": "active-parameter-count",
+  "description": "Active parameters are the subset of model parameters actually used for a particular input during a forward pass, especially relevant to mixture-of-experts architectures.",
+  "importance": [
+    "Distinguishes total model capacity from per-token computation",
+    "Useful for understanding sparse model efficiency"
+  ],
+  "tags": [
+    "active-parameters",
+    "moe",
+    "sparse-model"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "moe",
+    "parameter-count",
+    "expert-routing"
+  ]
+},
+{
+  "id": "inference-compute",
+  "name": "Inference Compute",
+  "family": "Compute",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "scaling",
+  "type": "inference-compute",
+  "description": "Inference compute is the computational work required to produce model outputs after training.",
+  "dimensions": [
+    "input length",
+    "output length",
+    "model size",
+    "batch size",
+    "precision",
+    "attention implementation",
+    "number of generated candidates"
+  ],
+  "tradeoffs": [
+    "quality",
+    "latency",
+    "throughput",
+    "cost",
+    "energy"
+  ],
+  "tags": [
+    "inference",
+    "compute",
+    "latency"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "test-time-compute",
+    "inference-cost",
+    "latency"
+  ]
+},
+{
+  "id": "inference-cost",
+  "name": "Inference Cost",
+  "family": "Deployment Economics",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "deployment",
+  "type": "inference-cost",
+  "description": "Inference cost represents the economic resources required to serve model requests at deployment time.",
+  "components": [
+    "accelerator cost",
+    "memory cost",
+    "energy",
+    "networking",
+    "storage",
+    "orchestration"
+  ],
+  "metrics": [
+    "cost per request",
+    "cost per million tokens",
+    "cost per generated token",
+    "cost per task"
+  ],
+  "tags": [
+    "inference-cost",
+    "deployment",
+    "serving"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "latency",
+    "throughput",
+    "quantization"
+  ]
+},
+{
+  "id": "latency",
+  "name": "Inference Latency",
+  "family": "Deployment Metrics",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "deployment",
+  "type": "latency",
+  "description": "Inference latency measures the time required to process a request or generate a model response.",
+  "metrics": [
+    "time to first token",
+    "inter-token latency",
+    "end-to-end latency",
+    "p50 latency",
+    "p95 latency",
+    "p99 latency"
+  ],
+  "factors": [
+    "model size",
+    "sequence length",
+    "hardware",
+    "batch size",
+    "quantization",
+    "parallelism"
+  ],
+  "tags": [
+    "latency",
+    "inference",
+    "serving"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "throughput",
+    "inference-cost",
+    "serving"
+  ]
+},
+{
+  "id": "throughput",
+  "name": "Inference Throughput",
+  "family": "Deployment Metrics",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "deployment",
+  "type": "throughput",
+  "description": "Inference throughput measures how many tokens, requests, or tasks a serving system can process over a unit of time.",
+  "metrics": [
+    "tokens per second",
+    "requests per second",
+    "sequences per second"
+  ],
+  "tradeoffs": [
+    "batch size",
+    "latency",
+    "memory",
+    "hardware utilization"
+  ],
+  "tags": [
+    "throughput",
+    "serving",
+    "inference"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "latency",
+    "continuous-batching",
+    "inference-cost"
+  ]
+},
+{
+  "id": "moe-efficiency",
+  "name": "Mixture-of-Experts Efficiency",
+  "family": "Sparse Architectures",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2021,
+  "category": "scaling",
+  "type": "sparse-computation",
+  "description": "Mixture-of-Experts architectures increase total parameter capacity while activating only a subset of experts for each input.",
+  "mechanism": [
+    "router",
+    "expert selection",
+    "sparse expert activation"
+  ],
+  "advantages": [
+    "Large parameter capacity",
+    "Lower per-token computation than an equivalently sized dense model"
+  ],
+  "limitations": [
+    "Routing complexity",
+    "Communication overhead",
+    "Load balancing challenges",
+    "Memory requirements can remain large"
+  ],
+  "tags": [
+    "moe",
+    "sparse",
+    "efficiency",
+    "scaling"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "active-parameters",
+    "expert-routing",
+    "sparse-model"
+  ]
+},
+{
+  "id": "expert-routing",
+  "name": "Expert Routing",
+  "family": "Mixture-of-Experts",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2021,
+  "category": "architecture",
+  "type": "routing",
+  "description": "Expert routing determines which specialized neural-network experts process each token or input in a mixture-of-experts model.",
+  "methods": [
+    "top-1 routing",
+    "top-2 routing",
+    "top-k routing",
+    "learned routing"
+  ],
+  "challenges": [
+    "load balancing",
+    "expert collapse",
+    "routing instability",
+    "communication overhead"
+  ],
+  "tags": [
+    "expert-routing",
+    "moe",
+    "sparse-model"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "moe",
+    "active-parameters",
+    "load-balancing-loss"
+  ]
+},
+{
+  "id": "load-balancing-loss",
+  "name": "Load-Balancing Loss",
+  "family": "Mixture-of-Experts",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "architecture",
+  "type": "routing-regularization",
+  "description": "Load-balancing losses encourage mixture-of-experts routers to distribute tokens across experts rather than concentrating computation on a small subset.",
+  "purpose": [
+    "prevent expert overload",
+    "improve hardware utilization",
+    "maintain balanced expert usage"
+  ],
+  "tradeoffs": [
+    "routing quality",
+    "specialization",
+    "load balance"
+  ],
+  "tags": [
+    "moe",
+    "load-balancing",
+    "routing"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "expert-routing",
+    "moe"
+  ]
+},
+{
+  "id": "quantization",
+  "name": "Quantization",
+  "family": "Model Efficiency",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "efficiency",
+  "type": "numerical-compression",
+  "description": "Quantization represents model weights, activations, or caches using lower-precision numerical formats to reduce memory usage and computational cost.",
+  "precisions": [
+    "FP32",
+    "FP16",
+    "BF16",
+    "INT8",
+    "INT4",
+    "FP8",
+    "FP4"
+  ],
+  "advantages": [
+    "Lower memory consumption",
+    "Potentially faster inference",
+    "Reduced bandwidth requirements",
+    "Lower serving cost"
+  ],
+  "limitations": [
+    "Potential quality degradation",
+    "Hardware support varies",
+    "Calibration can be important"
+  ],
+  "tags": [
+    "quantization",
+    "efficiency",
+    "inference"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "weight-only-quantization",
+    "activation-quantization",
+    "mixed-precision"
+  ]
+},
+{
+  "id": "weight-only-quantization",
+  "name": "Weight-Only Quantization",
+  "family": "Quantization",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2022,
+  "category": "efficiency",
+  "type": "weight-quantization",
+  "description": "Weight-only quantization reduces the numerical precision of model parameters while leaving activations at a higher precision.",
+  "commonFormats": [
+    "INT8",
+    "INT4"
+  ],
+  "advantages": [
+    "Substantially reduces model memory",
+    "Useful for large-model inference"
+  ],
+  "limitations": [
+    "Activation computation remains relatively expensive",
+    "Accuracy depends on quantization method and model architecture"
+  ],
+  "tags": [
+    "quantization",
+    "int4",
+    "int8",
+    "inference"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "quantization",
+    "gptq",
+    "awq"
+  ]
+},
+{
+  "id": "gptq",
+  "name": "GPTQ",
+  "family": "Quantization",
+  "organization": "Research community",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "efficiency",
+  "type": "post-training-quantization",
+  "description": "GPTQ is a post-training weight-quantization method designed to compress large language models to low precision while attempting to preserve model quality.",
+  "target": [
+    "large language models",
+    "weight-only quantization"
+  ],
+  "advantages": [
+    "Supports low-bit model deployment",
+    "Can significantly reduce memory requirements"
+  ],
+  "limitations": [
+    "Quality depends on calibration data",
+    "Hardware acceleration varies"
+  ],
+  "tags": [
+    "gptq",
+    "quantization",
+    "int4"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "weight-only-quantization",
+    "awq",
+    "quantization"
+  ]
+},
+{
+  "id": "awq",
+  "name": "AWQ",
+  "family": "Quantization",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "efficiency",
+  "type": "activation-aware-quantization",
+  "description": "Activation-aware Weight Quantization is a low-bit weight-quantization method that uses activation information to identify weights that are especially important to preserve.",
+  "advantages": [
+    "Effective low-bit inference",
+    "Designed around activation-aware protection of important weights"
+  ],
+  "limitations": [
+    "Performance depends on hardware and implementation",
+    "Calibration and model architecture matter"
+  ],
+  "tags": [
+    "awq",
+    "quantization",
+    "int4"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "gptq",
+    "weight-only-quantization"
+  ]
+},
+{
+  "id": "mixed-precision",
+  "name": "Mixed-Precision Computing",
+  "family": "Model Efficiency",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "efficiency",
+  "type": "numerical-optimization",
+  "description": "Mixed-precision computing uses different numerical precisions for different operations, tensors, or training stages.",
+  "examples": [
+    "FP16 weights with FP32 accumulation",
+    "BF16 training",
+    "FP8 matrix multiplication"
+  ],
+  "advantages": [
+    "Lower memory usage",
+    "Higher accelerator throughput",
+    "Reduced bandwidth"
+  ],
+  "limitations": [
+    "Numerical stability must be managed",
+    "Hardware support varies"
+  ],
+  "tags": [
+    "mixed-precision",
+    "bf16",
+    "fp8",
+    "efficiency"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "quantization",
+    "hardware-acceleration"
+  ]
+},
+{
+  "id": "pruning",
+  "name": "Model Pruning",
+  "family": "Model Efficiency",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2019,
+  "category": "efficiency",
+  "type": "parameter-pruning",
+  "description": "Pruning removes parameters, neurons, attention structures, or other computational components judged to be unnecessary.",
+  "types": [
+    "unstructured pruning",
+    "structured pruning",
+    "head pruning",
+    "neuron pruning",
+    "layer pruning"
+  ],
+  "advantages": [
+    "Can reduce model size",
+    "Can reduce computation when supported by hardware"
+  ],
+  "limitations": [
+    "Unstructured sparsity may not produce practical speedups",
+    "Aggressive pruning can reduce model quality"
+  ],
+  "tags": [
+    "pruning",
+    "sparsity",
+    "efficiency"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "sparsity",
+    "quantization",
+    "distillation"
+  ]
+},
+{
+  "id": "sparsity",
+  "name": "Model Sparsity",
+  "family": "Model Efficiency",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2019,
+  "category": "efficiency",
+  "type": "sparse-computation",
+  "description": "Sparsity represents computational or parameter structures in which only a subset of values or components are active.",
+  "types": [
+    "weight sparsity",
+    "activation sparsity",
+    "structured sparsity",
+    "unstructured sparsity",
+    "expert sparsity"
+  ],
+  "advantages": [
+    "Potential reduction in computation and memory",
+    "Can enable larger effective capacity"
+  ],
+  "limitations": [
+    "Speedups require hardware and software support",
+    "Sparse operations can introduce overhead"
+  ],
+  "tags": [
+    "sparsity",
+    "efficiency",
+    "moe"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "pruning",
+    "moe",
+    "sparse-attention"
+  ]
+},
+{
+  "id": "distillation-efficiency",
+  "name": "Distillation for Efficiency",
+  "family": "Model Efficiency",
+  "organization": "Research community",
+  "releaseDate": "2015",
+  "year": 2015,
+  "category": "efficiency",
+  "type": "knowledge-distillation",
+  "description": "Distillation transfers useful behavior from a larger teacher model into a smaller student model to reduce deployment cost while retaining selected capabilities.",
+  "objectives": [
+    "reduce parameter count",
+    "reduce latency",
+    "reduce memory",
+    "preserve task performance"
+  ],
+  "tradeoffs": [
+    "model quality",
+    "compression ratio",
+    "latency",
+    "memory"
+  ],
+  "tags": [
+    "distillation",
+    "compression",
+    "efficiency"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "knowledge-distillation",
+    "small-language-model"
+  ]
+},
+{
+  "id": "speculative-decoding",
+  "name": "Speculative Decoding",
+  "family": "Inference Optimization",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "efficiency",
+  "type": "decoding-optimization",
+  "description": "Speculative decoding uses a smaller draft model to propose multiple tokens that are then verified by a larger target model, potentially increasing generation throughput without changing the target model's output distribution under the standard exact formulation.",
+  "pipeline": [
+    "draft model proposes tokens",
+    "target model verifies tokens",
+    "accepted tokens are emitted",
+    "rejected positions are regenerated"
+  ],
+  "advantages": [
+    "Can reduce generation latency",
+    "Does not require changing target-model weights"
+  ],
+  "limitations": [
+    "Speedup depends on draft-model agreement",
+    "Additional draft-model computation is required"
+  ],
+  "tags": [
+    "speculative-decoding",
+    "inference",
+    "latency"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "draft-model",
+    "inference-optimization"
+  ]
+},
+{
+  "id": "flashattention",
+  "name": "FlashAttention",
+  "family": "Attention Optimization",
+  "organization": "Research community",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "efficiency",
+  "type": "memory-efficient-attention",
+  "description": "FlashAttention is an exact attention algorithm that improves GPU memory efficiency and speed by organizing computation and memory access to reduce expensive reads and writes to high-bandwidth memory.",
+  "advantages": [
+    "Lower memory overhead",
+    "Higher attention throughput",
+    "Enables longer sequences under constrained memory"
+  ],
+  "limitations": [
+    "Benefits depend on hardware and implementation",
+    "Primarily addresses attention computation rather than the entire model"
+  ],
+  "tags": [
+    "flashattention",
+    "attention",
+    "gpu",
+    "efficiency"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "attention",
+    "memory-efficiency",
+    "long-context"
+  ]
+},
+{
+  "id": "kv-cache",
+  "name": "KV Cache",
+  "family": "Inference Optimization",
+  "organization": "Research community",
+  "releaseDate": "2019",
+  "year": 2019,
+  "category": "efficiency",
+  "type": "inference-memory",
+  "description": "A key-value cache stores attention keys and values from previously processed tokens so autoregressive decoding does not repeatedly recompute them.",
+  "benefit": "reduces redundant computation during autoregressive generation",
+  "cost": "KV cache memory grows with sequence length, layers, attention heads, and batch size",
+  "importance": [
+    "Critical for long-context inference",
+    "Can become a major memory bottleneck in serving systems"
+  ],
+  "tags": [
+    "kv-cache",
+    "attention",
+    "inference",
+    "memory"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "gqa",
+    "mqa",
+    "paged-attention",
+    "long-context"
+  ]
+},
+{
+  "id": "paged-attention",
+  "name": "Paged Attention",
+  "family": "Inference Optimization",
+  "organization": "vLLM / Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "efficiency",
+  "type": "kv-cache-management",
+  "description": "Paged attention manages key-value cache memory using block-based allocation inspired by virtual memory systems.",
+  "advantages": [
+    "Reduces memory fragmentation",
+    "Improves serving efficiency",
+    "Supports dynamic batching and variable-length requests"
+  ],
+  "limitations": [
+    "Primarily a serving-system optimization",
+    "Requires compatible runtime implementation"
+  ],
+  "tags": [
+    "paged-attention",
+    "kv-cache",
+    "vllm",
+    "serving"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "kv-cache",
+    "continuous-batching",
+    "serving"
+  ]
+},
+{
+  "id": "continuous-batching",
+  "name": "Continuous Batching",
+  "family": "Inference Optimization",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2023,
+  "category": "efficiency",
+  "type": "dynamic-batching",
+  "description": "Continuous batching dynamically adds and removes requests from a running inference batch rather than waiting for an entire static batch to finish.",
+  "advantages": [
+    "Higher accelerator utilization",
+    "Improved serving throughput",
+    "Better handling of variable generation lengths"
+  ],
+  "tradeoffs": [
+    "Scheduler complexity",
+    "Latency-throughput balancing"
+  ],
+  "tags": [
+    "continuous-batching",
+    "serving",
+    "throughput"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "paged-attention",
+    "throughput",
+    "inference-cost"
+  ]
+},
+{
+  "id": "memory-bandwidth",
+  "name": "Memory Bandwidth Bottleneck",
+  "family": "Hardware & Efficiency",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "efficiency",
+  "type": "hardware-bottleneck",
+  "description": "Memory bandwidth can limit model throughput when computation spends significant time moving weights, activations, or cache data rather than performing arithmetic.",
+  "affectedWorkloads": [
+    "autoregressive decoding",
+    "large-model inference",
+    "weight-heavy operations"
+  ],
+  "importance": [
+    "Explains why theoretical FLOPs alone do not predict serving speed",
+    "Motivates quantization and memory-efficient kernels"
+  ],
+  "tags": [
+    "memory-bandwidth",
+    "hardware",
+    "inference"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "kv-cache",
+    "quantization",
+    "throughput"
+  ]
+},
+{
+  "id": "compute-vs-memory",
+  "name": "Compute vs Memory Bottlenecks",
+  "family": "Hardware & Efficiency",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "efficiency",
+  "type": "performance-analysis",
+  "description": "Model performance can be limited either by arithmetic computation or by memory movement, depending on the workload, hardware, model architecture, and inference stage.",
+  "dimensions": [
+    "compute utilization",
+    "memory bandwidth",
+    "memory capacity",
+    "communication overhead"
+  ],
+  "importance": [
+    "Explains why algorithmic FLOP reductions do not always produce proportional speedups"
+  ],
+  "tags": [
+    "compute",
+    "memory",
+    "hardware",
+    "efficiency"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "memory-bandwidth",
+    "flashattention",
+    "quantization"
+  ]
+},
+{
+  "id": "energy-efficiency",
+  "name": "Energy Efficiency",
+  "family": "Deployment Economics",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "efficiency",
+  "type": "energy-metric",
+  "description": "Energy efficiency measures the computational or task performance achieved per unit of energy consumed.",
+  "metrics": [
+    "joules per token",
+    "joules per request",
+    "tokens per joule",
+    "training energy"
+  ],
+  "factors": [
+    "hardware",
+    "model architecture",
+    "precision",
+    "utilization",
+    "data-center efficiency"
+  ],
+  "tags": [
+    "energy-efficiency",
+    "sustainability",
+    "deployment"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "inference-cost",
+    "training-compute",
+    "hardware-efficiency"
+  ]
 }
 ]
