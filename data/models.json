@@ -28104,4 +28104,976 @@
     "benchmark-contamination"
   ]
 }
+,
+{
+  "id": "training-data",
+  "name": "Foundation Model Training Data",
+  "family": "Training Data & Curation",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "training",
+  "type": "training-data",
+  "description": "Training data is the collection of text, code, images, audio, video, or other information used to develop a foundation model.",
+  "modalities": [
+    "text",
+    "code",
+    "image",
+    "audio",
+    "video",
+    "multimodal"
+  ],
+  "sources": [
+    "web pages",
+    "books",
+    "papers",
+    "code repositories",
+    "licensed datasets",
+    "public datasets",
+    "synthetic data",
+    "human-generated data"
+  ],
+  "dimensions": [
+    "scale",
+    "quality",
+    "diversity",
+    "language coverage",
+    "domain coverage",
+    "duplication",
+    "contamination",
+    "licensing"
+  ],
+  "importance": [
+    "Training data strongly influences model capabilities",
+    "Data composition affects specialization and generalization",
+    "Data quality can matter as much as raw dataset size"
+  ],
+  "limitations": [
+    "Exact training datasets are often only partially disclosed",
+    "Web-scale data can contain duplication, misinformation, copyrighted material, and harmful content",
+    "Dataset composition can be difficult to independently verify"
+  ],
+  "tags": [
+    "training-data",
+    "pretraining",
+    "data-curation",
+    "foundation-models"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "pretraining",
+    "data-mixture",
+    "data-curation",
+    "data-contamination"
+  ]
+},
+{
+  "id": "pretraining",
+  "name": "Pretraining",
+  "family": "Training Paradigms",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "training",
+  "type": "pretraining",
+  "description": "Pretraining is the large-scale learning stage in which a foundation model learns general representations or predictive capabilities from broad datasets before task-specific adaptation.",
+  "objectives": [
+    "next-token prediction",
+    "masked prediction",
+    "sequence-to-sequence prediction",
+    "contrastive learning",
+    "multimodal prediction"
+  ],
+  "characteristics": [
+    "large datasets",
+    "large compute budgets",
+    "long training runs",
+    "general-purpose representations"
+  ],
+  "advantages": [
+    "Creates reusable foundation capabilities",
+    "Allows later adaptation to many tasks"
+  ],
+  "limitations": [
+    "Computationally expensive",
+    "Data quality strongly affects outcomes",
+    "Training data may contain unwanted biases or sensitive information"
+  ],
+  "tags": [
+    "pretraining",
+    "foundation-model",
+    "training"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "language-modeling",
+    "next-token-prediction",
+    "post-training"
+  ]
+},
+{
+  "id": "next-token-prediction",
+  "name": "Next-Token Prediction",
+  "family": "Training Objectives",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "training",
+  "type": "autoregressive-objective",
+  "description": "Next-token prediction trains an autoregressive language model to predict the next token given the preceding sequence.",
+  "objective": "maximize the probability of the next token conditioned on previous tokens",
+  "advantages": [
+    "Simple scalable objective",
+    "Uses naturally occurring text without task labels",
+    "Supports large-scale self-supervised learning"
+  ],
+  "limitations": [
+    "The objective does not directly specify factuality, reasoning, or helpfulness",
+    "Training distribution determines what the model learns to predict"
+  ],
+  "tags": [
+    "next-token-prediction",
+    "autoregressive",
+    "language-modeling",
+    "pretraining"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "autoregressive-model",
+    "causal-language-model",
+    "pretraining"
+  ]
+},
+{
+  "id": "masked-language-modeling",
+  "name": "Masked Language Modeling",
+  "family": "Training Objectives",
+  "organization": "Research community",
+  "releaseDate": "2018",
+  "year": 2018,
+  "category": "training",
+  "type": "masked-objective",
+  "description": "Masked language modeling trains a model to reconstruct tokens that have been hidden or corrupted within an input sequence.",
+  "mechanism": [
+    "select tokens",
+    "mask or corrupt selected positions",
+    "predict original tokens"
+  ],
+  "advantages": [
+    "Provides bidirectional contextual learning",
+    "Effective for encoder-style language representations"
+  ],
+  "limitations": [
+    "Training corruption may differ from downstream tasks",
+    "Not naturally identical to autoregressive generation"
+  ],
+  "tags": [
+    "masked-language-modeling",
+    "bert",
+    "pretraining"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "bert",
+    "denoising-objective",
+    "autoregressive-model"
+  ]
+},
+{
+  "id": "denoising-objective",
+  "name": "Denoising Objective",
+  "family": "Training Objectives",
+  "organization": "Research community",
+  "releaseDate": "2019",
+  "year": 2019,
+  "category": "training",
+  "type": "denoising",
+  "description": "Denoising objectives train models to reconstruct clean sequences or representations from corrupted inputs.",
+  "corruptions": [
+    "masking",
+    "span corruption",
+    "token deletion",
+    "token permutation",
+    "noise injection"
+  ],
+  "uses": [
+    "encoder-decoder pretraining",
+    "representation learning",
+    "sequence generation"
+  ],
+  "tags": [
+    "denoising",
+    "pretraining",
+    "encoder-decoder"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "t5",
+    "masked-language-modeling",
+    "pretraining"
+  ]
+},
+{
+  "id": "data-mixture",
+  "name": "Training Data Mixture",
+  "family": "Training Data & Curation",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "training",
+  "type": "data-mixture",
+  "description": "A training data mixture defines the relative composition and sampling proportions of different datasets, domains, languages, modalities, or quality levels used during training.",
+  "dimensions": [
+    "web text",
+    "books",
+    "academic text",
+    "code",
+    "mathematics",
+    "multilingual data",
+    "synthetic data",
+    "instruction data"
+  ],
+  "designChoices": [
+    "sampling weights",
+    "dataset temperature",
+    "domain balancing",
+    "language balancing",
+    "quality weighting"
+  ],
+  "importance": [
+    "Different mixtures can produce different capability profiles",
+    "Small high-quality subsets can receive disproportionate sampling weight"
+  ],
+  "limitations": [
+    "Exact mixtures are often proprietary",
+    "Reported dataset percentages may not reveal actual training exposure"
+  ],
+  "tags": [
+    "data-mixture",
+    "training-data",
+    "pretraining"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "data-curation",
+    "data-weighting",
+    "curriculum-learning"
+  ]
+},
+{
+  "id": "data-curation",
+  "name": "Data Curation",
+  "family": "Training Data & Curation",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "training",
+  "type": "data-curation",
+  "description": "Data curation is the process of selecting, cleaning, filtering, transforming, deduplicating, and organizing data before or during model training.",
+  "steps": [
+    "collection",
+    "language identification",
+    "quality filtering",
+    "safety filtering",
+    "deduplication",
+    "format normalization",
+    "domain classification",
+    "mixture construction"
+  ],
+  "objectives": [
+    "increase data quality",
+    "remove unwanted content",
+    "reduce redundancy",
+    "improve diversity",
+    "control domain composition"
+  ],
+  "tags": [
+    "data-curation",
+    "training-data",
+    "filtering"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "deduplication",
+    "quality-filtering",
+    "data-mixture"
+  ]
+},
+{
+  "id": "quality-filtering",
+  "name": "Data Quality Filtering",
+  "family": "Training Data & Curation",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "training",
+  "type": "quality-filtering",
+  "description": "Quality filtering attempts to remove low-value, noisy, malformed, irrelevant, or otherwise undesirable examples from large training corpora.",
+  "signals": [
+    "language identification",
+    "document length",
+    "perplexity",
+    "classifier scores",
+    "metadata",
+    "format quality",
+    "domain relevance"
+  ],
+  "advantages": [
+    "Can improve training efficiency",
+    "Can increase the proportion of useful examples",
+    "Can reduce noise"
+  ],
+  "limitations": [
+    "Filters can remove useful but unusual data",
+    "Quality classifiers can encode biases",
+    "Threshold selection affects dataset composition"
+  ],
+  "tags": [
+    "quality-filtering",
+    "data-curation",
+    "training-data"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "data-curation",
+    "fineweb",
+    "refinedweb"
+  ]
+},
+{
+  "id": "data-deduplication",
+  "name": "Data Deduplication",
+  "family": "Training Data & Curation",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "training",
+  "type": "deduplication",
+  "description": "Data deduplication identifies and removes duplicate or near-duplicate examples from training corpora.",
+  "types": [
+    "exact deduplication",
+    "document-level deduplication",
+    "near-duplicate detection",
+    "n-gram overlap filtering",
+    "semantic deduplication"
+  ],
+  "objectives": [
+    "reduce redundant training",
+    "improve data diversity",
+    "reduce memorization risk",
+    "reduce compute waste"
+  ],
+  "limitations": [
+    "Aggressive deduplication can remove legitimate repeated information",
+    "Near-duplicate detection can be computationally expensive"
+  ],
+  "tags": [
+    "deduplication",
+    "data-curation",
+    "memorization"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "data-contamination",
+    "quality-filtering",
+    "training-data"
+  ]
+},
+{
+  "id": "common-crawl",
+  "name": "Common Crawl",
+  "family": "Web-Scale Data Sources",
+  "organization": "Common Crawl",
+  "releaseDate": "2008",
+  "year": 2008,
+  "category": "training",
+  "type": "web-corpus",
+  "description": "Common Crawl is a large open repository of web crawl data that has been used as a source for numerous research and language-model training datasets.",
+  "dataType": [
+    "web pages",
+    "HTML",
+    "metadata",
+    "crawl information"
+  ],
+  "importance": [
+    "Major source of web-scale text",
+    "Foundation for many derived language-model datasets"
+  ],
+  "limitations": [
+    "Raw web data contains noise",
+    "May contain duplicated, low-quality, copyrighted, or harmful content",
+    "Requires extensive filtering and processing"
+  ],
+  "tags": [
+    "common-crawl",
+    "web-data",
+    "training-data"
+  ],
+  "sources": [
+    {
+      "type": "website",
+      "title": "Common Crawl",
+      "url": "https://commoncrawl.org/"
+    }
+  ],
+  "relatedConcepts": [
+    "c4",
+    "fineweb",
+    "refinedweb"
+  ]
+},
+{
+  "id": "c4",
+  "name": "C4",
+  "family": "Curated Web Datasets",
+  "organization": "Google Research",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "training",
+  "type": "curated-web-corpus",
+  "description": "C4 is a large cleaned web corpus derived from Common Crawl and designed for language-model pretraining.",
+  "pipeline": [
+    "Common Crawl collection",
+    "language filtering",
+    "quality filtering",
+    "heuristic cleaning"
+  ],
+  "importance": [
+    "Used in the development of T5 and related research",
+    "Influential example of large-scale web-data curation"
+  ],
+  "limitations": [
+    "Filtering rules can introduce dataset biases",
+    "Web content remains noisy and heterogeneous"
+  ],
+  "tags": [
+    "c4",
+    "common-crawl",
+    "pretraining",
+    "web-data"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "common-crawl",
+    "data-curation",
+    "t5"
+  ]
+},
+{
+  "id": "refinedweb",
+  "name": "RefinedWeb",
+  "family": "Curated Web Datasets",
+  "organization": "Technology Innovation Institute",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "training",
+  "type": "web-corpus",
+  "description": "RefinedWeb is a large-scale web dataset produced through extensive filtering and deduplication of Common Crawl data.",
+  "pipeline": [
+    "web crawling",
+    "quality filtering",
+    "deduplication",
+    "content filtering"
+  ],
+  "importance": [
+    "Demonstrated that heavily curated web data can support strong language-model training",
+    "Associated with the Falcon model family"
+  ],
+  "limitations": [
+    "Quality depends on filtering methodology",
+    "Exact representation of the entire web is not guaranteed"
+  ],
+  "tags": [
+    "refinedweb",
+    "common-crawl",
+    "falcon",
+    "web-data"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "common-crawl",
+    "data-curation",
+    "falcon"
+  ]
+},
+{
+  "id": "redpajama",
+  "name": "RedPajama",
+  "family": "Open Training Datasets",
+  "organization": "Together / Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "training",
+  "type": "open-pretraining-data",
+  "description": "RedPajama is an open effort to reproduce and provide components of large-scale language-model training datasets and pipelines.",
+  "dataSources": [
+    "Common Crawl-derived web data",
+    "books",
+    "Wikipedia",
+    "GitHub",
+    "arXiv",
+    "Stack Exchange"
+  ],
+  "importance": [
+    "Expanded open access to large-scale pretraining data",
+    "Supported reproducible language-model research"
+  ],
+  "tags": [
+    "redpajama",
+    "open-data",
+    "pretraining"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "dolma",
+    "fineweb",
+    "open-pretraining-data"
+  ]
+},
+{
+  "id": "dolma",
+  "name": "Dolma",
+  "family": "Open Training Datasets",
+  "organization": "AI2",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "training",
+  "type": "open-pretraining-corpus",
+  "description": "Dolma is an open corpus designed for language-model pretraining, combining multiple data sources with documented processing and filtering pipelines.",
+  "dataSources": [
+    "web content",
+    "academic material",
+    "books",
+    "social media",
+    "encyclopedic content",
+    "code"
+  ],
+  "importance": [
+    "Supports open foundation-model research",
+    "Provides greater transparency into data construction than many proprietary datasets"
+  ],
+  "tags": [
+    "dolma",
+    "ai2",
+    "open-data",
+    "pretraining"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "olmo",
+    "redpajama",
+    "data-curation"
+  ]
+},
+{
+  "id": "fineweb",
+  "name": "FineWeb",
+  "family": "Curated Web Datasets",
+  "organization": "Hugging Face",
+  "releaseDate": "2024",
+  "year": 2024,
+  "category": "training",
+  "type": "web-corpus",
+  "description": "FineWeb is a large-scale dataset derived from Common Crawl using extensive filtering and deduplication intended to produce high-quality web text for language-model pretraining.",
+  "pipeline": [
+    "Common Crawl collection",
+    "language filtering",
+    "quality filtering",
+    "deduplication",
+    "heuristic processing"
+  ],
+  "importance": [
+    "Provides an openly documented large-scale web corpus",
+    "Useful for studying the effect of web-data quality on language-model training"
+  ],
+  "tags": [
+    "fineweb",
+    "hugging-face",
+    "common-crawl",
+    "pretraining"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "common-crawl",
+    "refinedweb",
+    "data-curation"
+  ]
+},
+{
+  "id": "the-stack",
+  "name": "The Stack",
+  "family": "Code Training Datasets",
+  "organization": "BigCode",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "training",
+  "type": "code-corpus",
+  "description": "The Stack is a large collection of source code intended to support research on code models, with filtering and opt-out mechanisms designed to address data governance concerns.",
+  "dataType": [
+    "source code",
+    "programming-language metadata"
+  ],
+  "uses": [
+    "code-language-model pretraining",
+    "code generation",
+    "code completion",
+    "software engineering research"
+  ],
+  "limitations": [
+    "Code licensing and provenance require careful handling",
+    "Repositories can contain duplicated or low-quality code"
+  ],
+  "tags": [
+    "the-stack",
+    "code",
+    "bigcode",
+    "training-data"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "code-model",
+    "starcoder",
+    "code-data"
+  ]
+},
+{
+  "id": "synthetic-data",
+  "name": "Synthetic Training Data",
+  "family": "Training Data & Curation",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "training",
+  "type": "synthetic-data",
+  "description": "Synthetic training data is generated by models or procedural systems and subsequently used to train or improve another model.",
+  "sources": [
+    "teacher models",
+    "self-generation",
+    "procedural generation",
+    "simulation"
+  ],
+  "uses": [
+    "instruction tuning",
+    "reasoning data",
+    "code generation",
+    "pretraining",
+    "data augmentation",
+    "distillation"
+  ],
+  "advantages": [
+    "Can produce large quantities of targeted examples",
+    "Can target underrepresented capabilities",
+    "Can reduce dependence on manually authored data"
+  ],
+  "risks": [
+    "teacher-model errors",
+    "mode collapse",
+    "distribution narrowing",
+    "synthetic-data feedback loops"
+  ],
+  "tags": [
+    "synthetic-data",
+    "training",
+    "distillation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "knowledge-distillation",
+    "self-training",
+    "instruction-tuning"
+  ]
+},
+{
+  "id": "data-contamination",
+  "name": "Training Data Contamination",
+  "family": "Training Data & Evaluation",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "training",
+  "type": "contamination",
+  "description": "Training data contamination occurs when evaluation material, benchmark examples, test data, or protected information becomes part of a model's training corpus.",
+  "forms": [
+    "direct benchmark exposure",
+    "near-duplicate exposure",
+    "test-set leakage",
+    "documentation exposure",
+    "solution exposure"
+  ],
+  "effects": [
+    "inflated evaluation scores",
+    "reduced validity of benchmarks",
+    "potential memorization"
+  ],
+  "mitigations": [
+    "deduplication",
+    "temporal splits",
+    "private test sets",
+    "contamination analysis",
+    "dynamic evaluation"
+  ],
+  "tags": [
+    "data-contamination",
+    "benchmark",
+    "training-data"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "benchmark-contamination",
+    "data-deduplication",
+    "memorization"
+  ]
+},
+{
+  "id": "data-memorization",
+  "name": "Training Data Memorization",
+  "family": "Training Data & Model Behavior",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "training",
+  "type": "memorization",
+  "description": "Training data memorization occurs when a model retains and can reproduce specific information or sequences encountered during training.",
+  "factors": [
+    "example frequency",
+    "duplication",
+    "sequence uniqueness",
+    "model capacity",
+    "training duration"
+  ],
+  "risks": [
+    "privacy leakage",
+    "copyright concerns",
+    "benchmark contamination",
+    "unintended reproduction"
+  ],
+  "tags": [
+    "memorization",
+    "privacy",
+    "training-data"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "data-contamination",
+    "deduplication",
+    "training-data"
+  ]
+},
+{
+  "id": "data-weighting",
+  "name": "Data Weighting",
+  "family": "Training Data Optimization",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "training",
+  "type": "data-sampling",
+  "description": "Data weighting changes how frequently different datasets, domains, languages, or examples are sampled during training.",
+  "methods": [
+    "fixed sampling weights",
+    "temperature sampling",
+    "quality weighting",
+    "domain weighting",
+    "adaptive sampling"
+  ],
+  "objectives": [
+    "balance data sources",
+    "increase exposure to high-quality data",
+    "improve underrepresented capabilities"
+  ],
+  "tags": [
+    "data-weighting",
+    "sampling",
+    "pretraining"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "data-mixture",
+    "curriculum-learning",
+    "data-curation"
+  ]
+},
+{
+  "id": "curriculum-learning",
+  "name": "Curriculum Learning",
+  "family": "Training Optimization",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2019,
+  "category": "training",
+  "type": "curriculum",
+  "description": "Curriculum learning controls the order or difficulty distribution of training examples rather than sampling all examples uniformly throughout training.",
+  "strategies": [
+    "easy-to-hard",
+    "domain scheduling",
+    "quality scheduling",
+    "adaptive curriculum"
+  ],
+  "advantages": [
+    "May improve optimization",
+    "Can control exposure to different data types"
+  ],
+  "limitations": [
+    "Optimal curriculum is model- and dataset-dependent",
+    "Benefits are not universal"
+  ],
+  "tags": [
+    "curriculum-learning",
+    "training",
+    "optimization"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "data-weighting",
+    "data-mixture",
+    "pretraining"
+  ]
+},
+{
+  "id": "instruction-data",
+  "name": "Instruction-Tuning Data",
+  "family": "Post-Training Data",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2021,
+  "category": "training",
+  "type": "instruction-data",
+  "description": "Instruction-tuning data consists of examples pairing instructions or user requests with desired model responses.",
+  "formats": [
+    "instruction-response",
+    "conversation",
+    "question-answer",
+    "task-output"
+  ],
+  "sources": [
+    "human-written examples",
+    "synthetic examples",
+    "teacher-model generations",
+    "existing datasets"
+  ],
+  "uses": [
+    "instruction following",
+    "task adaptation",
+    "assistant behavior"
+  ],
+  "tags": [
+    "instruction-tuning",
+    "sft",
+    "post-training"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "sft",
+    "synthetic-data",
+    "pretraining"
+  ]
+},
+{
+  "id": "preference-data",
+  "name": "Preference Data",
+  "family": "Post-Training Data",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2022,
+  "category": "training",
+  "type": "preference-data",
+  "description": "Preference data contains comparisons or judgments indicating which of multiple model outputs is preferred according to human or automated evaluators.",
+  "formats": [
+    "chosen versus rejected",
+    "pairwise preference",
+    "ranked responses",
+    "scalar quality judgments"
+  ],
+  "uses": [
+    "reward modeling",
+    "preference optimization",
+    "alignment",
+    "response quality improvement"
+  ],
+  "limitations": [
+    "Preferences can be inconsistent",
+    "Human judgments may encode evaluator biases",
+    "Synthetic preferences inherit teacher-model biases"
+  ],
+  "tags": [
+    "preference-data",
+    "alignment",
+    "rlhf",
+    "dpo"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rlhf",
+    "dpo",
+    "reward-model"
+  ]
+},
+{
+  "id": "data-quality-vs-data-scale",
+  "name": "Data Quality vs Data Scale",
+  "family": "Training Data Principles",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "training",
+  "type": "data-scaling",
+  "description": "Foundation-model training depends on both dataset scale and dataset quality. Increasing raw data volume does not necessarily produce proportional capability improvements.",
+  "dimensions": [
+    "quantity",
+    "quality",
+    "diversity",
+    "redundancy",
+    "domain relevance",
+    "information density"
+  ],
+  "principle": "More data is not automatically better data.",
+  "tags": [
+    "data-quality",
+    "data-scale",
+    "training"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "data-curation",
+    "data-mixture",
+    "scaling-laws"
+  ]
+},
+{
+  "id": "data-governance",
+  "name": "Training Data Governance",
+  "family": "Training Data & Governance",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "training",
+  "type": "data-governance",
+  "description": "Training data governance concerns provenance, licensing, privacy, consent, documentation, filtering, access controls, and responsible use of data in model development.",
+  "dimensions": [
+    "provenance",
+    "copyright",
+    "licensing",
+    "privacy",
+    "consent",
+    "documentation",
+    "retention",
+    "opt-out mechanisms"
+  ],
+  "importance": [
+    "Training data decisions affect legal and ethical risk",
+    "Documentation improves reproducibility and accountability"
+  ],
+  "tags": [
+    "data-governance",
+    "training-data",
+    "privacy",
+    "copyright"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "data-curation",
+    "data-provenance",
+    "data-contamination"
+  ]
+}
 ]
