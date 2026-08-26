@@ -39136,4 +39136,1048 @@
   "relatedModels": [
     "blip-2"
   ]
+}, 
+,
+{
+  "id": "llava",
+  "name": "LLaVA",
+  "family": "LLaVA",
+  "organization": "University of Wisconsin–Madison / Microsoft Research / community",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "architecture": "vision encoder plus language model",
+  "focus": [
+    "visual instruction following",
+    "image understanding",
+    "multimodal reasoning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "llava",
+    "vision-language",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "llava-1-5",
+    "llava-next"
+  ]
+},
+{
+  "id": "llava-1-5",
+  "name": "LLaVA-1.5",
+  "family": "LLaVA",
+  "organization": "LLaVA research community",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "architecture": "CLIP vision encoder plus language model",
+  "focus": [
+    "visual instruction following",
+    "image question answering",
+    "multimodal chat"
+  ],
+  "openWeights": true,
+  "tags": [
+    "llava",
+    "vision-language",
+    "clip"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "llava",
+    "llava-next"
+  ]
+},
+{
+  "id": "llava-next",
+  "name": "LLaVA-NeXT",
+  "family": "LLaVA",
+  "organization": "LLaVA research community",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "focus": [
+    "visual reasoning",
+    "higher-resolution image understanding",
+    "multimodal instruction following"
+  ],
+  "openWeights": true,
+  "tags": [
+    "llava-next",
+    "vision-language",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "llava-1-5"
+  ]
+},
+{
+  "id": "llava-next-video",
+  "name": "LLaVA-NeXT-Video",
+  "family": "LLaVA",
+  "organization": "LLaVA research community",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "video-language-model",
+  "modalities": [
+    "video",
+    "text"
+  ],
+  "focus": [
+    "video understanding",
+    "video question answering",
+    "multimodal reasoning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "llava",
+    "video",
+    "vision-language"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "llava-next"
+  ]
+},
+{
+  "id": "qwen2-vl",
+  "name": "Qwen2-VL",
+  "family": "Qwen",
+  "organization": "Alibaba Cloud",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "modalities": [
+    "image",
+    "video",
+    "text"
+  ],
+  "focus": [
+    "visual reasoning",
+    "document understanding",
+    "video understanding",
+    "OCR"
+  ],
+  "openWeights": true,
+  "tags": [
+    "qwen",
+    "qwen2-vl",
+    "vision-language"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "qwen2",
+    "qwen2-5-vl"
+  ]
+},
+{
+  "id": "qwen2-vl-72b",
+  "name": "Qwen2-VL 72B",
+  "family": "Qwen",
+  "organization": "Alibaba Cloud",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "large-vision-language-model",
+  "modalities": [
+    "image",
+    "video",
+    "text"
+  ],
+  "parameters": "72B",
+  "focus": [
+    "visual reasoning",
+    "document understanding",
+    "video understanding"
+  ],
+  "openWeights": true,
+  "tags": [
+    "qwen",
+    "qwen2-vl",
+    "72b"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "qwen2-vl"
+  ]
+},
+{
+  "id": "internvl",
+  "name": "InternVL",
+  "family": "InternVL",
+  "organization": "OpenGVLab",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "focus": [
+    "visual reasoning",
+    "document understanding",
+    "multimodal chat"
+  ],
+  "openWeights": true,
+  "tags": [
+    "internvl",
+    "vision-language",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "internvl2"
+  ]
+},
+{
+  "id": "molmo",
+  "name": "Molmo",
+  "family": "Molmo",
+  "organization": "Allen Institute for AI",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "focus": [
+    "visual reasoning",
+    "multimodal instruction following",
+    "open research"
+  ],
+  "openWeights": true,
+  "tags": [
+    "molmo",
+    "ai2",
+    "vision-language"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "idefics",
+  "name": "IDEFICS",
+  "family": "IDEFICS",
+  "organization": "Hugging Face",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "focus": [
+    "image understanding",
+    "multimodal dialogue",
+    "open research"
+  ],
+  "openWeights": true,
+  "tags": [
+    "idefics",
+    "hugging-face",
+    "vision-language"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "idefics2",
+    "idefics3"
+  ]
+},
+{
+  "id": "idefics2",
+  "name": "IDEFICS2",
+  "family": "IDEFICS",
+  "organization": "Hugging Face",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "focus": [
+    "visual question answering",
+    "document understanding",
+    "multimodal chat"
+  ],
+  "openWeights": true,
+  "tags": [
+    "idefics",
+    "vision-language"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "idefics"
+  ]
+},
+{
+  "id": "idefics3",
+  "name": "IDEFICS3",
+  "family": "IDEFICS",
+  "organization": "Hugging Face",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "focus": [
+    "document understanding",
+    "image understanding",
+    "multimodal reasoning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "idefics",
+    "vision-language"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "idefics2"
+  ]
+},
+{
+  "id": "pix2struct",
+  "name": "Pix2Struct",
+  "family": "Pix2Struct",
+  "organization": "Google Research",
+  "year": 2023,
+  "category": "document-ai",
+  "type": "image-to-text-model",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "architecture": "vision encoder plus text decoder",
+  "focus": [
+    "document understanding",
+    "screen understanding",
+    "image-to-text"
+  ],
+  "openWeights": true,
+  "tags": [
+    "pix2struct",
+    "document-ai",
+    "vision-language"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "donut",
+  "name": "Donut",
+  "family": "Donut",
+  "organization": "NAVER CLOVA",
+  "year": 2022,
+  "category": "document-ai",
+  "type": "document-understanding-model",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "architecture": "vision encoder plus text decoder",
+  "focus": [
+    "document parsing",
+    "OCR-free document understanding",
+    "information extraction"
+  ],
+  "openWeights": true,
+  "tags": [
+    "donut",
+    "document-ai",
+    "ocr-free"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "layoutlm",
+  "name": "LayoutLM",
+  "family": "LayoutLM",
+  "organization": "Microsoft Research",
+  "year": 2020,
+  "category": "document-ai",
+  "type": "document-understanding-model",
+  "modalities": [
+    "text",
+    "image",
+    "layout"
+  ],
+  "architecture": "multimodal transformer",
+  "focus": [
+    "document understanding",
+    "layout-aware language modeling",
+    "information extraction"
+  ],
+  "openWeights": true,
+  "tags": [
+    "layoutlm",
+    "document-ai",
+    "layout"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "layoutlmv2",
+    "layoutlmv3"
+  ]
+},
+{
+  "id": "layoutlmv2",
+  "name": "LayoutLMv2",
+  "family": "LayoutLM",
+  "organization": "Microsoft Research",
+  "year": 2021,
+  "category": "document-ai",
+  "type": "document-understanding-model",
+  "modalities": [
+    "text",
+    "image",
+    "layout"
+  ],
+  "architecture": "multimodal transformer",
+  "focus": [
+    "document understanding",
+    "visual-layout reasoning",
+    "information extraction"
+  ],
+  "openWeights": true,
+  "tags": [
+    "layoutlm",
+    "document-ai"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "layoutlm"
+  ]
+},
+{
+  "id": "layoutlmv3",
+  "name": "LayoutLMv3",
+  "family": "LayoutLM",
+  "organization": "Microsoft Research",
+  "year": 2022,
+  "category": "document-ai",
+  "type": "document-understanding-model",
+  "modalities": [
+    "text",
+    "image",
+    "layout"
+  ],
+  "architecture": "multimodal transformer",
+  "focus": [
+    "document understanding",
+    "document classification",
+    "information extraction"
+  ],
+  "openWeights": true,
+  "tags": [
+    "layoutlm",
+    "document-ai"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "layoutlmv2"
+  ]
+},
+{
+  "id": "flamingo",
+  "name": "Flamingo",
+  "family": "Flamingo",
+  "organization": "DeepMind",
+  "year": 2022,
+  "category": "multimodal",
+  "type": "few-shot-vision-language-model",
+  "modalities": [
+    "image",
+    "video",
+    "text"
+  ],
+  "architecture": "vision encoder plus language model with cross-attention",
+  "focus": [
+    "few-shot multimodal learning",
+    "image understanding",
+    "video understanding"
+  ],
+  "openWeights": false,
+  "tags": [
+    "flamingo",
+    "deepmind",
+    "few-shot",
+    "vision-language"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "gemini",
+  "name": "Gemini",
+  "family": "Gemini",
+  "organization": "Google DeepMind",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "multimodal-foundation-model-family",
+  "modalities": [
+    "text",
+    "image",
+    "audio",
+    "video"
+  ],
+  "focus": [
+    "multimodal reasoning",
+    "long-context",
+    "general intelligence"
+  ],
+  "openWeights": false,
+  "tags": [
+    "gemini",
+    "google",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "gemini-1-5",
+    "gemini-2",
+    "gemini-2-5"
+  ]
+},
+{
+  "id": "gemini-1-5",
+  "name": "Gemini 1.5",
+  "family": "Gemini",
+  "organization": "Google DeepMind",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "multimodal-foundation-model",
+  "modalities": [
+    "text",
+    "image",
+    "audio",
+    "video"
+  ],
+  "focus": [
+    "long-context reasoning",
+    "multimodal understanding",
+    "code"
+  ],
+  "openWeights": false,
+  "tags": [
+    "gemini",
+    "long-context",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "gemini",
+    "gemini-2"
+  ]
+},
+{
+  "id": "gemini-2",
+  "name": "Gemini 2",
+  "family": "Gemini",
+  "organization": "Google DeepMind",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "multimodal-foundation-model",
+  "modalities": [
+    "text",
+    "image",
+    "audio",
+    "video"
+  ],
+  "focus": [
+    "multimodal reasoning",
+    "agentic tasks",
+    "code",
+    "long-context"
+  ],
+  "openWeights": false,
+  "tags": [
+    "gemini",
+    "multimodal",
+    "reasoning"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "gemini-1-5",
+    "gemini-2-5"
+  ]
+},
+{
+  "id": "gemini-2-5",
+  "name": "Gemini 2.5",
+  "family": "Gemini",
+  "organization": "Google DeepMind",
+  "year": 2025,
+  "category": "reasoning",
+  "type": "multimodal-reasoning-model",
+  "modalities": [
+    "text",
+    "image",
+    "audio",
+    "video"
+  ],
+  "focus": [
+    "reasoning",
+    "multimodal reasoning",
+    "coding",
+    "agentic tasks"
+  ],
+  "openWeights": false,
+  "tags": [
+    "gemini",
+    "reasoning",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "gemini-2"
+  ]
+},
+{
+  "id": "claude",
+  "name": "Claude",
+  "family": "Claude",
+  "organization": "Anthropic",
+  "year": 2023,
+  "category": "llm",
+  "type": "large-language-model-family",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "reasoning",
+    "instruction following",
+    "long-context",
+    "coding"
+  ],
+  "openWeights": false,
+  "tags": [
+    "claude",
+    "anthropic"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "claude-2",
+    "claude-3",
+    "claude-3-5",
+    "claude-4"
+  ]
+},
+{
+  "id": "claude-2",
+  "name": "Claude 2",
+  "family": "Claude",
+  "organization": "Anthropic",
+  "year": 2023,
+  "category": "llm",
+  "type": "large-language-model",
+  "modalities": [
+    "text"
+  ],
+  "focus": [
+    "reasoning",
+    "long-context",
+    "instruction following"
+  ],
+  "openWeights": false,
+  "tags": [
+    "claude",
+    "anthropic"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "claude"
+  ]
+},
+{
+  "id": "claude-3",
+  "name": "Claude 3",
+  "family": "Claude",
+  "organization": "Anthropic",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "multimodal-language-model-family",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "reasoning",
+    "vision",
+    "coding",
+    "long-context"
+  ],
+  "openWeights": false,
+  "tags": [
+    "claude",
+    "vision",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "claude-3-5"
+  ]
+},
+{
+  "id": "claude-3-5",
+  "name": "Claude 3.5",
+  "family": "Claude",
+  "organization": "Anthropic",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "multimodal-language-model-family",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "reasoning",
+    "coding",
+    "computer use",
+    "vision"
+  ],
+  "openWeights": false,
+  "tags": [
+    "claude",
+    "reasoning",
+    "coding"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "claude-3",
+    "claude-4"
+  ]
+},
+{
+  "id": "claude-4",
+  "name": "Claude 4",
+  "family": "Claude",
+  "organization": "Anthropic",
+  "year": 2025,
+  "category": "reasoning",
+  "type": "reasoning-language-model-family",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "advanced reasoning",
+    "coding",
+    "agentic tasks",
+    "computer use"
+  ],
+  "openWeights": false,
+  "tags": [
+    "claude",
+    "reasoning",
+    "agents"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "claude-3-5"
+  ]
+},
+{
+  "id": "command-r",
+  "name": "Command R",
+  "family": "Command",
+  "organization": "Cohere",
+  "year": 2024,
+  "category": "llm",
+  "type": "retrieval-augmented-language-model",
+  "modalities": [
+    "text"
+  ],
+  "focus": [
+    "retrieval-augmented generation",
+    "tool use",
+    "enterprise NLP"
+  ],
+  "openWeights": true,
+  "tags": [
+    "command-r",
+    "cohere",
+    "rag",
+    "tool-use"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "command-r-plus",
+    "command-a"
+  ]
+},
+{
+  "id": "command-r-plus",
+  "name": "Command R+",
+  "family": "Command",
+  "organization": "Cohere",
+  "year": 2024,
+  "category": "llm",
+  "type": "retrieval-augmented-language-model",
+  "modalities": [
+    "text"
+  ],
+  "focus": [
+    "retrieval-augmented generation",
+    "tool use",
+    "enterprise reasoning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "command-r-plus",
+    "cohere",
+    "rag"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "command-r"
+  ]
+},
+{
+  "id": "command-a",
+  "name": "Command A",
+  "family": "Command",
+  "organization": "Cohere",
+  "year": 2025,
+  "category": "llm",
+  "type": "enterprise-language-model",
+  "modalities": [
+    "text"
+  ],
+  "focus": [
+    "enterprise reasoning",
+    "tool use",
+    "agentic workflows",
+    "multilingual"
+  ],
+  "openWeights": false,
+  "tags": [
+    "command-a",
+    "cohere",
+    "agents"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "command-r-plus"
+  ]
+},
+{
+  "id": "paligemma",
+  "name": "PaliGemma",
+  "family": "PaliGemma",
+  "organization": "Google",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "architecture": "SigLIP vision encoder plus Gemma language model",
+  "focus": [
+    "vision-language understanding",
+    "image captioning",
+    "visual question answering"
+  ],
+  "openWeights": true,
+  "tags": [
+    "paligemma",
+    "gemma",
+    "siglip",
+    "vision-language"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "pali-gemma-2"
+  ]
+},
+{
+  "id": "kosmos-2",
+  "name": "KOSMOS-2",
+  "family": "KOSMOS",
+  "organization": "Microsoft Research",
+  "year": 2023,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "focus": [
+    "grounded multimodal understanding",
+    "visual referring",
+    "image-text reasoning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "kosmos",
+    "grounding",
+    "vision-language"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "kosmos-2-5"
+  ]
+},
+{
+  "id": "kosmos-2-5",
+  "name": "KOSMOS-2.5",
+  "family": "KOSMOS",
+  "organization": "Microsoft Research",
+  "year": 2024,
+  "category": "document-ai",
+  "type": "multimodal-document-model",
+  "modalities": [
+    "image",
+    "text"
+  ],
+  "focus": [
+    "document understanding",
+    "OCR",
+    "multimodal grounding"
+  ],
+  "openWeights": true,
+  "tags": [
+    "kosmos",
+    "document-ai",
+    "grounding"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "kosmos-2"
+  ]
+},
+{
+  "id": "rt-2",
+  "name": "RT-2",
+  "family": "RT",
+  "organization": "Google DeepMind",
+  "year": 2023,
+  "category": "robotics",
+  "type": "vision-language-action-model",
+  "modalities": [
+    "image",
+    "text",
+    "robot-actions"
+  ],
+  "architecture": "vision-language transformer with action tokens",
+  "focus": [
+    "robot control",
+    "vision-language-action",
+    "generalization"
+  ],
+  "openWeights": false,
+  "tags": [
+    "rt-2",
+    "robotics",
+    "vla"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "rt-1",
+    "rt-x"
+  ]
+},
+{
+  "id": "rt-x",
+  "name": "RT-X",
+  "family": "RT",
+  "organization": "Google DeepMind / Open X-Embodiment",
+  "year": 2023,
+  "category": "robotics",
+  "type": "vision-language-action-model",
+  "modalities": [
+    "image",
+    "text",
+    "robot-actions"
+  ],
+  "focus": [
+    "robot learning",
+    "cross-robot generalization",
+    "embodied AI"
+  ],
+  "openWeights": true,
+  "tags": [
+    "rt-x",
+    "robotics",
+    "embodied-ai"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "rt-2"
+  ]
+},
+{
+  "id": "openvla",
+  "name": "OpenVLA",
+  "family": "OpenVLA",
+  "organization": "Stanford / UC Berkeley / TRI / collaborators",
+  "year": 2024,
+  "category": "robotics",
+  "type": "vision-language-action-model",
+  "modalities": [
+    "image",
+    "text",
+    "robot-actions"
+  ],
+  "architecture": "vision-language-action transformer",
+  "focus": [
+    "robot manipulation",
+    "embodied instruction following",
+    "open robotics"
+  ],
+  "openWeights": true,
+  "tags": [
+    "openvla",
+    "robotics",
+    "vla",
+    "embodied-ai"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "octo",
+  "name": "Octo",
+  "family": "Octo",
+  "organization": "Open X-Embodiment community",
+  "year": 2024,
+  "category": "robotics",
+  "type": "generalist-robot-policy",
+  "modalities": [
+    "image",
+    "text",
+    "robot-actions"
+  ],
+  "focus": [
+    "generalist robot policy",
+    "robot manipulation",
+    "embodied learning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "octo",
+    "robotics",
+    "embodied-ai"
+  ],
+  "sources": [],
+  "relatedModels": []
 }
