@@ -1,1470 +1,923 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
 
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>Model — Foundation Model Atlas</title>
+  />
 
   <meta
     name="description"
-    content="Detailed foundation model profile including architecture, training, capabilities, evolution, sources, and related models."
-  >
+    content="Foundation Model Atlas — detailed foundation model record."
+  />
 
-  <meta
-    name="author"
-    content="Rahul Kiran Gunti"
-  >
-
-  <meta
-    name="theme-color"
-    content="#0b0d10"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
-
+  <title>Model — Foundation Model Atlas</title>
 
   <style>
-
-    /* =========================================================
-       FOUNDATION MODEL ATLAS
-       MODEL PROFILE — v0.1
-       ========================================================= */
-
     :root {
+      --bg: #080b0e;
+      --panel: #0d1116;
+      --panel-2: #10151b;
+      --border: #252c34;
+      --border-soft: #1b2128;
 
-      --bg: #0b0d10;
-      --bg-soft: #101318;
-      --bg-card: #13171d;
-      --bg-card-hover: #171c23;
+      --text: #eef2f5;
+      --muted: #89929e;
+      --muted-2: #68727e;
 
-      --text: #f2f4f7;
-      --text-soft: #a7afb9;
-      --text-muted: #6f7884;
+      --accent: #c8ff3d;
+      --accent-dark: #91bf20;
 
-      --line: #252b33;
-      --line-light: #303740;
+      --danger: #ff6b6b;
 
-      --accent: #d7ff64;
-      --accent-soft: rgba(215, 255, 100, 0.10);
-
-      --blue: #8ab4ff;
-      --purple: #bda5ff;
-      --orange: #ffb86b;
-
-      --max-width: 1180px;
-
-      --radius: 9px;
+      --max: 1240px;
+      --radius: 12px;
     }
-
 
     * {
       box-sizing: border-box;
     }
 
-
     html {
       scroll-behavior: smooth;
     }
 
-
     body {
-
       margin: 0;
-
       background: var(--bg);
-
       color: var(--text);
-
-      font-family: "Inter", sans-serif;
-
-      font-size: 14px;
-
-      line-height: 1.65;
-
-      -webkit-font-smoothing: antialiased;
-
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      line-height: 1.6;
     }
-
 
     a {
       color: inherit;
       text-decoration: none;
     }
 
-
-    ::selection {
-      background: var(--accent);
-      color: #0b0d10;
+    button {
+      font: inherit;
     }
 
+    /* =========================
+       HEADER
+    ========================= */
 
-    .container {
-
-      width: min(
-        calc(100% - 40px),
-        var(--max-width)
-      );
-
-      margin: 0 auto;
-
-    }
-
-
-    /* =========================================================
-       NAVIGATION
-       ========================================================= */
-
-    .nav {
-
+    .site-header {
       position: sticky;
-
       top: 0;
+      z-index: 50;
 
-      z-index: 100;
+      height: 82px;
 
-      border-bottom: 1px solid var(--line);
+      background: rgba(8, 11, 14, 0.92);
+      backdrop-filter: blur(14px);
 
-      background:
-        rgba(11, 13, 16, 0.90);
-
-      backdrop-filter: blur(16px);
-
+      border-bottom: 1px solid var(--border);
     }
 
-
-    .nav-inner {
-
-      min-height: 68px;
+    .header-inner {
+      width: min(var(--max), calc(100% - 48px));
+      height: 100%;
+      margin: auto;
 
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
-
       gap: 30px;
-
     }
-
 
     .brand {
-
       display: flex;
-
       align-items: center;
+      gap: 16px;
 
-      gap: 12px;
-
-      font-family: "Space Grotesk", sans-serif;
-
-      font-weight: 600;
-
+      min-width: 0;
     }
 
-
     .brand-mark {
-
-      width: 30px;
-
-      height: 30px;
+      width: 40px;
+      height: 40px;
 
       display: grid;
-
       place-items: center;
 
       border: 1px solid var(--accent);
-
-      border-radius: 6px;
+      border-radius: 9px;
 
       color: var(--accent);
+      font-weight: 700;
+      font-size: 13px;
 
-      font-family: "DM Mono", monospace;
-
-      font-size: 10px;
-
+      flex: 0 0 auto;
     }
-
 
     .brand-name {
-
-      font-size: 14px;
-
+      font-size: 17px;
+      font-weight: 600;
+      white-space: nowrap;
     }
 
-
-    .brand-name span {
-
-      color: var(--text-muted);
-
-      font-weight: 400;
-
+    .brand-version {
+      color: var(--muted-2);
+      font-weight: 500;
+      margin-left: 4px;
     }
 
-
-    .nav-links {
-
+    .nav {
       display: flex;
-
       align-items: center;
-
-      gap: 23px;
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 10px;
-
-      color: var(--text-soft);
-
+      gap: 28px;
     }
 
-
-    .nav-links a:hover {
-
-      color: var(--accent);
-
+    .nav a {
+      color: #8e98a5;
+      font-size: 13px;
+      transition: color 0.2s ease;
     }
 
+    .nav a:hover {
+      color: var(--text);
+    }
 
     .github-link {
+      border: 1px solid var(--border);
+      border-radius: 8px;
 
-      border: 1px solid var(--line-light);
+      padding: 9px 14px;
 
-      border-radius: 6px;
-
-      padding: 8px 11px;
-
+      color: #aeb7c2 !important;
     }
-
 
     .github-link:hover {
-
-      border-color: var(--accent);
-
+      border-color: #3b444f;
     }
 
+    /* =========================
+       MAIN
+    ========================= */
 
-    /* =========================================================
-       BREADCRUMB
-       ========================================================= */
+    main {
+      width: min(var(--max), calc(100% - 48px));
+      margin: auto;
+    }
 
     .breadcrumb {
+      padding-top: 44px;
 
-      padding: 25px 0 0;
-
-      color: var(--text-muted);
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 9px;
-
+      color: var(--muted-2);
+      font-size: 12px;
+      letter-spacing: 0.04em;
     }
 
+    .breadcrumb a {
+      color: var(--muted);
+    }
 
     .breadcrumb a:hover {
-
       color: var(--accent);
-
     }
 
-
-    .breadcrumb-current {
-
-      color: var(--text-soft);
-
-    }
-
-
-    /* =========================================================
-       MODEL HERO
-       ========================================================= */
+    /* =========================
+       HERO
+    ========================= */
 
     .model-hero {
-
-      padding: 55px 0 60px;
-
-      border-bottom: 1px solid var(--line);
-
-    }
-
-
-    .model-hero-grid {
+      padding: 30px 0 42px;
 
       display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
 
-      grid-template-columns:
-        1fr
-        310px;
+      gap: 40px;
 
-      gap: 70px;
-
-      align-items: end;
-
+      border-bottom: 1px solid var(--border);
     }
 
-
-    .model-kicker {
-
-      margin: 0 0 13px;
+    .eyebrow {
+      margin-bottom: 10px;
 
       color: var(--accent);
 
-      font-family: "DM Mono", monospace;
-
-      font-size: 10px;
+      font-size: 12px;
+      font-weight: 600;
 
       text-transform: uppercase;
-
-      letter-spacing: 0.08em;
-
+      letter-spacing: 0.12em;
     }
-
 
     .model-title {
-
       margin: 0;
 
-      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 0.98;
 
-      font-size: clamp(
-        48px,
-        7vw,
-        82px
-      );
-
-      line-height: 0.95;
-
-      letter-spacing: -0.055em;
-
+      letter-spacing: -0.045em;
+      font-weight: 650;
     }
-
 
     .model-family {
+      margin-top: 16px;
 
-      margin-top: 13px;
+      color: var(--muted);
 
-      color: var(--text-muted);
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 11px;
-
+      font-size: 18px;
     }
-
 
     .model-description {
+      max-width: 820px;
 
-      max-width: 760px;
+      margin: 22px 0 0;
 
-      margin: 25px 0 0;
+      color: #a3acb7;
 
-      color: var(--text-soft);
-
-      font-size: 17px;
-
-      line-height: 1.7;
-
+      font-size: 16px;
+      line-height: 1.8;
     }
 
-
-    .model-tags {
-
+    .hero-status {
       display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 7px;
-
-      margin-top: 25px;
-
+      align-items: flex-start;
+      justify-content: flex-end;
     }
 
-
-    .tag {
-
-      padding: 6px 9px;
-
-      border: 1px solid var(--line-light);
-
-      border-radius: 5px;
-
-      color: var(--text-soft);
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 9px;
-
-    }
-
-
-    .tag-accent {
-
-      color: var(--accent);
-
-      border-color:
-        rgba(215,255,100,0.25);
-
-      background: var(--accent-soft);
-
-    }
-
-
-    /* =========================================================
-       QUICK FACTS
-       ========================================================= */
-
-    .facts {
-
-      border: 1px solid var(--line);
-
-      border-radius: var(--radius);
-
-      background: var(--bg-card);
-
-    }
-
-
-    .fact {
-
-      padding: 14px 16px;
-
-      border-bottom: 1px solid var(--line);
-
-    }
-
-
-    .fact:last-child {
-
-      border-bottom: none;
-
-    }
-
-
-    .fact-label {
-
-      display: block;
-
-      margin-bottom: 3px;
-
-      color: var(--text-muted);
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 8px;
-
-      text-transform: uppercase;
-
-      letter-spacing: 0.05em;
-
-    }
-
-
-    .fact-value {
-
-      color: var(--text);
-
-      font-size: 12px;
-
-    }
-
-
-    .fact-value.accent {
-
-      color: var(--accent);
-
-    }
-
-
-    /* =========================================================
-       CONTENT LAYOUT
-       ========================================================= */
-
-    .content {
-
-      padding: 65px 0 90px;
-
-    }
-
-
-    .content-layout {
-
-      display: grid;
-
-      grid-template-columns:
-        minmax(0, 1fr)
-        250px;
-
-      gap: 70px;
-
-    }
-
-
-    .article {
-
-      min-width: 0;
-
-    }
-
-
-    /* =========================================================
-       SECTION
-       ========================================================= */
-
-    .article-section {
-
-      padding-bottom: 55px;
-
-      margin-bottom: 55px;
-
-      border-bottom: 1px solid var(--line);
-
-      scroll-margin-top: 95px;
-
-    }
-
-
-    .article-section:last-child {
-
-      border-bottom: none;
-
-    }
-
-
-    .section-number {
-
-      color: var(--accent);
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 9px;
-
-    }
-
-
-    .article h2 {
-
-      margin: 7px 0 15px;
-
-      font-family: "Space Grotesk", sans-serif;
-
-      font-size: 31px;
-
-      line-height: 1.15;
-
-      letter-spacing: -0.035em;
-
-    }
-
-
-    .article h3 {
-
-      margin: 30px 0 8px;
-
-      font-family: "Space Grotesk", sans-serif;
-
-      font-size: 19px;
-
-    }
-
-
-    .article p {
-
-      max-width: 760px;
-
-      margin: 0 0 15px;
-
-      color: var(--text-soft);
-
-      font-size: 14px;
-
-    }
-
-
-    .article strong {
-
-      color: var(--text);
-
-      font-weight: 500;
-
-    }
-
-
-    /* =========================================================
-       SPEC TABLE
-       ========================================================= */
-
-    .spec-table {
-
-      width: 100%;
-
-      border-collapse: collapse;
-
-      margin-top: 25px;
-
-      border: 1px solid var(--line);
-
-      border-radius: var(--radius);
-
-      overflow: hidden;
-
-    }
-
-
-    .spec-table tr {
-
-      border-bottom: 1px solid var(--line);
-
-    }
-
-
-    .spec-table tr:last-child {
-
-      border-bottom: none;
-
-    }
-
-
-    .spec-table td {
-
-      padding: 13px 15px;
-
-      vertical-align: top;
-
-    }
-
-
-    .spec-table td:first-child {
-
-      width: 34%;
-
-      color: var(--text-muted);
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 9px;
-
-      text-transform: uppercase;
-
-    }
-
-
-    .spec-table td:last-child {
-
-      color: var(--text-soft);
-
-      font-size: 12px;
-
-    }
-
-
-    /* =========================================================
-       ARCHITECTURE BOX
-       ========================================================= */
-
-    .architecture-box {
-
-      padding: 25px;
-
-      margin-top: 24px;
-
-      border: 1px solid var(--line);
-
-      border-radius: var(--radius);
-
-      background: var(--bg-card);
-
-    }
-
-
-    .architecture-box-title {
-
-      margin-bottom: 17px;
-
-      color: var(--accent);
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 9px;
-
-      text-transform: uppercase;
-
-    }
-
-
-    .architecture-flow {
-
-      display: flex;
-
-      flex-wrap: wrap;
-
+    .status-badge {
+      display: inline-flex;
       align-items: center;
-
       gap: 8px;
 
-    }
+      padding: 8px 12px;
 
+      border: 1px solid #303942;
+      border-radius: 999px;
 
-    .architecture-node {
-
-      padding: 9px 11px;
-
-      border: 1px solid var(--line-light);
-
-      border-radius: 5px;
-
-      background: var(--bg-soft);
-
-      color: var(--text-soft);
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 9px;
-
-    }
-
-
-    .architecture-node.primary {
-
-      color: var(--accent);
-
-      border-color:
-        rgba(215,255,100,0.25);
-
-    }
-
-
-    .architecture-arrow {
-
-      color: var(--text-muted);
-
-      font-family: "DM Mono", monospace;
-
-    }
-
-
-    /* =========================================================
-       PROS / CONS
-       ========================================================= */
-
-    .pros-cons {
-
-      display: grid;
-
-      grid-template-columns:
-        1fr
-        1fr;
-
-      gap: 10px;
-
-      margin-top: 24px;
-
-    }
-
-
-    .pros,
-    .cons {
-
-      padding: 22px;
-
-      border: 1px solid var(--line);
-
-      border-radius: var(--radius);
-
-      background: var(--bg-card);
-
-    }
-
-
-    .pros h3,
-    .cons h3 {
-
-      margin: 0 0 13px;
-
-      font-size: 15px;
-
-    }
-
-
-    .pros h3 {
-
-      color: var(--accent);
-
-    }
-
-
-    .cons h3 {
-
-      color: var(--orange);
-
-    }
-
-
-    .pros ul,
-    .cons ul {
-
-      margin: 0;
-
-      padding-left: 17px;
-
-      color: var(--text-soft);
+      color: #b7c0ca;
 
       font-size: 12px;
-
     }
 
-
-    .pros li,
-    .cons li {
-
-      margin: 7px 0;
-
-    }
-
-
-    /* =========================================================
-       SOURCE CARDS
-       ========================================================= */
-
-    .source-grid {
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap: 9px;
-
-      margin-top: 24px;
-
-    }
-
-
-    .source-card {
-
-      display: block;
-
-      padding: 19px;
-
-      border: 1px solid var(--line);
-
-      border-radius: var(--radius);
-
-      background: var(--bg-card);
-
-      transition:
-        border-color 0.2s ease,
-        background 0.2s ease;
-
-    }
-
-
-    .source-card:hover {
-
-      border-color: var(--line-light);
-
-      background: var(--bg-card-hover);
-
-    }
-
-
-    .source-type {
-
-      color: var(--accent);
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 8px;
-
-      text-transform: uppercase;
-
-    }
-
-
-    .source-card h3 {
-
-      margin: 9px 0 5px;
-
-      font-size: 15px;
-
-    }
-
-
-    .source-card p {
-
-      margin: 0;
-
-      color: var(--text-muted);
-
-      font-size: 11px;
-
-    }
-
-
-    .source-arrow {
-
-      display: block;
-
-      margin-top: 13px;
-
-      color: var(--text-soft);
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 9px;
-
-    }
-
-
-    /* =========================================================
-       EVOLUTION
-       ========================================================= */
-
-    .timeline {
-
-      margin-top: 25px;
-
-      border-left: 1px solid var(--line-light);
-
-    }
-
-
-    .timeline-item {
-
-      position: relative;
-
-      padding: 0 0 28px 27px;
-
-    }
-
-
-    .timeline-item::before {
-
-      content: "";
-
-      position: absolute;
-
-      left: -4px;
-
-      top: 5px;
-
+    .status-dot {
       width: 7px;
-
       height: 7px;
 
       border-radius: 50%;
-
       background: var(--accent);
-
     }
 
-
-    .timeline-year {
-
-      color: var(--accent);
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 9px;
-
+    .status-badge.closed .status-dot {
+      background: #777f88;
     }
 
-
-    .timeline-title {
-
-      margin-top: 3px;
-
-      font-family: "Space Grotesk", sans-serif;
-
-      font-weight: 600;
-
-    }
-
-
-    .timeline-description {
-
-      margin-top: 4px;
-
-      color: var(--text-muted);
-
-      font-size: 11px;
-
-    }
-
-
-    /* =========================================================
-       SIDEBAR
-       ========================================================= */
-
-    .sidebar {
-
-      position: sticky;
-
-      top: 95px;
-
-      align-self: start;
-
-    }
-
-
-    .sidebar-title {
-
-      margin-bottom: 10px;
-
-      color: var(--text-muted);
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 9px;
-
-      text-transform: uppercase;
-
-      letter-spacing: 0.05em;
-
-    }
-
-
-    .toc {
-
-      border-left: 1px solid var(--line);
-
-    }
-
-
-    .toc a {
-
-      display: block;
-
-      padding: 7px 13px;
-
-      color: var(--text-muted);
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 9px;
-
-      border-left: 1px solid transparent;
-
-      margin-left: -1px;
-
-    }
-
-
-    .toc a:hover {
-
-      color: var(--accent);
-
-      border-left-color: var(--accent);
-
-    }
-
-
-    .sidebar-box {
-
-      margin-top: 30px;
-
-      padding: 17px;
-
-      border: 1px solid var(--line);
-
-      border-radius: var(--radius);
-
-      background: var(--bg-card);
-
-    }
-
-
-    .sidebar-box-title {
-
-      color: var(--text-muted);
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 8px;
-
-      text-transform: uppercase;
-
-    }
-
-
-    .sidebar-box p {
-
-      margin: 8px 0 0;
-
-      color: var(--text-soft);
-
-      font-size: 11px;
-
-    }
-
-
-    /* =========================================================
-       RELATED MODELS
-       ========================================================= */
-
-    .related-grid {
-
+    /* =========================
+       META GRID
+    ========================= */
+
+    .meta-grid {
       display: grid;
 
       grid-template-columns:
-        repeat(3, 1fr);
+        repeat(6, minmax(0, 1fr));
 
-      gap: 9px;
-
-      margin-top: 23px;
-
+      border-bottom: 1px solid var(--border);
     }
 
+    .meta-item {
+      padding: 22px 20px;
 
-    .related-card {
+      border-right: 1px solid var(--border-soft);
+    }
+
+    .meta-item:first-child {
+      padding-left: 0;
+    }
+
+    .meta-item:last-child {
+      border-right: 0;
+    }
+
+    .meta-label {
+      margin-bottom: 7px;
+
+      color: var(--muted-2);
+
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .meta-value {
+      color: #dce2e8;
+
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* =========================
+       CONTENT LAYOUT
+    ========================= */
+
+    .content-layout {
+      display: grid;
+
+      grid-template-columns: minmax(0, 1fr) 250px;
+
+      gap: 70px;
+
+      padding: 60px 0 90px;
+    }
+
+    .content {
+      min-width: 0;
+    }
+
+    .section {
+      padding: 0 0 64px;
+      margin-bottom: 64px;
+
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .section:last-child {
+      border-bottom: 0;
+    }
+
+    .section-number {
+      margin-bottom: 9px;
+
+      color: var(--accent);
+
+      font-family: monospace;
+      font-size: 11px;
+    }
+
+    .section h2 {
+      margin: 0 0 20px;
+
+      font-size: 28px;
+      line-height: 1.2;
+
+      letter-spacing: -0.025em;
+    }
+
+    .section p {
+      max-width: 850px;
+
+      color: #a0aab5;
+
+      font-size: 15px;
+      line-height: 1.85;
+    }
+
+    /* =========================
+       INFO TABLE
+    ========================= */
+
+    .info-table {
+      width: 100%;
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+
+      overflow: hidden;
+    }
+
+    .info-row {
+      display: grid;
+
+      grid-template-columns: 220px minmax(0, 1fr);
+
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .info-row:last-child {
+      border-bottom: 0;
+    }
+
+    .info-key,
+    .info-value {
+      padding: 15px 18px;
+    }
+
+    .info-key {
+      color: var(--muted);
+
+      background: rgba(255, 255, 255, 0.015);
+
+      font-size: 12px;
+    }
+
+    .info-value {
+      color: #d7dde3;
+
+      font-size: 13px;
+    }
+
+    /* =========================
+       TAGS
+    ========================= */
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      margin-top: 22px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+
+      border: 1px solid #29313a;
+      border-radius: 6px;
+
+      color: #9fa9b4;
+
+      font-family: monospace;
+      font-size: 11px;
+    }
+
+    /* =========================
+       LISTS
+    ========================= */
+
+    .clean-list {
+      display: grid;
+      gap: 10px;
+
+      margin: 22px 0 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .clean-list li {
+      position: relative;
+
+      padding-left: 20px;
+
+      color: #a7b0ba;
+
+      font-size: 14px;
+    }
+
+    .clean-list li::before {
+      content: "→";
+
+      position: absolute;
+      left: 0;
+
+      color: var(--accent);
+    }
+
+    /* =========================
+       PIPELINE
+    ========================= */
+
+    .pipeline {
+      display: flex;
+      align-items: stretch;
+
+      overflow-x: auto;
+
+      margin-top: 26px;
+      padding-bottom: 8px;
+    }
+
+    .pipeline-step {
+      min-width: 170px;
 
       padding: 18px;
 
-      border: 1px solid var(--line);
+      border: 1px solid var(--border);
+      background: var(--panel);
 
-      border-radius: var(--radius);
-
-      background: var(--bg-card);
-
+      font-size: 13px;
     }
 
-
-    .related-card:hover {
-
-      border-color: var(--line-light);
-
+    .pipeline-step + .pipeline-step {
+      border-left: 0;
     }
 
+    .pipeline-step span {
+      display: block;
 
-    .related-card h3 {
-
-      margin: 0 0 5px;
-
-      font-size: 15px;
-
-    }
-
-
-    .related-card p {
-
-      margin: 0;
-
-      color: var(--text-muted);
-
-      font-size: 10px;
-
-    }
-
-
-    /* =========================================================
-       ERROR STATE
-       ========================================================= */
-
-    .error {
-
-      display: none;
-
-      padding: 90px 0;
-
-      text-align: center;
-
-    }
-
-
-    .error h1 {
-
-      font-size: 40px;
-
-    }
-
-
-    .error p {
-
-      color: var(--text-muted);
-
-    }
-
-
-    .error a {
-
-      display: inline-block;
-
-      margin-top: 15px;
-
-      padding: 9px 13px;
-
-      border: 1px solid var(--line-light);
-
-      border-radius: 6px;
+      margin-bottom: 6px;
 
       color: var(--accent);
 
-      font-family: "DM Mono", monospace;
-
+      font-family: monospace;
       font-size: 10px;
-
     }
 
+    .pipeline-arrow {
+      display: grid;
+      place-items: center;
 
-    /* =========================================================
-       FOOTER
-       ========================================================= */
+      min-width: 40px;
 
-    footer {
-
-      padding: 45px 0 60px;
-
-      border-top: 1px solid var(--line);
-
+      color: var(--muted-2);
     }
 
+    /* =========================
+       SOURCE CARDS
+    ========================= */
 
-    .footer-inner {
+    .source-list {
+      display: grid;
+      gap: 10px;
 
+      margin-top: 24px;
+    }
+
+    .source-card {
       display: flex;
-
+      align-items: center;
       justify-content: space-between;
 
-      gap: 25px;
+      gap: 20px;
 
+      padding: 15px 17px;
+
+      border: 1px solid var(--border);
+      border-radius: 9px;
+
+      background: var(--panel);
+
+      transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
     }
 
+    .source-card:hover {
+      border-color: #3a444f;
+      transform: translateY(-1px);
+    }
 
-    .footer-brand {
+    .source-title {
+      color: #d9dfe5;
+      font-size: 13px;
+      font-weight: 500;
+    }
 
-      font-family: "Space Grotesk", sans-serif;
+    .source-url {
+      color: var(--muted-2);
 
-      font-weight: 600;
+      font-family: monospace;
+      font-size: 10px;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .source-arrow {
+      color: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    /* =========================
+       RELATED MODELS
+    ========================= */
+
+    .related-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 12px;
+
+      margin-top: 24px;
+    }
+
+    .related-card {
+      display: block;
+
+      padding: 17px;
+
+      border: 1px solid var(--border);
+      border-radius: 9px;
+
+      background: var(--panel);
+
+      transition:
+        border-color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .related-card:hover {
+      border-color: #3b4650;
+      transform: translateY(-2px);
+    }
+
+    .related-name {
+      color: #dbe1e7;
 
       font-size: 14px;
-
+      font-weight: 550;
     }
 
+    .related-meta {
+      margin-top: 5px;
 
-    .footer-brand span {
-
-      color: var(--accent);
-
-    }
-
-
-    .footer-note {
-
-      margin-top: 4px;
-
-      color: var(--text-muted);
+      color: var(--muted-2);
 
       font-size: 11px;
-
     }
 
+    /* =========================
+       SIDEBAR
+    ========================= */
 
-    .footer-links {
+    .sidebar {
+      position: sticky;
+      top: 115px;
 
-      display: flex;
-
-      flex-wrap: wrap;
-
-      gap: 18px;
-
-      color: var(--text-muted);
-
-      font-family: "DM Mono", monospace;
-
-      font-size: 9px;
-
+      align-self: start;
     }
 
+    .sidebar-title {
+      margin-bottom: 15px;
 
-    .footer-links a:hover {
+      color: var(--muted-2);
+
+      font-size: 10px;
+      font-weight: 600;
+
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .sidebar-nav {
+      display: grid;
+
+      border-left: 1px solid var(--border);
+    }
+
+    .sidebar-nav a {
+      padding: 8px 14px;
+
+      color: #707a86;
+
+      font-size: 12px;
+
+      transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .sidebar-nav a:hover {
+      color: var(--accent);
+    }
+
+    /* =========================
+       ERROR
+    ========================= */
+
+    .error-state {
+      min-height: 58vh;
+
+      display: grid;
+      place-items: center;
+
+      text-align: center;
+    }
+
+    .error-box {
+      max-width: 650px;
+    }
+
+    .error-code {
+      margin-bottom: 15px;
 
       color: var(--accent);
 
+      font-family: monospace;
+      font-size: 12px;
     }
 
+    .error-box h1 {
+      margin: 0;
 
-    /* =========================================================
-       MOBILE
-       ========================================================= */
+      font-size: clamp(38px, 6vw, 62px);
+      letter-spacing: -0.04em;
+    }
 
-    @media (max-width: 900px) {
+    .error-box p {
+      margin: 18px auto 28px;
 
-      .model-hero-grid {
+      color: var(--muted);
 
-        grid-template-columns: 1fr;
+      font-size: 15px;
+    }
 
-        gap: 30px;
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
 
+      padding: 11px 16px;
+
+      border: 1px solid var(--border);
+      border-radius: 8px;
+
+      color: var(--accent);
+
+      font-size: 13px;
+    }
+
+    .back-button:hover {
+      border-color: var(--accent-dark);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      width: min(var(--max), calc(100% - 48px));
+      margin: auto;
+
+      padding: 62px 0;
+
+      display: flex;
+      justify-content: space-between;
+
+      gap: 40px;
+    }
+
+    .footer-title {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .footer-title span {
+      color: var(--accent);
+    }
+
+    .footer-description {
+      max-width: 600px;
+
+      margin-top: 8px;
+
+      color: var(--muted-2);
+
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+
+      color: var(--muted-2);
+
+      font-size: 11px;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 1000px) {
+      .meta-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
 
+      .meta-item:nth-child(3) {
+        border-right: 0;
+      }
 
       .content-layout {
-
         grid-template-columns: 1fr;
-
       }
-
 
       .sidebar {
-
-        position: static;
-
-        order: -1;
-
+        display: none;
       }
-
-
-      .toc {
-
-        display: flex;
-
-        flex-wrap: wrap;
-
-        border-left: none;
-
-        gap: 4px;
-
-      }
-
-
-      .toc a {
-
-        border: 1px solid var(--line);
-
-        margin: 0;
-
-        border-radius: 4px;
-
-      }
-
     }
 
-
-    @media (max-width: 650px) {
-
-      .container {
-
-        width: min(
-          calc(100% - 28px),
-          var(--max-width)
-        );
-
+    @media (max-width: 760px) {
+      .header-inner,
+      main,
+      .footer-inner {
+        width: min(100% - 28px, var(--max));
       }
 
+      .site-header {
+        height: 70px;
+      }
+
+      .nav {
+        gap: 12px;
+      }
+
+      .nav a:nth-child(1),
+      .nav a:nth-child(2),
+      .nav a:nth-child(3) {
+        display: none;
+      }
 
       .brand-name {
-
-        display: none;
-
+        font-size: 14px;
       }
 
-
-      .nav-links {
-
-        gap: 10px;
-
-        font-size: 9px;
-
+      .model-hero {
+        grid-template-columns: 1fr;
       }
 
-
-      .github-link {
-
-        display: none;
-
+      .hero-status {
+        justify-content: flex-start;
       }
-
 
       .model-title {
-
-        font-size: 51px;
-
+        font-size: 44px;
       }
 
+      .meta-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
-      .pros-cons,
-      .source-grid,
-      .related-grid {
+      .meta-item:nth-child(3) {
+        border-right: 1px solid var(--border-soft);
+      }
 
+      .meta-item:nth-child(even) {
+        border-right: 0;
+      }
+
+      .info-row {
         grid-template-columns: 1fr;
-
       }
 
+      .info-key {
+        padding-bottom: 6px;
+      }
+
+      .info-value {
+        padding-top: 6px;
+      }
+
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
 
       .footer-inner {
-
-        display: block;
-
+        flex-direction: column;
       }
-
 
       .footer-links {
-
-        margin-top: 18px;
-
+        flex-wrap: wrap;
       }
-
     }
-
   </style>
 </head>
 
-
 <body>
 
+  <!-- =========================
+       HEADER
+  ========================= -->
 
-  <!-- =======================================================
-       NAVIGATION
-       ======================================================= -->
+  <header class="site-header">
+    <div class="header-inner">
 
-  <nav class="nav">
+      <a href="index.html" class="brand">
 
-    <div class="container nav-inner">
-
-      <a
-        href="index.html"
-        class="brand"
-      >
-
-        <span class="brand-mark">
+        <div class="brand-mark">
           FM
-        </span>
+        </div>
 
-        <span class="brand-name">
+        <div class="brand-name">
           Foundation Model Atlas
-          <span>/ v0.1</span>
-        </span>
+          <span class="brand-version">/ v0.1</span>
+        </div>
 
       </a>
 
-
-      <div class="nav-links">
+      <nav class="nav">
 
         <a href="index.html">
           atlas
         </a>
 
-        <a
-          href="models.html"
-          class="active"
-        >
+        <a href="models.html">
           models
         </a>
 
@@ -1472,851 +925,106 @@
           architectures
         </a>
 
-        <a href="models.html#compare">
+        <a href="compare.html">
           compare
         </a>
 
         <a
+          class="github-link"
           href="https://github.com/rahulkiran2222/foundation-model-atlas"
           target="_blank"
           rel="noopener noreferrer"
-          class="github-link"
         >
           GitHub ↗
         </a>
+
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- =========================
+       APP
+  ========================= -->
+
+  <main id="app">
+
+    <!-- Loading state -->
+
+    <div class="error-state">
+
+      <div class="error-box">
+
+        <div class="error-code">
+          FOUNDATION MODEL ATLAS / LOADING
+        </div>
+
+        <h1>
+          Loading model…
+        </h1>
+
+        <p>
+          Retrieving the requested model record from the Atlas dataset.
+        </p>
 
       </div>
 
     </div>
 
-  </nav>
+  </main>
 
 
-  <!-- =======================================================
-       ERROR STATE
-       ======================================================= -->
+  <!-- =========================
+       FOOTER
+  ========================= -->
 
-  <div
-    id="errorState"
-    class="error"
-  >
+  <footer>
 
-    <div class="container">
+    <div class="footer-inner">
 
-      <h1>
-        Model not found.
-      </h1>
+      <div>
 
-      <p>
-        The requested model does not exist in the current Atlas dataset.
-      </p>
+        <div class="footer-title">
+          Foundation Model Atlas<span>.</span>
+        </div>
 
-      <a href="models.html">
-        ← Back to model encyclopedia
-      </a>
+        <div class="footer-description">
+          Open encyclopedia of foundation models,
+          architectures, evolution, and research resources.
+        </div>
 
-    </div>
+      </div>
 
-  </div>
-
-
-  <!-- =======================================================
-       MODEL PAGE
-       ======================================================= -->
-
-  <div id="modelPage">
-
-
-    <!-- =====================================================
-         BREADCRUMB
-         ===================================================== -->
-
-    <div class="container">
-
-      <div class="breadcrumb">
+      <div class="footer-links">
 
         <a href="index.html">
           Atlas
         </a>
 
-        <span>
-          /
-        </span>
-
         <a href="models.html">
           Models
         </a>
 
-        <span>
-          /
-        </span>
+        <a href="architectures.html">
+          Architectures
+        </a>
 
-        <span
-          id="breadcrumbModel"
-          class="breadcrumb-current"
+        <a
+          href="https://github.com/rahulkiran2222"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          Model
-        </span>
-
-      </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         HERO
-         ===================================================== -->
-
-    <header class="model-hero">
-
-      <div class="container model-hero-grid">
-
-
-        <div>
-
-          <p
-            id="modelKicker"
-            class="model-kicker"
-          >
-            Foundation Model
-          </p>
-
-
-          <h1
-            id="modelTitle"
-            class="model-title"
-          >
-            Model
-          </h1>
-
-
-          <div
-            id="modelFamily"
-            class="model-family"
-          >
-            Model family
-          </div>
-
-
-          <p
-            id="modelDescription"
-            class="model-description"
-          >
-            Loading model information...
-          </p>
-
-
-          <div
-            id="modelTags"
-            class="model-tags"
-          >
-          </div>
-
-        </div>
-
-
-        <!-- ===================================================
-             QUICK FACTS
-             =================================================== -->
-
-        <div class="facts">
-
-
-          <div class="fact">
-
-            <span class="fact-label">
-              Organization
-            </span>
-
-            <span
-              id="factOrganization"
-              class="fact-value"
-            >
-              —
-            </span>
-
-          </div>
-
-
-          <div class="fact">
-
-            <span class="fact-label">
-              Release
-            </span>
-
-            <span
-              id="factYear"
-              class="fact-value"
-            >
-              —
-            </span>
-
-          </div>
-
-
-          <div class="fact">
-
-            <span class="fact-label">
-              Architecture
-            </span>
-
-            <span
-              id="factArchitecture"
-              class="fact-value"
-            >
-              —
-            </span>
-
-          </div>
-
-
-          <div class="fact">
-
-            <span class="fact-label">
-              Parameters
-            </span>
-
-            <span
-              id="factParameters"
-              class="fact-value"
-            >
-              —
-            </span>
-
-          </div>
-
-
-          <div class="fact">
-
-            <span class="fact-label">
-              Context
-            </span>
-
-            <span
-              id="factContext"
-              class="fact-value"
-            >
-              —
-            </span>
-
-          </div>
-
-
-          <div class="fact">
-
-            <span class="fact-label">
-              Weight status
-            </span>
-
-            <span
-              id="factWeights"
-              class="fact-value accent"
-            >
-              —
-            </span>
-
-          </div>
-
-
-        </div>
-
-
-      </div>
-
-    </header>
-
-
-    <!-- =====================================================
-         CONTENT
-         ===================================================== -->
-
-    <main class="content">
-
-      <div class="container content-layout">
-
-
-        <!-- ===================================================
-             ARTICLE
-             =================================================== -->
-
-        <article class="article">
-
-
-          <!-- =================================================
-               OVERVIEW
-               ================================================= -->
-
-          <section
-            id="overview"
-            class="article-section"
-          >
-
-            <span class="section-number">
-              01 / Overview
-            </span>
-
-            <h2>
-              What is this model?
-            </h2>
-
-            <div id="overviewContent">
-
-            </div>
-
-          </section>
-
-
-          <!-- =================================================
-               ARCHITECTURE
-               ================================================= -->
-
-          <section
-            id="architecture"
-            class="article-section"
-          >
-
-            <span class="section-number">
-              02 / Architecture
-            </span>
-
-            <h2>
-              Architecture
-            </h2>
-
-            <div id="architectureContent">
-
-            </div>
-
-
-            <div class="architecture-box">
-
-              <div class="architecture-box-title">
-                Architectural pipeline
-              </div>
-
-
-              <div
-                id="architectureFlow"
-                class="architecture-flow"
-              >
-              </div>
-
-            </div>
-
-
-            <table class="spec-table">
-
-              <tbody>
-
-                <tr>
-
-                  <td>
-                    Architecture family
-                  </td>
-
-                  <td id="specArchitecture">
-                    —
-                  </td>
-
-                </tr>
-
-
-                <tr>
-
-                  <td>
-                    Attention
-                  </td>
-
-                  <td id="specAttention">
-                    —
-                  </td>
-
-                </tr>
-
-
-                <tr>
-
-                  <td>
-                    Position mechanism
-                  </td>
-
-                  <td id="specPosition">
-                    —
-                  </td>
-
-                </tr>
-
-
-                <tr>
-
-                  <td>
-                    Dense / sparse
-                  </td>
-
-                  <td id="specSparsity">
-                    —
-                  </td>
-
-                </tr>
-
-
-                <tr>
-
-                  <td>
-                    Sequence strategy
-                  </td>
-
-                  <td id="specSequence">
-                    —
-                  </td>
-
-                </tr>
-
-              </tbody>
-
-            </table>
-
-
-            <div class="pros-cons">
-
-
-              <div class="pros">
-
-                <h3>
-                  Strengths
-                </h3>
-
-                <ul id="strengths">
-                </ul>
-
-              </div>
-
-
-              <div class="cons">
-
-                <h3>
-                  Limitations
-                </h3>
-
-                <ul id="limitations">
-                </ul>
-
-              </div>
-
-
-            </div>
-
-          </section>
-
-
-          <!-- =================================================
-               TRAINING
-               ================================================= -->
-
-          <section
-            id="training"
-            class="article-section"
-          >
-
-            <span class="section-number">
-              03 / Training
-            </span>
-
-            <h2>
-              Training & objectives
-            </h2>
-
-            <div id="trainingContent">
-            </div>
-
-
-            <table class="spec-table">
-
-              <tbody>
-
-                <tr>
-
-                  <td>
-                    Training objective
-                  </td>
-
-                  <td id="trainingObjective">
-                    —
-                  </td>
-
-                </tr>
-
-
-                <tr>
-
-                  <td>
-                    Pretraining data
-                  </td>
-
-                  <td id="trainingData">
-                    —
-                  </td>
-
-                </tr>
-
-
-                <tr>
-
-                  <td>
-                    Post-training
-                  </td>
-
-                  <td id="postTraining">
-                    —
-                  </td>
-
-                </tr>
-
-
-                <tr>
-
-                  <td>
-                    Languages
-                  </td>
-
-                  <td id="languages">
-                    —
-                  </td>
-
-                </tr>
-
-              </tbody>
-
-            </table>
-
-          </section>
-
-
-          <!-- =================================================
-               CAPABILITIES
-               ================================================= -->
-
-          <section
-            id="capabilities"
-            class="article-section"
-          >
-
-            <span class="section-number">
-              04 / Capabilities
-            </span>
-
-            <h2>
-              Capabilities & modalities
-            </h2>
-
-            <div id="capabilitiesContent">
-            </div>
-
-
-            <table class="spec-table">
-
-              <tbody>
-
-                <tr>
-
-                  <td>
-                    Primary modality
-                  </td>
-
-                  <td id="modality">
-                    —
-                  </td>
-
-                </tr>
-
-
-                <tr>
-
-                  <td>
-                    Input
-                  </td>
-
-                  <td id="inputModality">
-                    —
-                  </td>
-
-                </tr>
-
-
-                <tr>
-
-                  <td>
-                    Output
-                  </td>
-
-                  <td id="outputModality">
-                    —
-                  </td>
-
-                </tr>
-
-
-                <tr>
-
-                  <td>
-                    Reasoning
-                  </td>
-
-                  <td id="reasoning">
-                    —
-                  </td>
-
-                </tr>
-
-
-                <tr>
-
-                  <td>
-                    Coding
-                  </td>
-
-                  <td id="coding">
-                    —
-                  </td>
-
-                </tr>
-
-              </tbody>
-
-            </table>
-
-          </section>
-
-
-          <!-- =================================================
-               EVOLUTION
-               ================================================= -->
-
-          <section
-            id="evolution"
-            class="article-section"
-          >
-
-            <span class="section-number">
-              05 / Evolution
-            </span>
-
-            <h2>
-              Model lineage
-            </h2>
-
-            <p>
-              Model families should be understood as evolving
-              research lineages rather than isolated releases.
-              The Atlas records major generations and architectural
-              changes where reliable evidence is available.
-            </p>
-
-
-            <div
-              id="timeline"
-              class="timeline"
-            >
-            </div>
-
-          </section>
-
-
-          <!-- =================================================
-               SOURCES
-               ================================================= -->
-
-          <section
-            id="sources"
-            class="article-section"
-          >
-
-            <span class="section-number">
-              06 / Research sources
-            </span>
-
-            <h2>
-              Papers, code & resources
-            </h2>
-
-            <p>
-              The Atlas prioritizes primary and official sources.
-              Each model record will eventually maintain provenance
-              for the claims presented on this page.
-            </p>
-
-
-            <div
-              id="sourceGrid"
-              class="source-grid"
-            >
-            </div>
-
-          </section>
-
-
-          <!-- =================================================
-               RELATED MODELS
-               ================================================= -->
-
-          <section
-            id="related"
-            class="article-section"
-          >
-
-            <span class="section-number">
-              07 / Related
-            </span>
-
-            <h2>
-              Related models
-            </h2>
-
-            <p>
-              Models with related architectures, families,
-              modalities, or research lineage.
-            </p>
-
-
-            <div
-              id="relatedGrid"
-              class="related-grid"
-            >
-            </div>
-
-          </section>
-
-
-        </article>
-
-
-        <!-- ===================================================
-             SIDEBAR
-             =================================================== -->
-
-        <aside class="sidebar">
-
-
-          <div class="sidebar-title">
-            On this page
-          </div>
-
-
-          <nav class="toc">
-
-            <a href="#overview">
-              Overview
-            </a>
-
-            <a href="#architecture">
-              Architecture
-            </a>
-
-            <a href="#training">
-              Training
-            </a>
-
-            <a href="#capabilities">
-              Capabilities
-            </a>
-
-            <a href="#evolution">
-              Evolution
-            </a>
-
-            <a href="#sources">
-              Sources
-            </a>
-
-            <a href="#related">
-              Related
-            </a>
-
-          </nav>
-
-
-          <div class="sidebar-box">
-
-            <div class="sidebar-box-title">
-              Atlas methodology
-            </div>
-
-            <p>
-              Unknown or undisclosed information should remain
-              explicitly marked rather than being inferred.
-            </p>
-
-          </div>
-
-
-        </aside>
-
-
-      </div>
-
-    </main>
-
-
-  </div>
-
-
-  <!-- =======================================================
-       FOOTER
-       ======================================================= -->
-
-  <footer>
-
-    <div class="container">
-
-      <div class="footer-inner">
-
-
-        <div>
-
-          <div class="footer-brand">
-            Foundation Model Atlas<span>.</span>
-          </div>
-
-          <div class="footer-note">
-            Open encyclopedia of foundation models,
-            architectures, evolution, and research resources.
-          </div>
-
-        </div>
-
-
-        <div class="footer-links">
-
-          <a href="index.html">
-            Atlas
-          </a>
-
-          <a href="models.html">
-            Models
-          </a>
-
-          <a href="architectures.html">
-            Architectures
-          </a>
-
-          <a
-            href="https://github.com/rahulkiran2222/foundation-model-atlas"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
-
-          <a
-            href="https://rahulkiran2222.github.io"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Rahul Kiran
-          </a>
-
-        </div>
-
+          GitHub
+        </a>
+
+        <a
+          href="https://rahulkiran2222.github.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Rahul Kiran
+        </a>
 
       </div>
 
@@ -2325,2198 +1033,1378 @@
   </footer>
 
 
-  <!-- =======================================================
-       TEMPORARY MODEL DATABASE
-       ======================================================= -->
-
   <script>
 
     /*
-     * =========================================================
-     * TEMPORARY MODEL DATA
-     * =========================================================
+     * ==========================================
+     * FOUNDATION MODEL ATLAS
+     * MODEL DETAIL PAGE
+     * ==========================================
      *
-     * This is intentionally embedded for v0.1.
+     * URL:
      *
-     * Once the schema is finalized, this will move to:
+     * model.html?id=stable-diffusion
+     *
+     * Data:
      *
      * data/models.json
      *
-     * Every model in the eventual Atlas will use this
-     * structured format.
+     * Important:
      *
+     * This page uses the model "id" as the
+     * canonical identifier.
+     *
+     * ==========================================
      */
 
 
-    const models = {
+    const DATA_URL = "./data/models.json";
 
 
-      /* =======================================================
-         LLAMA
-         ======================================================= */
+    /*
+     * ------------------------------------------
+     * DOM
+     * ------------------------------------------
+     */
 
-      llama: {
+    const app = document.getElementById("app");
 
-        name: "Llama",
 
-        family:
-          "Llama family",
+    /*
+     * ------------------------------------------
+     * HELPERS
+     * ------------------------------------------
+     */
 
-        kicker:
-          "Large Language Model",
+    function escapeHTML(value) {
 
-        organization:
-          "Meta",
-
-        year:
-          "2023",
-
-        architecture:
-          "Decoder-only Transformer",
-
-        parameters:
-          "Generation-dependent",
-
-        context:
-          "Generation-dependent",
-
-        weights:
-          "Open-weight releases",
-
-        category:
-          "Language",
-
-        description:
-          "A major family of large language models developed by Meta, spanning multiple generations and variants. The family became an important reference point in the open-weight language-model ecosystem.",
-
-        tags: [
-          "Language",
-          "Transformer",
-          "Open-weight",
-          "Autoregressive"
-        ],
-
-
-        overview: [
-          "Llama is a model family rather than a single model checkpoint. Its generations represent successive developments in large-scale language modeling and open-weight model release practices.",
-
-          "The Atlas treats each major Llama generation as a distinct research object while preserving the family-level lineage between releases."
-        ],
-
-
-        architectureText: [
-          "The Llama family is primarily associated with decoder-only Transformer architectures. Individual generations can differ in attention mechanisms, context handling, training procedures, parameter configurations, and multimodal capabilities.",
-
-          "For the final Atlas entry, architecture claims will be tied to the relevant technical report or official documentation for each generation."
-        ],
-
-
-        architectureSpec: {
-
-          architecture:
-            "Decoder-only Transformer",
-
-          attention:
-            "Generation-dependent",
-
-          position:
-            "Generation-dependent",
-
-          sparsity:
-            "Generation-dependent",
-
-          sequence:
-            "Autoregressive sequence modeling"
-
-        },
-
-
-        architectureFlow: [
-          "Tokenization",
-          "Token embeddings",
-          "Transformer blocks",
-          "Attention",
-          "Feed-forward layers",
-          "Autoregressive output"
-        ],
-
-
-        strengths: [
-          "Strong ecosystem and research adoption",
-          "Multiple generations and model sizes",
-          "Broad open-weight availability",
-          "Extensive tooling and community support"
-        ],
-
-
-        limitations: [
-          "Capabilities vary substantially by generation",
-          "License terms must be checked per release",
-          "Exact architecture differs across generations"
-        ],
-
-
-        training: {
-
-          paragraphs: [
-            "Llama generations use large-scale pretraining followed by additional post-training procedures appropriate to the intended release.",
-
-            "Exact datasets, compute, filtering, and post-training procedures should be recorded separately for each generation rather than generalized across the family."
-          ],
-
-          objective:
-            "Autoregressive language modeling",
-
-          data:
-            "Generation-specific; consult official technical reports",
-
-          post:
-            "Generation-specific alignment / instruction tuning",
-
-          languages:
-            "Generation-dependent"
-
-        },
-
-
-        capabilities: {
-
-          paragraphs: [
-            "The capabilities of Llama models differ substantially across generations and variants. The Atlas therefore records capabilities at the individual model or generation level whenever possible."
-          ],
-
-          modality:
-            "Primarily language; multimodal variants exist",
-
-          input:
-            "Text; generation-dependent multimodal inputs",
-
-          output:
-            "Text; generation-dependent outputs",
-
-          reasoning:
-            "Variant and generation dependent",
-
-          coding:
-            "Supported by several variants"
-
-        },
-
-
-        evolution: [
-
-          {
-            year: "2023",
-            title: "Llama",
-            description:
-              "Initial Llama family release."
-          },
-
-          {
-            year: "2023",
-            title: "Llama 2",
-            description:
-              "Second major generation with expanded model and release ecosystem."
-          },
-
-          {
-            year: "2024",
-            title: "Llama 3",
-            description:
-              "Major generation with expanded capabilities and model sizes."
-          },
-
-          {
-            year: "2024–2025",
-            title: "Llama 3.x",
-            description:
-              "Subsequent releases and variants extending the family."
-          },
-
-          {
-            year: "2025",
-            title: "Llama 4",
-            description:
-              "Newer family generation introducing further architectural and multimodal developments."
-          }
-
-        ],
-
-
-        sources: [
-
-          {
-            type: "Research",
-            title:
-              "Llama family technical publications",
-            description:
-              "Primary technical reports for the relevant generation.",
-            url:
-              "https://ai.meta.com/llama/"
-          },
-
-          {
-            type: "Official",
-            title:
-              "Meta AI — Llama",
-            description:
-              "Official model-family information and resources.",
-            url:
-              "https://ai.meta.com/llama/"
-          },
-
-          {
-            type: "Models",
-            title:
-              "Hugging Face — Llama",
-            description:
-              "Model repositories and community tooling where available.",
-            url:
-              "https://huggingface.co/"
-          },
-
-          {
-            type: "Code",
-            title:
-              "Official repositories",
-            description:
-              "Implementation and release resources associated with the family.",
-            url:
-              "https://github.com/meta-llama"
-          }
-
-        ],
-
-
-        related: [
-
-          {
-            id: "qwen",
-            name: "Qwen",
-            description:
-              "Large language model family."
-          },
-
-          {
-            id: "mistral",
-            name: "Mistral",
-            description:
-              "Open-weight language model family."
-          },
-
-          {
-            id: "gemma",
-            name: "Gemma",
-            description:
-              "Open-weight language model family."
-          }
-
-        ]
-
-      },
-
-
-      /* =======================================================
-         QWEN
-         ======================================================= */
-
-      qwen: {
-
-        name: "Qwen",
-
-        family:
-          "Qwen family",
-
-        kicker:
-          "Large Language Model",
-
-        organization:
-          "Alibaba",
-
-        year:
-          "2023",
-
-        architecture:
-          "Transformer family",
-
-        parameters:
-          "Generation-dependent",
-
-        context:
-          "Generation-dependent",
-
-        weights:
-          "Open-weight releases",
-
-        category:
-          "Language",
-
-        description:
-          "A broad family of foundation models developed by Alibaba, spanning language, coding, reasoning, and multimodal model variants.",
-
-        tags: [
-          "Language",
-          "Transformer",
-          "Open-weight",
-          "Multilingual"
-        ],
-
-
-        overview: [
-          "Qwen is a model family encompassing multiple generations and specialized variants. The family has expanded beyond general language modeling into coding, reasoning, and multimodal systems.",
-
-          "The Atlas will represent the family tree at both family and individual-generation levels."
-        ],
-
-
-        architectureText: [
-          "Qwen releases are primarily based on Transformer-style architectures, while specific architectural mechanisms can vary across generations and variants.",
-
-          "The final Atlas records exact architectural characteristics only when supported by the corresponding technical documentation."
-        ],
-
-
-        architectureSpec: {
-
-          architecture:
-            "Transformer family",
-
-          attention:
-            "Generation-dependent",
-
-          position:
-            "Generation-dependent",
-
-          sparsity:
-            "Variant-dependent",
-
-          sequence:
-            "Autoregressive language modeling"
-
-        },
-
-
-        architectureFlow: [
-          "Input",
-          "Tokenization",
-          "Transformer",
-          "Attention",
-          "Feed-forward / expert components",
-          "Output"
-        ],
-
-
-        strengths: [
-          "Broad model-family coverage",
-          "Language and coding variants",
-          "Multilingual capabilities",
-          "Growing multimodal ecosystem"
-        ],
-
-
-        limitations: [
-          "Specifications differ across generations",
-          "License terms differ across releases",
-          "Model naming can represent several variants"
-        ],
-
-
-        training: {
-
-          paragraphs: [
-            "Qwen generations use large-scale pretraining followed by generation-specific post-training procedures.",
-
-            "Training data and compute details should be attributed to the technical report corresponding to each release."
-          ],
-
-          objective:
-            "Generation-dependent language modeling objectives",
-
-          data:
-            "Generation-specific",
-
-          post:
-            "Instruction tuning and other generation-specific post-training",
-
-          languages:
-            "Multilingual; generation-dependent"
-
-        },
-
-
-        capabilities: {
-
-          paragraphs: [
-            "The Qwen family spans general language understanding, generation, coding, reasoning, and multimodal capabilities."
-          ],
-
-          modality:
-            "Language; multimodal variants",
-
-          input:
-            "Text; variant-dependent multimodal input",
-
-          output:
-            "Text; variant-dependent multimodal output",
-
-          reasoning:
-            "Variant-dependent",
-
-          coding:
-            "Supported by specialized variants"
-
-        },
-
-
-        evolution: [
-
-          {
-            year: "2023",
-            title: "Qwen",
-            description:
-              "Initial Qwen family releases."
-          },
-
-          {
-            year: "2024",
-            title: "Qwen2",
-            description:
-              "Major family generation."
-          },
-
-          {
-            year: "2024",
-            title: "Qwen2.5",
-            description:
-              "Expanded family across language and specialized capabilities."
-          },
-
-          {
-            year: "2025",
-            title: "Newer Qwen generations",
-            description:
-              "Further reasoning, coding, and multimodal development."
-          }
-
-        ],
-
-
-        sources: [
-
-          {
-            type: "Official",
-            title:
-              "Qwen",
-            description:
-              "Official Qwen model resources.",
-            url:
-              "https://qwenlm.github.io/"
-          },
-
-          {
-            type: "Code",
-            title:
-              "Qwen GitHub",
-            description:
-              "Official repositories and implementation resources.",
-            url:
-              "https://github.com/QwenLM"
-          },
-
-          {
-            type: "Models",
-            title:
-              "Qwen on Hugging Face",
-            description:
-              "Model repositories and documentation.",
-            url:
-              "https://huggingface.co/Qwen"
-          }
-
-        ],
-
-
-        related: [
-
-          {
-            id: "llama",
-            name: "Llama",
-            description:
-              "Major open-weight language model family."
-          },
-
-          {
-            id: "mistral",
-            name: "Mistral",
-            description:
-              "Language model family with open-weight releases."
-          },
-
-          {
-            id: "gemma",
-            name: "Gemma",
-            description:
-              "Google's open-weight model family."
-          }
-
-        ]
-
-      },
-
-
-      /* =======================================================
-         MAMBA
-         ======================================================= */
-
-      mamba: {
-
-        name: "Mamba",
-
-        family:
-          "Mamba family",
-
-        kicker:
-          "State Space Model",
-
-        organization:
-          "Academic research",
-
-        year:
-          "2023",
-
-        architecture:
-          "Selective State Space Model",
-
-        parameters:
-          "Model-dependent",
-
-        context:
-          "Sequence-length dependent",
-
-        weights:
-          "Research implementations",
-
-        category:
-          "Alternative Architecture",
-
-        description:
-          "A selective state space architecture designed for efficient sequence modeling and introduced as an alternative to conventional attention-based approaches.",
-
-        tags: [
-          "SSM",
-          "State Space",
-          "Sequence Modeling",
-          "Research"
-        ],
-
-
-        overview: [
-          "Mamba introduced selective state space modeling as a prominent alternative to standard Transformer attention for sequence modeling.",
-
-          "Its central idea is to make the state-space dynamics input-dependent, allowing the model to selectively propagate or forget information."
-        ],
-
-
-        architectureText: [
-          "Mamba belongs to the state space model family. Rather than computing conventional pairwise attention between every pair of tokens, the model maintains and updates a hidden state while processing a sequence.",
-
-          "The selective mechanism makes the state transition dependent on the input, allowing the model to control which information is retained."
-        ],
-
-
-        architectureSpec: {
-
-          architecture:
-            "Selective State Space Model",
-
-          attention:
-            "No conventional self-attention",
-
-          position:
-            "Implicit through state evolution",
-
-          sparsity:
-            "Not an MoE architecture",
-
-          sequence:
-            "State-space recurrence"
-
-        },
-
-
-        architectureFlow: [
-          "Input sequence",
-          "Projection",
-          "Selective state update",
-          "State-space dynamics",
-          "Output projection"
-        ],
-
-
-        strengths: [
-          "Efficient sequence processing",
-          "Alternative to quadratic attention",
-          "Strong long-sequence motivation",
-          "Linear-time sequence processing formulation"
-        ],
-
-
-        limitations: [
-          "Different implementation tradeoffs from Transformers",
-          "Smaller ecosystem than Transformer models",
-          "Architecture requires different intuition and tooling"
-        ],
-
-
-        training: {
-
-          paragraphs: [
-            "Mamba models can be trained using sequence-modeling objectives similar to those used by autoregressive language models.",
-
-            "The important architectural distinction lies in the sequence-processing mechanism rather than requiring a fundamentally different language-learning objective."
-          ],
-
-          objective:
-            "Typically autoregressive sequence modeling",
-
-          data:
-            "Model-dependent",
-
-          post:
-            "Model-dependent",
-
-          languages:
-            "Model-dependent"
-
-        },
-
-
-        capabilities: {
-
-          paragraphs: [
-            "Mamba is primarily significant as a sequence-modeling architecture. Its importance to the Atlas is architectural: it provides a major reference point for studying alternatives to attention."
-          ],
-
-          modality:
-            "Sequence data",
-
-          input:
-            "Token / sequence representations",
-
-          output:
-            "Sequence representations or autoregressive outputs",
-
-          reasoning:
-            "Model-dependent",
-
-          coding:
-            "Model-dependent"
-
-        },
-
-
-        evolution: [
-
-          {
-            year: "2023",
-            title: "Mamba",
-            description:
-              "Selective state space model introduced as an alternative to Transformer-style sequence modeling."
-          },
-
-          {
-            year: "2024",
-            title: "Mamba-2",
-            description:
-              "Follow-up work connecting structured state space models and efficient sequence modeling."
-          }
-
-        ],
-
-
-        sources: [
-
-          {
-            type: "Paper",
-            title:
-              "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
-            description:
-              "Primary research paper introducing Mamba.",
-            url:
-              "https://arxiv.org/"
-          },
-
-          {
-            type: "Code",
-            title:
-              "Mamba implementation",
-            description:
-              "Research implementation and related resources.",
-            url:
-              "https://github.com/state-spaces/mamba"
-          },
-
-          {
-            type: "Research",
-            title:
-              "State Space Models",
-            description:
-              "Related research on structured state space sequence modeling.",
-            url:
-              "https://github.com/state-spaces"
-          }
-
-        ],
-
-
-        related: [
-
-          {
-            id: "rwkv",
-            name: "RWKV",
-            description:
-              "Alternative recurrent-style sequence architecture."
-          },
-
-          {
-            id: "hyena",
-            name: "Hyena",
-            description:
-              "Long-convolution sequence modeling architecture."
-          },
-
-          {
-            id: "transformer",
-            name: "Transformer",
-            description:
-              "Dominant attention-based sequence architecture."
-          }
-
-        ]
-
-      },
-
-
-      /* =======================================================
-         WHISPER
-         ======================================================= */
-
-      whisper: {
-
-        name: "Whisper",
-
-        family:
-          "Whisper",
-
-        kicker:
-          "Speech Foundation Model",
-
-        organization:
-          "OpenAI",
-
-        year:
-          "2022",
-
-        architecture:
-          "Encoder–Decoder Transformer",
-
-        parameters:
-          "Model-size dependent",
-
-        context:
-          "Audio-window dependent",
-
-        weights:
-          "Open research releases",
-
-        category:
-          "Speech",
-
-        description:
-          "A large-scale speech recognition model trained for multilingual transcription and translation across diverse audio conditions.",
-
-        tags: [
-          "Speech",
-          "Audio",
-          "Transformer",
-          "Multilingual"
-        ],
-
-
-        overview: [
-          "Whisper is a speech recognition foundation model trained on large-scale weakly supervised audio data.",
-
-          "It demonstrated strong robustness across languages, accents, and recording conditions and became widely used as an open speech recognition model."
-        ],
-
-
-        architectureText: [
-          "Whisper uses an encoder–decoder Transformer architecture. Audio is transformed into a representation that is processed by the encoder, while the decoder generates text tokens autoregressively."
-        ],
-
-
-        architectureSpec: {
-
-          architecture:
-            "Encoder–Decoder Transformer",
-
-          attention:
-            "Self-attention and cross-attention",
-
-          position:
-            "Transformer positional mechanism",
-
-          sparsity:
-            "Dense",
-
-          sequence:
-            "Audio-to-text sequence generation"
-
-        },
-
-
-        architectureFlow: [
-          "Audio",
-          "Log-Mel spectrogram",
-          "Transformer encoder",
-          "Cross-attention",
-          "Transformer decoder",
-          "Text tokens"
-        ],
-
-
-        strengths: [
-          "Multilingual speech recognition",
-          "Robustness across recording conditions",
-          "Open model availability",
-          "Transcription and translation capabilities"
-        ],
-
-
-        limitations: [
-          "Recognition errors remain possible",
-          "Performance varies by language and domain",
-          "Not designed as a general conversational foundation model"
-        ],
-
-
-        training: {
-
-          paragraphs: [
-            "Whisper was trained using a large collection of audio and corresponding text collected from the web."
-          ],
-
-          objective:
-            "Speech recognition and speech translation",
-
-          data:
-            "Large-scale weakly supervised audio-text data",
-
-          post:
-            "Model-specific",
-
-          languages:
-            "Multilingual"
-
-        },
-
-
-        capabilities: {
-
-          paragraphs: [
-            "Whisper primarily provides speech transcription and translation capabilities."
-          ],
-
-          modality:
-            "Speech / audio",
-
-          input:
-            "Audio",
-
-          output:
-            "Text",
-
-          reasoning:
-            "Not the primary objective",
-
-          coding:
-            "Not the primary objective"
-
-        },
-
-
-        evolution: [
-
-          {
-            year: "2022",
-            title: "Whisper",
-            description:
-              "Initial large-scale multilingual speech recognition model."
-          },
-
-          {
-            year: "2023+",
-            title: "Ecosystem expansion",
-            description:
-              "Broad adoption through open implementations, fine-tuning, and deployment tooling."
-          }
-
-        ],
-
-
-        sources: [
-
-          {
-            type: "Research",
-            title:
-              "Whisper research",
-            description:
-              "Primary research and technical resources.",
-            url:
-              "https://openai.com/research/whisper"
-          },
-
-          {
-            type: "Code",
-            title:
-              "Whisper GitHub",
-            description:
-              "Official implementation.",
-            url:
-              "https://github.com/openai/whisper"
-          },
-
-          {
-            type: "Models",
-            title:
-              "Whisper on Hugging Face",
-            description:
-              "Model implementations and community tooling.",
-            url:
-              "https://huggingface.co/openai"
-          }
-
-        ],
-
-
-        related: [
-
-          {
-            id: "mamba",
-            name: "Mamba",
-            description:
-              "Alternative sequence-modeling architecture."
-          },
-
-          {
-            id: "llama",
-            name: "Llama",
-            description:
-              "Large language model family."
-          },
-
-          {
-            id: "qwen",
-            name: "Qwen",
-            description:
-              "Language and multimodal foundation model family."
-          }
-
-        ]
-
-      },
-
-
-      /* =======================================================
-         GEMMA
-         ======================================================= */
-
-      gemma: {
-
-        name: "Gemma",
-
-        family:
-          "Gemma family",
-
-        kicker:
-          "Open-weight Language Model",
-
-        organization:
-          "Google",
-
-        year:
-          "2024",
-
-        architecture:
-          "Decoder-only Transformer",
-
-        parameters:
-          "Generation-dependent",
-
-        context:
-          "Generation-dependent",
-
-        weights:
-          "Open-weight releases",
-
-        category:
-          "Language",
-
-        description:
-          "A family of lightweight open-weight language models developed by Google and designed for a range of research and application settings.",
-
-        tags: [
-          "Language",
-          "Transformer",
-          "Open-weight",
-          "Google"
-        ],
-
-
-        overview: [
-          "Gemma provides a family of open-weight language models intended to make advanced language-model capabilities accessible across a range of deployment environments.",
-
-          "The family has expanded through successive generations and specialized variants."
-        ],
-
-
-        architectureText: [
-          "Gemma models use decoder-only Transformer-style architectures, with exact architectural mechanisms varying across generations."
-        ],
-
-
-        architectureSpec: {
-
-          architecture:
-            "Decoder-only Transformer",
-
-          attention:
-            "Generation-dependent",
-
-          position:
-            "Generation-dependent",
-
-          sparsity:
-            "Generation-dependent",
-
-          sequence:
-            "Autoregressive"
-
-        },
-
-
-        architectureFlow: [
-          "Tokenization",
-          "Embeddings",
-          "Transformer blocks",
-          "Attention",
-          "Feed-forward layers",
-          "Generated tokens"
-        ],
-
-
-        strengths: [
-          "Accessible open-weight releases",
-          "Multiple model sizes",
-          "Strong tooling ecosystem",
-          "Designed for research and deployment"
-        ],
-
-
-        limitations: [
-          "Exact specifications differ by generation",
-          "License terms must be checked per release",
-          "Smaller models trade capability for efficiency"
-        ],
-
-
-        training: {
-
-          paragraphs: [
-            "Gemma generations are trained using large-scale language-model pretraining followed by generation-specific post-training."
-          ],
-
-          objective:
-            "Autoregressive language modeling",
-
-          data:
-            "Generation-specific",
-
-          post:
-            "Generation-specific instruction and alignment procedures",
-
-          languages:
-            "Generation-dependent"
-
-        },
-
-
-        capabilities: {
-
-          paragraphs: [
-            "Gemma models support general language understanding and generation, with specialized variants expanding capabilities."
-          ],
-
-          modality:
-            "Primarily language",
-
-          input:
-            "Text; variant-dependent",
-
-          output:
-            "Text",
-
-          reasoning:
-            "Generation-dependent",
-
-          coding:
-            "Supported by selected variants"
-
-        },
-
-
-        evolution: [
-
-          {
-            year: "2024",
-            title: "Gemma",
-            description:
-              "Initial open-weight Gemma family."
-          },
-
-          {
-            year: "2024",
-            title: "Gemma 2",
-            description:
-              "Major second-generation family."
-          },
-
-          {
-            year: "2025",
-            title: "Later Gemma generations",
-            description:
-              "Continued expansion across capabilities and model sizes."
-          }
-
-        ],
-
-
-        sources: [
-
-          {
-            type: "Official",
-            title:
-              "Google DeepMind — Gemma",
-            description:
-              "Official Gemma resources.",
-            url:
-              "https://ai.google.dev/gemma"
-          },
-
-          {
-            type: "Code",
-            title:
-              "Google DeepMind GitHub",
-            description:
-              "Official and related implementation resources.",
-            url:
-              "https://github.com/google-deepmind"
-          },
-
-          {
-            type: "Models",
-            title:
-              "Gemma on Hugging Face",
-            description:
-              "Model repositories and implementations.",
-            url:
-              "https://huggingface.co/google"
-          }
-
-        ],
-
-
-        related: [
-
-          {
-            id: "llama",
-            name: "Llama",
-            description:
-              "Major open-weight language model family."
-          },
-
-          {
-            id: "qwen",
-            name: "Qwen",
-            description:
-              "Language and multimodal model family."
-          },
-
-          {
-            id: "mistral",
-            name: "Mistral",
-            description:
-              "Language model family."
-          }
-
-        ]
-
-      },
-
-
-      /* =======================================================
-         MISTRAL
-         ======================================================= */
-
-      mistral: {
-
-        name: "Mistral",
-
-        family:
-          "Mistral family",
-
-        kicker:
-          "Large Language Model",
-
-        organization:
-          "Mistral AI",
-
-        year:
-          "2023",
-
-        architecture:
-          "Decoder-only Transformer",
-
-        parameters:
-          "Generation-dependent",
-
-        context:
-          "Generation-dependent",
-
-        weights:
-          "Open-weight releases",
-
-        category:
-          "Language",
-
-        description:
-          "A family of language models developed by Mistral AI, including models emphasizing efficiency, open-weight availability, mixture-of-experts, and multilingual capabilities.",
-
-        tags: [
-          "Language",
-          "Transformer",
-          "Open-weight",
-          "MoE"
-        ],
-
-
-        overview: [
-          "Mistral AI has developed a broad family of language models ranging from compact models to larger mixture-of-experts systems.",
-
-          "The family is particularly relevant to the Atlas because several releases illustrate practical architectural choices for improving inference efficiency and model scaling."
-        ],
-
-
-        architectureText: [
-          "Mistral-family architectures vary across generations. Transformer-based dense and sparse mixture-of-experts configurations are represented across the broader family."
-        ],
-
-
-        architectureSpec: {
-
-          architecture:
-            "Transformer family",
-
-          attention:
-            "Generation-dependent",
-
-          position:
-            "Generation-dependent",
-
-          sparsity:
-            "Dense and MoE variants",
-
-          sequence:
-            "Autoregressive"
-
-        },
-
-
-        architectureFlow: [
-          "Tokenization",
-          "Transformer blocks",
-          "Attention",
-          "Feed-forward / experts",
-          "Output"
-        ],
-
-
-        strengths: [
-          "Strong efficiency focus",
-          "Open-weight model ecosystem",
-          "Dense and MoE research relevance",
-          "Broad model range"
-        ],
-
-
-        limitations: [
-          "Specifications vary considerably across releases",
-          "License terms differ by model",
-          "Family naming spans multiple architectures"
-        ],
-
-
-        training: {
-
-          paragraphs: [
-            "Mistral-family models use large-scale pretraining with generation-specific data and post-training procedures."
-          ],
-
-          objective:
-            "Autoregressive language modeling",
-
-          data:
-            "Generation-specific",
-
-          post:
-            "Instruction tuning and model-specific alignment",
-
-          languages:
-            "Multilingual; model-dependent"
-
-        },
-
-
-        capabilities: {
-
-          paragraphs: [
-            "The family supports general language generation, instruction following, coding, multilingual tasks, and other specialized capabilities depending on the model."
-          ],
-
-          modality:
-            "Primarily language",
-
-          input:
-            "Text; model-dependent multimodal input",
-
-          output:
-            "Text; model-dependent",
-
-          reasoning:
-            "Model-dependent",
-
-          coding:
-            "Supported by several models"
-
-        },
-
-
-        evolution: [
-
-          {
-            year: "2023",
-            title: "Mistral 7B",
-            description:
-              "Early open-weight model emphasizing strong performance at relatively small scale."
-          },
-
-          {
-            year: "2024",
-            title: "Mixtral",
-            description:
-              "Mixture-of-experts models demonstrating sparse expert routing."
-          },
-
-          {
-            year: "2024+",
-            title: "Later Mistral generations",
-            description:
-              "Expansion across model size, multilingual capability, and multimodal systems."
-          }
-
-        ],
-
-
-        sources: [
-
-          {
-            type: "Official",
-            title:
-              "Mistral AI",
-            description:
-              "Official model and research resources.",
-            url:
-              "https://mistral.ai/"
-          },
-
-          {
-            type: "Models",
-            title:
-              "Mistral on Hugging Face",
-            description:
-              "Model repositories and releases.",
-            url:
-              "https://huggingface.co/mistralai"
-          },
-
-          {
-            type: "Code",
-            title:
-              "Mistral GitHub",
-            description:
-              "Official and related code resources.",
-            url:
-              "https://github.com/mistralai"
-          }
-
-        ],
-
-
-        related: [
-
-          {
-            id: "llama",
-            name: "Llama",
-            description:
-              "Open-weight language model family."
-          },
-
-          {
-            id: "qwen",
-            name: "Qwen",
-            description:
-              "Language and multimodal model family."
-          },
-
-          {
-            id: "gemma",
-            name: "Gemma",
-            description:
-              "Google open-weight language model family."
-          }
-
-        ]
-
-      },
-
-
-      /* =======================================================
-         TRANSFORMER
-         ======================================================= */
-
-      transformer: {
-
-        name: "Transformer",
-
-        family:
-          "Transformer architecture",
-
-        kicker:
-          "Core Architecture",
-
-        organization:
-          "Research architecture",
-
-        year:
-          "2017",
-
-        architecture:
-          "Attention-based sequence architecture",
-
-        parameters:
-          "Not applicable",
-
-        context:
-          "Architecture-dependent",
-
-        weights:
-          "Not applicable",
-
-        category:
-          "Architecture",
-
-        description:
-          "An attention-based neural architecture introduced for sequence transduction and subsequently adopted as a foundation for modern language, vision, speech, and multimodal models.",
-
-        tags: [
-          "Architecture",
-          "Attention",
-          "Sequence Modeling",
-          "Foundation"
-        ],
-
-
-        overview: [
-          "The Transformer is one of the most influential neural architectures in modern machine learning. It replaced recurrent sequence processing with attention-based interactions between representations.",
-
-          "Modern foundation models frequently build on Transformer-derived architectures, although many newer systems modify attention, routing, positional encoding, or sequence processing."
-        ],
-
-
-        architectureText: [
-          "The original Transformer consists of encoder and decoder stacks built from self-attention, feed-forward networks, residual connections, and normalization.",
-
-          "Modern language models often use decoder-only Transformer variants, while other foundation models use encoder-only, encoder-decoder, multimodal, or hybrid configurations."
-        ],
-
-
-        architectureSpec: {
-
-          architecture:
-            "Attention-based neural architecture",
-
-          attention:
-            "Self-attention",
-
-          position:
-            "Explicit positional representations",
-
-          sparsity:
-            "Original architecture is dense",
-
-          sequence:
-            "Parallel attention over sequence representations"
-
-        },
-
-
-        architectureFlow: [
-          "Input tokens",
-          "Embeddings",
-          "Positional information",
-          "Self-attention",
-          "Feed-forward network",
-          "Output representation"
-        ],
-
-
-        strengths: [
-          "Highly parallelizable training",
-          "Flexible sequence modeling",
-          "Strong scaling properties",
-          "Extensive ecosystem"
-        ],
-
-
-        limitations: [
-          "Standard attention has quadratic sequence complexity",
-          "KV-cache can become expensive during generation",
-          "Large models require substantial compute and memory"
-        ],
-
-
-        training: {
-
-          paragraphs: [
-            "The Transformer itself is an architecture rather than a single trained model. It can support many training objectives including autoregressive modeling, masked modeling, sequence-to-sequence learning, and multimodal objectives."
-          ],
-
-          objective:
-            "Objective-dependent",
-
-          data:
-            "Application-dependent",
-
-          post:
-            "Model-dependent",
-
-          languages:
-            "Not applicable"
-
-        },
-
-
-        capabilities: {
-
-          paragraphs: [
-            "Transformer-derived systems have been applied to language, vision, speech, code, biology, multimodal learning, and many other domains."
-          ],
-
-          modality:
-            "Architecture-agnostic",
-
-          input:
-            "Sequence or tokenized representations",
-
-          output:
-            "Architecture-dependent",
-
-          reasoning:
-            "Model-dependent",
-
-          coding:
-            "Model-dependent"
-
-        },
-
-
-        evolution: [
-
-          {
-            year: "2017",
-            title: "Attention Is All You Need",
-            description:
-              "Original Transformer architecture."
-          },
-
-          {
-            year: "2018–2020",
-            title: "BERT / GPT / T5",
-            description:
-              "Major encoder-only, decoder-only, and encoder-decoder directions."
-          },
-
-          {
-            year: "2020+",
-            title: "Scaling foundation models",
-            description:
-              "Transformers became the dominant architecture for large-scale language modeling."
-          },
-
-          {
-            year: "2023+",
-            title: "Efficient and sparse variants",
-            description:
-              "GQA, MQA, MoE, MLA, long-context mechanisms, and other modifications."
-          }
-
-        ],
-
-
-        sources: [
-
-          {
-            type: "Paper",
-            title:
-              "Attention Is All You Need",
-            description:
-              "Original Transformer paper.",
-            url:
-              "https://arxiv.org/"
-          },
-
-          {
-            type: "Research",
-            title:
-              "Transformer research",
-            description:
-              "Related research across language and multimodal modeling.",
-            url:
-              "https://paperswithcode.com/"
-          },
-
-          {
-            type: "Atlas",
-            title:
-              "Architecture encyclopedia",
-            description:
-              "Explore related architecture concepts.",
-            url:
-              "architectures.html"
-          }
-
-        ],
-
-
-        related: [
-
-          {
-            id: "mamba",
-            name: "Mamba",
-            description:
-              "State space alternative to conventional attention."
-          },
-
-          {
-            id: "rwkv",
-            name: "RWKV",
-            description:
-              "Recurrent-style alternative sequence architecture."
-          },
-
-          {
-            id: "llama",
-            name: "Llama",
-            description:
-              "Major Transformer-based model family."
-          }
-
-        ]
-
+      if (value === null || value === undefined) {
+        return "";
       }
 
-    };
-
-
-    /* =========================================================
-       URL PARAMETER
-       ========================================================= */
-
-    const params =
-      new URLSearchParams(
-        window.location.search
-      );
-
-
-    const modelId =
-      params.get("id") ||
-      "llama";
-
-
-    const model =
-      models[modelId];
-
-
-    /* =========================================================
-       ELEMENTS
-       ========================================================= */
-
-    const modelPage =
-      document.getElementById(
-        "modelPage"
-      );
-
-
-    const errorState =
-      document.getElementById(
-        "errorState"
-      );
-
-
-    /* =========================================================
-       ERROR
-       ========================================================= */
-
-    if (!model) {
-
-      modelPage.style.display =
-        "none";
-
-      errorState.style.display =
-        "block";
-
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
     }
 
 
-    /* =========================================================
-       RENDER MODEL
-       ========================================================= */
+    function formatValue(value) {
 
-    if (model) {
+      if (
+        value === null ||
+        value === undefined ||
+        value === ""
+      ) {
+        return "—";
+      }
 
+      if (Array.isArray(value)) {
 
-      document.title =
-        `${model.name} — Foundation Model Atlas`;
+        if (!value.length) {
+          return "—";
+        }
 
+        return value
+          .map(item => escapeHTML(item))
+          .join(", ");
+      }
 
-      /* =======================================================
-         HERO
-         ======================================================= */
+      if (typeof value === "boolean") {
+        return value ? "Yes" : "No";
+      }
 
-      document.getElementById(
-        "breadcrumbModel"
-      ).textContent =
-        model.name;
+      if (typeof value === "object") {
+        return escapeHTML(
+          JSON.stringify(value)
+        );
+      }
 
-
-      document.getElementById(
-        "modelKicker"
-      ).textContent =
-        model.kicker;
-
-
-      document.getElementById(
-        "modelTitle"
-      ).textContent =
-        model.name;
-
-
-      document.getElementById(
-        "modelFamily"
-      ).textContent =
-        model.family;
+      return escapeHTML(value);
+    }
 
 
-      document.getElementById(
-        "modelDescription"
-      ).textContent =
-        model.description;
+    function firstAvailable(...values) {
+
+      for (const value of values) {
+
+        if (
+          value !== undefined &&
+          value !== null &&
+          value !== ""
+        ) {
+          return value;
+        }
+
+      }
+
+      return null;
+    }
 
 
-      document.getElementById(
-        "factOrganization"
-      ).textContent =
-        model.organization;
+    function slugToTitle(slug) {
+
+      if (!slug) {
+        return "Model";
+      }
+
+      return slug
+        .replace(/[-_]+/g, " ")
+        .replace(/\b\w/g, char => char.toUpperCase());
+    }
 
 
-      document.getElementById(
-        "factYear"
-      ).textContent =
-        model.year;
+    /*
+     * ------------------------------------------
+     * QUERY PARAMETER
+     * ------------------------------------------
+     */
+
+    const params = new URLSearchParams(
+      window.location.search
+    );
+
+    const requestedId = params.get("id");
 
 
-      document.getElementById(
-        "factArchitecture"
-      ).textContent =
-        model.architecture;
+    /*
+     * ------------------------------------------
+     * NORMALIZE DATA
+     * ------------------------------------------
+     */
+
+    function normalizeModels(payload) {
+
+      /*
+       * Supports:
+       *
+       * [
+       *   {...},
+       *   {...}
+       * ]
+       *
+       * OR
+       *
+       * {
+       *   "models": [...]
+       * }
+       *
+       * OR
+       *
+       * {
+       *   "data": [...]
+       * }
+       */
+
+      if (Array.isArray(payload)) {
+        return payload;
+      }
+
+      if (
+        payload &&
+        Array.isArray(payload.models)
+      ) {
+        return payload.models;
+      }
+
+      if (
+        payload &&
+        Array.isArray(payload.data)
+      ) {
+        return payload.data;
+      }
+
+      return [];
+    }
 
 
-      document.getElementById(
-        "factParameters"
-      ).textContent =
-        model.parameters;
+    /*
+     * ------------------------------------------
+     * FIND MODEL
+     * ------------------------------------------
+     */
+
+    function findModel(models, id) {
+
+      if (!id) {
+        return null;
+      }
+
+      const target = String(id)
+        .trim()
+        .toLowerCase();
+
+      return models.find(model => {
+
+        if (!model) {
+          return false;
+        }
+
+        return String(model.id || "")
+          .trim()
+          .toLowerCase() === target;
+
+      }) || null;
+    }
 
 
-      document.getElementById(
-        "factContext"
-      ).textContent =
-        model.context;
+    /*
+     * ------------------------------------------
+     * ERROR PAGE
+     * ------------------------------------------
+     */
+
+    function renderError(
+      title,
+      message,
+      code = "ATLAS / ERROR"
+    ) {
+
+      app.innerHTML = `
+
+        <div class="error-state">
+
+          <div class="error-box">
+
+            <div class="error-code">
+              ${escapeHTML(code)}
+            </div>
+
+            <h1>
+              ${escapeHTML(title)}
+            </h1>
+
+            <p>
+              ${escapeHTML(message)}
+            </p>
+
+            <a
+              class="back-button"
+              href="models.html"
+            >
+              ← Back to model encyclopedia
+            </a>
+
+          </div>
+
+        </div>
+
+      `;
+    }
 
 
-      document.getElementById(
-        "factWeights"
-      ).textContent =
-        model.weights;
+    /*
+     * ------------------------------------------
+     * TAG RENDERER
+     * ------------------------------------------
+     */
+
+    function renderTags(tags) {
+
+      if (!Array.isArray(tags) || !tags.length) {
+        return "";
+      }
+
+      return `
+
+        <div class="tags">
+
+          ${tags.map(tag => `
+
+            <span class="tag">
+              ${escapeHTML(tag)}
+            </span>
+
+          `).join("")}
+
+        </div>
+
+      `;
+    }
 
 
-      document.getElementById(
-        "modelTags"
-      ).innerHTML =
-        model.tags
-          .map(
-            (tag, index) =>
-              `
-                <span
-                  class="tag ${
-                    index === 0
-                      ? "tag-accent"
-                      : ""
-                  }"
-                >
-                  ${tag}
-                </span>
-              `
-          )
-          .join("");
+    /*
+     * ------------------------------------------
+     * LIST RENDERER
+     * ------------------------------------------
+     */
+
+    function renderList(items) {
+
+      if (!Array.isArray(items) || !items.length) {
+        return `<p>Not documented in the current Atlas record.</p>`;
+      }
+
+      return `
+
+        <ul class="clean-list">
+
+          ${items.map(item => `
+
+            <li>
+              ${escapeHTML(item)}
+            </li>
+
+          `).join("")}
+
+        </ul>
+
+      `;
+    }
 
 
-      /* =======================================================
-         OVERVIEW
-         ======================================================= */
+    /*
+     * ------------------------------------------
+     * INFO ROW
+     * ------------------------------------------
+     */
 
-      document.getElementById(
-        "overviewContent"
-      ).innerHTML =
-        model.overview
-          .map(
-            paragraph =>
-              `<p>${paragraph}</p>`
-          )
-          .join("");
+    function infoRow(label, value) {
 
+      return `
 
-      /* =======================================================
-         ARCHITECTURE
-         ======================================================= */
+        <div class="info-row">
 
-      document.getElementById(
-        "architectureContent"
-      ).innerHTML =
-        model.architectureText
-          .map(
-            paragraph =>
-              `<p>${paragraph}</p>`
-          )
-          .join("");
+          <div class="info-key">
+            ${escapeHTML(label)}
+          </div>
+
+          <div class="info-value">
+            ${formatValue(value)}
+          </div>
+
+        </div>
+
+      `;
+    }
 
 
-      const spec =
-        model.architectureSpec;
+    /*
+     * ------------------------------------------
+     * PIPELINE
+     * ------------------------------------------
+     */
+
+    function renderPipeline(model) {
+
+      const architecture =
+        firstAvailable(
+          model.architecture,
+          model.architectureFamily,
+          model.type
+        );
+
+      const modalities =
+        Array.isArray(model.modalities)
+          ? model.modalities.join(" + ")
+          : model.modalities;
+
+      const steps = [
+        ["01", "Input", modalities],
+        ["02", "Architecture", architecture],
+        ["03", "Training", firstAvailable(
+          model.training,
+          model.trainingObjective,
+          "Documented training process"
+        )],
+        ["04", "Output", firstAvailable(
+          model.output,
+          model.outputs,
+          "Model-dependent output"
+        )]
+      ];
+
+      return `
+
+        <div class="pipeline">
+
+          ${steps.map((step, index) => `
+
+            <div class="pipeline-step">
+
+              <span>
+                ${step[0]}
+              </span>
+
+              <strong>
+                ${escapeHTML(step[1])}
+              </strong>
+
+              <div style="margin-top:8px;color:#7f8994;font-size:11px;">
+                ${formatValue(step[2])}
+              </div>
+
+            </div>
+
+            ${
+              index < steps.length - 1
+                ? `<div class="pipeline-arrow">→</div>`
+                : ""
+            }
+
+          `).join("")}
+
+        </div>
+
+      `;
+    }
 
 
-      document.getElementById(
-        "specArchitecture"
-      ).textContent =
-        spec.architecture;
+    /*
+     * ------------------------------------------
+     * SOURCES
+     * ------------------------------------------
+     */
 
+    function renderSources(model) {
 
-      document.getElementById(
-        "specAttention"
-      ).textContent =
-        spec.attention;
+      const sources = Array.isArray(model.sources)
+        ? model.sources
+        : [];
 
+      if (!sources.length) {
 
-      document.getElementById(
-        "specPosition"
-      ).textContent =
-        spec.position;
+        return `
 
+          <p>
+            No primary source links have been attached
+            to this model record yet.
+          </p>
 
-      document.getElementById(
-        "specSparsity"
-      ).textContent =
-        spec.sparsity;
+        `;
 
+      }
 
-      document.getElementById(
-        "specSequence"
-      ).textContent =
-        spec.sequence;
+      return `
 
+        <div class="source-list">
 
-      document.getElementById(
-        "architectureFlow"
-      ).innerHTML =
-        model.architectureFlow
-          .map(
-            (node, index) => {
+          ${sources.map((source, index) => {
 
-              const arrow =
-                index <
-                model.architectureFlow.length - 1
-                  ? `
-                    <span class="architecture-arrow">
-                      →
-                    </span>
-                  `
-                  : "";
-
+            if (typeof source === "string") {
 
               return `
-                <span
-                  class="architecture-node ${
-                    index === 0
-                      ? "primary"
-                      : ""
-                  }"
-                >
-                  ${node}
-                </span>
-
-                ${arrow}
-              `;
-
-            }
-          )
-          .join("");
-
-
-      document.getElementById(
-        "strengths"
-      ).innerHTML =
-        model.strengths
-          .map(
-            item =>
-              `<li>${item}</li>`
-          )
-          .join("");
-
-
-      document.getElementById(
-        "limitations"
-      ).innerHTML =
-        model.limitations
-          .map(
-            item =>
-              `<li>${item}</li>`
-          )
-          .join("");
-
-
-      /* =======================================================
-         TRAINING
-         ======================================================= */
-
-      document.getElementById(
-        "trainingContent"
-      ).innerHTML =
-        model.training.paragraphs
-          .map(
-            paragraph =>
-              `<p>${paragraph}</p>`
-          )
-          .join("");
-
-
-      document.getElementById(
-        "trainingObjective"
-      ).textContent =
-        model.training.objective;
-
-
-      document.getElementById(
-        "trainingData"
-      ).textContent =
-        model.training.data;
-
-
-      document.getElementById(
-        "postTraining"
-      ).textContent =
-        model.training.post;
-
-
-      document.getElementById(
-        "languages"
-      ).textContent =
-        model.training.languages;
-
-
-      /* =======================================================
-         CAPABILITIES
-         ======================================================= */
-
-      document.getElementById(
-        "capabilitiesContent"
-      ).innerHTML =
-        model.capabilities.paragraphs
-          .map(
-            paragraph =>
-              `<p>${paragraph}</p>`
-          )
-          .join("");
-
-
-      document.getElementById(
-        "modality"
-      ).textContent =
-        model.capabilities.modality;
-
-
-      document.getElementById(
-        "inputModality"
-      ).textContent =
-        model.capabilities.input;
-
-
-      document.getElementById(
-        "outputModality"
-      ).textContent =
-        model.capabilities.output;
-
-
-      document.getElementById(
-        "reasoning"
-      ).textContent =
-        model.capabilities.reasoning;
-
-
-      document.getElementById(
-        "coding"
-      ).textContent =
-        model.capabilities.coding;
-
-
-      /* =======================================================
-         EVOLUTION
-         ======================================================= */
-
-      document.getElementById(
-        "timeline"
-      ).innerHTML =
-        model.evolution
-          .map(
-            item =>
-              `
-
-                <div class="timeline-item">
-
-                  <div class="timeline-year">
-                    ${item.year}
-                  </div>
-
-                  <div class="timeline-title">
-                    ${item.title}
-                  </div>
-
-                  <div class="timeline-description">
-                    ${item.description}
-                  </div>
-
-                </div>
-
-              `
-          )
-          .join("");
-
-
-      /* =======================================================
-         SOURCES
-         ======================================================= */
-
-      document.getElementById(
-        "sourceGrid"
-      ).innerHTML =
-        model.sources
-          .map(
-            source =>
-              `
 
                 <a
                   class="source-card"
-                  href="${source.url}"
+                  href="${escapeHTML(source)}"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
 
-                  <div class="source-type">
-                    ${source.type}
+                  <div>
+
+                    <div class="source-title">
+                      Primary resource ${index + 1}
+                    </div>
+
+                    <div class="source-url">
+                      ${escapeHTML(source)}
+                    </div>
+
                   </div>
 
-                  <h3>
-                    ${source.title}
-                  </h3>
-
-                  <p>
-                    ${source.description}
-                  </p>
-
-                  <span class="source-arrow">
-                    Open source ↗
-                  </span>
+                  <div class="source-arrow">
+                    ↗
+                  </div>
 
                 </a>
 
-              `
-          )
-          .join("");
+              `;
 
+            }
 
-      /* =======================================================
-         RELATED MODELS
-         ======================================================= */
+            const url =
+              source.url ||
+              source.href ||
+              source.link;
 
-      document.getElementById(
-        "relatedGrid"
-      ).innerHTML =
-        model.related
-          .map(
-            related =>
-              `
+            const title =
+              source.title ||
+              source.name ||
+              source.type ||
+              `Resource ${index + 1}`;
 
-                <a
-                  class="related-card"
-                  href="model.html?id=${related.id}"
-                >
+            if (!url) {
+              return "";
+            }
 
-                  <h3>
-                    ${related.name}
-                  </h3>
+            return `
 
-                  <p>
-                    ${related.description}
-                  </p>
+              <a
+                class="source-card"
+                href="${escapeHTML(url)}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
 
-                </a>
+                <div>
 
-              `
-          )
-          .join("");
+                  <div class="source-title">
+                    ${escapeHTML(title)}
+                  </div>
+
+                  <div class="source-url">
+                    ${escapeHTML(url)}
+                  </div>
+
+                </div>
+
+                <div class="source-arrow">
+                  ↗
+                </div>
+
+              </a>
+
+            `;
+
+          }).join("")}
+
+        </div>
+
+      `;
 
     }
 
-  </script>
 
+    /*
+     * ------------------------------------------
+     * RELATED MODELS
+     * ------------------------------------------
+     */
+
+    function renderRelated(model, models) {
+
+      const relatedIds =
+        Array.isArray(model.relatedModels)
+          ? model.relatedModels
+          : [];
+
+      if (!relatedIds.length) {
+
+        return `
+
+          <p>
+            No related models are linked in the
+            current Atlas record.
+          </p>
+
+        `;
+
+      }
+
+      const relatedModels = relatedIds
+        .map(id => findModel(models, id))
+        .filter(Boolean);
+
+      if (!relatedModels.length) {
+
+        return `
+
+          <p>
+            Related model references exist, but their
+            records are not currently available in the
+            loaded dataset.
+          </p>
+
+        `;
+
+      }
+
+      return `
+
+        <div class="related-grid">
+
+          ${relatedModels.map(related => `
+
+            <a
+              class="related-card"
+              href="model.html?id=${encodeURIComponent(related.id)}"
+            >
+
+              <div class="related-name">
+                ${escapeHTML(
+                  related.name || related.id
+                )}
+              </div>
+
+              <div class="related-meta">
+                ${escapeHTML(
+                  related.family ||
+                  related.category ||
+                  "Related model"
+                )}
+              </div>
+
+            </a>
+
+          `).join("")}
+
+        </div>
+
+      `;
+
+    }
+
+
+    /*
+     * ------------------------------------------
+     * RENDER MODEL
+     * ------------------------------------------
+     */
+
+    function renderModel(model, models) {
+
+      const name =
+        firstAvailable(
+          model.name,
+          model.modelName,
+          slugToTitle(model.id)
+        );
+
+      const family =
+        firstAvailable(
+          model.family,
+          model.modelFamily,
+          "Foundation model"
+        );
+
+      const organization =
+        firstAvailable(
+          model.organization,
+          model.org,
+          model.company
+        );
+
+      const release =
+        firstAvailable(
+          model.year,
+          model.release,
+          model.releaseYear
+        );
+
+      const architecture =
+        firstAvailable(
+          model.architecture,
+          model.architectureFamily,
+          model.type
+        );
+
+      const parameters =
+        firstAvailable(
+          model.parameters,
+          model.parameterCount
+        );
+
+      const context =
+        firstAvailable(
+          model.context,
+          model.contextLength,
+          model.contextWindow
+        );
+
+      const openWeights =
+        firstAvailable(
+          model.openWeights,
+          model.weightsOpen
+        );
+
+      const category =
+        firstAvailable(
+          model.category,
+          model.type
+        );
+
+      const modalities =
+        Array.isArray(model.modalities)
+          ? model.modalities
+          : [];
+
+      const description =
+        firstAvailable(
+          model.description,
+          model.summary,
+          model.overview
+        );
+
+      const statusClass =
+        openWeights === false
+          ? "closed"
+          : "";
+
+      const statusText =
+        openWeights === true
+          ? "Open weights"
+          : openWeights === false
+            ? "Closed / restricted"
+            : "Weight status unknown";
+
+
+      document.title =
+        `${name} — Foundation Model Atlas`;
+
+
+      app.innerHTML = `
+
+        <!-- ======================
+             BREADCRUMB
+        ======================= -->
+
+        <div class="breadcrumb">
+
+          <a href="models.html">
+            Model Encyclopedia
+          </a>
+
+          <span>
+            &nbsp;/&nbsp;
+          </span>
+
+          <span>
+            ${escapeHTML(name)}
+          </span>
+
+        </div>
+
+
+        <!-- ======================
+             HERO
+        ======================= -->
+
+        <section class="model-hero">
+
+          <div>
+
+            <div class="eyebrow">
+              Foundation Model
+            </div>
+
+            <h1 class="model-title">
+              ${escapeHTML(name)}
+            </h1>
+
+            <div class="model-family">
+              ${escapeHTML(family)}
+            </div>
+
+            <p class="model-description">
+
+              ${
+                description
+                  ? escapeHTML(description)
+                  : `${escapeHTML(name)} is catalogued in the Foundation Model Atlas as part of the ${escapeHTML(family)} model lineage. The Atlas records documented architecture, training, capabilities, provenance, and related research where available.`
+              }
+
+            </p>
+
+            ${renderTags(model.tags)}
+
+          </div>
+
+          <div class="hero-status">
+
+            <div class="status-badge ${statusClass}">
+
+              <span class="status-dot"></span>
+
+              ${escapeHTML(statusText)}
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ======================
+             META
+        ======================= -->
+
+        <section class="meta-grid">
+
+          <div class="meta-item">
+
+            <div class="meta-label">
+              Organization
+            </div>
+
+            <div class="meta-value">
+              ${formatValue(organization)}
+            </div>
+
+          </div>
+
+
+          <div class="meta-item">
+
+            <div class="meta-label">
+              Release
+            </div>
+
+            <div class="meta-value">
+              ${formatValue(release)}
+            </div>
+
+          </div>
+
+
+          <div class="meta-item">
+
+            <div class="meta-label">
+              Architecture
+            </div>
+
+            <div class="meta-value">
+              ${formatValue(architecture)}
+            </div>
+
+          </div>
+
+
+          <div class="meta-item">
+
+            <div class="meta-label">
+              Parameters
+            </div>
+
+            <div class="meta-value">
+              ${formatValue(parameters)}
+            </div>
+
+          </div>
+
+
+          <div class="meta-item">
+
+            <div class="meta-label">
+              Context
+            </div>
+
+            <div class="meta-value">
+              ${formatValue(context)}
+            </div>
+
+          </div>
+
+
+          <div class="meta-item">
+
+            <div class="meta-label">
+              Category
+            </div>
+
+            <div class="meta-value">
+              ${formatValue(category)}
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ======================
+             CONTENT
+        ======================= -->
+
+        <div class="content-layout">
+
+          <div class="content">
+
+
+            <!-- OVERVIEW -->
+
+            <section
+              class="section"
+              id="overview"
+            >
+
+              <div class="section-number">
+                01 / Overview
+              </div>
+
+              <h2>
+                What is this model?
+              </h2>
+
+              <p>
+
+                ${
+                  description
+                    ? escapeHTML(description)
+                    : `The Atlas currently has limited descriptive metadata for ${escapeHTML(name)}.`
+                }
+
+              </p>
+
+              ${
+                model.focus
+                  ? renderList(model.focus)
+                  : ""
+              }
+
+            </section>
+
+
+            <!-- ARCHITECTURE -->
+
+            <section
+              class="section"
+              id="architecture"
+            >
+
+              <div class="section-number">
+                02 / Architecture
+              </div>
+
+              <h2>
+                Architecture
+              </h2>
+
+              <div class="info-table">
+
+                ${infoRow(
+                  "Architecture",
+                  architecture
+                )}
+
+                ${infoRow(
+                  "Model type",
+                  model.type
+                )}
+
+                ${infoRow(
+                  "Architecture family",
+                  model.architectureFamily
+                )}
+
+                ${infoRow(
+                  "Attention",
+                  model.attention
+                )}
+
+                ${infoRow(
+                  "Position mechanism",
+                  model.positionMechanism
+                )}
+
+                ${infoRow(
+                  "Dense / sparse",
+                  model.denseSparse
+                )}
+
+                ${infoRow(
+                  "Sequence strategy",
+                  model.sequenceStrategy
+                )}
+
+              </div>
+
+              <h3 style="margin-top:32px;">
+                Architectural pipeline
+              </h3>
+
+              ${renderPipeline(model)}
+
+              <h3 style="margin-top:34px;">
+                Strengths
+              </h3>
+
+              ${renderList(model.strengths)}
+
+              <h3 style="margin-top:28px;">
+                Limitations
+              </h3>
+
+              ${renderList(model.limitations)}
+
+            </section>
+
+
+            <!-- TRAINING -->
+
+            <section
+              class="section"
+              id="training"
+            >
+
+              <div class="section-number">
+                03 / Training
+              </div>
+
+              <h2>
+                Training & objectives
+              </h2>
+
+              <div class="info-table">
+
+                ${infoRow(
+                  "Training objective",
+                  firstAvailable(
+                    model.trainingObjective,
+                    model.objective
+                  )
+                )}
+
+                ${infoRow(
+                  "Pretraining data",
+                  model.pretrainingData
+                )}
+
+                ${infoRow(
+                  "Training",
+                  model.training
+                )}
+
+                ${infoRow(
+                  "Post-training",
+                  model.postTraining
+                )}
+
+                ${infoRow(
+                  "Languages",
+                  model.languages
+                )}
+
+                ${infoRow(
+                  "Open weights",
+                  openWeights
+                )}
+
+              </div>
+
+            </section>
+
+
+            <!-- CAPABILITIES -->
+
+            <section
+              class="section"
+              id="capabilities"
+            >
+
+              <div class="section-number">
+                04 / Capabilities
+              </div>
+
+              <h2>
+                Capabilities & modalities
+              </h2>
+
+              <div class="info-table">
+
+                ${infoRow(
+                  "Primary modality",
+                  modalities.length
+                    ? modalities[0]
+                    : null
+                )}
+
+                ${infoRow(
+                  "Modalities",
+                  modalities
+                )}
+
+                ${infoRow(
+                  "Input",
+                  model.input
+                )}
+
+                ${infoRow(
+                  "Output",
+                  model.output
+                )}
+
+                ${infoRow(
+                  "Reasoning",
+                  model.reasoning
+                )}
+
+                ${infoRow(
+                  "Coding",
+                  model.coding
+                )}
+
+                ${infoRow(
+                  "Tool use",
+                  model.toolUse
+                )}
+
+              </div>
+
+            </section>
+
+
+            <!-- EVOLUTION -->
+
+            <section
+              class="section"
+              id="evolution"
+            >
+
+              <div class="section-number">
+                05 / Evolution
+              </div>
+
+              <h2>
+                Model lineage
+              </h2>
+
+              <p>
+
+                Model families should be understood as
+                evolving research lineages rather than
+                isolated releases. The Atlas records
+                major generations and architectural
+                changes where reliable evidence is
+                available.
+
+              </p>
+
+              <div class="info-table">
+
+                ${infoRow(
+                  "Family",
+                  family
+                )}
+
+                ${infoRow(
+                  "Generation",
+                  release
+                )}
+
+                ${infoRow(
+                  "Related lineage",
+                  model.relatedModels
+                )}
+
+              </div>
+
+            </section>
+
+
+            <!-- SOURCES -->
+
+            <section
+              class="section"
+              id="sources"
+            >
+
+              <div class="section-number">
+                06 / Research sources
+              </div>
+
+              <h2>
+                Papers, code & resources
+              </h2>
+
+              <p>
+
+                The Atlas prioritizes primary and official
+                sources. Each model record should eventually
+                maintain provenance for the claims presented
+                on this page.
+
+              </p>
+
+              ${renderSources(model)}
+
+            </section>
+
+
+            <!-- RELATED -->
+
+            <section
+              class="section"
+              id="related"
+            >
+
+              <div class="section-number">
+                07 / Related
+              </div>
+
+              <h2>
+                Related models
+              </h2>
+
+              <p>
+
+                Models with related architectures,
+                families, modalities, or research lineage.
+
+              </p>
+
+              ${renderRelated(model, models)}
+
+            </section>
+
+
+          </div>
+
+
+          <!-- ======================
+               SIDEBAR
+          ======================= -->
+
+          <aside class="sidebar">
+
+            <div class="sidebar-title">
+              On this page
+            </div>
+
+            <nav class="sidebar-nav">
+
+              <a href="#overview">
+                Overview
+              </a>
+
+              <a href="#architecture">
+                Architecture
+              </a>
+
+              <a href="#training">
+                Training
+              </a>
+
+              <a href="#capabilities">
+                Capabilities
+              </a>
+
+              <a href="#evolution">
+                Evolution
+              </a>
+
+              <a href="#sources">
+                Sources
+              </a>
+
+              <a href="#related">
+                Related
+              </a>
+
+            </nav>
+
+          </aside>
+
+        </div>
+
+      `;
+    }
+
+
+    /*
+     * ------------------------------------------
+     * LOAD DATA
+     * ------------------------------------------
+     */
+
+    async function loadModels() {
+
+      try {
+
+        if (!requestedId) {
+
+          renderError(
+            "Model not specified.",
+            "Open this page with a model identifier, for example model.html?id=stable-diffusion.",
+            "ATLAS / MISSING ID"
+          );
+
+          return;
+
+        }
+
+
+        const response =
+          await fetch(
+            `${DATA_URL}?v=${Date.now()}`,
+            {
+              cache: "no-store"
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            `Unable to load models.json (${response.status}).`
+          );
+
+        }
+
+
+        const payload =
+          await response.json();
+
+
+        const models =
+          normalizeModels(payload);
+
+
+        if (!models.length) {
+
+          throw new Error(
+            "models.json loaded, but no model records were found."
+          );
+
+        }
+
+
+        const model =
+          findModel(
+            models,
+            requestedId
+          );
+
+
+        if (!model) {
+
+          renderError(
+            "Model not found.",
+            `The requested model "${requestedId}" does not exist in the current Atlas dataset.`,
+            "ATLAS / MODEL NOT FOUND"
+          );
+
+          return;
+
+        }
+
+
+        renderModel(
+          model,
+          models
+        );
+
+
+      } catch (error) {
+
+        console.error(
+          "Foundation Model Atlas error:",
+          error
+        );
+
+
+        renderError(
+          "Atlas data unavailable.",
+          "The model page could not load data/models.json. Check that the file exists at the repository path and contains valid JSON.",
+          "ATLAS / DATA LOAD ERROR"
+        );
+
+      }
+
+    }
+
+
+    /*
+     * ------------------------------------------
+     * START
+     * ------------------------------------------
+     */
+
+    loadModels();
+
+  </script>
 
 </body>
 </html>
