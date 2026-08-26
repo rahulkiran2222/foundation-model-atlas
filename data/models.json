@@ -35868,4 +35868,1134 @@
   "relatedModels": [
     "llama-3-3"
   ]
+},,
+{
+  "id": "starcoder",
+  "name": "StarCoder",
+  "family": "StarCoder",
+  "organization": "BigCode",
+  "year": 2023,
+  "category": "code",
+  "type": "code-language-model",
+  "modalities": ["text", "code"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "code generation",
+    "code completion",
+    "software engineering"
+  ],
+  "trainingData": [
+    "The Stack"
+  ],
+  "openWeights": true,
+  "tags": [
+    "starcoder",
+    "bigcode",
+    "code"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "starcoder2"
+  ]
+},
+{
+  "id": "starcoder2",
+  "name": "StarCoder2",
+  "family": "StarCoder",
+  "organization": "BigCode",
+  "year": 2024,
+  "category": "code",
+  "type": "code-language-model",
+  "modalities": ["text", "code"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "code generation",
+    "code completion",
+    "multilingual programming"
+  ],
+  "openWeights": true,
+  "tags": [
+    "starcoder2",
+    "bigcode",
+    "code"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "starcoder"
+  ]
+},
+{
+  "id": "code-llama",
+  "name": "Code Llama",
+  "family": "Llama",
+  "organization": "Meta",
+  "year": 2023,
+  "category": "code",
+  "type": "code-language-model",
+  "modalities": ["text", "code"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "code generation",
+    "code completion",
+    "code infilling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "code-llama",
+    "llama",
+    "code"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "llama-2"
+  ]
+},
+{
+  "id": "deepseek-math",
+  "name": "DeepSeekMath",
+  "family": "DeepSeek",
+  "organization": "DeepSeek",
+  "year": 2024,
+  "category": "reasoning",
+  "type": "mathematical-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "mathematical reasoning",
+    "problem solving",
+    "formal mathematics"
+  ],
+  "openWeights": true,
+  "tags": [
+    "deepseek",
+    "math",
+    "reasoning"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "deepseek-llm",
+    "deepseek-r1"
+  ]
+},
+{
+  "id": "deepseek-vl",
+  "name": "DeepSeek-VL",
+  "family": "DeepSeek",
+  "organization": "DeepSeek",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "image understanding",
+    "visual question answering",
+    "multimodal reasoning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "deepseek",
+    "vision-language",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "deepseek-vl2",
+    "deepseek-v2"
+  ]
+},
+{
+  "id": "deepseek-vl2",
+  "name": "DeepSeek-VL2",
+  "family": "DeepSeek",
+  "organization": "DeepSeek",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "mixture-of-experts-vision-language-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "architecture": "vision-language mixture-of-experts",
+  "focus": [
+    "multimodal understanding",
+    "document understanding",
+    "visual reasoning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "deepseek",
+    "vision-language",
+    "moe"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "deepseek-vl"
+  ]
+},
+{
+  "id": "phi-4-multimodal",
+  "name": "Phi-4 Multimodal",
+  "family": "Phi",
+  "organization": "Microsoft",
+  "year": 2025,
+  "category": "multimodal",
+  "type": "multimodal-language-model",
+  "modalities": [
+    "text",
+    "image",
+    "audio"
+  ],
+  "focus": [
+    "multimodal reasoning",
+    "speech",
+    "vision",
+    "small-model deployment"
+  ],
+  "openWeights": true,
+  "tags": [
+    "phi",
+    "multimodal",
+    "microsoft"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "phi-4"
+  ]
+},
+{
+  "id": "smollm3",
+  "name": "SmolLM3",
+  "family": "SmolLM",
+  "organization": "Hugging Face",
+  "year": 2025,
+  "category": "llm",
+  "type": "small-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "small-model reasoning",
+    "on-device inference",
+    "efficient deployment"
+  ],
+  "openWeights": true,
+  "tags": [
+    "smollm",
+    "small-language-model",
+    "hugging-face"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "smollm2"
+  ]
+},
+{
+  "id": "tinyllama",
+  "name": "TinyLlama",
+  "family": "TinyLlama",
+  "organization": "Community",
+  "year": 2024,
+  "category": "llm",
+  "type": "small-language-model",
+  "modalities": ["text"],
+  "architecture": "Llama-family decoder-only transformer",
+  "focus": [
+    "small-model research",
+    "on-device inference",
+    "education"
+  ],
+  "openWeights": true,
+  "tags": [
+    "tinyllama",
+    "small-language-model",
+    "llama"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "llama-2"
+  ]
+},
+{
+  "id": "stablelm-zephyr",
+  "name": "StableLM Zephyr",
+  "family": "StableLM",
+  "organization": "Stability AI",
+  "year": 2023,
+  "category": "llm",
+  "type": "instruction-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "instruction following",
+    "chat",
+    "efficient inference"
+  ],
+  "openWeights": true,
+  "tags": [
+    "stablelm",
+    "zephyr",
+    "instruction-tuning"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "stablelm"
+  ]
+},
+{
+  "id": "zephyr",
+  "name": "Zephyr",
+  "family": "Zephyr",
+  "organization": "Hugging Face",
+  "year": 2023,
+  "category": "llm",
+  "type": "instruction-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "instruction following",
+    "alignment",
+    "chat"
+  ],
+  "openWeights": true,
+  "tags": [
+    "zephyr",
+    "hugging-face",
+    "alignment"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "mistral-7b"
+  ]
+},
+{
+  "id": "orca",
+  "name": "Orca",
+  "family": "Orca",
+  "organization": "Microsoft Research",
+  "year": 2023,
+  "category": "llm",
+  "type": "instruction-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "reasoning",
+    "teacher-student learning",
+    "instruction following"
+  ],
+  "openWeights": true,
+  "tags": [
+    "orca",
+    "reasoning",
+    "distillation"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "orca-2"
+  ]
+},
+{
+  "id": "orca-2",
+  "name": "Orca 2",
+  "family": "Orca",
+  "organization": "Microsoft Research",
+  "year": 2023,
+  "category": "reasoning",
+  "type": "small-reasoning-model",
+  "modalities": ["text"],
+  "focus": [
+    "reasoning",
+    "small-model capability",
+    "teacher-student learning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "orca",
+    "reasoning",
+    "small-language-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "orca"
+  ]
+},
+{
+  "id": "phi-1",
+  "name": "Phi-1",
+  "family": "Phi",
+  "organization": "Microsoft Research",
+  "year": 2023,
+  "category": "code",
+  "type": "small-code-language-model",
+  "modalities": ["text", "code"],
+  "focus": [
+    "code generation",
+    "small-model research"
+  ],
+  "openWeights": true,
+  "tags": [
+    "phi",
+    "code",
+    "small-language-model"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "phi-2",
+    "phi-3"
+  ]
+},
+{
+  "id": "codegemma",
+  "name": "CodeGemma",
+  "family": "Gemma",
+  "organization": "Google",
+  "year": 2024,
+  "category": "code",
+  "type": "code-language-model",
+  "modalities": [
+    "text",
+    "code"
+  ],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "code completion",
+    "code generation",
+    "code infilling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "codegemma",
+    "gemma",
+    "code"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "gemma"
+  ]
+},
+{
+  "id": "codegemma-2b",
+  "name": "CodeGemma 2B",
+  "family": "Gemma",
+  "organization": "Google",
+  "year": 2024,
+  "category": "code",
+  "type": "small-code-language-model",
+  "modalities": [
+    "text",
+    "code"
+  ],
+  "focus": [
+    "code completion",
+    "local development",
+    "efficient inference"
+  ],
+  "parameters": "2B",
+  "openWeights": true,
+  "tags": [
+    "codegemma",
+    "2b",
+    "code"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "codegemma"
+  ]
+},
+{
+  "id": "recurrentgemma",
+  "name": "RecurrentGemma",
+  "family": "Gemma",
+  "organization": "Google",
+  "year": 2024,
+  "category": "llm",
+  "type": "recurrent-language-model",
+  "modalities": ["text"],
+  "architecture": "recurrent neural architecture",
+  "focus": [
+    "efficient inference",
+    "long-sequence processing"
+  ],
+  "openWeights": true,
+  "tags": [
+    "recurrentgemma",
+    "gemma",
+    "recurrent"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "gemma"
+  ]
+},
+{
+  "id": "pali-gemma-2",
+  "name": "PaliGemma 2",
+  "family": "PaliGemma",
+  "organization": "Google",
+  "year": 2024,
+  "category": "multimodal",
+  "type": "vision-language-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "vision-language understanding",
+    "document understanding",
+    "visual reasoning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "paligemma",
+    "vision-language",
+    "gemma"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "pali-gemma"
+  ]
+},
+{
+  "id": "codeqwen",
+  "name": "CodeQwen",
+  "family": "Qwen",
+  "organization": "Alibaba Cloud",
+  "year": 2024,
+  "category": "code",
+  "type": "code-language-model",
+  "modalities": [
+    "text",
+    "code"
+  ],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "code generation",
+    "code completion",
+    "code infilling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "qwen",
+    "code",
+    "codeqwen"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "qwen"
+  ]
+},
+{
+  "id": "qwen2-5-coder-32b",
+  "name": "Qwen2.5-Coder 32B",
+  "family": "Qwen",
+  "organization": "Alibaba Cloud",
+  "year": 2024,
+  "category": "code",
+  "type": "code-language-model",
+  "modalities": [
+    "text",
+    "code"
+  ],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "code generation",
+    "code reasoning",
+    "software engineering"
+  ],
+  "parameters": "32B",
+  "openWeights": true,
+  "tags": [
+    "qwen",
+    "qwen2-5",
+    "code"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "qwen2-5-coder"
+  ]
+},
+{
+  "id": "codegeex",
+  "name": "CodeGeeX",
+  "family": "CodeGeeX",
+  "organization": "THUDM",
+  "year": 2022,
+  "category": "code",
+  "type": "multilingual-code-model",
+  "modalities": [
+    "text",
+    "code"
+  ],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "code generation",
+    "code completion",
+    "multilingual programming"
+  ],
+  "openWeights": true,
+  "tags": [
+    "codegeex",
+    "code",
+    "thudm"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "codegeex2",
+    "codegeex4"
+  ]
+},
+{
+  "id": "codegeex2",
+  "name": "CodeGeeX2",
+  "family": "CodeGeeX",
+  "organization": "THUDM",
+  "year": 2023,
+  "category": "code",
+  "type": "code-language-model",
+  "modalities": [
+    "text",
+    "code"
+  ],
+  "focus": [
+    "code generation",
+    "code completion"
+  ],
+  "openWeights": true,
+  "tags": [
+    "codegeex",
+    "code"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "codegeex"
+  ]
+},
+{
+  "id": "codegeex4",
+  "name": "CodeGeeX4",
+  "family": "CodeGeeX",
+  "organization": "THUDM",
+  "year": 2024,
+  "category": "code",
+  "type": "code-language-model",
+  "modalities": [
+    "text",
+    "code"
+  ],
+  "focus": [
+    "code generation",
+    "code completion",
+    "agentic coding"
+  ],
+  "openWeights": true,
+  "tags": [
+    "codegeex",
+    "code",
+    "agents"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "codegeex2"
+  ]
+},
+{
+  "id": "interncoder",
+  "name": "InternCoder",
+  "family": "InternLM",
+  "organization": "Shanghai AI Laboratory",
+  "year": 2024,
+  "category": "code",
+  "type": "code-language-model",
+  "modalities": [
+    "text",
+    "code"
+  ],
+  "focus": [
+    "code generation",
+    "software engineering"
+  ],
+  "openWeights": true,
+  "tags": [
+    "interncoder",
+    "internlm",
+    "code"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "internlm2"
+  ]
+},
+{
+  "id": "wizardlm",
+  "name": "WizardLM",
+  "family": "WizardLM",
+  "organization": "Microsoft Research / community",
+  "year": 2023,
+  "category": "llm",
+  "type": "instruction-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "instruction following",
+    "complex instructions",
+    "reasoning"
+  ],
+  "openWeights": true,
+  "tags": [
+    "wizardlm",
+    "instruction-tuning"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "wizardlm-2"
+  ]
+},
+{
+  "id": "wizardlm-2",
+  "name": "WizardLM-2",
+  "family": "WizardLM",
+  "organization": "Microsoft Research / community",
+  "year": 2024,
+  "category": "llm",
+  "type": "instruction-language-model",
+  "modalities": [
+    "text",
+    "image"
+  ],
+  "focus": [
+    "reasoning",
+    "multilingual",
+    "multimodal"
+  ],
+  "openWeights": true,
+  "tags": [
+    "wizardlm",
+    "reasoning",
+    "multimodal"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "wizardlm"
+  ]
+},
+{
+  "id": "vicuna",
+  "name": "Vicuna",
+  "family": "Vicuna",
+  "organization": "LMSYS / community",
+  "year": 2023,
+  "category": "llm",
+  "type": "instruction-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "chat",
+    "instruction following",
+    "open research"
+  ],
+  "openWeights": true,
+  "tags": [
+    "vicuna",
+    "chat",
+    "llama"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "llama-2"
+  ]
+},
+{
+  "id": "solar",
+  "name": "SOLAR",
+  "family": "SOLAR",
+  "organization": "Upstage",
+  "year": 2023,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "efficient scaling",
+    "English language modeling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "solar",
+    "upstage"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "solar-10-7b"
+  ]
+},
+{
+  "id": "solar-10-7b",
+  "name": "SOLAR-10.7B",
+  "family": "SOLAR",
+  "organization": "Upstage",
+  "year": 2023,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "10.7B",
+  "focus": [
+    "efficient inference",
+    "language modeling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "solar",
+    "10.7b"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "solar"
+  ]
+},
+{
+  "id": "aya-101",
+  "name": "Aya-101",
+  "family": "Aya",
+  "organization": "Cohere For AI",
+  "year": 2023,
+  "category": "llm",
+  "type": "multilingual-language-model",
+  "modalities": ["text"],
+  "focus": [
+    "multilingual",
+    "cross-lingual generation"
+  ],
+  "openWeights": true,
+  "tags": [
+    "aya",
+    "multilingual"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "aya",
+    "aya-23"
+  ]
+},
+{
+  "id": "bloom",
+  "name": "BLOOM",
+  "family": "BLOOM",
+  "organization": "BigScience",
+  "year": 2022,
+  "category": "llm",
+  "type": "multilingual-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "multilingual",
+    "open research",
+    "open science"
+  ],
+  "parameters": "176B",
+  "openWeights": true,
+  "tags": [
+    "bloom",
+    "bigscience",
+    "multilingual"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "bloomz"
+  ]
+},
+{
+  "id": "bloomz",
+  "name": "BLOOMZ",
+  "family": "BLOOM",
+  "organization": "BigScience",
+  "year": 2022,
+  "category": "llm",
+  "type": "multilingual-instruction-model",
+  "modalities": ["text"],
+  "focus": [
+    "multilingual instruction following",
+    "cross-lingual generalization"
+  ],
+  "openWeights": true,
+  "tags": [
+    "bloom",
+    "bloomz",
+    "multilingual"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "bloom"
+  ]
+},
+{
+  "id": "mpt",
+  "name": "MPT",
+  "family": "MPT",
+  "organization": "MosaicML",
+  "year": 2023,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "open research",
+    "commercial deployment",
+    "long-context"
+  ],
+  "openWeights": true,
+  "tags": [
+    "mpt",
+    "mosaicml"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "mpt-7b",
+    "mpt-30b"
+  ]
+},
+{
+  "id": "mpt-7b",
+  "name": "MPT-7B",
+  "family": "MPT",
+  "organization": "MosaicML",
+  "year": 2023,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "7B",
+  "focus": [
+    "efficient training",
+    "open deployment"
+  ],
+  "openWeights": true,
+  "tags": [
+    "mpt",
+    "7b"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "mpt"
+  ]
+},
+{
+  "id": "mpt-30b",
+  "name": "MPT-30B",
+  "family": "MPT",
+  "organization": "MosaicML",
+  "year": 2023,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "30B",
+  "focus": [
+    "open deployment",
+    "long-context"
+  ],
+  "openWeights": true,
+  "tags": [
+    "mpt",
+    "30b"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "mpt"
+  ]
+},
+{
+  "id": "pythia",
+  "name": "Pythia",
+  "family": "Pythia",
+  "organization": "EleutherAI",
+  "year": 2023,
+  "category": "llm",
+  "type": "research-language-model-suite",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "interpretability",
+    "training dynamics",
+    "open research"
+  ],
+  "openWeights": true,
+  "tags": [
+    "pythia",
+    "eleutherai",
+    "interpretability"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "pythia-1b",
+    "pythia-6-9b",
+    "pythia-12b"
+  ]
+},
+{
+  "id": "pythia-1b",
+  "name": "Pythia 1B",
+  "family": "Pythia",
+  "organization": "EleutherAI",
+  "year": 2023,
+  "category": "llm",
+  "type": "research-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "1B",
+  "focus": [
+    "interpretability",
+    "training dynamics"
+  ],
+  "openWeights": true,
+  "tags": [
+    "pythia",
+    "eleutherai"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "pythia"
+  ]
+},
+{
+  "id": "pythia-6-9b",
+  "name": "Pythia 6.9B",
+  "family": "Pythia",
+  "organization": "EleutherAI",
+  "year": 2023,
+  "category": "llm",
+  "type": "research-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "6.9B",
+  "focus": [
+    "interpretability",
+    "training dynamics"
+  ],
+  "openWeights": true,
+  "tags": [
+    "pythia",
+    "eleutherai"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "pythia"
+  ]
+},
+{
+  "id": "pythia-12b",
+  "name": "Pythia 12B",
+  "family": "Pythia",
+  "organization": "EleutherAI",
+  "year": 2023,
+  "category": "llm",
+  "type": "research-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "12B",
+  "focus": [
+    "interpretability",
+    "training dynamics"
+  ],
+  "openWeights": true,
+  "tags": [
+    "pythia",
+    "eleutherai"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "pythia"
+  ]
+},
+{
+  "id": "gpt-neox",
+  "name": "GPT-NeoX",
+  "family": "GPT-NeoX",
+  "organization": "EleutherAI",
+  "year": 2022,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "open research",
+    "large-scale language modeling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "gpt-neox",
+    "eleutherai"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "gpt-neox-20b"
+  ]
+},
+{
+  "id": "gpt-neox-20b",
+  "name": "GPT-NeoX-20B",
+  "family": "GPT-NeoX",
+  "organization": "EleutherAI",
+  "year": 2022,
+  "category": "llm",
+  "type": "language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "20B",
+  "focus": [
+    "open language modeling",
+    "research"
+  ],
+  "openWeights": true,
+  "tags": [
+    "gpt-neox",
+    "20b"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "gpt-neox"
+  ]
+},
+{
+  "id": "gpt-j",
+  "name": "GPT-J",
+  "family": "GPT-J",
+  "organization": "EleutherAI",
+  "year": 2021,
+  "category": "llm",
+  "type": "open-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "parameters": "6B",
+  "focus": [
+    "open research",
+    "language modeling"
+  ],
+  "openWeights": true,
+  "tags": [
+    "gpt-j",
+    "eleutherai"
+  ],
+  "sources": [],
+  "relatedModels": []
+},
+{
+  "id": "gpt-neox-20b-instruct",
+  "name": "GPT-NeoX Instruction Models",
+  "family": "GPT-NeoX",
+  "organization": "Open research community",
+  "year": 2023,
+  "category": "llm",
+  "type": "instruction-language-model",
+  "modalities": ["text"],
+  "architecture": "decoder-only transformer",
+  "focus": [
+    "instruction following",
+    "open research"
+  ],
+  "openWeights": true,
+  "tags": [
+    "gpt-neox",
+    "instruction-tuning"
+  ],
+  "sources": [],
+  "relatedModels": [
+    "gpt-neox-20b"
+  ]
 }
