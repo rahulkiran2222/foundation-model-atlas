@@ -31033,5 +31033,955 @@
     "training-compute",
     "hardware-efficiency"
   ]
+},
+{
+  "id": "context-window",
+  "name": "Context Window",
+  "family": "Memory & Context",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2017,
+  "category": "memory",
+  "type": "context",
+  "description": "The context window is the amount of input and generated-token context that a model can process within a single inference sequence.",
+  "dimensions": [
+    "input tokens",
+    "output tokens",
+    "total sequence length",
+    "attention memory"
+  ],
+  "importance": [
+    "Determines how much information can be presented to the model at once",
+    "Affects long-document processing",
+    "Affects KV-cache memory and inference cost"
+  ],
+  "limitations": [
+    "A larger context window does not guarantee effective use of all information",
+    "Longer contexts increase computational or memory requirements",
+    "Information can be lost or underutilized within very long contexts"
+  ],
+  "tags": [
+    "context-window",
+    "long-context",
+    "memory"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "long-context",
+    "kv-cache",
+    "positional-encoding"
+  ]
+},
+{
+  "id": "long-context",
+  "name": "Long-Context Modeling",
+  "family": "Memory & Context",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "memory",
+  "type": "long-context",
+  "description": "Long-context modeling enables foundation models to process substantially longer sequences than conventional language models.",
+  "approaches": [
+    "extended positional encodings",
+    "RoPE scaling",
+    "sparse attention",
+    "linear attention",
+    "memory mechanisms",
+    "efficient attention kernels",
+    "retrieval"
+  ],
+  "challenges": [
+    "quadratic attention cost",
+    "KV-cache growth",
+    "position extrapolation",
+    "attention dilution",
+    "lost-in-the-middle behavior"
+  ],
+  "tags": [
+    "long-context",
+    "context-window",
+    "attention"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rope-scaling",
+    "sparse-attention",
+    "kv-cache"
+  ]
+},
+{
+  "id": "positional-encoding",
+  "name": "Positional Encoding",
+  "family": "Sequence Representation",
+  "organization": "Research community",
+  "releaseDate": "2017",
+  "year": 2017,
+  "category": "architecture",
+  "type": "position-representation",
+  "description": "Positional encoding provides information about token order because standard self-attention does not inherently encode sequence position.",
+  "types": [
+    "sinusoidal positional encoding",
+    "learned positional embeddings",
+    "relative positional encoding",
+    "rotary positional encoding",
+    "position biases"
+  ],
+  "purpose": [
+    "represent token order",
+    "distinguish positions",
+    "support sequence-dependent computation"
+  ],
+  "tags": [
+    "positional-encoding",
+    "transformer",
+    "sequence"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rope",
+    "alibi",
+    "relative-position"
+  ]
+},
+{
+  "id": "rope",
+  "name": "Rotary Position Embedding",
+  "family": "Positional Encoding",
+  "organization": "Research community",
+  "releaseDate": "2021",
+  "year": 2021,
+  "category": "architecture",
+  "type": "rotary-position-encoding",
+  "description": "Rotary Position Embedding encodes token positions by applying position-dependent rotations to query and key representations.",
+  "advantages": [
+    "Efficient positional representation",
+    "Naturally integrates position information into attention",
+    "Widely adopted in modern language models"
+  ],
+  "limitations": [
+    "Original configuration has limitations when extrapolated far beyond training context",
+    "Long-context extension often requires additional scaling techniques"
+  ],
+  "tags": [
+    "rope",
+    "positional-encoding",
+    "attention"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rope-scaling",
+    "long-context",
+    "attention"
+  ]
+},
+{
+  "id": "rope-scaling",
+  "name": "RoPE Scaling",
+  "family": "Long-Context Techniques",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "memory",
+  "type": "context-extension",
+  "description": "RoPE scaling modifies the frequency structure of rotary positional embeddings to extend the usable context length of models.",
+  "methods": [
+    "position interpolation",
+    "frequency scaling",
+    "NTK-aware scaling",
+    "dynamic scaling",
+    "YaRN-style scaling"
+  ],
+  "advantages": [
+    "Can extend context without retraining an entirely new model from scratch",
+    "Useful for long-context adaptation"
+  ],
+  "limitations": [
+    "Very long extrapolation can degrade positional resolution",
+    "Effectiveness depends on model architecture and adaptation method"
+  ],
+  "tags": [
+    "rope",
+    "rope-scaling",
+    "long-context"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rope",
+    "long-context",
+    "position-interpolation"
+  ]
+},
+{
+  "id": "alibi",
+  "name": "ALiBi",
+  "family": "Positional Encoding",
+  "organization": "Research community",
+  "releaseDate": "2022",
+  "year": 2022,
+  "category": "architecture",
+  "type": "attention-position-bias",
+  "description": "Attention with Linear Biases adds position-dependent linear biases directly to attention scores instead of using explicit positional embeddings.",
+  "advantages": [
+    "Simple positional mechanism",
+    "Can provide useful length generalization properties"
+  ],
+  "limitations": [
+    "Not universally superior to rotary or other positional methods",
+    "Architecture-specific tradeoffs"
+  ],
+  "tags": [
+    "alibi",
+    "positional-encoding",
+    "attention"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rope",
+    "positional-encoding"
+  ]
+},
+{
+  "id": "position-interpolation",
+  "name": "Position Interpolation",
+  "family": "Long-Context Techniques",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "memory",
+  "type": "context-extension",
+  "description": "Position interpolation extends a model's usable context by mapping positions from a longer target sequence into the positional range encountered during training.",
+  "purpose": [
+    "context extension",
+    "long-context adaptation"
+  ],
+  "advantages": [
+    "Can extend context with relatively efficient adaptation"
+  ],
+  "limitations": [
+    "Position resolution can change",
+    "Very large extensions may require additional training or specialized techniques"
+  ],
+  "tags": [
+    "position-interpolation",
+    "long-context",
+    "rope"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rope-scaling",
+    "long-context"
+  ]
+},
+{
+  "id": "attention-dilution",
+  "name": "Attention Dilution",
+  "family": "Long-Context Challenges",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2023,
+  "category": "memory",
+  "type": "long-context-challenge",
+  "description": "Attention dilution refers to the difficulty of reliably focusing on relevant information as the amount of contextual information increases.",
+  "effects": [
+    "reduced retrieval accuracy",
+    "irrelevant-context interference",
+    "weaker use of distant information"
+  ],
+  "tags": [
+    "long-context",
+    "attention",
+    "memory"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "lost-in-the-middle",
+    "context-window",
+    "long-context"
+  ]
+},
+{
+  "id": "lost-in-the-middle",
+  "name": "Lost in the Middle",
+  "family": "Long-Context Challenges",
+  "organization": "Research community",
+  "releaseDate": "2023",
+  "year": 2023,
+  "category": "memory",
+  "type": "long-context-evaluation",
+  "description": "Lost-in-the-middle describes a tendency observed in some language models to use information near the beginning or end of a long context more reliably than information positioned in the middle.",
+  "importance": [
+    "Shows that context-window size is not equivalent to effective information retrieval",
+    "Motivates dedicated long-context evaluation"
+  ],
+  "limitations": [
+    "Severity varies across models, tasks, prompts, and context lengths"
+  ],
+  "tags": [
+    "lost-in-the-middle",
+    "long-context",
+    "evaluation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "long-context",
+    "attention-dilution"
+  ]
+},
+{
+  "id": "external-memory",
+  "name": "External Memory",
+  "family": "Model Memory",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "memory",
+  "type": "external-memory",
+  "description": "External memory systems provide models with information stored outside the model parameters and immediate context window.",
+  "forms": [
+    "retrieval databases",
+    "vector stores",
+    "document stores",
+    "knowledge graphs",
+    "memory stores",
+    "caches"
+  ],
+  "advantages": [
+    "Allows information to be updated without retraining model weights",
+    "Can provide access to private or domain-specific information",
+    "Can reduce dependence on memorized knowledge"
+  ],
+  "limitations": [
+    "Retrieval quality becomes critical",
+    "Additional system complexity",
+    "Context-window constraints remain"
+  ],
+  "tags": [
+    "external-memory",
+    "retrieval",
+    "rag"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rag",
+    "vector-database",
+    "retrieval"
+  ]
+},
+{
+  "id": "retrieval",
+  "name": "Information Retrieval",
+  "family": "Retrieval Systems",
+  "organization": "Research community",
+  "releaseDate": "20th century",
+  "year": 1950,
+  "category": "retrieval",
+  "type": "information-retrieval",
+  "description": "Information retrieval is the process of finding relevant documents, passages, records, or other information from a collection in response to a query.",
+  "methods": [
+    "lexical retrieval",
+    "dense retrieval",
+    "hybrid retrieval",
+    "metadata filtering",
+    "knowledge-graph retrieval"
+  ],
+  "metrics": [
+    "precision",
+    "recall",
+    "MRR",
+    "NDCG",
+    "hit rate"
+  ],
+  "tags": [
+    "retrieval",
+    "search",
+    "rag"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "bm25",
+    "dense-retrieval",
+    "hybrid-retrieval"
+  ]
+},
+{
+  "id": "bm25",
+  "name": "BM25",
+  "family": "Lexical Retrieval",
+  "organization": "Information Retrieval Community",
+  "releaseDate": "1990s",
+  "year": 1994,
+  "category": "retrieval",
+  "type": "lexical-retrieval",
+  "description": "BM25 is a widely used lexical information-retrieval scoring function based primarily on term frequency, inverse document frequency, and document length normalization.",
+  "advantages": [
+    "Fast",
+    "Interpretable",
+    "Strong baseline for document retrieval",
+    "Works without neural embeddings"
+  ],
+  "limitations": [
+    "Primarily matches lexical overlap",
+    "May miss semantically related text expressed with different vocabulary"
+  ],
+  "tags": [
+    "bm25",
+    "retrieval",
+    "lexical-search"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "dense-retrieval",
+    "hybrid-retrieval",
+    "rag"
+  ]
+},
+{
+  "id": "dense-retrieval",
+  "name": "Dense Retrieval",
+  "family": "Retrieval Systems",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "retrieval",
+  "type": "embedding-retrieval",
+  "description": "Dense retrieval represents queries and documents as vectors and retrieves items based on vector similarity.",
+  "pipeline": [
+    "encode query",
+    "encode documents",
+    "store embeddings",
+    "perform nearest-neighbor search"
+  ],
+  "advantages": [
+    "Captures semantic similarity",
+    "Can retrieve conceptually related text with limited lexical overlap"
+  ],
+  "limitations": [
+    "Embedding quality determines retrieval quality",
+    "May miss exact lexical details",
+    "Requires vector indexing infrastructure"
+  ],
+  "tags": [
+    "dense-retrieval",
+    "embeddings",
+    "vector-search"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "embedding-model",
+    "vector-database",
+    "hybrid-retrieval"
+  ]
+},
+{
+  "id": "hybrid-retrieval",
+  "name": "Hybrid Retrieval",
+  "family": "Retrieval Systems",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "retrieval",
+  "type": "hybrid-search",
+  "description": "Hybrid retrieval combines multiple retrieval mechanisms, commonly lexical and dense retrieval, to improve coverage across different query types.",
+  "components": [
+    "BM25",
+    "dense embeddings",
+    "metadata filters",
+    "reranking"
+  ],
+  "advantages": [
+    "Combines exact matching with semantic matching",
+    "Useful across heterogeneous document collections"
+  ],
+  "limitations": [
+    "More system complexity",
+    "Requires score fusion or ranking strategy"
+  ],
+  "tags": [
+    "hybrid-retrieval",
+    "bm25",
+    "dense-retrieval"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "reranking",
+    "rag",
+    "retrieval"
+  ]
+},
+{
+  "id": "reranking",
+  "name": "Reranking",
+  "family": "Retrieval Systems",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2019,
+  "category": "retrieval",
+  "type": "reranking",
+  "description": "Reranking applies a more expressive scoring model to an initial set of retrieved candidates in order to improve the ordering of the most relevant results.",
+  "pipeline": [
+    "initial retrieval",
+    "candidate selection",
+    "cross-encoder or reranker scoring",
+    "final ranking"
+  ],
+  "advantages": [
+    "Can improve relevance of top-ranked results",
+    "Allows inexpensive retrieval followed by expensive scoring on a smaller candidate set"
+  ],
+  "limitations": [
+    "Adds inference latency",
+    "Reranker quality remains a bottleneck"
+  ],
+  "tags": [
+    "reranking",
+    "retrieval",
+    "search"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "dense-retrieval",
+    "hybrid-retrieval",
+    "rag"
+  ]
+},
+{
+  "id": "embedding-model",
+  "name": "Embedding Model",
+  "family": "Representation Models",
+  "organization": "Research community",
+  "releaseDate": "2010s",
+  "year": 2018,
+  "category": "retrieval",
+  "type": "embedding-model",
+  "description": "An embedding model maps text, images, audio, or other objects into numerical vector representations designed to capture useful semantic or structural relationships.",
+  "uses": [
+    "semantic search",
+    "retrieval",
+    "clustering",
+    "classification",
+    "recommendation"
+  ],
+  "properties": [
+    "embedding dimension",
+    "similarity function",
+    "training objective",
+    "modality",
+    "language coverage"
+  ],
+  "tags": [
+    "embeddings",
+    "representation",
+    "retrieval"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "dense-retrieval",
+    "vector-database"
+  ]
+},
+{
+  "id": "vector-database",
+  "name": "Vector Database",
+  "family": "Retrieval Infrastructure",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "retrieval",
+  "type": "vector-storage",
+  "description": "A vector database or vector index stores embeddings and supports similarity search over large collections of vector representations.",
+  "capabilities": [
+    "nearest-neighbor search",
+    "metadata filtering",
+    "indexing",
+    "hybrid search",
+    "collection management"
+  ],
+  "indexingMethods": [
+    "HNSW",
+    "IVF",
+    "product quantization",
+    "flat search"
+  ],
+  "tags": [
+    "vector-database",
+    "embeddings",
+    "retrieval"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "dense-retrieval",
+    "embedding-model",
+    "rag"
+  ]
+},
+{
+  "id": "hnsw",
+  "name": "HNSW",
+  "family": "Vector Indexing",
+  "organization": "Research community",
+  "releaseDate": "2016",
+  "year": 2016,
+  "category": "retrieval",
+  "type": "approximate-nearest-neighbor",
+  "description": "Hierarchical Navigable Small World graphs provide an approximate nearest-neighbor indexing method for efficient similarity search in high-dimensional vector spaces.",
+  "advantages": [
+    "Fast approximate nearest-neighbor search",
+    "Strong recall-speed tradeoff",
+    "Widely used in vector search systems"
+  ],
+  "tradeoffs": [
+    "Memory usage",
+    "Index construction cost",
+    "Search recall versus latency"
+  ],
+  "tags": [
+    "hnsw",
+    "vector-search",
+    "ann"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "vector-database",
+    "dense-retrieval"
+  ]
+},
+{
+  "id": "rag",
+  "name": "Retrieval-Augmented Generation",
+  "family": "Foundation Model Systems",
+  "organization": "Research community",
+  "releaseDate": "2020",
+  "year": 2020,
+  "category": "retrieval",
+  "type": "rag",
+  "description": "Retrieval-Augmented Generation combines information retrieval with generative modeling by supplying retrieved external information to a generator.",
+  "pipeline": [
+    "user query",
+    "retrieval",
+    "candidate ranking",
+    "context construction",
+    "generation"
+  ],
+  "advantages": [
+    "Provides access to external or current information",
+    "Can ground generation in retrieved sources",
+    "Supports private-domain knowledge"
+  ],
+  "limitations": [
+    "Retrieval errors propagate into generation",
+    "Irrelevant context can degrade answers",
+    "Requires retrieval infrastructure"
+  ],
+  "tags": [
+    "rag",
+    "retrieval",
+    "grounding",
+    "generation"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "retrieval",
+    "reranking",
+    "external-memory"
+  ]
+},
+{
+  "id": "rag-pipeline",
+  "name": "RAG Pipeline",
+  "family": "Retrieval-Augmented Systems",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "retrieval",
+  "type": "rag-pipeline",
+  "description": "A RAG pipeline connects document ingestion, chunking, embedding, indexing, retrieval, reranking, context construction, and generation.",
+  "stages": [
+    "document ingestion",
+    "parsing",
+    "chunking",
+    "embedding",
+    "indexing",
+    "query transformation",
+    "retrieval",
+    "reranking",
+    "context assembly",
+    "generation"
+  ],
+  "failurePoints": [
+    "bad parsing",
+    "poor chunking",
+    "weak embeddings",
+    "retrieval failure",
+    "reranking failure",
+    "context overload",
+    "generation hallucination"
+  ],
+  "tags": [
+    "rag",
+    "retrieval",
+    "grounding"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rag",
+    "chunking",
+    "reranking"
+  ]
+},
+{
+  "id": "chunking",
+  "name": "Document Chunking",
+  "family": "RAG Infrastructure",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "retrieval",
+  "type": "document-segmentation",
+  "description": "Document chunking divides large documents into smaller retrieval units that can be embedded, indexed, retrieved, and supplied to a model.",
+  "strategies": [
+    "fixed-size chunks",
+    "sentence chunks",
+    "paragraph chunks",
+    "semantic chunks",
+    "hierarchical chunks"
+  ],
+  "tradeoffs": [
+    "chunk size",
+    "retrieval precision",
+    "context completeness",
+    "embedding cost"
+  ],
+  "tags": [
+    "chunking",
+    "rag",
+    "retrieval"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rag-pipeline",
+    "embedding-model",
+    "retrieval"
+  ]
+},
+{
+  "id": "query-rewriting",
+  "name": "Query Rewriting",
+  "family": "Retrieval Optimization",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "retrieval",
+  "type": "query-transformation",
+  "description": "Query rewriting transforms a user's original query into one or more retrieval-oriented queries intended to improve search coverage or relevance.",
+  "methods": [
+    "query expansion",
+    "query decomposition",
+    "hypothetical document generation",
+    "multi-query retrieval",
+    "semantic reformulation"
+  ],
+  "advantages": [
+    "Can improve retrieval recall",
+    "Useful for ambiguous or complex questions"
+  ],
+  "limitations": [
+    "Rewritten queries can introduce errors",
+    "Additional model inference increases latency"
+  ],
+  "tags": [
+    "query-rewriting",
+    "rag",
+    "retrieval"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "rag",
+    "query-decomposition",
+    "retrieval"
+  ]
+},
+{
+  "id": "query-decomposition",
+  "name": "Query Decomposition",
+  "family": "Retrieval Optimization",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2023,
+  "category": "retrieval",
+  "type": "multi-step-retrieval",
+  "description": "Query decomposition breaks a complex question into smaller subqueries that can be independently retrieved or solved before combining the results.",
+  "uses": [
+    "multi-hop retrieval",
+    "research questions",
+    "comparative questions",
+    "complex reasoning"
+  ],
+  "advantages": [
+    "Improves retrieval for questions requiring multiple sources",
+    "Makes complex retrieval steps explicit"
+  ],
+  "limitations": [
+    "Incorrect decomposition can omit important information",
+    "Increases retrieval and inference cost"
+  ],
+  "tags": [
+    "query-decomposition",
+    "rag",
+    "multi-hop"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "query-rewriting",
+    "multi-hop-retrieval",
+    "rag"
+  ]
+},
+{
+  "id": "multi-hop-retrieval",
+  "name": "Multi-Hop Retrieval",
+  "family": "Retrieval Systems",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "retrieval",
+  "type": "multi-hop-retrieval",
+  "description": "Multi-hop retrieval retrieves information through multiple connected retrieval steps when a question cannot be answered from a single passage or document.",
+  "pipeline": [
+    "initial retrieval",
+    "reason over evidence",
+    "formulate next query",
+    "retrieve additional evidence",
+    "combine evidence"
+  ],
+  "uses": [
+    "complex research",
+    "knowledge-intensive reasoning",
+    "cross-document questions"
+  ],
+  "limitations": [
+    "Error propagation across retrieval hops",
+    "Higher latency and system complexity"
+  ],
+  "tags": [
+    "multi-hop-retrieval",
+    "rag",
+    "retrieval"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "query-decomposition",
+    "query-rewriting",
+    "rag"
+  ]
+},
+{
+  "id": "memory-compression",
+  "name": "Memory Compression",
+  "family": "Model Memory",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "memory",
+  "type": "memory-compression",
+  "description": "Memory compression reduces the amount of information that must remain explicitly represented while attempting to preserve information needed for future model computation.",
+  "approaches": [
+    "summary memory",
+    "compressed KV cache",
+    "token merging",
+    "state compression",
+    "learned memory"
+  ],
+  "advantages": [
+    "Reduces memory requirements",
+    "Can support longer effective interactions"
+  ],
+  "limitations": [
+    "Compression can discard useful information",
+    "Quality depends on what information is preserved"
+  ],
+  "tags": [
+    "memory-compression",
+    "long-context",
+    "kv-cache"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "kv-cache",
+    "external-memory",
+    "long-context"
+  ]
+},
+{
+  "id": "recurrent-memory",
+  "name": "Recurrent Memory",
+  "family": "Model Memory",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2020,
+  "category": "memory",
+  "type": "recurrent-memory",
+  "description": "Recurrent memory mechanisms maintain a compact state that is updated across segments or interactions, allowing models to process information beyond a single fixed context window.",
+  "approaches": [
+    "segment recurrence",
+    "memory tokens",
+    "compressed states",
+    "recurrent attention"
+  ],
+  "advantages": [
+    "Potentially extends effective sequence processing",
+    "Can reduce the need to attend over the entire historical sequence"
+  ],
+  "limitations": [
+    "Information compression can lose detail",
+    "Memory state management introduces additional architectural complexity"
+  ],
+  "tags": [
+    "recurrent-memory",
+    "memory",
+    "long-context"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "memory-compression",
+    "state-space-model",
+    "long-context"
+  ]
+},
+{
+  "id": "context-caching",
+  "name": "Context Caching",
+  "family": "Inference Optimization",
+  "organization": "Research community",
+  "releaseDate": "2020s",
+  "year": 2023,
+  "category": "memory",
+  "type": "cache",
+  "description": "Context caching reuses previously computed representations for repeated or shared prefixes, reducing redundant inference computation.",
+  "uses": [
+    "long system prompts",
+    "shared documents",
+    "multi-turn applications",
+    "batch workloads"
+  ],
+  "advantages": [
+    "Lower latency for repeated context",
+    "Potentially lower inference cost"
+  ],
+  "limitations": [
+    "Cache invalidation and storage management",
+    "Benefits depend on prefix reuse"
+  ],
+  "tags": [
+    "context-caching",
+    "inference",
+    "kv-cache"
+  ],
+  "sources": [],
+  "relatedConcepts": [
+    "kv-cache",
+    "inference-cost",
+    "long-context"
+  ]
 }
 ]
