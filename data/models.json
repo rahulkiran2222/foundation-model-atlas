@@ -2680,7 +2680,9 @@
     "mamba",
     "codestral",
     "qwen2-5-coder"
-  ],
+  ]
+  },
+
   {
   "id": "deepseek-v2",
   "name": "DeepSeek V2",
@@ -12459,7 +12461,7 @@
     "bitnet",
     "bitnet-2b4t"
   ]
-}
+},
 {
   "id": "sparse-moe",
   "name": "Sparsely-Gated Mixture-of-Experts",
@@ -14883,7 +14885,7 @@
     "qwen-vl",
     "internvl"
   ]
-}
+},
   {
   "id": "audio-tokenization",
   "name": "Audio Tokenization",
@@ -19731,7 +19733,7 @@
     "tokenizer-free-modeling",
     "t5",
     "byte-level-representation"
-  ]
+  ],
   "representation": {
   "tokenizer": "",
   "tokenizerType": "",
@@ -19744,8 +19746,10 @@
   "audioRepresentation": "",
   "videoRepresentation": "",
   "tokenEfficiencyNotes": ""
+  }
 },
-    {
+
+{
   "id": "benchmark-taxonomy",
   "name": "Foundation Model Evaluation Taxonomy",
   "family": "Evaluation Framework",
@@ -20948,7 +20952,7 @@
     "benchmark-contamination",
     "human-evaluation",
     "llm-as-a-judge"
-  ]
+  ],
   "evaluation": {
   "benchmarks": [],
   "reportedScores": [],
@@ -20961,6 +20965,7 @@
   "contaminationRisk": "unknown",
   "humanEvaluation": false,
   "externalEvaluation": false
+  }
 },
 {
   "id": "pretraining",
@@ -23076,7 +23081,6 @@
     "inference-optimization"
   ]
 },
-  ,
 {
   "id": "context-window",
   "name": "Context Window",
@@ -25040,7 +25044,6 @@
     "hallucination"
   ]
 },
-,
 {
   "id": "multimodal-foundation-model",
   "name": "Multimodal Foundation Model",
@@ -26954,8 +26957,7 @@
     "token-fertility",
     "multilingual-tokenization"
   ]
-}
-]
+},
 {
   "id": "tokens-vs-semantic-units",
   "name": "Tokens vs Semantic Units",
@@ -26993,7 +26995,6 @@
     "multilingual-tokenization"
   ]
 },
-,
 {
   "id": "model-evaluation",
   "name": "Foundation Model Evaluation",
@@ -28103,8 +28104,7 @@
     "real-world-evaluation",
     "benchmark-contamination"
   ]
-}
-,
+},
 {
   "id": "training-data",
   "name": "Foundation Model Training Data",
@@ -34876,7 +34876,6 @@
     "nemotron"
   ]
 },
-,
 {
   "id": "mistral-7b",
   "name": "Mistral 7B",
@@ -35868,7 +35867,7 @@
   "relatedModels": [
     "llama-3-3"
   ]
-},,
+},
 {
   "id": "starcoder",
   "name": "StarCoder",
@@ -36999,7 +36998,6 @@
     "gpt-neox-20b"
   ]
 },
-,
 {
   "id": "opt",
   "name": "OPT",
@@ -37923,7 +37921,7 @@
   ],
   "sources": [],
   "relatedModels": []
-}, ,
+},
 {
   "id": "whisper",
   "name": "Whisper",
@@ -39137,7 +39135,6 @@
     "blip-2"
   ]
 }, 
-,
 {
   "id": "llava",
   "name": "LLaVA",
@@ -40181,7 +40178,6 @@
   "sources": [],
   "relatedModels": []
 },
-,
 {
   "id": "granite",
   "name": "Granite",
