@@ -1,0 +1,4463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Architectures — Foundation Model Atlas</title>
+
+  <meta
+    name="description"
+    content="Explore the architecture encyclopedia of the Foundation Model Atlas: Transformers, MoE, attention mechanisms, state space models, diffusion, recurrent architectures, and more."
+  >
+
+  <meta
+    name="author"
+    content="Rahul Kiran Gunti"
+  >
+
+  <meta
+    name="theme-color"
+    content="#0b0d10"
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="Architecture Encyclopedia — Foundation Model Atlas"
+  >
+
+  <meta
+    property="og:description"
+    content="Understand the architectural ideas behind modern foundation models."
+  >
+
+  <meta
+    property="og:url"
+    content="https://rahulkiran2222.github.io/foundation-model-atlas/architectures.html"
+  >
+
+  <link
+    rel="canonical"
+    href="https://rahulkiran2222.github.io/foundation-model-atlas/architectures.html"
+  >
+
+  <!-- =======================================================
+       FONTS
+       ======================================================= -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <style>
+
+    /* =========================================================
+       FOUNDATION MODEL ATLAS
+       ARCHITECTURES — v0.1
+       ========================================================= */
+
+    :root {
+
+      --bg: #0b0d10;
+      --bg-soft: #101318;
+      --bg-card: #13171d;
+      --bg-card-hover: #171c23;
+
+      --text: #f2f4f7;
+      --text-soft: #a7afb9;
+      --text-muted: #6f7884;
+
+      --line: #252b33;
+      --line-light: #303740;
+
+      --accent: #d7ff64;
+      --accent-soft: rgba(215, 255, 100, 0.10);
+
+      --blue: #8ab4ff;
+      --purple: #bda5ff;
+      --orange: #ffb86b;
+
+      --max-width: 1180px;
+
+      --radius: 9px;
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+
+      margin: 0;
+
+      background: var(--bg);
+
+      color: var(--text);
+
+      font-family: "Inter", sans-serif;
+
+      font-size: 14px;
+
+      line-height: 1.65;
+
+      -webkit-font-smoothing: antialiased;
+
+    }
+
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+
+    ::selection {
+      background: var(--accent);
+      color: #0b0d10;
+    }
+
+
+    .container {
+
+      width: min(
+        calc(100% - 40px),
+        var(--max-width)
+      );
+
+      margin: 0 auto;
+
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
+    .nav {
+
+      position: sticky;
+
+      top: 0;
+
+      z-index: 100;
+
+      border-bottom: 1px solid var(--line);
+
+      background:
+        rgba(11, 13, 16, 0.90);
+
+      backdrop-filter: blur(16px);
+
+    }
+
+
+    .nav-inner {
+
+      min-height: 68px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 30px;
+
+    }
+
+
+    .brand {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-weight: 600;
+
+    }
+
+
+    .brand-mark {
+
+      width: 30px;
+
+      height: 30px;
+
+      display: grid;
+
+      place-items: center;
+
+      border: 1px solid var(--accent);
+
+      border-radius: 6px;
+
+      color: var(--accent);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 10px;
+
+    }
+
+
+    .brand-name {
+
+      font-size: 14px;
+
+    }
+
+
+    .brand-name span {
+
+      color: var(--text-muted);
+
+      font-weight: 400;
+
+    }
+
+
+    .nav-links {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 23px;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 10px;
+
+      color: var(--text-soft);
+
+    }
+
+
+    .nav-links a:hover {
+
+      color: var(--accent);
+
+    }
+
+
+    .nav-links .active {
+
+      color: var(--accent);
+
+    }
+
+
+    .github-link {
+
+      border: 1px solid var(--line-light);
+
+      border-radius: 6px;
+
+      padding: 8px 11px;
+
+    }
+
+
+    .github-link:hover {
+
+      border-color: var(--accent);
+
+    }
+
+
+    /* =========================================================
+       PAGE HEADER
+       ========================================================= */
+
+    .page-header {
+
+      padding: 78px 0 58px;
+
+      border-bottom: 1px solid var(--line);
+
+    }
+
+
+    .kicker {
+
+      margin: 0 0 12px;
+
+      color: var(--accent);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 10px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.08em;
+
+    }
+
+
+    h1 {
+
+      margin: 0;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: clamp(
+        42px,
+        6vw,
+        68px
+      );
+
+      line-height: 1;
+
+      letter-spacing: -0.05em;
+
+    }
+
+
+    .page-description {
+
+      max-width: 770px;
+
+      margin: 22px 0 0;
+
+      color: var(--text-soft);
+
+      font-size: 16px;
+
+    }
+
+
+    /* =========================================================
+       INTRO GRID
+       ========================================================= */
+
+    .intro {
+
+      padding: 52px 0;
+
+      border-bottom: 1px solid var(--line);
+
+    }
+
+
+    .intro-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1.25fr
+        0.75fr;
+
+      gap: 10px;
+
+    }
+
+
+    .intro-card {
+
+      padding: 28px;
+
+      border: 1px solid var(--line);
+
+      border-radius: var(--radius);
+
+      background: var(--bg-card);
+
+    }
+
+
+    .intro-card h2 {
+
+      margin: 0 0 9px;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 22px;
+
+      letter-spacing: -0.025em;
+
+    }
+
+
+    .intro-card p {
+
+      margin: 0;
+
+      color: var(--text-soft);
+
+      font-size: 13px;
+
+    }
+
+
+    .taxonomy-flow {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      align-items: center;
+
+      gap: 7px;
+
+      margin-top: 20px;
+
+    }
+
+
+    .taxonomy-pill {
+
+      padding: 6px 9px;
+
+      border: 1px solid var(--line-light);
+
+      border-radius: 5px;
+
+      color: var(--text-soft);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+    }
+
+
+    .taxonomy-arrow {
+
+      color: var(--accent);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 10px;
+
+    }
+
+
+    .principle-list {
+
+      margin: 0;
+
+      padding: 0;
+
+      list-style: none;
+
+    }
+
+
+    .principle-list li {
+
+      display: flex;
+
+      gap: 11px;
+
+      padding: 9px 0;
+
+      border-bottom: 1px solid var(--line);
+
+      color: var(--text-soft);
+
+      font-size: 12px;
+
+    }
+
+
+    .principle-list li:last-child {
+
+      border-bottom: none;
+
+    }
+
+
+    .principle-list span {
+
+      color: var(--accent);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+    }
+
+
+    /* =========================================================
+       SEARCH / FILTER
+       ========================================================= */
+
+    .catalog {
+
+      padding: 62px 0 85px;
+
+    }
+
+
+    .catalog-header {
+
+      display: flex;
+
+      align-items: flex-end;
+
+      justify-content: space-between;
+
+      gap: 25px;
+
+      margin-bottom: 30px;
+
+    }
+
+
+    .catalog-title {
+
+      margin: 0;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 32px;
+
+      letter-spacing: -0.035em;
+
+    }
+
+
+    .catalog-subtitle {
+
+      margin: 7px 0 0;
+
+      color: var(--text-muted);
+
+      font-size: 12px;
+
+    }
+
+    #architectureCount {
+      margin-left: 8px;
+      color: var(--accent);
+      font-family: "DM Mono", monospace;
+      font-size: 9px;
+    }
+
+
+    .search {
+
+      width: 330px;
+
+      height: 42px;
+
+      padding: 0 13px;
+
+      border: 1px solid var(--line-light);
+
+      border-radius: 6px;
+
+      outline: none;
+
+      background: var(--bg-card);
+
+      color: var(--text);
+
+      font-size: 12px;
+
+    }
+
+
+    .search::placeholder {
+
+      color: var(--text-muted);
+
+    }
+
+
+    .search:focus {
+
+      border-color: var(--accent);
+
+    }
+
+
+    .category-filters {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+
+      margin-bottom: 28px;
+
+    }
+
+
+    .category-button {
+
+      padding: 7px 11px;
+
+      border: 1px solid var(--line);
+
+      border-radius: 5px;
+
+      background: transparent;
+
+      color: var(--text-muted);
+
+      cursor: pointer;
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+      transition:
+        color 0.15s ease,
+        border-color 0.15s ease,
+        background 0.15s ease;
+
+    }
+
+
+    .category-button:hover {
+
+      color: var(--text);
+
+      border-color: var(--line-light);
+
+    }
+
+
+    .category-button.active {
+
+      color: #0b0d10;
+
+      border-color: var(--accent);
+
+      background: var(--accent);
+
+    }
+
+
+    /* =========================================================
+       ARCHITECTURE GRID
+       ========================================================= */
+
+    .architecture-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 10px;
+
+    }
+
+
+    .architecture-card {
+
+      position: relative;
+
+      min-height: 255px;
+
+      padding: 24px;
+
+      border: 1px solid var(--line);
+
+      border-radius: var(--radius);
+
+      background: var(--bg-card);
+
+      overflow: hidden;
+
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+
+    }
+
+
+    .architecture-card::after {
+
+      content: "";
+
+      position: absolute;
+
+      right: -40px;
+
+      bottom: -45px;
+
+      width: 130px;
+
+      height: 130px;
+
+      border: 1px solid var(--line);
+
+      border-radius: 50%;
+
+      opacity: 0.5;
+
+    }
+
+
+    .architecture-card:hover {
+
+      transform: translateY(-2px);
+
+      border-color: var(--line-light);
+
+      background: var(--bg-card-hover);
+
+    }
+
+
+    .architecture-number {
+
+      color: var(--text-muted);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+    }
+
+
+    .architecture-category {
+
+      float: right;
+
+      color: var(--accent);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 8px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .architecture-card h3 {
+
+      margin: 42px 0 8px;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 21px;
+
+      letter-spacing: -0.025em;
+
+    }
+
+
+    .architecture-card p {
+
+      margin: 0;
+
+      color: var(--text-soft);
+
+      font-size: 12px;
+
+    }
+
+
+    .architecture-meta {
+
+      position: absolute;
+
+      left: 24px;
+
+      right: 24px;
+
+      bottom: 21px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 10px;
+
+      padding-top: 12px;
+
+      border-top: 1px solid var(--line);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+      color: var(--text-muted);
+
+    }
+
+
+    .architecture-arrow {
+
+      color: var(--accent);
+
+    }
+
+
+    /* =========================================================
+       SEARCH EMPTY
+       ========================================================= */
+
+    .empty {
+
+      display: none;
+
+      padding: 70px 20px;
+
+      text-align: center;
+
+      border: 1px solid var(--line);
+
+      border-radius: var(--radius);
+
+      color: var(--text-muted);
+
+    }
+
+
+    .empty strong {
+
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: var(--text);
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 18px;
+
+    }
+
+
+    /* =========================================================
+       ARCHITECTURE FAMILY MAP
+       ========================================================= */
+
+    .map-section {
+
+      padding: 80px 0;
+
+      border-top: 1px solid var(--line);
+
+      border-bottom: 1px solid var(--line);
+
+    }
+
+
+    .map-header {
+
+      max-width: 720px;
+
+      margin-bottom: 30px;
+
+    }
+
+
+    .map-header h2 {
+
+      margin: 0;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 32px;
+
+      letter-spacing: -0.035em;
+
+    }
+
+
+    .map-header p {
+
+      margin: 10px 0 0;
+
+      color: var(--text-soft);
+
+      font-size: 13px;
+
+    }
+
+
+    .architecture-map {
+
+      padding: 30px;
+
+      border: 1px solid var(--line);
+
+      border-radius: var(--radius);
+
+      background: var(--bg-card);
+
+      overflow-x: auto;
+
+    }
+
+
+    .map-line {
+
+      min-width: 780px;
+
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        50px
+        1fr
+        50px
+        1fr;
+
+      align-items: center;
+
+      gap: 10px;
+
+    }
+
+
+    .map-node {
+
+      min-height: 90px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      padding: 17px;
+
+      border: 1px solid var(--line-light);
+
+      border-radius: 6px;
+
+      background: var(--bg-soft);
+
+    }
+
+
+    .map-node strong {
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 15px;
+
+    }
+
+
+    .map-node span {
+
+      margin-top: 3px;
+
+      color: var(--text-muted);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 8px;
+
+    }
+
+
+    .map-connector {
+
+      height: 1px;
+
+      background: var(--line-light);
+
+      position: relative;
+
+    }
+
+
+    .map-connector::after {
+
+      content: "›";
+
+      position: absolute;
+
+      right: -2px;
+
+      top: 50%;
+
+      transform: translateY(-54%);
+
+      color: var(--accent);
+
+      font-family: "DM Mono", monospace;
+
+    }
+
+
+    /* =========================================================
+       LEARNING PATH
+       ========================================================= */
+
+    .learning {
+
+      padding: 80px 0;
+
+    }
+
+
+    .learning-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 10px;
+
+    }
+
+
+    .learning-card {
+
+      padding: 26px;
+
+      border: 1px solid var(--line);
+
+      border-radius: var(--radius);
+
+      background: var(--bg-card);
+
+    }
+
+
+    .learning-label {
+
+      color: var(--accent);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .learning-card h3 {
+
+      margin: 16px 0 8px;
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-size: 19px;
+
+    }
+
+
+    .learning-card p {
+
+      margin: 0;
+
+      color: var(--text-soft);
+
+      font-size: 12px;
+
+    }
+
+
+    .learning-path {
+
+      margin-top: 20px;
+
+      color: var(--text-muted);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+      line-height: 2;
+
+    }
+
+
+    .learning-path strong {
+
+      color: var(--text-soft);
+
+      font-weight: 400;
+
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+
+      padding: 45px 0 60px;
+
+    }
+
+
+    .footer-inner {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 25px;
+
+      padding-top: 20px;
+
+      border-top: 1px solid var(--line);
+
+    }
+
+
+    .footer-brand {
+
+      font-family: "Space Grotesk", sans-serif;
+
+      font-weight: 600;
+
+      font-size: 14px;
+
+    }
+
+
+    .footer-brand span {
+
+      color: var(--accent);
+
+    }
+
+
+    .footer-note {
+
+      margin-top: 4px;
+
+      color: var(--text-muted);
+
+      font-size: 11px;
+
+    }
+
+
+    .footer-links {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 18px;
+
+      color: var(--text-muted);
+
+      font-family: "DM Mono", monospace;
+
+      font-size: 9px;
+
+    }
+
+
+    .footer-links a:hover {
+
+      color: var(--accent);
+
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .architecture-grid {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+
+      }
+
+
+      .intro-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+    }
+
+
+    @media (max-width: 700px) {
+
+      .container {
+
+        width: min(
+          calc(100% - 28px),
+          var(--max-width)
+        );
+
+      }
+
+
+      .brand-name {
+
+        display: none;
+
+      }
+
+
+      .nav-links {
+
+        gap: 10px;
+
+        font-size: 9px;
+
+      }
+
+
+      .github-link {
+
+        display: none;
+
+      }
+
+
+      .catalog-header {
+
+        display: block;
+
+      }
+
+
+      .search {
+
+        width: 100%;
+
+        margin-top: 20px;
+
+      }
+
+
+      .architecture-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .learning-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .footer-inner {
+
+        display: block;
+
+      }
+
+
+      .footer-links {
+
+        margin-top: 18px;
+
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =======================================================
+       NAVIGATION
+       ======================================================= -->
+
+  <nav class="nav">
+
+    <div class="container nav-inner">
+
+      <a
+        href="index.html"
+        class="brand"
+      >
+
+        <span class="brand-mark">
+          FM
+        </span>
+
+        <span class="brand-name">
+          Foundation Model Atlas
+          <span>/ v0.1</span>
+        </span>
+
+      </a>
+
+
+      <div class="nav-links">
+
+        <a href="index.html">
+          atlas
+        </a>
+
+        <a href="models.html">
+          models
+        </a>
+
+        <a
+          href="architectures.html"
+          class="active"
+        >
+          architectures
+        </a>
+
+        <a href="models.html#compare">
+          compare
+        </a>
+
+        <a
+          href="https://github.com/rahulkiran2222/foundation-model-atlas"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="github-link"
+        >
+          GitHub ↗
+        </a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+  <!-- =======================================================
+       PAGE HEADER
+       ======================================================= -->
+
+  <header class="page-header">
+
+    <div class="container">
+
+      <p class="kicker">
+        Foundation Model Atlas / 02
+      </p>
+
+      <h1>
+        Architecture Encyclopedia
+      </h1>
+
+      <p class="page-description">
+        A map of the architectural ideas that shape modern
+        foundation models—from attention and Transformers to
+        mixture-of-experts, state space models, recurrent
+        alternatives, diffusion, and emerging hybrids.
+      </p>
+
+    </div>
+
+  </header>
+
+
+  <!-- =======================================================
+       INTRO
+       ======================================================= -->
+
+  <section class="intro">
+
+    <div class="container">
+
+      <div class="intro-grid">
+
+
+        <div class="intro-card">
+
+          <h2>
+            Architectures, not just model names.
+          </h2>
+
+          <p>
+            The same architectural idea can appear across
+            many different model families. The Atlas therefore
+            treats architecture as its own knowledge layer,
+            connecting concepts to models, papers, evolution,
+            computational characteristics, and practical tradeoffs.
+          </p>
+
+
+          <div class="taxonomy-flow">
+
+            <span class="taxonomy-pill">
+              Concept
+            </span>
+
+            <span class="taxonomy-arrow">
+              →
+            </span>
+
+            <span class="taxonomy-pill">
+              Mechanism
+            </span>
+
+            <span class="taxonomy-arrow">
+              →
+            </span>
+
+            <span class="taxonomy-pill">
+              Architecture
+            </span>
+
+            <span class="taxonomy-arrow">
+              →
+            </span>
+
+            <span class="taxonomy-pill">
+              Model
+            </span>
+
+            <span class="taxonomy-arrow">
+              →
+            </span>
+
+            <span class="taxonomy-pill">
+              Application
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="intro-card">
+
+          <h2>
+            Each page will explain
+          </h2>
+
+          <ul class="principle-list">
+
+            <li>
+              <span>01</span>
+              Why the architecture exists
+            </li>
+
+            <li>
+              <span>02</span>
+              Core mechanism
+            </li>
+
+            <li>
+              <span>03</span>
+              Mathematical intuition
+            </li>
+
+            <li>
+              <span>04</span>
+              Computational complexity
+            </li>
+
+            <li>
+              <span>05</span>
+              Advantages & limitations
+            </li>
+
+            <li>
+              <span>06</span>
+              Models using it
+            </li>
+
+            <li>
+              <span>07</span>
+              Primary research sources
+            </li>
+
+          </ul>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       ARCHITECTURE CATALOG
+       ======================================================= -->
+
+  <main class="catalog">
+
+    <div class="container">
+
+
+      <div class="catalog-header">
+
+        <div>
+
+          <h2 class="catalog-title">
+            Architecture index
+          </h2>
+
+          <p class="catalog-subtitle">
+            Browse the architectural building blocks of
+            foundation models.
+          </p>
+
+        </div>
+
+
+        <input
+          id="architectureSearch"
+          class="search"
+          type="search"
+          placeholder="Search architectures..."
+          autocomplete="off"
+          aria-label="Search architectures"
+        >
+
+      </div>
+
+
+      <!-- =====================================================
+           CATEGORY FILTERS
+           ===================================================== -->
+
+      <div class="category-filters">
+
+        <button
+          type="button"
+          class="category-button active"
+          data-category="all"
+        >
+          All
+        </button>
+
+        <button
+          type="button"
+          class="category-button"
+          data-category="attention"
+        >
+          Attention
+        </button>
+
+        <button
+          type="button"
+          class="category-button"
+          data-category="transformer"
+        >
+          Transformer
+        </button>
+
+        <button
+          type="button"
+          class="category-button"
+          data-category="sparse"
+        >
+          Sparse / MoE
+        </button>
+
+        <button
+          type="button"
+          class="category-button"
+          data-category="efficient"
+        >
+          Efficient Attention
+        </button>
+
+        <button
+          type="button"
+          class="category-button"
+          data-category="sequence"
+        >
+          Sequence Alternatives
+        </button>
+
+        <button
+          type="button"
+          class="category-button"
+          data-category="generative"
+        >
+          Generative
+        </button>
+
+        <button
+          type="button"
+          class="category-button"
+          data-category="multimodal"
+        >
+          Multimodal
+        </button>
+
+      </div>
+
+
+      <!-- =====================================================
+           ARCHITECTURE CARDS
+           ===================================================== -->
+
+      <div
+        id="architectureGrid"
+        class="architecture-grid"
+      >
+
+        <!-- JavaScript renders cards -->
+
+      </div>
+
+
+      <!-- =====================================================
+           EMPTY STATE
+           ===================================================== -->
+
+      <div
+        id="emptyState"
+        class="empty"
+      >
+
+        <strong>
+          No architecture found.
+        </strong>
+
+        Try another search term or category.
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- =======================================================
+       ARCHITECTURE MAP
+       ======================================================= -->
+
+  <section class="map-section">
+
+    <div class="container">
+
+      <div class="map-header">
+
+        <p class="kicker">
+          Architecture evolution
+        </p>
+
+        <h2>
+          From attention to alternatives
+        </h2>
+
+        <p>
+          A simplified conceptual map. The full Atlas will
+          eventually represent these relationships as an
+          interactive graph backed by structured data and
+          primary research sources.
+        </p>
+
+      </div>
+
+
+      <div class="architecture-map">
+
+        <div class="map-line">
+
+
+          <div class="map-node">
+
+            <strong>
+              Attention
+            </strong>
+
+            <span>
+              sequence interaction
+            </span>
+
+          </div>
+
+
+          <div class="map-connector"></div>
+
+
+          <div class="map-node">
+
+            <strong>
+              Transformer
+            </strong>
+
+            <span>
+              attention-based architecture
+            </span>
+
+          </div>
+
+
+          <div class="map-connector"></div>
+
+
+          <div class="map-node">
+
+            <strong>
+              Modern Variants
+            </strong>
+
+            <span>
+              GQA · MLA · MoE · sparse systems
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+        <br>
+
+
+        <div class="map-line">
+
+
+          <div class="map-node">
+
+            <strong>
+              Sequence Modeling
+            </strong>
+
+            <span>
+              long-range dependencies
+            </span>
+
+          </div>
+
+
+          <div class="map-connector"></div>
+
+
+          <div class="map-node">
+
+            <strong>
+              State Space Models
+            </strong>
+
+            <span>
+              SSM · selective recurrence
+            </span>
+
+          </div>
+
+
+          <div class="map-connector"></div>
+
+
+          <div class="map-node">
+
+            <strong>
+              Hybrid Systems
+            </strong>
+
+            <span>
+              attention + recurrence / SSM
+            </span>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       LEARNING PATHS
+       ======================================================= -->
+
+  <section class="learning">
+
+    <div class="container">
+
+
+      <div class="map-header">
+
+        <p class="kicker">
+          Learn the architectures
+        </p>
+
+        <h2>
+          Choose your path
+        </h2>
+
+        <p>
+          The architecture encyclopedia will serve different
+          levels of readers—from students encountering attention
+          for the first time to researchers studying alternatives
+          to Transformers.
+        </p>
+
+      </div>
+
+
+      <div class="learning-grid">
+
+
+        <div class="learning-card">
+
+          <span class="learning-label">
+            Beginner
+          </span>
+
+          <h3>
+            Understand the Transformer
+          </h3>
+
+          <p>
+            Build the conceptual foundation before moving into
+            modern architectural variants.
+          </p>
+
+          <div class="learning-path">
+
+            <strong>
+              Attention
+            </strong>
+            →
+            Transformer
+            →
+            Encoder / Decoder
+            →
+            GPT / BERT
+            →
+            Modern LLMs
+
+          </div>
+
+        </div>
+
+
+        <div class="learning-card">
+
+          <span class="learning-label">
+            Engineer
+          </span>
+
+          <h3>
+            Understand efficiency
+          </h3>
+
+          <p>
+            Focus on architectures and mechanisms that directly
+            affect inference cost, memory, and scalability.
+          </p>
+
+          <div class="learning-path">
+
+            <strong>
+              Attention
+            </strong>
+            →
+            GQA
+            →
+            MQA
+            →
+            MoE
+            →
+            Sparse systems
+            →
+            Long context
+
+          </div>
+
+        </div>
+
+
+        <div class="learning-card">
+
+          <span class="learning-label">
+            Researcher
+          </span>
+
+          <h3>
+            Study alternatives
+          </h3>
+
+          <p>
+            Explore the broader sequence-modeling landscape
+            beyond standard dense Transformers.
+          </p>
+
+          <div class="learning-path">
+
+            <strong>
+              Transformer
+            </strong>
+            →
+            Linear Attention
+            →
+            SSM
+            →
+            Mamba
+            →
+            RWKV
+            →
+            Hybrid architectures
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-inner">
+
+
+        <div>
+
+          <div class="footer-brand">
+            Foundation Model Atlas<span>.</span>
+          </div>
+
+          <div class="footer-note">
+            Open encyclopedia of foundation models,
+            architectures, evolution, and research resources.
+          </div>
+
+        </div>
+
+
+        <div class="footer-links">
+
+          <a href="index.html">
+            Atlas
+          </a>
+
+          <a href="models.html">
+            Models
+          </a>
+
+          <a
+            href="https://github.com/rahulkiran2222/foundation-model-atlas"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="https://rahulkiran2222.github.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Rahul Kiran
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =======================================================
+       ARCHITECTURE DATA + INTERACTION
+       ======================================================= -->
+
+  <script>
+
+    /* =========================================================
+       DATA SOURCE
+       =========================================================
+       Complete audited architecture dataset.
+       Source: architectures-final.json
+       Kept inline so the page also works when opened locally or
+       deployed on GitHub Pages without fetch/CORS issues.
+       ========================================================= */
+
+    const architectures = [
+  {
+    "id": "transformer",
+    "name": "Transformer",
+    "family": "Transformer",
+    "category": "general-purpose-sequence-model",
+    "introduced": 2017,
+    "coreMechanism": "Self-attention and feed-forward layers arranged in a stacked neural architecture.",
+    "attention": "Multi-head self-attention",
+    "positionEncoding": "Original formulation uses sinusoidal positional encoding.",
+    "feedForward": "Position-wise feed-forward network.",
+    "normalization": "Layer normalization.",
+    "routing": "Dense computation.",
+    "sequenceModeling": "Attention-based sequence modeling with direct pairwise interaction between token representations.",
+    "strengths": [
+      "Strong sequence modeling",
+      "Highly parallelizable training",
+      "Flexible representation learning",
+      "Foundation for modern language, vision, speech, and multimodal architectures"
+    ],
+    "limitations": [
+      "Self-attention has quadratic sequence-length complexity in the original formulation",
+      "Memory requirements increase substantially with sequence length"
+    ],
+    "models": [
+      "transformer",
+      "bert",
+      "gpt-2",
+      "gpt-3",
+      "t5"
+    ],
+    "relatedArchitectures": [
+      "encoder-only-transformer",
+      "decoder-only-transformer",
+      "encoder-decoder-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "transformer",
+      "attention",
+      "self-attention",
+      "sequence-modeling"
+    ]
+  },
+  {
+    "id": "encoder-only-transformer",
+    "name": "Encoder-Only Transformer",
+    "family": "Transformer",
+    "category": "representation-learning",
+    "introduced": 2018,
+    "coreMechanism": "Bidirectional Transformer encoder that builds contextual representations from both directions of the input sequence.",
+    "attention": "Bidirectional self-attention",
+    "positionEncoding": "Model-dependent positional representation.",
+    "feedForward": "Position-wise feed-forward network.",
+    "normalization": "Layer normalization or architecture-specific normalization.",
+    "routing": "Dense computation.",
+    "sequenceModeling": "Bidirectional contextual representation learning.",
+    "strengths": [
+      "Strong contextual representations",
+      "Effective for classification and token-level prediction",
+      "Bidirectional context"
+    ],
+    "limitations": [
+      "Not naturally optimized for autoregressive text generation",
+      "Full attention can become expensive for long sequences"
+    ],
+    "models": [
+      "bert",
+      "roberta",
+      "deberta",
+      "electra"
+    ],
+    "relatedArchitectures": [
+      "transformer",
+      "decoder-only-transformer",
+      "encoder-decoder-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "encoder-only",
+      "transformer",
+      "bidirectional",
+      "representation-learning"
+    ]
+  },
+  {
+    "id": "decoder-only-transformer",
+    "name": "Decoder-Only Transformer",
+    "family": "Transformer",
+    "category": "autoregressive-language-model",
+    "introduced": 2018,
+    "coreMechanism": "Autoregressive Transformer architecture that predicts subsequent tokens using causal self-attention.",
+    "attention": "Causal self-attention",
+    "positionEncoding": "Model-dependent; may use learned positional embeddings, RoPE, ALiBi, or other mechanisms.",
+    "feedForward": "Position-wise feed-forward network or gated feed-forward variant.",
+    "normalization": "Layer normalization or RMSNorm depending on model family.",
+    "routing": "Dense or sparse depending on the model.",
+    "sequenceModeling": "Autoregressive next-token prediction.",
+    "strengths": [
+      "Natural fit for generative language modeling",
+      "Highly scalable",
+      "Strong in-context learning behavior",
+      "Supports general-purpose generation and tool-oriented applications"
+    ],
+    "limitations": [
+      "Autoregressive generation is sequential at inference time",
+      "Long-context attention can be computationally expensive"
+    ],
+    "models": [
+      "gpt-2",
+      "gpt-3",
+      "gpt-4",
+      "llama-2",
+      "llama-3",
+      "mistral",
+      "qwen2",
+      "gemma",
+      "phi-3"
+    ],
+    "relatedArchitectures": [
+      "transformer",
+      "encoder-only-transformer",
+      "encoder-decoder-transformer",
+      "mixture-of-experts-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "decoder-only",
+      "transformer",
+      "causal-attention",
+      "autoregressive"
+    ]
+  },
+  {
+    "id": "encoder-decoder-transformer",
+    "name": "Encoder-Decoder Transformer",
+    "family": "Transformer",
+    "category": "sequence-to-sequence",
+    "introduced": 2017,
+    "coreMechanism": "Separate encoder and decoder stacks connected through cross-attention.",
+    "attention": "Encoder self-attention, decoder causal self-attention, and encoder-decoder cross-attention.",
+    "positionEncoding": "Model-dependent positional representation.",
+    "feedForward": "Position-wise feed-forward networks.",
+    "normalization": "Layer normalization or architecture-specific normalization.",
+    "routing": "Dense computation in the original formulation.",
+    "sequenceModeling": "Sequence-to-sequence transformation.",
+    "strengths": [
+      "Strong input-output sequence transformation",
+      "Effective for translation and text-to-text tasks",
+      "Explicit separation between input encoding and output generation"
+    ],
+    "limitations": [
+      "More computational components than a single-stack architecture",
+      "Cross-attention introduces additional computation"
+    ],
+    "models": [
+      "t5",
+      "flan-t5",
+      "bart",
+      "mt5"
+    ],
+    "relatedArchitectures": [
+      "transformer",
+      "encoder-only-transformer",
+      "decoder-only-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "encoder-decoder",
+      "transformer",
+      "seq2seq",
+      "cross-attention"
+    ]
+  },
+  {
+    "id": "masked-language-model",
+    "name": "Masked Language Modeling",
+    "family": "Transformer",
+    "category": "pretraining-objective",
+    "introduced": 2018,
+    "coreMechanism": "Training objective in which portions of the input sequence are masked and the model learns to reconstruct the missing information.",
+    "attention": "Typically bidirectional self-attention when implemented with an encoder architecture.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Architecture-dependent.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Usually dense, but architecture-dependent.",
+    "sequenceModeling": "Bidirectional contextual prediction over corrupted input.",
+    "strengths": [
+      "Learns rich contextual representations",
+      "Effective for language understanding",
+      "Supports token-level and sentence-level downstream tasks"
+    ],
+    "limitations": [
+      "Not itself a complete architectural specification",
+      "Masking creates a pretraining distribution that differs from ordinary generation"
+    ],
+    "models": [
+      "bert",
+      "roberta",
+      "deberta"
+    ],
+    "relatedArchitectures": [
+      "encoder-only-transformer",
+      "causal-language-model"
+    ],
+    "papers": [],
+    "tags": [
+      "masked-language-modeling",
+      "mlm",
+      "pretraining-objective"
+    ]
+  },
+  {
+    "id": "causal-language-model",
+    "name": "Causal Language Model",
+    "family": "Transformer",
+    "category": "pretraining-objective",
+    "introduced": 2018,
+    "coreMechanism": "Autoregressive prediction of the next token conditioned on preceding tokens.",
+    "attention": "Causal self-attention in Transformer implementations.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Architecture-dependent.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Dense or sparse depending on architecture.",
+    "sequenceModeling": "Left-to-right autoregressive sequence modeling.",
+    "strengths": [
+      "Natural generative formulation",
+      "Scales effectively with model and data size",
+      "Supports text generation and in-context learning"
+    ],
+    "limitations": [
+      "Generation is sequential",
+      "Long sequences can create substantial attention and memory costs"
+    ],
+    "models": [
+      "gpt-2",
+      "gpt-3",
+      "llama-2",
+      "llama-3",
+      "mistral",
+      "qwen2"
+    ],
+    "relatedArchitectures": [
+      "decoder-only-transformer",
+      "masked-language-model"
+    ],
+    "papers": [],
+    "tags": [
+      "causal-language-model",
+      "autoregressive",
+      "next-token-prediction"
+    ]
+  },
+  {
+    "id": "mixture-of-experts-transformer",
+    "name": "Mixture-of-Experts Transformer",
+    "family": "Transformer",
+    "category": "sparse-transformer",
+    "introduced": 2020,
+    "coreMechanism": "Routes each input token through a subset of specialized feed-forward experts using a learned routing mechanism.",
+    "attention": "Typically self-attention combined with sparse expert layers.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Multiple expert feed-forward networks with sparse activation.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Learned sparse token-to-expert routing.",
+    "sequenceModeling": "Transformer-based sequence modeling with conditional computation.",
+    "strengths": [
+      "Large total parameter capacity",
+      "Lower active computation than dense models of comparable total size",
+      "Conditional specialization of expert networks",
+      "Efficient scaling of model capacity"
+    ],
+    "limitations": [
+      "Routing can create load imbalance",
+      "Expert communication can increase distributed-system complexity",
+      "Training stability can be sensitive to routing design"
+    ],
+    "models": [
+      "mixtral",
+      "switch-transformer",
+      "deepseek-moe",
+      "deepseek-v2",
+      "deepseek-v3",
+      "qwen1-5-moe",
+      "kimi-k2"
+    ],
+    "relatedArchitectures": [
+      "decoder-only-transformer",
+      "encoder-decoder-transformer",
+      "sparse-mixture-of-experts"
+    ],
+    "papers": [],
+    "tags": [
+      "moe",
+      "mixture-of-experts",
+      "sparse",
+      "conditional-computation",
+      "transformer"
+    ]
+  },
+  {
+    "id": "sparse-mixture-of-experts",
+    "name": "Sparse Mixture of Experts",
+    "family": "Mixture-of-Experts",
+    "category": "conditional-computation",
+    "introduced": 2021,
+    "coreMechanism": "A collection of expert subnetworks in which a router activates only a small number of experts for each input.",
+    "attention": "Architecture-dependent.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Multiple independently parameterized expert networks.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Sparse learned routing, commonly top-k expert selection.",
+    "sequenceModeling": "Conditional computation over token representations.",
+    "strengths": [
+      "High parameter capacity",
+      "Reduced active parameters per token",
+      "Expert specialization",
+      "Scalable distributed computation"
+    ],
+    "limitations": [
+      "Expert routing introduces communication overhead",
+      "Load balancing is a major systems and optimization concern",
+      "Total parameter count can greatly exceed active parameter count"
+    ],
+    "models": [
+      "switch-transformer",
+      "mixtral",
+      "deepseek-v2",
+      "deepseek-v3"
+    ],
+    "relatedArchitectures": [
+      "mixture-of-experts-transformer",
+      "decoder-only-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "sparse-moe",
+      "moe",
+      "expert-routing",
+      "conditional-computation"
+    ]
+  },
+  {
+    "id": "state-space-model",
+    "name": "State Space Model",
+    "family": "State Space",
+    "category": "sequence-model",
+    "introduced": 2021,
+    "coreMechanism": "Models sequence dynamics through latent state transitions rather than relying exclusively on pairwise attention.",
+    "attention": "No conventional full self-attention is required by the core state-space formulation.",
+    "positionEncoding": "Sequence order is represented through state evolution.",
+    "feedForward": "Architecture-dependent.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Dense sequential state update.",
+    "sequenceModeling": "Latent-state sequence propagation.",
+    "strengths": [
+      "Efficient handling of long sequences",
+      "Linear-time sequence processing in many formulations",
+      "Alternative to quadratic attention"
+    ],
+    "limitations": [
+      "Training and optimization can be more specialized than standard Transformers",
+      "Architectural behavior differs substantially from attention-based models"
+    ],
+    "models": [
+      "s4",
+      "mamba",
+      "mamba-2"
+    ],
+    "relatedArchitectures": [
+      "selective-state-space-model",
+      "recurrent-sequence-model",
+      "decoder-only-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "ssm",
+      "state-space",
+      "sequence-modeling",
+      "long-context"
+    ]
+  },
+  {
+    "id": "selective-state-space-model",
+    "name": "Selective State Space Model",
+    "family": "Mamba",
+    "category": "sequence-model",
+    "introduced": 2023,
+    "coreMechanism": "State-space sequence model whose parameters are selectively dependent on the input, allowing the model to control which information is retained or forgotten.",
+    "attention": "Does not require conventional full self-attention.",
+    "positionEncoding": "Sequence order is encoded through recurrent state evolution.",
+    "feedForward": "Architecture-specific selective state-space block.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Input-dependent selective state updates.",
+    "sequenceModeling": "Input-conditioned recurrent state-space processing.",
+    "strengths": [
+      "Linear-time sequence processing",
+      "Efficient long-sequence modeling",
+      "Input-dependent memory selection",
+      "Reduced dependence on quadratic attention"
+    ],
+    "limitations": [
+      "Different computational characteristics from Transformer attention",
+      "Less mature ecosystem than standard Transformer architectures"
+    ],
+    "models": [
+      "mamba",
+      "mamba-2",
+      "jamba"
+    ],
+    "relatedArchitectures": [
+      "state-space-model",
+      "hybrid-transformer-ssm",
+      "recurrent-sequence-model"
+    ],
+    "papers": [],
+    "tags": [
+      "mamba",
+      "ssm",
+      "selective-state-space",
+      "long-context"
+    ]
+  },
+  {
+    "id": "hybrid-transformer-ssm",
+    "name": "Hybrid Transformer–State Space Architecture",
+    "family": "Hybrid Sequence Model",
+    "category": "hybrid-architecture",
+    "introduced": 2024,
+    "coreMechanism": "Combines Transformer attention layers with state-space or recurrent sequence-processing layers.",
+    "attention": "Selective Transformer attention combined with state-space sequence blocks.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Transformer-style or architecture-specific feed-forward layers.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Architecture-dependent.",
+    "sequenceModeling": "Hybrid attention and state-space sequence processing.",
+    "strengths": [
+      "Combines attention-based retrieval with efficient sequence processing",
+      "Potentially improves long-context efficiency",
+      "Flexible allocation of computation"
+    ],
+    "limitations": [
+      "More complex architecture",
+      "Requires careful balancing of heterogeneous sequence mechanisms"
+    ],
+    "models": [
+      "jamba"
+    ],
+    "relatedArchitectures": [
+      "selective-state-space-model",
+      "decoder-only-transformer",
+      "state-space-model"
+    ],
+    "papers": [],
+    "tags": [
+      "hybrid",
+      "transformer",
+      "ssm",
+      "mamba",
+      "jamba"
+    ]
+  },
+  {
+    "id": "recurrent-sequence-model",
+    "name": "Recurrent Sequence Model",
+    "family": "Recurrent Neural Network",
+    "category": "sequence-model",
+    "introduced": 2014,
+    "coreMechanism": "Maintains a recurrent hidden state that is updated as sequence elements are processed.",
+    "attention": "Optional; not required by the core architecture.",
+    "positionEncoding": "Implicitly represented through recurrent state transitions.",
+    "feedForward": "Architecture-dependent.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Sequential recurrent state update.",
+    "sequenceModeling": "Explicit recurrent state propagation.",
+    "strengths": [
+      "Naturally represents sequential state",
+      "Can operate with constant-size recurrent memory",
+      "Efficient streaming inference"
+    ],
+    "limitations": [
+      "Sequential computation can reduce training parallelism",
+      "Long-range dependency learning can be difficult in classical recurrent architectures"
+    ],
+    "models": [
+      "rwkv",
+      "rwkv-6",
+      "rwkv-7"
+    ],
+    "relatedArchitectures": [
+      "state-space-model",
+      "selective-state-space-model",
+      "decoder-only-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "recurrent",
+      "sequence-modeling",
+      "streaming",
+      "rwkv"
+    ]
+  },
+  {
+    "id": "diffusion-model",
+    "name": "Diffusion Model",
+    "family": "Diffusion",
+    "category": "generative-model",
+    "introduced": 2015,
+    "coreMechanism": "Learns to generate data by reversing a progressive noising process.",
+    "attention": "Optional and architecture-dependent.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Typically convolutional or Transformer-based blocks.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Usually dense computation.",
+    "sequenceModeling": "Not fundamentally sequence-based; generation proceeds through iterative denoising steps.",
+    "strengths": [
+      "High-quality generative modeling",
+      "Strong image synthesis",
+      "Flexible conditioning mechanisms",
+      "Can model complex multimodal distributions"
+    ],
+    "limitations": [
+      "Generation can require many iterative denoising steps",
+      "Sampling can be computationally expensive",
+      "Training and inference involve specialized objectives"
+    ],
+    "models": [
+      "ddpm",
+      "stable-diffusion",
+      "stable-diffusion-xl",
+      "dalle-2",
+      "imagen"
+    ],
+    "relatedArchitectures": [
+      "latent-diffusion",
+      "diffusion-transformer",
+      "unet"
+    ],
+    "papers": [],
+    "tags": [
+      "diffusion",
+      "generative-model",
+      "image-generation",
+      "denoising"
+    ]
+  },
+  {
+    "id": "latent-diffusion",
+    "name": "Latent Diffusion",
+    "family": "Diffusion",
+    "category": "generative-model",
+    "introduced": 2022,
+    "coreMechanism": "Performs diffusion in a compressed latent representation rather than directly in pixel space.",
+    "attention": "Often uses cross-attention for conditioning.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Typically implemented through a U-Net or related denoising architecture.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Usually dense computation.",
+    "sequenceModeling": "Iterative denoising in latent space.",
+    "strengths": [
+      "Lower computational cost than full pixel-space diffusion",
+      "High-resolution image generation",
+      "Flexible text conditioning",
+      "Efficient latent representation"
+    ],
+    "limitations": [
+      "Quality depends on the learned latent autoencoder",
+      "Still requires iterative sampling"
+    ],
+    "models": [
+      "stable-diffusion",
+      "stable-diffusion-xl"
+    ],
+    "relatedArchitectures": [
+      "diffusion-model",
+      "unet",
+      "diffusion-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "latent-diffusion",
+      "stable-diffusion",
+      "image-generation",
+      "text-to-image"
+    ]
+  },
+  {
+    "id": "diffusion-transformer",
+    "name": "Diffusion Transformer",
+    "family": "Diffusion",
+    "category": "generative-model",
+    "introduced": 2022,
+    "coreMechanism": "Uses Transformer blocks as the denoising network inside a diffusion generation process.",
+    "attention": "Transformer self-attention.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Transformer feed-forward layers.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Dense or sparse depending on implementation.",
+    "sequenceModeling": "Transformer-based representation processing during iterative denoising.",
+    "strengths": [
+      "Scales Transformer representation learning to diffusion",
+      "Flexible conditioning",
+      "Strong modeling capacity for high-dimensional generation"
+    ],
+    "limitations": [
+      "Attention can be computationally expensive at high spatial resolutions",
+      "Sampling remains iterative"
+    ],
+    "models": [
+      "dit"
+    ],
+    "relatedArchitectures": [
+      "diffusion-model",
+      "latent-diffusion",
+      "vision-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "diffusion-transformer",
+      "dit",
+      "transformer",
+      "generative-model"
+    ]
+  },
+  {
+    "id": "unet",
+    "name": "U-Net",
+    "family": "Convolutional Neural Network",
+    "category": "image-generation-and-segmentation",
+    "introduced": 2015,
+    "coreMechanism": "Encoder-decoder convolutional architecture with skip connections between corresponding resolution levels.",
+    "attention": "Optional; modern variants may include attention blocks.",
+    "positionEncoding": "Spatial structure is represented through convolutional feature maps.",
+    "feedForward": "Convolutional transformations.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Dense convolutional computation.",
+    "sequenceModeling": "Spatial feature processing rather than token sequence modeling.",
+    "strengths": [
+      "Strong multi-scale image representation",
+      "Effective spatial reconstruction",
+      "Skip connections preserve fine-grained information",
+      "Widely used in diffusion systems"
+    ],
+    "limitations": [
+      "Computational cost increases with spatial resolution",
+      "Less naturally scalable to generic sequence modeling than Transformers"
+    ],
+    "models": [
+      "stable-diffusion",
+      "ddpm"
+    ],
+    "relatedArchitectures": [
+      "diffusion-model",
+      "latent-diffusion",
+      "convolutional-neural-network"
+    ],
+    "papers": [],
+    "tags": [
+      "unet",
+      "cnn",
+      "encoder-decoder",
+      "vision",
+      "diffusion"
+    ]
+  },
+  {
+    "id": "convolutional-neural-network",
+    "name": "Convolutional Neural Network",
+    "family": "CNN",
+    "category": "vision-architecture",
+    "introduced": 1990,
+    "coreMechanism": "Uses local convolutional filters to build hierarchical spatial representations.",
+    "attention": "Not required by the core architecture.",
+    "positionEncoding": "Spatial locality is encoded through convolutional receptive fields.",
+    "feedForward": "Convolutional layers and nonlinear transformations.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Dense local spatial computation.",
+    "sequenceModeling": "Spatial rather than sequential modeling.",
+    "strengths": [
+      "Strong inductive bias for spatial data",
+      "Translation-aware feature extraction",
+      "Efficient local computation",
+      "Mature computer-vision ecosystem"
+    ],
+    "limitations": [
+      "Global interactions require deeper layers or additional mechanisms",
+      "Less flexible than attention for some large-scale multimodal architectures"
+    ],
+    "models": [
+      "resnet",
+      "unet",
+      "convnext"
+    ],
+    "relatedArchitectures": [
+      "residual-network",
+      "vision-transformer",
+      "unet"
+    ],
+    "papers": [],
+    "tags": [
+      "cnn",
+      "convolution",
+      "vision",
+      "computer-vision"
+    ]
+  },
+  {
+    "id": "residual-network",
+    "name": "Residual Network",
+    "family": "CNN",
+    "category": "vision-architecture",
+    "introduced": 2015,
+    "coreMechanism": "Adds shortcut connections around layers so networks can learn residual transformations.",
+    "attention": "Not required by the core architecture.",
+    "positionEncoding": "Spatial information is encoded through convolution.",
+    "feedForward": "Convolutional residual blocks.",
+    "normalization": "Typically batch normalization in classical variants.",
+    "routing": "Dense computation.",
+    "sequenceModeling": "Hierarchical spatial feature extraction.",
+    "strengths": [
+      "Stable training of deep networks",
+      "Strong visual representations",
+      "Simple residual optimization mechanism"
+    ],
+    "limitations": [
+      "Primarily designed for spatial representation learning",
+      "Global relationships are less direct than in attention architectures"
+    ],
+    "models": [
+      "resnet"
+    ],
+    "relatedArchitectures": [
+      "convolutional-neural-network",
+      "vision-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "resnet",
+      "residual",
+      "cnn",
+      "vision"
+    ]
+  },
+  {
+    "id": "vision-transformer",
+    "name": "Vision Transformer",
+    "family": "Transformer",
+    "category": "vision-architecture",
+    "introduced": 2020,
+    "coreMechanism": "Represents an image as a sequence of patches and processes those patches using Transformer blocks.",
+    "attention": "Multi-head self-attention over image patches.",
+    "positionEncoding": "Positional embeddings or architecture-specific positional representations.",
+    "feedForward": "Transformer feed-forward networks.",
+    "normalization": "Layer normalization.",
+    "routing": "Dense or sparse depending on variant.",
+    "sequenceModeling": "Patch-token sequence modeling.",
+    "strengths": [
+      "Global interaction between image regions",
+      "Scales naturally with Transformer infrastructure",
+      "Can integrate naturally with multimodal language models"
+    ],
+    "limitations": [
+      "Attention cost grows with the number of visual tokens",
+      "May require substantial data or pretraining for strong performance"
+    ],
+    "models": [
+      "vit",
+      "clip",
+      "siglip",
+      "sam"
+    ],
+    "relatedArchitectures": [
+      "transformer",
+      "decoder-only-transformer",
+      "convolutional-neural-network"
+    ],
+    "papers": [],
+    "tags": [
+      "vit",
+      "vision-transformer",
+      "vision",
+      "attention"
+    ]
+  },
+  {
+    "id": "multimodal-encoder",
+    "name": "Multimodal Encoder",
+    "family": "Multimodal",
+    "category": "multimodal-representation-learning",
+    "introduced": 2021,
+    "coreMechanism": "Encodes information from multiple modalities into compatible or shared representations.",
+    "attention": "Often uses Transformer attention within or across modalities.",
+    "positionEncoding": "Modality-specific or architecture-dependent.",
+    "feedForward": "Transformer, convolutional, or modality-specific networks.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Dense or modality-specific computation.",
+    "sequenceModeling": "Joint representation learning across modality-specific token sequences.",
+    "strengths": [
+      "Connects representations from different modalities",
+      "Supports cross-modal retrieval",
+      "Provides a foundation for multimodal generation and understanding"
+    ],
+    "limitations": [
+      "Alignment between modalities can be difficult",
+      "Different modalities have substantially different statistical structures"
+    ],
+    "models": [
+      "clip",
+      "siglip",
+      "flamingo"
+    ],
+    "relatedArchitectures": [
+      "vision-transformer",
+      "cross-attention",
+      "multimodal-fusion"
+    ],
+    "papers": [],
+    "tags": [
+      "multimodal",
+      "encoder",
+      "vision-language",
+      "representation-learning"
+    ]
+  },
+  {
+    "id": "cross-attention",
+    "name": "Cross-Attention Architecture",
+    "family": "Attention",
+    "category": "multimodal-and-sequence-fusion",
+    "introduced": 2017,
+    "coreMechanism": "Allows one representation sequence to attend to another representation sequence.",
+    "attention": "Query representations attend to keys and values from another sequence.",
+    "positionEncoding": "Inherited from the connected modality or sequence architecture.",
+    "feedForward": "Architecture-dependent.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Attention-based information routing between representations.",
+    "sequenceModeling": "Conditional interaction between separate sequences or modalities.",
+    "strengths": [
+      "Flexible information exchange",
+      "Useful for encoder-decoder models",
+      "Powerful mechanism for multimodal conditioning"
+    ],
+    "limitations": [
+      "Additional computational cost",
+      "Alignment quality depends on learned representations"
+    ],
+    "models": [
+      "t5",
+      "flamingo",
+      "stable-diffusion"
+    ],
+    "relatedArchitectures": [
+      "encoder-decoder-transformer",
+      "multimodal-fusion",
+      "multimodal-encoder"
+    ],
+    "papers": [],
+    "tags": [
+      "cross-attention",
+      "attention",
+      "multimodal",
+      "conditioning"
+    ]
+  },
+  {
+    "id": "multimodal-fusion",
+    "name": "Multimodal Fusion",
+    "family": "Multimodal",
+    "category": "multimodal-architecture",
+    "introduced": 2020,
+    "coreMechanism": "Combines representations from different modalities into a shared or conditionally interacting representation space.",
+    "attention": "Often implemented with cross-attention or joint self-attention.",
+    "positionEncoding": "Modality-dependent positional representations.",
+    "feedForward": "Transformer or modality-specific feed-forward layers.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Cross-modal or joint representation routing.",
+    "sequenceModeling": "Joint processing of modality-specific token sequences.",
+    "strengths": [
+      "Supports unified multimodal reasoning",
+      "Allows interaction between text, image, audio, video, or other modalities",
+      "Flexible conditioning"
+    ],
+    "limitations": [
+      "Requires careful modality alignment",
+      "Multimodal tokenization can significantly increase computational cost"
+    ],
+    "models": [
+      "flamingo",
+      "llava",
+      "gemini"
+    ],
+    "relatedArchitectures": [
+      "multimodal-encoder",
+      "cross-attention",
+      "vision-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "multimodal",
+      "fusion",
+      "vision-language",
+      "cross-modal"
+    ]
+  },
+  {
+    "id": "dual-encoder",
+    "name": "Dual Encoder",
+    "family": "Representation Learning",
+    "category": "retrieval-and-embedding",
+    "introduced": 2019,
+    "coreMechanism": "Uses separate encoders for two input modalities or input types and maps them into a shared embedding space.",
+    "attention": "Architecture-dependent within each encoder.",
+    "positionEncoding": "Encoder-dependent.",
+    "feedForward": "Encoder-dependent.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Independent encoding followed by representation comparison.",
+    "sequenceModeling": "Separate sequence encoding into fixed-dimensional representations.",
+    "strengths": [
+      "Efficient large-scale retrieval",
+      "Embeddings can be precomputed",
+      "Supports cross-modal and text-to-text matching"
+    ],
+    "limitations": [
+      "Independent encoding limits direct token-level interaction",
+      "Fine-grained cross-input reasoning can be weaker than cross-attention"
+    ],
+    "models": [
+      "clip",
+      "siglip",
+      "e5",
+      "bge"
+    ],
+    "relatedArchitectures": [
+      "multimodal-encoder",
+      "cross-encoder",
+      "embedding-model"
+    ],
+    "papers": [],
+    "tags": [
+      "dual-encoder",
+      "embedding",
+      "retrieval",
+      "contrastive-learning"
+    ]
+  },
+  {
+    "id": "cross-encoder",
+    "name": "Cross Encoder",
+    "family": "Representation Learning",
+    "category": "retrieval-and-ranking",
+    "introduced": 2019,
+    "coreMechanism": "Jointly encodes two inputs so their tokens can directly interact through shared attention.",
+    "attention": "Joint self-attention over combined input representations.",
+    "positionEncoding": "Encoder-dependent.",
+    "feedForward": "Transformer feed-forward layers or architecture-specific equivalents.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Joint attention-based interaction.",
+    "sequenceModeling": "Joint sequence encoding for pairwise comparison.",
+    "strengths": [
+      "Strong pairwise semantic interaction",
+      "Effective for reranking and relevance estimation",
+      "Captures fine-grained relationships between inputs"
+    ],
+    "limitations": [
+      "More expensive than dual-encoder retrieval",
+      "Inputs generally need to be processed together"
+    ],
+    "models": [],
+    "relatedArchitectures": [
+      "dual-encoder",
+      "embedding-model",
+      "encoder-only-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "cross-encoder",
+      "retrieval",
+      "reranking",
+      "semantic-similarity"
+    ]
+  },
+  {
+    "id": "embedding-model",
+    "name": "Embedding Model",
+    "family": "Representation Learning",
+    "category": "representation-learning",
+    "introduced": 2013,
+    "coreMechanism": "Maps inputs into continuous vector representations designed to capture semantic or task-relevant relationships.",
+    "attention": "Architecture-dependent.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Architecture-dependent.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Architecture-dependent.",
+    "sequenceModeling": "Encodes sequences or other inputs into fixed-dimensional representations.",
+    "strengths": [
+      "Efficient semantic search",
+      "Clustering and similarity computation",
+      "Retrieval and recommendation applications"
+    ],
+    "limitations": [
+      "A single vector can compress information",
+      "Embedding quality depends strongly on training objective and domain"
+    ],
+    "models": [
+      "e5",
+      "bge",
+      "clip",
+      "siglip"
+    ],
+    "relatedArchitectures": [
+      "dual-encoder",
+      "cross-encoder",
+      "encoder-only-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "embedding",
+      "representation-learning",
+      "retrieval",
+      "semantic-search"
+    ]
+  },
+  {
+    "id": "retrieval-augmented-generation",
+    "name": "Retrieval-Augmented Generation",
+    "family": "Retrieval-Augmented Architecture",
+    "category": "knowledge-augmented-generation",
+    "introduced": 2020,
+    "coreMechanism": "Retrieves external documents or knowledge items and conditions a generative model on the retrieved information.",
+    "attention": "Typically uses Transformer attention within the generator and may use cross-attention or concatenation for retrieved context.",
+    "positionEncoding": "Inherited from the underlying generator.",
+    "feedForward": "Inherited from the underlying generator.",
+    "normalization": "Inherited from the underlying generator.",
+    "routing": "Retriever selects relevant external information before or during generation.",
+    "sequenceModeling": "Combines retrieved context with autoregressive or sequence-to-sequence generation.",
+    "strengths": [
+      "Provides access to external or updated knowledge",
+      "Can improve factual grounding",
+      "Allows domain-specific knowledge without retraining the entire generator",
+      "Supports citation-oriented generation"
+    ],
+    "limitations": [
+      "Retrieval errors propagate into generation",
+      "Context-window limitations constrain the amount of retrieved information",
+      "Requires additional retrieval infrastructure",
+      "Generated answers can still contradict retrieved evidence"
+    ],
+    "models": [
+      "rag"
+    ],
+    "relatedArchitectures": [
+      "dual-encoder",
+      "embedding-model",
+      "decoder-only-transformer",
+      "encoder-decoder-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "rag",
+      "retrieval",
+      "grounding",
+      "knowledge-augmentation"
+    ]
+  },
+  {
+    "id": "retriever-generator",
+    "name": "Retriever–Generator Architecture",
+    "family": "Retrieval-Augmented Architecture",
+    "category": "knowledge-augmented-generation",
+    "introduced": 2020,
+    "coreMechanism": "Separates information retrieval from generative modeling, allowing a retriever to select evidence that conditions a generator.",
+    "attention": "Generator attention is architecture-dependent; retrieved representations may be incorporated through cross-attention or concatenation.",
+    "positionEncoding": "Inherited from the generator and retriever.",
+    "feedForward": "Architecture-dependent.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Retriever determines which external representations reach the generator.",
+    "sequenceModeling": "Retrieved evidence is integrated into downstream sequence generation.",
+    "strengths": [
+      "Explicit separation between retrieval and generation",
+      "Supports large external knowledge stores",
+      "Can reduce dependence on parametric memory"
+    ],
+    "limitations": [
+      "Retriever quality strongly affects generation",
+      "Requires indexing and retrieval infrastructure",
+      "Joint optimization can be difficult"
+    ],
+    "models": [
+      "rag",
+      "atlas"
+    ],
+    "relatedArchitectures": [
+      "retrieval-augmented-generation",
+      "dual-encoder",
+      "cross-attention"
+    ],
+    "papers": [],
+    "tags": [
+      "retriever",
+      "generator",
+      "rag",
+      "knowledge-retrieval"
+    ]
+  },
+  {
+    "id": "efficient-attention",
+    "name": "Efficient Attention Architecture",
+    "family": "Attention",
+    "category": "efficient-sequence-modeling",
+    "introduced": 2019,
+    "coreMechanism": "Modifies full self-attention to reduce computational or memory requirements for long sequences.",
+    "attention": "Sparse, linear, low-rank, local, grouped, or otherwise optimized attention.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Transformer-style feed-forward networks.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Attention pattern determines which sequence elements interact.",
+    "sequenceModeling": "Long-sequence modeling with reduced attention complexity.",
+    "strengths": [
+      "Improves long-context efficiency",
+      "Reduces memory consumption",
+      "Enables larger sequence lengths"
+    ],
+    "limitations": [
+      "Approximation or sparsity can reduce access to global interactions",
+      "Different efficient-attention methods involve different accuracy and systems trade-offs"
+    ],
+    "models": [
+      "longformer",
+      "bigbird",
+      "performer"
+    ],
+    "relatedArchitectures": [
+      "decoder-only-transformer",
+      "encoder-only-transformer",
+      "state-space-model"
+    ],
+    "papers": [],
+    "tags": [
+      "efficient-attention",
+      "long-context",
+      "sparse-attention",
+      "linear-attention"
+    ]
+  },
+  {
+    "id": "sparse-attention",
+    "name": "Sparse Attention",
+    "family": "Attention",
+    "category": "efficient-sequence-modeling",
+    "introduced": 2019,
+    "coreMechanism": "Restricts attention connections so each token attends only to selected positions rather than the complete sequence.",
+    "attention": "Structured sparse attention.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Transformer feed-forward layers.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Predefined or learned sparse attention pattern.",
+    "sequenceModeling": "Selective long-range and local token interaction.",
+    "strengths": [
+      "Reduces attention computation",
+      "Supports longer contexts",
+      "Can preserve important local and global interactions through structured patterns"
+    ],
+    "limitations": [
+      "Attention pattern design affects quality",
+      "May miss interactions excluded by the sparse pattern"
+    ],
+    "models": [
+      "longformer",
+      "bigbird"
+    ],
+    "relatedArchitectures": [
+      "efficient-attention",
+      "decoder-only-transformer",
+      "encoder-only-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "sparse-attention",
+      "long-context",
+      "attention"
+    ]
+  },
+  {
+    "id": "linear-attention",
+    "name": "Linear Attention",
+    "family": "Attention",
+    "category": "efficient-sequence-modeling",
+    "introduced": 2020,
+    "coreMechanism": "Reformulates attention computation to reduce the dependence of computational cost on sequence length.",
+    "attention": "Kernelized, factorized, recurrent, or otherwise linearized attention.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Architecture-dependent.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Linearized interaction between queries and key-value representations.",
+    "sequenceModeling": "Efficient long-sequence processing.",
+    "strengths": [
+      "Potentially linear complexity with sequence length",
+      "Reduced memory requirements",
+      "Suitable for long-context and streaming applications"
+    ],
+    "limitations": [
+      "Linearization can change the behavior of standard softmax attention",
+      "Quality depends strongly on the chosen formulation"
+    ],
+    "models": [
+      "performer"
+    ],
+    "relatedArchitectures": [
+      "efficient-attention",
+      "state-space-model",
+      "recurrent-sequence-model"
+    ],
+    "papers": [],
+    "tags": [
+      "linear-attention",
+      "efficient-attention",
+      "long-context"
+    ]
+  },
+  {
+    "id": "long-context-transformer",
+    "name": "Long-Context Transformer",
+    "family": "Transformer",
+    "category": "long-context-architecture",
+    "introduced": 2019,
+    "coreMechanism": "Transformer architecture optimized through attention, positional, memory, or inference techniques for substantially longer sequences.",
+    "attention": "Full, sparse, sliding-window, grouped, or other efficient attention mechanisms.",
+    "positionEncoding": "May use extended positional representations or relative-position methods.",
+    "feedForward": "Transformer feed-forward networks.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Attention and memory mechanisms determine information access.",
+    "sequenceModeling": "Long-range sequence modeling.",
+    "strengths": [
+      "Handles large documents and extended conversations",
+      "Improves access to distant context",
+      "Useful for document analysis and long-form reasoning"
+    ],
+    "limitations": [
+      "Longer context does not guarantee effective use of every token",
+      "Memory and compute requirements remain substantial for many implementations"
+    ],
+    "models": [
+      "longformer",
+      "bigbird",
+      "gemini-1-5",
+      "claude-3"
+    ],
+    "relatedArchitectures": [
+      "efficient-attention",
+      "sparse-attention",
+      "linear-attention",
+      "decoder-only-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "long-context",
+      "transformer",
+      "long-sequence"
+    ]
+  },
+  {
+    "id": "byte-level-language-model",
+    "name": "Byte-Level Language Model",
+    "family": "Token-Free / Byte-Level",
+    "category": "language-model",
+    "introduced": 2021,
+    "coreMechanism": "Processes raw bytes or byte-derived representations rather than relying exclusively on conventional subword tokenization.",
+    "attention": "Architecture-dependent.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Architecture-dependent.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Architecture-dependent.",
+    "sequenceModeling": "Sequence modeling over byte-level representations.",
+    "strengths": [
+      "Avoids dependence on a fixed subword vocabulary",
+      "Naturally handles arbitrary text and symbols",
+      "Can reduce certain tokenization artifacts"
+    ],
+    "limitations": [
+      "Byte sequences are longer than subword token sequences",
+      "Longer input sequences can increase computational requirements"
+    ],
+    "models": [
+      "byt5",
+      "megabyte"
+    ],
+    "relatedArchitectures": [
+      "encoder-decoder-transformer",
+      "token-free-language-model"
+    ],
+    "papers": [],
+    "tags": [
+      "byte-level",
+      "token-free",
+      "tokenization",
+      "language-model"
+    ]
+  },
+  {
+    "id": "token-free-language-model",
+    "name": "Token-Free Language Model",
+    "family": "Token-Free",
+    "category": "language-model",
+    "introduced": 2021,
+    "coreMechanism": "Processes text without conventional subword tokenization by operating directly on characters, bytes, patches, or other lower-level representations.",
+    "attention": "Architecture-dependent.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Architecture-dependent.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Architecture-dependent.",
+    "sequenceModeling": "Sequence modeling over non-subword representations.",
+    "strengths": [
+      "Avoids vocabulary engineering",
+      "Handles unusual strings and multilingual text naturally",
+      "Reduces sensitivity to tokenizer vocabulary boundaries"
+    ],
+    "limitations": [
+      "Raw representations can produce much longer sequences",
+      "Efficient processing becomes an important architectural challenge"
+    ],
+    "models": [
+      "byt5",
+      "megabyte"
+    ],
+    "relatedArchitectures": [
+      "byte-level-language-model",
+      "encoder-decoder-transformer",
+      "state-space-model"
+    ],
+    "papers": [],
+    "tags": [
+      "token-free",
+      "byte-level",
+      "character-level",
+      "tokenization"
+    ]
+  },
+  {
+    "id": "audio-transformer",
+    "name": "Audio Transformer",
+    "family": "Transformer",
+    "category": "audio-architecture",
+    "introduced": 2020,
+    "coreMechanism": "Represents audio or acoustic features as sequences and processes them using Transformer attention.",
+    "attention": "Self-attention over acoustic or audio tokens.",
+    "positionEncoding": "Temporal positional representation.",
+    "feedForward": "Transformer feed-forward layers.",
+    "normalization": "Layer normalization or architecture-specific normalization.",
+    "routing": "Attention-based temporal interaction.",
+    "sequenceModeling": "Temporal acoustic sequence modeling.",
+    "strengths": [
+      "Captures long-range temporal dependencies",
+      "Integrates naturally with multimodal Transformer systems",
+      "Flexible representation of acoustic tokens"
+    ],
+    "limitations": [
+      "Audio produces high-density sequences",
+      "Attention cost can become substantial for long recordings"
+    ],
+    "models": [
+      "whisper",
+      "wav2vec-2"
+    ],
+    "relatedArchitectures": [
+      "encoder-only-transformer",
+      "decoder-only-transformer",
+      "multimodal-encoder"
+    ],
+    "papers": [],
+    "tags": [
+      "audio",
+      "speech",
+      "transformer",
+      "acoustic-modeling"
+    ]
+  },
+  {
+    "id": "speech-encoder-decoder",
+    "name": "Speech Encoder-Decoder",
+    "family": "Speech Architecture",
+    "category": "speech-generation-and-recognition",
+    "introduced": 2020,
+    "coreMechanism": "Encodes acoustic signals and transforms their representations into textual or other sequential outputs.",
+    "attention": "Encoder self-attention, decoder self-attention, and optional cross-attention.",
+    "positionEncoding": "Temporal positional representations.",
+    "feedForward": "Transformer or convolutional feed-forward blocks.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Encoder representations are routed to the output decoder.",
+    "sequenceModeling": "Speech-to-text or speech-to-sequence transformation.",
+    "strengths": [
+      "Direct mapping between acoustic and linguistic representations",
+      "Supports sequence generation from speech",
+      "Can combine acoustic and language modeling"
+    ],
+    "limitations": [
+      "Audio input is computationally dense",
+      "Performance depends on robust acoustic representation learning"
+    ],
+    "models": [
+      "whisper"
+    ],
+    "relatedArchitectures": [
+      "audio-transformer",
+      "encoder-decoder-transformer",
+      "multimodal-encoder"
+    ],
+    "papers": [],
+    "tags": [
+      "speech",
+      "speech-recognition",
+      "encoder-decoder",
+      "audio"
+    ]
+  },
+  {
+    "id": "audio-self-supervised-encoder",
+    "name": "Audio Self-Supervised Encoder",
+    "family": "Speech Representation Learning",
+    "category": "audio-representation-learning",
+    "introduced": 2020,
+    "coreMechanism": "Learns speech representations from unlabeled audio through self-supervised prediction or contrastive objectives.",
+    "attention": "Typically Transformer-based contextual encoding.",
+    "positionEncoding": "Temporal positional representation.",
+    "feedForward": "Transformer feed-forward blocks.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Temporal contextualization through self-attention.",
+    "sequenceModeling": "Contextual acoustic representation learning.",
+    "strengths": [
+      "Leverages large unlabeled speech collections",
+      "Produces reusable speech representations",
+      "Transfers to recognition and classification tasks"
+    ],
+    "limitations": [
+      "Pretraining can require large-scale audio",
+      "Raw audio representation learning can be computationally expensive"
+    ],
+    "models": [
+      "wav2vec-2",
+      "hubert"
+    ],
+    "relatedArchitectures": [
+      "audio-transformer",
+      "encoder-only-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "speech",
+      "self-supervised",
+      "audio",
+      "representation-learning"
+    ]
+  },
+  {
+    "id": "video-transformer",
+    "name": "Video Transformer",
+    "family": "Transformer",
+    "category": "video-architecture",
+    "introduced": 2021,
+    "coreMechanism": "Represents video as spatial-temporal tokens and applies Transformer-based attention across frames and spatial regions.",
+    "attention": "Spatial, temporal, or joint spatiotemporal attention.",
+    "positionEncoding": "Spatial and temporal positional representations.",
+    "feedForward": "Transformer feed-forward layers.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Attention routes information across space and time.",
+    "sequenceModeling": "Spatiotemporal sequence modeling.",
+    "strengths": [
+      "Captures temporal relationships between frames",
+      "Flexible multimodal integration",
+      "Supports video understanding and generation systems"
+    ],
+    "limitations": [
+      "Video produces very large token counts",
+      "Spatiotemporal attention can be computationally expensive"
+    ],
+    "models": [
+      "video-transformer"
+    ],
+    "relatedArchitectures": [
+      "vision-transformer",
+      "multimodal-encoder",
+      "diffusion-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "video",
+      "spatiotemporal",
+      "transformer",
+      "vision"
+    ]
+  },
+  {
+    "id": "vision-language-model",
+    "name": "Vision-Language Model",
+    "family": "Multimodal",
+    "category": "vision-language-architecture",
+    "introduced": 2020,
+    "coreMechanism": "Connects visual representations with a language model so the system can jointly process images and text.",
+    "attention": "Visual-language interaction through cross-attention, projection, or joint attention.",
+    "positionEncoding": "Modality-specific positional representations.",
+    "feedForward": "Vision encoder and language-model feed-forward layers.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Visual representations are projected or routed into the language model.",
+    "sequenceModeling": "Joint visual and textual token processing.",
+    "strengths": [
+      "Supports image understanding with language",
+      "Enables multimodal question answering",
+      "Can connect pretrained vision and language components"
+    ],
+    "limitations": [
+      "Visual token count can be large",
+      "Alignment between vision and language representations is challenging"
+    ],
+    "models": [
+      "flamingo",
+      "llava",
+      "clip",
+      "siglip"
+    ],
+    "relatedArchitectures": [
+      "multimodal-encoder",
+      "multimodal-fusion",
+      "cross-attention",
+      "vision-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "vision-language",
+      "multimodal",
+      "vlm",
+      "image-understanding"
+    ]
+  },
+  {
+    "id": "vision-language-projector",
+    "name": "Vision-Language Projector",
+    "family": "Multimodal",
+    "category": "multimodal-connector",
+    "introduced": 2023,
+    "coreMechanism": "Maps visual encoder representations into the representation space expected by a language model.",
+    "attention": "Usually inherited from the vision encoder and language model; the projector itself may be a linear layer or small neural network.",
+    "positionEncoding": "Inherited from the connected vision and language components.",
+    "feedForward": "Projection network.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Visual representations are transformed and inserted into the language-model token stream.",
+    "sequenceModeling": "Connects visual token sequences with language-token sequences.",
+    "strengths": [
+      "Allows reuse of pretrained vision encoders",
+      "Provides a lightweight connection between modalities",
+      "Simplifies multimodal model construction"
+    ],
+    "limitations": [
+      "A simple projector may lose fine-grained visual information",
+      "Alignment quality depends on multimodal training"
+    ],
+    "models": [
+      "llava"
+    ],
+    "relatedArchitectures": [
+      "vision-language-model",
+      "multimodal-fusion",
+      "vision-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "projector",
+      "vision-language",
+      "multimodal",
+      "connector"
+    ]
+  },
+  {
+    "id": "prefix-lm",
+    "name": "Prefix Language Model",
+    "family": "Transformer",
+    "category": "language-model",
+    "introduced": 2020,
+    "coreMechanism": "Uses bidirectional attention over a prefix while applying causal attention to the generated continuation.",
+    "attention": "Bidirectional prefix attention combined with causal decoder attention.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Transformer feed-forward layers.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Attention mask determines bidirectional and causal regions.",
+    "sequenceModeling": "Conditional generation from an encoded prefix.",
+    "strengths": [
+      "Combines representation learning and autoregressive generation",
+      "Useful for conditional generation",
+      "Flexible attention masking"
+    ],
+    "limitations": [
+      "Attention-mask design adds architectural complexity",
+      "Less standardized than conventional encoder-only or decoder-only Transformers"
+    ],
+    "models": [
+      "ul2"
+    ],
+    "relatedArchitectures": [
+      "decoder-only-transformer",
+      "encoder-decoder-transformer",
+      "causal-language-model"
+    ],
+    "papers": [],
+    "tags": [
+      "prefix-lm",
+      "transformer",
+      "conditional-generation"
+    ]
+  },
+  {
+    "id": "denoising-sequence-to-sequence",
+    "name": "Denoising Sequence-to-Sequence Architecture",
+    "family": "Encoder-Decoder Transformer",
+    "category": "language-model",
+    "introduced": 2019,
+    "coreMechanism": "Corrupts an input sequence and trains an encoder-decoder model to reconstruct the original sequence.",
+    "attention": "Bidirectional encoder attention, causal decoder attention, and cross-attention.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Transformer feed-forward layers.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Encoder representations are routed through decoder cross-attention.",
+    "sequenceModeling": "Denoising sequence reconstruction.",
+    "strengths": [
+      "Learns robust contextual representations",
+      "Supports flexible text-to-text generation",
+      "Can use multiple corruption objectives"
+    ],
+    "limitations": [
+      "More computationally complex than single-stack models",
+      "Pretraining corruption strategy influences downstream behavior"
+    ],
+    "models": [
+      "bart",
+      "t5"
+    ],
+    "relatedArchitectures": [
+      "encoder-decoder-transformer",
+      "masked-language-model",
+      "causal-language-model"
+    ],
+    "papers": [],
+    "tags": [
+      "denoising",
+      "seq2seq",
+      "encoder-decoder",
+      "pretraining"
+    ]
+  },
+  {
+    "id": "retrieval-transformer",
+    "name": "Retrieval Transformer",
+    "family": "Retrieval-Augmented Architecture",
+    "category": "knowledge-augmented-language-model",
+    "introduced": 2020,
+    "coreMechanism": "Combines a neural sequence model with an external retrieval mechanism that supplies relevant representations or documents.",
+    "attention": "Transformer attention over generated tokens and retrieved information.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Transformer feed-forward layers.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Retriever determines which external items are provided to the generator.",
+    "sequenceModeling": "Autoregressive or sequence-to-sequence generation conditioned on retrieved information.",
+    "strengths": [
+      "Extends model knowledge beyond fixed parameters",
+      "Supports large external memory",
+      "Can improve knowledge-intensive tasks"
+    ],
+    "limitations": [
+      "Retrieval quality directly affects generation",
+      "External indexes introduce infrastructure and latency costs"
+    ],
+    "models": [
+      "rag",
+      "atlas"
+    ],
+    "relatedArchitectures": [
+      "retrieval-augmented-generation",
+      "retriever-generator",
+      "dual-encoder"
+    ],
+    "papers": [],
+    "tags": [
+      "retrieval",
+      "transformer",
+      "rag",
+      "external-memory"
+    ]
+  },
+  {
+    "id": "memory-augmented-transformer",
+    "name": "Memory-Augmented Transformer",
+    "family": "Transformer",
+    "category": "long-context-architecture",
+    "introduced": 2019,
+    "coreMechanism": "Extends Transformer computation with an external or persistent memory mechanism for storing and retrieving representations beyond the immediate context.",
+    "attention": "Self-attention combined with memory retrieval or memory attention.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Transformer feed-forward layers.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Attention or retrieval routes information between active context and memory.",
+    "sequenceModeling": "Sequence modeling with persistent or extended memory.",
+    "strengths": [
+      "Can extend effective context",
+      "Provides explicit memory mechanisms",
+      "Useful for long documents and sequential environments"
+    ],
+    "limitations": [
+      "Memory management introduces complexity",
+      "Retrieval quality can affect downstream performance"
+    ],
+    "models": [
+      "memorizing-transformer"
+    ],
+    "relatedArchitectures": [
+      "long-context-transformer",
+      "retrieval-transformer",
+      "retrieval-augmented-generation"
+    ],
+    "papers": [],
+    "tags": [
+      "memory",
+      "long-context",
+      "retrieval",
+      "transformer"
+    ]
+  },
+  {
+    "id": "grouped-query-attention",
+    "name": "Grouped-Query Attention",
+    "family": "Attention",
+    "category": "efficient-inference",
+    "introduced": 2023,
+    "coreMechanism": "Uses fewer key-value heads than query heads so multiple query heads share key-value representations.",
+    "attention": "Grouped-query attention.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Architecture-dependent.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Multiple query groups share key-value states.",
+    "sequenceModeling": "Standard attention with reduced key-value cache size.",
+    "strengths": [
+      "Reduces inference memory",
+      "Reduces key-value cache size",
+      "Improves serving efficiency for autoregressive models"
+    ],
+    "limitations": [
+      "Can slightly change model quality relative to full multi-head attention",
+      "Requires architectural support during training"
+    ],
+    "models": [
+      "llama-2",
+      "llama-3",
+      "mistral"
+    ],
+    "relatedArchitectures": [
+      "multi-head-attention",
+      "multi-query-attention",
+      "decoder-only-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "gqa",
+      "attention",
+      "inference",
+      "kv-cache"
+    ]
+  },
+  {
+    "id": "multi-query-attention",
+    "name": "Multi-Query Attention",
+    "family": "Attention",
+    "category": "efficient-inference",
+    "introduced": 2019,
+    "coreMechanism": "Uses a single shared key-value head for multiple query heads.",
+    "attention": "Multi-query attention.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Architecture-dependent.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Multiple query heads share one key-value representation.",
+    "sequenceModeling": "Attention-based sequence modeling with reduced key-value cache.",
+    "strengths": [
+      "Substantially reduces key-value cache memory",
+      "Improves autoregressive serving efficiency",
+      "Reduces memory bandwidth requirements"
+    ],
+    "limitations": [
+      "Reduced key-value capacity can affect model quality",
+      "Less expressive than fully independent key-value heads"
+    ],
+    "models": [
+      "falcon"
+    ],
+    "relatedArchitectures": [
+      "grouped-query-attention",
+      "multi-head-attention",
+      "decoder-only-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "mqa",
+      "attention",
+      "inference",
+      "kv-cache"
+    ]
+  },
+  {
+    "id": "multi-head-attention",
+    "name": "Multi-Head Attention",
+    "family": "Attention",
+    "category": "attention-mechanism",
+    "introduced": 2017,
+    "coreMechanism": "Computes several attention projections in parallel, allowing different representation subspaces to be modeled simultaneously.",
+    "attention": "Multiple independent query-key-value attention heads.",
+    "positionEncoding": "Provided separately by the surrounding architecture.",
+    "feedForward": "Provided by the surrounding architecture.",
+    "normalization": "Provided by the surrounding architecture.",
+    "routing": "Each attention head independently routes information between sequence positions.",
+    "sequenceModeling": "Parallel attention-based interaction between tokens.",
+    "strengths": [
+      "Captures multiple interaction patterns",
+      "Highly parallelizable",
+      "Core mechanism of the original Transformer"
+    ],
+    "limitations": [
+      "Memory and compute scale with sequence length",
+      "Key-value cache can become large during autoregressive inference"
+    ],
+    "models": [
+      "transformer",
+      "bert",
+      "gpt-2",
+      "gpt-3",
+      "t5"
+    ],
+    "relatedArchitectures": [
+      "grouped-query-attention",
+      "multi-query-attention",
+      "efficient-attention"
+    ],
+    "papers": [],
+    "tags": [
+      "multi-head-attention",
+      "attention",
+      "transformer"
+    ]
+  },
+  {
+    "id": "parameter-efficient-adaptation",
+    "name": "Parameter-Efficient Adaptation",
+    "family": "Adaptation Architecture",
+    "category": "fine-tuning",
+    "introduced": 2019,
+    "coreMechanism": "Adapts a pretrained model by modifying or adding only a small subset of trainable parameters rather than updating the entire model.",
+    "attention": "Inherited from the base model.",
+    "positionEncoding": "Inherited from the base model.",
+    "feedForward": "Inherited from the base model, with optional adaptation modules.",
+    "normalization": "Inherited from the base model.",
+    "routing": "Architecture-dependent.",
+    "sequenceModeling": "Inherited from the pretrained architecture.",
+    "strengths": [
+      "Reduces fine-tuning memory requirements",
+      "Allows multiple task-specific adapters",
+      "Makes adaptation of large models more practical"
+    ],
+    "limitations": [
+      "Adaptation capacity can be lower than full fine-tuning",
+      "Performance depends on adapter placement and configuration"
+    ],
+    "models": [
+      "lora",
+      "adapter-transformer"
+    ],
+    "relatedArchitectures": [
+      "low-rank-adaptation",
+      "adapter-architecture",
+      "decoder-only-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "peft",
+      "fine-tuning",
+      "adaptation",
+      "parameter-efficient"
+    ]
+  },
+  {
+    "id": "low-rank-adaptation",
+    "name": "Low-Rank Adaptation",
+    "family": "Parameter-Efficient Adaptation",
+    "category": "fine-tuning",
+    "introduced": 2021,
+    "coreMechanism": "Injects trainable low-rank matrices into selected model transformations while keeping the original model weights frozen.",
+    "attention": "Can adapt attention projections of a Transformer.",
+    "positionEncoding": "Inherited from the base model.",
+    "feedForward": "Can adapt selected feed-forward transformations.",
+    "normalization": "Inherited from the base model.",
+    "routing": "Inherited from the base model.",
+    "sequenceModeling": "Inherited from the underlying model.",
+    "strengths": [
+      "Very small number of trainable parameters",
+      "Low memory requirements",
+      "Adapters can be stored and exchanged efficiently"
+    ],
+    "limitations": [
+      "Requires selecting rank and target modules",
+      "May not match full fine-tuning for every task"
+    ],
+    "models": [
+      "lora"
+    ],
+    "relatedArchitectures": [
+      "parameter-efficient-adaptation",
+      "adapter-architecture",
+      "decoder-only-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "lora",
+      "low-rank",
+      "peft",
+      "fine-tuning"
+    ]
+  },
+  {
+    "id": "adapter-architecture",
+    "name": "Adapter Architecture",
+    "family": "Parameter-Efficient Adaptation",
+    "category": "fine-tuning",
+    "introduced": 2019,
+    "coreMechanism": "Adds small trainable modules inside a pretrained network while freezing most original parameters.",
+    "attention": "Inherited from the underlying model.",
+    "positionEncoding": "Inherited from the underlying model.",
+    "feedForward": "Small trainable adapter modules are inserted into existing transformations.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Information passes through pretrained layers and adapter modules.",
+    "sequenceModeling": "Inherited from the underlying sequence model.",
+    "strengths": [
+      "Efficient task adaptation",
+      "Multiple task-specific adapters can share one base model",
+      "Reduces storage compared with full model copies"
+    ],
+    "limitations": [
+      "Adds inference modules",
+      "Adapter placement affects performance"
+    ],
+    "models": [
+      "adapter-transformer"
+    ],
+    "relatedArchitectures": [
+      "parameter-efficient-adaptation",
+      "low-rank-adaptation"
+    ],
+    "papers": [],
+    "tags": [
+      "adapter",
+      "peft",
+      "fine-tuning"
+    ]
+  },
+  {
+    "id": "quantized-transformer",
+    "name": "Quantized Transformer",
+    "family": "Transformer",
+    "category": "model-compression",
+    "introduced": 2020,
+    "coreMechanism": "Represents model weights or activations using reduced numerical precision to decrease memory and computation requirements.",
+    "attention": "Inherited from the underlying Transformer.",
+    "positionEncoding": "Inherited from the underlying Transformer.",
+    "feedForward": "Inherited from the underlying Transformer.",
+    "normalization": "Inherited from the underlying Transformer.",
+    "routing": "Inherited from the underlying Transformer.",
+    "sequenceModeling": "Inherited from the underlying Transformer.",
+    "strengths": [
+      "Reduces model memory footprint",
+      "Can accelerate inference on supported hardware",
+      "Enables larger models on constrained hardware"
+    ],
+    "limitations": [
+      "Aggressive quantization can reduce accuracy",
+      "Hardware support varies by precision and implementation"
+    ],
+    "models": [],
+    "relatedArchitectures": [
+      "decoder-only-transformer",
+      "parameter-efficient-adaptation"
+    ],
+    "papers": [],
+    "tags": [
+      "quantization",
+      "compression",
+      "inference",
+      "low-precision"
+    ]
+  },
+  {
+    "id": "mixture-of-depths",
+    "name": "Mixture-of-Depths",
+    "family": "Conditional Computation",
+    "category": "adaptive-computation",
+    "introduced": 2024,
+    "coreMechanism": "Dynamically allocates a limited computation budget so different tokens can traverse different numbers of Transformer layers.",
+    "attention": "Transformer attention with token-dependent computation allocation.",
+    "positionEncoding": "Inherited from the base Transformer.",
+    "feedForward": "Inherited from the base Transformer.",
+    "normalization": "Inherited from the base Transformer.",
+    "routing": "Learned routing determines which tokens receive additional computation.",
+    "sequenceModeling": "Adaptive-depth sequence processing.",
+    "strengths": [
+      "Allocates more computation to important tokens",
+      "Potentially improves compute efficiency",
+      "Introduces adaptive inference depth"
+    ],
+    "limitations": [
+      "Routing adds optimization complexity",
+      "Uneven computation can complicate efficient hardware execution"
+    ],
+    "models": [],
+    "relatedArchitectures": [
+      "mixture-of-experts-transformer",
+      "decoder-only-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "adaptive-computation",
+      "conditional-computation",
+      "routing",
+      "transformer"
+    ]
+  },
+  {
+    "id": "speculative-decoding",
+    "name": "Speculative Decoding Architecture",
+    "family": "Inference Architecture",
+    "category": "efficient-generation",
+    "introduced": 2022,
+    "coreMechanism": "Uses a smaller draft model or auxiliary mechanism to propose multiple tokens that are verified by a larger target model.",
+    "attention": "Inherited from the target and draft language models.",
+    "positionEncoding": "Inherited from the underlying models.",
+    "feedForward": "Inherited from the underlying models.",
+    "normalization": "Inherited from the underlying models.",
+    "routing": "Draft proposals are routed to the target model for verification.",
+    "sequenceModeling": "Autoregressive generation with parallel verification of proposed tokens.",
+    "strengths": [
+      "Can accelerate autoregressive generation",
+      "Preserves the target model's output distribution under appropriate verification",
+      "Reduces the number of sequential target-model decoding steps"
+    ],
+    "limitations": [
+      "Speedup depends on draft-model quality",
+      "Requires additional model or proposal mechanism",
+      "Benefits vary by workload and hardware"
+    ],
+    "models": [],
+    "relatedArchitectures": [
+      "decoder-only-transformer",
+      "causal-language-model"
+    ],
+    "papers": [],
+    "tags": [
+      "speculative-decoding",
+      "inference",
+      "generation",
+      "acceleration"
+    ]
+  },
+  {
+    "id": "agentic-language-model",
+    "name": "Agentic Language Model Architecture",
+    "family": "Language Model System",
+    "category": "agent-system",
+    "introduced": 2023,
+    "coreMechanism": "Combines a generative language model with planning, tool invocation, memory, environment interaction, or iterative execution.",
+    "attention": "Inherited from the underlying language model.",
+    "positionEncoding": "Inherited from the underlying language model.",
+    "feedForward": "Inherited from the underlying language model.",
+    "normalization": "Inherited from the underlying language model.",
+    "routing": "The model or controller routes actions between reasoning, tools, memory, and environment interaction.",
+    "sequenceModeling": "Iterative decision and action sequences rather than a single generation pass.",
+    "strengths": [
+      "Supports multi-step task execution",
+      "Can interact with external tools",
+      "Can maintain intermediate state or memory",
+      "Extends language models into interactive systems"
+    ],
+    "limitations": [
+      "System behavior depends on tools and orchestration",
+      "Long-horizon errors can compound",
+      "Agent architecture is broader than the neural model itself"
+    ],
+    "models": [
+      "toolformer",
+      "react"
+    ],
+    "relatedArchitectures": [
+      "decoder-only-transformer",
+      "retrieval-augmented-generation",
+      "memory-augmented-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "agents",
+      "tool-use",
+      "planning",
+      "memory",
+      "language-model"
+    ]
+  },
+  {
+    "id": "tool-augmented-language-model",
+    "name": "Tool-Augmented Language Model",
+    "family": "Agentic Language Model",
+    "category": "tool-use",
+    "introduced": 2023,
+    "coreMechanism": "Allows a language model to invoke external tools or APIs during task execution.",
+    "attention": "Inherited from the underlying language model.",
+    "positionEncoding": "Inherited from the underlying language model.",
+    "feedForward": "Inherited from the underlying language model.",
+    "normalization": "Inherited from the underlying language model.",
+    "routing": "Model-generated tool calls route execution to external functions.",
+    "sequenceModeling": "Alternates between language-model generation and external tool results.",
+    "strengths": [
+      "Accesses external computation and information",
+      "Can execute structured operations",
+      "Extends capabilities beyond parametric knowledge"
+    ],
+    "limitations": [
+      "Tool errors can propagate into the final response",
+      "Requires reliable tool interfaces",
+      "Tool selection and argument generation can fail"
+    ],
+    "models": [
+      "toolformer"
+    ],
+    "relatedArchitectures": [
+      "agentic-language-model",
+      "retrieval-augmented-generation",
+      "decoder-only-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "tool-use",
+      "function-calling",
+      "agents",
+      "language-model"
+    ]
+  },
+  {
+    "id": "robotic-foundation-model",
+    "name": "Robotic Foundation Model",
+    "family": "Embodied Multimodal",
+    "category": "robotics-architecture",
+    "introduced": 2023,
+    "coreMechanism": "Maps multimodal observations and language or task instructions into actions for embodied agents.",
+    "attention": "Transformer or multimodal attention over visual, language, proprioceptive, and action representations.",
+    "positionEncoding": "Spatial, temporal, and modality-specific positional representations.",
+    "feedForward": "Transformer or modality-specific networks.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Multimodal representations are routed into action prediction or policy modules.",
+    "sequenceModeling": "Temporal observation-to-action sequence modeling.",
+    "strengths": [
+      "Connects perception, language, and action",
+      "Supports general-purpose robotic task learning",
+      "Can leverage large-scale multimodal pretraining"
+    ],
+    "limitations": [
+      "Real-world interaction data is expensive",
+      "Safety and reliability are critical",
+      "Sim-to-real transfer can be difficult"
+    ],
+    "models": [
+      "rt-2",
+      "octo"
+    ],
+    "relatedArchitectures": [
+      "vision-language-model",
+      "multimodal-fusion",
+      "agentic-language-model"
+    ],
+    "papers": [],
+    "tags": [
+      "robotics",
+      "embodied-ai",
+      "vision-language-action",
+      "foundation-model"
+    ]
+  }
+];
+
+    /* =========================================================
+       ELEMENTS
+       ========================================================= */
+
+    const grid =
+      document.getElementById(
+        "architectureGrid"
+      );
+
+
+    const search =
+      document.getElementById(
+        "architectureSearch"
+      );
+
+
+    const emptyState =
+      document.getElementById(
+        "emptyState"
+      );
+
+    const architectureCount =
+      document.getElementById(
+        "architectureCount"
+      );
+
+
+    const categoryButtons =
+      document.querySelectorAll(
+        ".category-button"
+      );
+
+
+    let selectedCategory =
+      "all";
+
+
+    /* =========================================================
+       RENDER ARCHITECTURES
+       ========================================================= */
+
+    function renderArchitectures() {
+
+      const query =
+        search.value
+          .trim()
+          .toLowerCase();
+
+
+      const filtered =
+        architectures.filter(
+          architecture => {
+
+            const searchable =
+              [
+                architecture.name,
+                architecture.categoryLabel,
+                architecture.description,
+                architecture.tags
+              ]
+                .join(" ")
+                .toLowerCase();
+
+
+            const matchesSearch =
+              !query ||
+              searchable.includes(
+                query
+              );
+
+
+            const matchesCategory =
+              selectedCategory === "all" ||
+              architecture.category ===
+                selectedCategory;
+
+
+            return (
+              matchesSearch &&
+              matchesCategory
+            );
+
+          }
+        );
+
+
+      /* =======================================================
+         RESULT COUNT
+         ======================================================= */
+
+      if (architectureCount) {
+        architectureCount.textContent =
+          `${filtered.length} / ${architectures.length}`;
+      }
+
+      /* =======================================================
+         EMPTY STATE
+         ======================================================= */
+
+      if (
+        filtered.length === 0
+      ) {
+
+        grid.style.display =
+          "none";
+
+        emptyState.style.display =
+          "block";
+
+        return;
+
+      }
+
+
+      grid.style.display =
+        "grid";
+
+      emptyState.style.display =
+        "none";
+
+
+      /* =======================================================
+         CARDS
+         ======================================================= */
+
+      grid.innerHTML =
+        filtered
+          .map(
+            (architecture, index) => {
+
+              const number =
+                String(
+                  index + 1
+                ).padStart(
+                  3,
+                  "0"
+                );
+
+
+              return `
+
+                <a
+                  class="architecture-card"
+                  href="architecture.html?id=${architecture.id}"
+                >
+
+                  <span class="architecture-number">
+                    ${number}
+                  </span>
+
+                  <span class="architecture-category">
+                    ${architecture.categoryLabel}
+                  </span>
+
+
+                  <h3>
+                    ${architecture.name}
+                  </h3>
+
+
+                  <p>
+                    ${architecture.description}
+                  </p>
+
+
+                  <div class="architecture-meta">
+
+                    <span>
+                      ${architecture.era}
+                    </span>
+
+                    <span class="architecture-arrow">
+                      explore →
+                    </span>
+
+                  </div>
+
+                </a>
+
+              `;
+
+            }
+          )
+          .join("");
+
+    }
+
+
+    /* =========================================================
+       SEARCH
+       ========================================================= */
+
+    search.addEventListener(
+      "input",
+      renderArchitectures
+    );
+
+
+    /* =========================================================
+       CATEGORY FILTERS
+       ========================================================= */
+
+    categoryButtons.forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            categoryButtons.forEach(
+              item =>
+                item.classList.remove(
+                  "active"
+                )
+            );
+
+
+            button.classList.add(
+              "active"
+            );
+
+
+            selectedCategory =
+              button.dataset.category;
+
+
+            renderArchitectures();
+
+          }
+        );
+
+      }
+    );
+
+
+    /* =========================================================
+       INITIAL RENDER
+       ========================================================= */
+
+    renderArchitectures();
+
+  </script>
+
+
+</body>
+</html>
