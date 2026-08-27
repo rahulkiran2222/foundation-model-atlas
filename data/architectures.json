@@ -1,0 +1,259 @@
+[
+  {
+    "id": "transformer",
+    "name": "Transformer",
+    "family": "Transformer",
+    "category": "general-purpose-sequence-model",
+    "introduced": 2017,
+    "coreMechanism": "Self-attention and feed-forward layers arranged in a stacked neural architecture.",
+    "attention": "Multi-head self-attention",
+    "positionEncoding": "Original formulation uses sinusoidal positional encoding.",
+    "feedForward": "Position-wise feed-forward network.",
+    "normalization": "Layer normalization.",
+    "routing": "Dense computation.",
+    "sequenceModeling": "Attention-based sequence modeling with direct pairwise interaction between token representations.",
+    "strengths": [
+      "Strong sequence modeling",
+      "Highly parallelizable training",
+      "Flexible representation learning",
+      "Foundation for modern language, vision, speech, and multimodal architectures"
+    ],
+    "limitations": [
+      "Self-attention has quadratic sequence-length complexity in the original formulation",
+      "Memory requirements increase substantially with sequence length"
+    ],
+    "models": [
+      "transformer",
+      "bert",
+      "gpt-2",
+      "gpt-3",
+      "t5"
+    ],
+    "relatedArchitectures": [
+      "encoder-only-transformer",
+      "decoder-only-transformer",
+      "encoder-decoder-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "transformer",
+      "attention",
+      "self-attention",
+      "sequence-modeling"
+    ]
+  },
+
+  {
+    "id": "encoder-only-transformer",
+    "name": "Encoder-Only Transformer",
+    "family": "Transformer",
+    "category": "representation-learning",
+    "introduced": 2018,
+    "coreMechanism": "Bidirectional Transformer encoder that builds contextual representations from both directions of the input sequence.",
+    "attention": "Bidirectional self-attention",
+    "positionEncoding": "Model-dependent positional representation.",
+    "feedForward": "Position-wise feed-forward network.",
+    "normalization": "Layer normalization or architecture-specific normalization.",
+    "routing": "Dense computation.",
+    "sequenceModeling": "Bidirectional contextual representation learning.",
+    "strengths": [
+      "Strong contextual representations",
+      "Effective for classification and token-level prediction",
+      "Bidirectional context"
+    ],
+    "limitations": [
+      "Not naturally optimized for autoregressive text generation",
+      "Full attention can become expensive for long sequences"
+    ],
+    "models": [
+      "bert",
+      "roberta",
+      "deberta",
+      "electra"
+    ],
+    "relatedArchitectures": [
+      "transformer",
+      "decoder-only-transformer",
+      "encoder-decoder-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "encoder-only",
+      "transformer",
+      "bidirectional",
+      "representation-learning"
+    ]
+  },
+
+  {
+    "id": "decoder-only-transformer",
+    "name": "Decoder-Only Transformer",
+    "family": "Transformer",
+    "category": "autoregressive-language-model",
+    "introduced": 2018,
+    "coreMechanism": "Autoregressive Transformer architecture that predicts subsequent tokens using causal self-attention.",
+    "attention": "Causal self-attention",
+    "positionEncoding": "Model-dependent; may use learned positional embeddings, RoPE, ALiBi, or other mechanisms.",
+    "feedForward": "Position-wise feed-forward network or gated feed-forward variant.",
+    "normalization": "Layer normalization or RMSNorm depending on model family.",
+    "routing": "Dense or sparse depending on the model.",
+    "sequenceModeling": "Autoregressive next-token prediction.",
+    "strengths": [
+      "Natural fit for generative language modeling",
+      "Highly scalable",
+      "Strong in-context learning behavior",
+      "Supports general-purpose generation and tool-oriented applications"
+    ],
+    "limitations": [
+      "Autoregressive generation is sequential at inference time",
+      "Long-context attention can be computationally expensive"
+    ],
+    "models": [
+      "gpt-2",
+      "gpt-3",
+      "gpt-4",
+      "llama-2",
+      "llama-3",
+      "mistral",
+      "qwen2",
+      "gemma",
+      "phi-3"
+    ],
+    "relatedArchitectures": [
+      "transformer",
+      "encoder-only-transformer",
+      "encoder-decoder-transformer",
+      "mixture-of-experts-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "decoder-only",
+      "transformer",
+      "causal-attention",
+      "autoregressive"
+    ]
+  },
+
+  {
+    "id": "encoder-decoder-transformer",
+    "name": "Encoder-Decoder Transformer",
+    "family": "Transformer",
+    "category": "sequence-to-sequence",
+    "introduced": 2017,
+    "coreMechanism": "Separate encoder and decoder stacks connected through cross-attention.",
+    "attention": "Encoder self-attention, decoder causal self-attention, and encoder-decoder cross-attention.",
+    "positionEncoding": "Model-dependent positional representation.",
+    "feedForward": "Position-wise feed-forward networks.",
+    "normalization": "Layer normalization or architecture-specific normalization.",
+    "routing": "Dense computation in the original formulation.",
+    "sequenceModeling": "Sequence-to-sequence transformation.",
+    "strengths": [
+      "Strong input-output sequence transformation",
+      "Effective for translation and text-to-text tasks",
+      "Explicit separation between input encoding and output generation"
+    ],
+    "limitations": [
+      "More computational components than a single-stack architecture",
+      "Cross-attention introduces additional computation"
+    ],
+    "models": [
+      "t5",
+      "flan-t5",
+      "bart",
+      "mt5"
+    ],
+    "relatedArchitectures": [
+      "transformer",
+      "encoder-only-transformer",
+      "decoder-only-transformer"
+    ],
+    "papers": [],
+    "tags": [
+      "encoder-decoder",
+      "transformer",
+      "seq2seq",
+      "cross-attention"
+    ]
+  },
+
+  {
+    "id": "masked-language-model",
+    "name": "Masked Language Modeling",
+    "family": "Transformer",
+    "category": "pretraining-objective",
+    "introduced": 2018,
+    "coreMechanism": "Training objective in which portions of the input sequence are masked and the model learns to reconstruct the missing information.",
+    "attention": "Typically bidirectional self-attention when implemented with an encoder architecture.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Architecture-dependent.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Usually dense, but architecture-dependent.",
+    "sequenceModeling": "Bidirectional contextual prediction over corrupted input.",
+    "strengths": [
+      "Learns rich contextual representations",
+      "Effective for language understanding",
+      "Supports token-level and sentence-level downstream tasks"
+    ],
+    "limitations": [
+      "Not itself a complete architectural specification",
+      "Masking creates a pretraining distribution that differs from ordinary generation"
+    ],
+    "models": [
+      "bert",
+      "roberta",
+      "deberta"
+    ],
+    "relatedArchitectures": [
+      "encoder-only-transformer",
+      "causal-language-model"
+    ],
+    "papers": [],
+    "tags": [
+      "masked-language-modeling",
+      "mlm",
+      "pretraining-objective"
+    ]
+  },
+
+  {
+    "id": "causal-language-model",
+    "name": "Causal Language Model",
+    "family": "Transformer",
+    "category": "pretraining-objective",
+    "introduced": 2018,
+    "coreMechanism": "Autoregressive prediction of the next token conditioned on preceding tokens.",
+    "attention": "Causal self-attention in Transformer implementations.",
+    "positionEncoding": "Architecture-dependent.",
+    "feedForward": "Architecture-dependent.",
+    "normalization": "Architecture-dependent.",
+    "routing": "Dense or sparse depending on architecture.",
+    "sequenceModeling": "Left-to-right autoregressive sequence modeling.",
+    "strengths": [
+      "Natural generative formulation",
+      "Scales effectively with model and data size",
+      "Supports text generation and in-context learning"
+    ],
+    "limitations": [
+      "Generation is sequential",
+      "Long sequences can create substantial attention and memory costs"
+    ],
+    "models": [
+      "gpt-2",
+      "gpt-3",
+      "llama-2",
+      "llama-3",
+      "mistral",
+      "qwen2"
+    ],
+    "relatedArchitectures": [
+      "decoder-only-transformer",
+      "masked-language-model"
+    ],
+    "papers": [],
+    "tags": [
+      "causal-language-model",
+      "autoregressive",
+      "next-token-prediction"
+    ]
+  }
+]
