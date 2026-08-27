@@ -1603,4 +1603,631 @@
     "multimodal",
     "connector"
   ]
+},
+{
+  "id": "prefix-lm",
+  "name": "Prefix Language Model",
+  "family": "Transformer",
+  "category": "language-model",
+  "introduced": 2020,
+  "coreMechanism": "Uses bidirectional attention over a prefix while applying causal attention to the generated continuation.",
+  "attention": "Bidirectional prefix attention combined with causal decoder attention.",
+  "positionEncoding": "Architecture-dependent.",
+  "feedForward": "Transformer feed-forward layers.",
+  "normalization": "Architecture-dependent.",
+  "routing": "Attention mask determines bidirectional and causal regions.",
+  "sequenceModeling": "Conditional generation from an encoded prefix.",
+  "strengths": [
+    "Combines representation learning and autoregressive generation",
+    "Useful for conditional generation",
+    "Flexible attention masking"
+  ],
+  "limitations": [
+    "Attention-mask design adds architectural complexity",
+    "Less standardized than conventional encoder-only or decoder-only Transformers"
+  ],
+  "models": [
+    "ul2"
+  ],
+  "relatedArchitectures": [
+    "decoder-only-transformer",
+    "encoder-decoder-transformer",
+    "causal-language-model"
+  ],
+  "papers": [],
+  "tags": [
+    "prefix-lm",
+    "transformer",
+    "conditional-generation"
+  ]
+},
+
+{
+  "id": "denoising-sequence-to-sequence",
+  "name": "Denoising Sequence-to-Sequence Architecture",
+  "family": "Encoder-Decoder Transformer",
+  "category": "language-model",
+  "introduced": 2019,
+  "coreMechanism": "Corrupts an input sequence and trains an encoder-decoder model to reconstruct the original sequence.",
+  "attention": "Bidirectional encoder attention, causal decoder attention, and cross-attention.",
+  "positionEncoding": "Architecture-dependent.",
+  "feedForward": "Transformer feed-forward layers.",
+  "normalization": "Architecture-dependent.",
+  "routing": "Encoder representations are routed through decoder cross-attention.",
+  "sequenceModeling": "Denoising sequence reconstruction.",
+  "strengths": [
+    "Learns robust contextual representations",
+    "Supports flexible text-to-text generation",
+    "Can use multiple corruption objectives"
+  ],
+  "limitations": [
+    "More computationally complex than single-stack models",
+    "Pretraining corruption strategy influences downstream behavior"
+  ],
+  "models": [
+    "bart",
+    "t5"
+  ],
+  "relatedArchitectures": [
+    "encoder-decoder-transformer",
+    "masked-language-model",
+    "causal-language-model"
+  ],
+  "papers": [],
+  "tags": [
+    "denoising",
+    "seq2seq",
+    "encoder-decoder",
+    "pretraining"
+  ]
+},
+
+{
+  "id": "retrieval-transformer",
+  "name": "Retrieval Transformer",
+  "family": "Retrieval-Augmented Architecture",
+  "category": "knowledge-augmented-language-model",
+  "introduced": 2020,
+  "coreMechanism": "Combines a neural sequence model with an external retrieval mechanism that supplies relevant representations or documents.",
+  "attention": "Transformer attention over generated tokens and retrieved information.",
+  "positionEncoding": "Architecture-dependent.",
+  "feedForward": "Transformer feed-forward layers.",
+  "normalization": "Architecture-dependent.",
+  "routing": "Retriever determines which external items are provided to the generator.",
+  "sequenceModeling": "Autoregressive or sequence-to-sequence generation conditioned on retrieved information.",
+  "strengths": [
+    "Extends model knowledge beyond fixed parameters",
+    "Supports large external memory",
+    "Can improve knowledge-intensive tasks"
+  ],
+  "limitations": [
+    "Retrieval quality directly affects generation",
+    "External indexes introduce infrastructure and latency costs"
+  ],
+  "models": [
+    "rag",
+    "atlas"
+  ],
+  "relatedArchitectures": [
+    "retrieval-augmented-generation",
+    "retriever-generator",
+    "dual-encoder"
+  ],
+  "papers": [],
+  "tags": [
+    "retrieval",
+    "transformer",
+    "rag",
+    "external-memory"
+  ]
+},
+
+{
+  "id": "memory-augmented-transformer",
+  "name": "Memory-Augmented Transformer",
+  "family": "Transformer",
+  "category": "long-context-architecture",
+  "introduced": 2019,
+  "coreMechanism": "Extends Transformer computation with an external or persistent memory mechanism for storing and retrieving representations beyond the immediate context.",
+  "attention": "Self-attention combined with memory retrieval or memory attention.",
+  "positionEncoding": "Architecture-dependent.",
+  "feedForward": "Transformer feed-forward layers.",
+  "normalization": "Architecture-dependent.",
+  "routing": "Attention or retrieval routes information between active context and memory.",
+  "sequenceModeling": "Sequence modeling with persistent or extended memory.",
+  "strengths": [
+    "Can extend effective context",
+    "Provides explicit memory mechanisms",
+    "Useful for long documents and sequential environments"
+  ],
+  "limitations": [
+    "Memory management introduces complexity",
+    "Retrieval quality can affect downstream performance"
+  ],
+  "models": [
+    "memorizing-transformer"
+  ],
+  "relatedArchitectures": [
+    "long-context-transformer",
+    "retrieval-transformer",
+    "retrieval-augmented-generation"
+  ],
+  "papers": [],
+  "tags": [
+    "memory",
+    "long-context",
+    "retrieval",
+    "transformer"
+  ]
+},
+
+{
+  "id": "grouped-query-attention",
+  "name": "Grouped-Query Attention",
+  "family": "Attention",
+  "category": "efficient-inference",
+  "introduced": 2023,
+  "coreMechanism": "Uses fewer key-value heads than query heads so multiple query heads share key-value representations.",
+  "attention": "Grouped-query attention.",
+  "positionEncoding": "Architecture-dependent.",
+  "feedForward": "Architecture-dependent.",
+  "normalization": "Architecture-dependent.",
+  "routing": "Multiple query groups share key-value states.",
+  "sequenceModeling": "Standard attention with reduced key-value cache size.",
+  "strengths": [
+    "Reduces inference memory",
+    "Reduces key-value cache size",
+    "Improves serving efficiency for autoregressive models"
+  ],
+  "limitations": [
+    "Can slightly change model quality relative to full multi-head attention",
+    "Requires architectural support during training"
+  ],
+  "models": [
+    "llama-2",
+    "llama-3",
+    "mistral"
+  ],
+  "relatedArchitectures": [
+    "multi-head-attention",
+    "multi-query-attention",
+    "decoder-only-transformer"
+  ],
+  "papers": [],
+  "tags": [
+    "gqa",
+    "attention",
+    "inference",
+    "kv-cache"
+  ]
+},
+
+{
+  "id": "multi-query-attention",
+  "name": "Multi-Query Attention",
+  "family": "Attention",
+  "category": "efficient-inference",
+  "introduced": 2019,
+  "coreMechanism": "Uses a single shared key-value head for multiple query heads.",
+  "attention": "Multi-query attention.",
+  "positionEncoding": "Architecture-dependent.",
+  "feedForward": "Architecture-dependent.",
+  "normalization": "Architecture-dependent.",
+  "routing": "Multiple query heads share one key-value representation.",
+  "sequenceModeling": "Attention-based sequence modeling with reduced key-value cache.",
+  "strengths": [
+    "Substantially reduces key-value cache memory",
+    "Improves autoregressive serving efficiency",
+    "Reduces memory bandwidth requirements"
+  ],
+  "limitations": [
+    "Reduced key-value capacity can affect model quality",
+    "Less expressive than fully independent key-value heads"
+  ],
+  "models": [
+    "falcon"
+  ],
+  "relatedArchitectures": [
+    "grouped-query-attention",
+    "multi-head-attention",
+    "decoder-only-transformer"
+  ],
+  "papers": [],
+  "tags": [
+    "mqa",
+    "attention",
+    "inference",
+    "kv-cache"
+  ]
+},
+
+{
+  "id": "multi-head-attention",
+  "name": "Multi-Head Attention",
+  "family": "Attention",
+  "category": "attention-mechanism",
+  "introduced": 2017,
+  "coreMechanism": "Computes several attention projections in parallel, allowing different representation subspaces to be modeled simultaneously.",
+  "attention": "Multiple independent query-key-value attention heads.",
+  "positionEncoding": "Provided separately by the surrounding architecture.",
+  "feedForward": "Provided by the surrounding architecture.",
+  "normalization": "Provided by the surrounding architecture.",
+  "routing": "Each attention head independently routes information between sequence positions.",
+  "sequenceModeling": "Parallel attention-based interaction between tokens.",
+  "strengths": [
+    "Captures multiple interaction patterns",
+    "Highly parallelizable",
+    "Core mechanism of the original Transformer"
+  ],
+  "limitations": [
+    "Memory and compute scale with sequence length",
+    "Key-value cache can become large during autoregressive inference"
+  ],
+  "models": [
+    "transformer",
+    "bert",
+    "gpt-2",
+    "gpt-3",
+    "t5"
+  ],
+  "relatedArchitectures": [
+    "grouped-query-attention",
+    "multi-query-attention",
+    "efficient-attention"
+  ],
+  "papers": [],
+  "tags": [
+    "multi-head-attention",
+    "attention",
+    "transformer"
+  ]
+},
+
+{
+  "id": "parameter-efficient-adaptation",
+  "name": "Parameter-Efficient Adaptation",
+  "family": "Adaptation Architecture",
+  "category": "fine-tuning",
+  "introduced": 2019,
+  "coreMechanism": "Adapts a pretrained model by modifying or adding only a small subset of trainable parameters rather than updating the entire model.",
+  "attention": "Inherited from the base model.",
+  "positionEncoding": "Inherited from the base model.",
+  "feedForward": "Inherited from the base model, with optional adaptation modules.",
+  "normalization": "Inherited from the base model.",
+  "routing": "Architecture-dependent.",
+  "sequenceModeling": "Inherited from the pretrained architecture.",
+  "strengths": [
+    "Reduces fine-tuning memory requirements",
+    "Allows multiple task-specific adapters",
+    "Makes adaptation of large models more practical"
+  ],
+  "limitations": [
+    "Adaptation capacity can be lower than full fine-tuning",
+    "Performance depends on adapter placement and configuration"
+  ],
+  "models": [
+    "lora",
+    "adapter-transformer"
+  ],
+  "relatedArchitectures": [
+    "low-rank-adaptation",
+    "adapter-architecture",
+    "decoder-only-transformer"
+  ],
+  "papers": [],
+  "tags": [
+    "peft",
+    "fine-tuning",
+    "adaptation",
+    "parameter-efficient"
+  ]
+},
+
+{
+  "id": "low-rank-adaptation",
+  "name": "Low-Rank Adaptation",
+  "family": "Parameter-Efficient Adaptation",
+  "category": "fine-tuning",
+  "introduced": 2021,
+  "coreMechanism": "Injects trainable low-rank matrices into selected model transformations while keeping the original model weights frozen.",
+  "attention": "Can adapt attention projections of a Transformer.",
+  "positionEncoding": "Inherited from the base model.",
+  "feedForward": "Can adapt selected feed-forward transformations.",
+  "normalization": "Inherited from the base model.",
+  "routing": "Inherited from the base model.",
+  "sequenceModeling": "Inherited from the underlying model.",
+  "strengths": [
+    "Very small number of trainable parameters",
+    "Low memory requirements",
+    "Adapters can be stored and exchanged efficiently"
+  ],
+  "limitations": [
+    "Requires selecting rank and target modules",
+    "May not match full fine-tuning for every task"
+  ],
+  "models": [
+    "lora"
+  ],
+  "relatedArchitectures": [
+    "parameter-efficient-adaptation",
+    "adapter-architecture",
+    "decoder-only-transformer"
+  ],
+  "papers": [],
+  "tags": [
+    "lora",
+    "low-rank",
+    "peft",
+    "fine-tuning"
+  ]
+},
+
+{
+  "id": "adapter-architecture",
+  "name": "Adapter Architecture",
+  "family": "Parameter-Efficient Adaptation",
+  "category": "fine-tuning",
+  "introduced": 2019,
+  "coreMechanism": "Adds small trainable modules inside a pretrained network while freezing most original parameters.",
+  "attention": "Inherited from the underlying model.",
+  "positionEncoding": "Inherited from the underlying model.",
+  "feedForward": "Small trainable adapter modules are inserted into existing transformations.",
+  "normalization": "Architecture-dependent.",
+  "routing": "Information passes through pretrained layers and adapter modules.",
+  "sequenceModeling": "Inherited from the underlying sequence model.",
+  "strengths": [
+    "Efficient task adaptation",
+    "Multiple task-specific adapters can share one base model",
+    "Reduces storage compared with full model copies"
+  ],
+  "limitations": [
+    "Adds inference modules",
+    "Adapter placement affects performance"
+  ],
+  "models": [
+    "adapter-transformer"
+  ],
+  "relatedArchitectures": [
+    "parameter-efficient-adaptation",
+    "low-rank-adaptation"
+  ],
+  "papers": [],
+  "tags": [
+    "adapter",
+    "peft",
+    "fine-tuning"
+  ]
+},
+
+{
+  "id": "quantized-transformer",
+  "name": "Quantized Transformer",
+  "family": "Transformer",
+  "category": "model-compression",
+  "introduced": 2020,
+  "coreMechanism": "Represents model weights or activations using reduced numerical precision to decrease memory and computation requirements.",
+  "attention": "Inherited from the underlying Transformer.",
+  "positionEncoding": "Inherited from the underlying Transformer.",
+  "feedForward": "Inherited from the underlying Transformer.",
+  "normalization": "Inherited from the underlying Transformer.",
+  "routing": "Inherited from the underlying Transformer.",
+  "sequenceModeling": "Inherited from the underlying Transformer.",
+  "strengths": [
+    "Reduces model memory footprint",
+    "Can accelerate inference on supported hardware",
+    "Enables larger models on constrained hardware"
+  ],
+  "limitations": [
+    "Aggressive quantization can reduce accuracy",
+    "Hardware support varies by precision and implementation"
+  ],
+  "models": [],
+  "relatedArchitectures": [
+    "decoder-only-transformer",
+    "parameter-efficient-adaptation"
+  ],
+  "papers": [],
+  "tags": [
+    "quantization",
+    "compression",
+    "inference",
+    "low-precision"
+  ]
+},
+
+{
+  "id": "mixture-of-depths",
+  "name": "Mixture-of-Depths",
+  "family": "Conditional Computation",
+  "category": "adaptive-computation",
+  "introduced": 2024,
+  "coreMechanism": "Dynamically allocates a limited computation budget so different tokens can traverse different numbers of Transformer layers.",
+  "attention": "Transformer attention with token-dependent computation allocation.",
+  "positionEncoding": "Inherited from the base Transformer.",
+  "feedForward": "Inherited from the base Transformer.",
+  "normalization": "Inherited from the base Transformer.",
+  "routing": "Learned routing determines which tokens receive additional computation.",
+  "sequenceModeling": "Adaptive-depth sequence processing.",
+  "strengths": [
+    "Allocates more computation to important tokens",
+    "Potentially improves compute efficiency",
+    "Introduces adaptive inference depth"
+  ],
+  "limitations": [
+    "Routing adds optimization complexity",
+    "Uneven computation can complicate efficient hardware execution"
+  ],
+  "models": [],
+  "relatedArchitectures": [
+    "mixture-of-experts-transformer",
+    "decoder-only-transformer"
+  ],
+  "papers": [],
+  "tags": [
+    "adaptive-computation",
+    "conditional-computation",
+    "routing",
+    "transformer"
+  ]
+},
+
+{
+  "id": "speculative-decoding",
+  "name": "Speculative Decoding Architecture",
+  "family": "Inference Architecture",
+  "category": "efficient-generation",
+  "introduced": 2022,
+  "coreMechanism": "Uses a smaller draft model or auxiliary mechanism to propose multiple tokens that are verified by a larger target model.",
+  "attention": "Inherited from the target and draft language models.",
+  "positionEncoding": "Inherited from the underlying models.",
+  "feedForward": "Inherited from the underlying models.",
+  "normalization": "Inherited from the underlying models.",
+  "routing": "Draft proposals are routed to the target model for verification.",
+  "sequenceModeling": "Autoregressive generation with parallel verification of proposed tokens.",
+  "strengths": [
+    "Can accelerate autoregressive generation",
+    "Preserves the target model's output distribution under appropriate verification",
+    "Reduces the number of sequential target-model decoding steps"
+  ],
+  "limitations": [
+    "Speedup depends on draft-model quality",
+    "Requires additional model or proposal mechanism",
+    "Benefits vary by workload and hardware"
+  ],
+  "models": [],
+  "relatedArchitectures": [
+    "decoder-only-transformer",
+    "causal-language-model"
+  ],
+  "papers": [],
+  "tags": [
+    "speculative-decoding",
+    "inference",
+    "generation",
+    "acceleration"
+  ]
+},
+
+{
+  "id": "agentic-language-model",
+  "name": "Agentic Language Model Architecture",
+  "family": "Language Model System",
+  "category": "agent-system",
+  "introduced": 2023,
+  "coreMechanism": "Combines a generative language model with planning, tool invocation, memory, environment interaction, or iterative execution.",
+  "attention": "Inherited from the underlying language model.",
+  "positionEncoding": "Inherited from the underlying language model.",
+  "feedForward": "Inherited from the underlying language model.",
+  "normalization": "Inherited from the underlying language model.",
+  "routing": "The model or controller routes actions between reasoning, tools, memory, and environment interaction.",
+  "sequenceModeling": "Iterative decision and action sequences rather than a single generation pass.",
+  "strengths": [
+    "Supports multi-step task execution",
+    "Can interact with external tools",
+    "Can maintain intermediate state or memory",
+    "Extends language models into interactive systems"
+  ],
+  "limitations": [
+    "System behavior depends on tools and orchestration",
+    "Long-horizon errors can compound",
+    "Agent architecture is broader than the neural model itself"
+  ],
+  "models": [
+    "toolformer",
+    "react"
+  ],
+  "relatedArchitectures": [
+    "decoder-only-transformer",
+    "retrieval-augmented-generation",
+    "memory-augmented-transformer"
+  ],
+  "papers": [],
+  "tags": [
+    "agents",
+    "tool-use",
+    "planning",
+    "memory",
+    "language-model"
+  ]
+},
+
+{
+  "id": "tool-augmented-language-model",
+  "name": "Tool-Augmented Language Model",
+  "family": "Agentic Language Model",
+  "category": "tool-use",
+  "introduced": 2023,
+  "coreMechanism": "Allows a language model to invoke external tools or APIs during task execution.",
+  "attention": "Inherited from the underlying language model.",
+  "positionEncoding": "Inherited from the underlying language model.",
+  "feedForward": "Inherited from the underlying language model.",
+  "normalization": "Inherited from the underlying language model.",
+  "routing": "Model-generated tool calls route execution to external functions.",
+  "sequenceModeling": "Alternates between language-model generation and external tool results.",
+  "strengths": [
+    "Accesses external computation and information",
+    "Can execute structured operations",
+    "Extends capabilities beyond parametric knowledge"
+  ],
+  "limitations": [
+    "Tool errors can propagate into the final response",
+    "Requires reliable tool interfaces",
+    "Tool selection and argument generation can fail"
+  ],
+  "models": [
+    "toolformer"
+  ],
+  "relatedArchitectures": [
+    "agentic-language-model",
+    "retrieval-augmented-generation",
+    "decoder-only-transformer"
+  ],
+  "papers": [],
+  "tags": [
+    "tool-use",
+    "function-calling",
+    "agents",
+    "language-model"
+  ]
+},
+
+{
+  "id": "robotic-foundation-model",
+  "name": "Robotic Foundation Model",
+  "family": "Embodied Multimodal",
+  "category": "robotics-architecture",
+  "introduced": 2023,
+  "coreMechanism": "Maps multimodal observations and language or task instructions into actions for embodied agents.",
+  "attention": "Transformer or multimodal attention over visual, language, proprioceptive, and action representations.",
+  "positionEncoding": "Spatial, temporal, and modality-specific positional representations.",
+  "feedForward": "Transformer or modality-specific networks.",
+  "normalization": "Architecture-dependent.",
+  "routing": "Multimodal representations are routed into action prediction or policy modules.",
+  "sequenceModeling": "Temporal observation-to-action sequence modeling.",
+  "strengths": [
+    "Connects perception, language, and action",
+    "Supports general-purpose robotic task learning",
+    "Can leverage large-scale multimodal pretraining"
+  ],
+  "limitations": [
+    "Real-world interaction data is expensive",
+    "Safety and reliability are critical",
+    "Sim-to-real transfer can be difficult"
+  ],
+  "models": [
+    "rt-2",
+    "octo"
+  ],
+  "relatedArchitectures": [
+    "vision-language-model",
+    "multimodal-fusion",
+    "agentic-language-model"
+  ],
+  "papers": [],
+  "tags": [
+    "robotics",
+    "embodied-ai",
+    "vision-language-action",
+    "foundation-model"
+  ]
 }
