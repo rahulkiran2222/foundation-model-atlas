@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methodology — Foundation Model Atlas</title>
+<meta name="description" content="Methodology, evidence, provenance, normalization, architecture representation and comparison rules for the Foundation Model Atlas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080a0d;--card:#11161c;--hover:#171e26;--text:#f5f7fa;--soft:#b4bdc7;--muted:#717c87;--line:#232c35;--line2:#35414d;--accent:#d7ff64;--blue:#8ab4ff;--max:1220px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% 0,rgba(215,255,100,.075),transparent 27%),var(--bg);color:var(--text);font-family:Inter,sans-serif;font-size:15px;line-height:1.7}a{color:inherit;text-decoration:none}::selection{background:var(--accent);color:#080a0d}.container{width:min(calc(100% - 44px),var(--max));margin:auto}
+nav{position:sticky;top:0;z-index:30;background:rgba(8,10,13,.9);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.navin{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:12px;font:600 15px "Space Grotesk"}.mark{width:34px;height:34px;border:1px solid var(--accent);border-radius:8px;display:grid;place-items:center;color:var(--accent);font:11px "DM Mono"}.brand small{font:9px "DM Mono";color:var(--muted);margin-left:5px}.links{display:flex;gap:20px;align-items:center;color:var(--soft);font:9px "DM Mono";text-transform:uppercase}.links a:hover{color:var(--accent)}.github{border:1px solid var(--line2);padding:8px 11px;border-radius:6px}
+.hero{position:relative;overflow:hidden;padding:92px 0 72px;border-bottom:1px solid var(--line)}.hero:before{content:"";position:absolute;inset:0;opacity:.23;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(#000,transparent)}.heroIn{position:relative;max-width:970px}.eyebrow,.kicker{font:9px "DM Mono";letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}.eyebrow{display:flex;align-items:center;gap:9px;margin-bottom:18px}.eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px rgba(215,255,100,.8)}h1{font:600 clamp(48px,7vw,82px)/.96 "Space Grotesk";letter-spacing:-.06em;margin:0}h1 span{color:var(--accent)}.hero p{max-width:850px;color:var(--soft);font-size:18px;margin:24px 0 0}.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}.btn{display:inline-flex;padding:11px 15px;border:1px solid var(--line2);border-radius:7px;background:var(--card);font:9px "DM Mono";transition:.2s}.btn:hover{border-color:var(--accent);transform:translateY(-2px)}.primary{background:var(--accent);color:#080a0d;border-color:var(--accent)}
+.layout{display:grid;grid-template-columns:245px 1fr;gap:55px;padding-top:60px}.toc{position:sticky;top:95px;align-self:start;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:19px}.toc .title{font:9px "DM Mono";color:var(--accent);text-transform:uppercase;margin-bottom:12px}.toc a{display:block;padding:7px 0;color:var(--muted);font:9px "DM Mono";border-bottom:1px solid rgba(255,255,255,.035)}.toc a:last-child{border:0}.toc a:hover{color:var(--text)}.content{min-width:0}.section{padding:0 0 58px;margin-bottom:58px;border-bottom:1px solid var(--line)}.section:last-child{border:0}.kicker{margin:0 0 8px}h2{font:600 34px/1.1 "Space Grotesk";letter-spacing:-.04em;margin:0 0 15px}h3{font:600 20px "Space Grotesk";margin:28px 0 7px}p{color:var(--soft);margin:9px 0}.lead{font-size:16px;color:var(--soft)}.rule{display:grid;grid-template-columns:36px 1fr;gap:14px;margin:20px 0}.ruleNo{color:var(--accent);font:11px "DM Mono";padding-top:4px}.rule h3{margin:0}.rule p{margin-top:5px;font-size:13px}
+.callout{border:1px solid var(--line2);border-left:2px solid var(--accent);background:rgba(215,255,100,.035);padding:20px 21px;margin:24px 0;border-radius:0 9px 9px 0}.callout strong{color:var(--text)}.table{width:100%;border-collapse:collapse;margin:20px 0;background:var(--card);border:1px solid var(--line);border-radius:9px;overflow:hidden;font-size:12px}.table th,.table td{text-align:left;padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}.table th{color:var(--accent);font:8px "DM Mono";text-transform:uppercase}.table td{color:var(--soft)}.table tr:last-child td{border:0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.card{padding:22px;border:1px solid var(--line);border-radius:10px;background:var(--card)}.card:hover{border-color:var(--line2)}.card .tag{font:8px "DM Mono";color:var(--blue);text-transform:uppercase}.card h3{margin:12px 0 5px}.card p{font-size:12px}.badges{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}.badge{padding:5px 8px;border:1px solid var(--line2);border-radius:5px;font:8px "DM Mono";color:var(--soft)}
+.timeline{border-left:1px solid var(--line2);margin:25px 0 0 8px;padding-left:26px}.event{position:relative;margin:0 0 28px}.event:before{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:var(--accent);left:-30px;top:9px}.event b{font:11px "DM Mono";color:var(--accent)}.event h3{margin:4px 0}.event p{font-size:12px}
+pre{background:#0b0f13;border:1px solid var(--line);border-radius:9px;padding:18px;overflow:auto;color:#cbd4dc;font:11px/1.7 "DM Mono";white-space:pre-wrap}.codekey{color:var(--accent)}
+footer{padding:50px 0 65px;border-top:1px solid var(--line)}.footer{display:flex;justify-content:space-between;gap:30px}.footerbrand{font:600 20px "Space Grotesk"}.footerbrand b{color:var(--accent)}.footnote{max-width:620px;color:var(--muted);font-size:12px}.footerlinks{display:flex;flex-wrap:wrap;gap:17px;color:var(--soft);font:9px "DM Mono"}.footerlinks a:hover{color:var(--accent)}.bottom{display:flex;justify-content:space-between;padding-top:17px;margin-top:27px;border-top:1px solid var(--line);color:var(--muted);font:8px "DM Mono"}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.toc{position:relative;top:auto}.grid2{grid-template-columns:1fr}.links a:not(.github){display:none}}@media(max-width:560px){.container{width:min(calc(100% - 28px),var(--max))}.hero{padding:75px 0 55px}.hero p{font-size:16px}.footer,.bottom{display:block}.bottom span+span{display:block;margin-top:8px}}
+</style>
+</head>
+<body>
+<nav><div class="container navin">
+<a class="brand" href="index.html"><b class="mark">FM</b><div>Foundation Model Atlas <small>/ methodology</small></div></a>
+<div class="links"><a href="index.html">Atlas</a><a href="models.html">Models</a><a href="architectures.html">Architectures</a><a href="compare.html">Compare</a><a href="methodology.html">Methodology</a><a class="github" href="https://github.com/rahulkiran2222/foundation-model-atlas" target="_blank" rel="noopener">GitHub ↗</a></div>
+</div></nav>
+
+<header class="hero"><div class="container heroIn">
+<div class="eyebrow">Research Protocol / v0.1</div>
+<h1>Evidence before <span>certainty.</span></h1>
+<p>The methodology behind the Foundation Model Atlas: how model and architecture records are defined, sourced, normalized, connected, compared and updated — while keeping documented facts separate from interpretation.</p>
+<div class="actions"><a class="btn primary" href="models.html">Explore Model Records →</a><a class="btn" href="architectures.html">Explore Architecture Index</a><a class="btn" href="compare.html">Open Comparison Lab</a></div>
+</div></header>
+
+<main class="container layout">
+<aside class="toc">
+<div class="title">On this page</div>
+<a href="#scope">01 · Scope</a><a href="#record">02 · Record model</a><a href="#evidence">03 · Evidence hierarchy</a><a href="#certainty">04 · Certainty states</a><a href="#architecture">05 · Architecture representation</a><a href="#parameters">06 · Parameters</a><a href="#families">07 · Families & lineage</a><a href="#sources">08 · Source provenance</a><a href="#compare">09 · Comparison</a><a href="#updates">10 · Updates & deduplication</a><a href="#limitations">11 · Limitations</a><a href="#principles">12 · Principles</a>
+</aside>
+
+<article class="content">
+<section class="section" id="scope"><p class="kicker">01 / Scope</p><h2>What the Atlas is trying to represent.</h2>
+<p class="lead">The Atlas is a structured research index of foundation models and the architectural systems used to build them. Its purpose is not merely to collect names, but to make model identity, architecture, lineage and evidence navigable.</p>
+<div class="callout"><strong>Core rule:</strong> a field should communicate what the available evidence supports — not what would merely be plausible from a model's name, family or reputation.</div>
+<div class="grid2">
+<div class="card"><span class="tag">Model record</span><h3>Identity + capabilities</h3><p>Name, organization, release information, parameter conventions, modalities, context, licensing, links and other documented attributes.</p></div>
+<div class="card"><span class="tag">Architecture record</span><h3>Mechanism + topology</h3><p>Architecture family, attention or sequence mechanism, routing, positional strategy, mixing, modality interfaces and other structural properties when documented.</p></div>
+</div></section>
+
+<section class="section" id="record"><p class="kicker">02 / Record Model</p><h2>One source of truth per entity.</h2>
+<p>Models and architectures should be stored as structured records rather than repeated manually across pages. Web pages are presentation layers; JSON records are the underlying data layer.</p>
+<div class="rule"><div class="ruleNo">01</div><div><h3>Stable identity</h3><p>Each record receives a stable identifier suitable for URLs, joins and comparison.</p></div></div>
+<div class="rule"><div class="ruleNo">02</div><div><h3>Normalized fields</h3><p>Comparable concepts use consistent field names and units wherever possible.</p></div></div>
+<div class="rule"><div class="ruleNo">03</div><div><h3>Explicit unknowns</h3><p>Unavailable information should remain unavailable instead of being silently fabricated or inferred.</p></div></div>
+<div class="rule"><div class="ruleNo">04</div><div><h3>Provenance attached to claims</h3><p>Important technical claims should be traceable to a source record or primary evidence.</p></div></div>
+</section>
+
+<section class="section" id="evidence"><p class="kicker">03 / Evidence</p><h2>Source hierarchy.</h2>
+<p>The strongest evidence generally comes from material produced by the model's creators or from the original technical publication. Secondary sources are useful for discovery and cross-checking, but should not silently replace primary evidence.</p>
+<table class="table"><thead><tr><th>Priority</th><th>Evidence</th><th>Use</th></tr></thead><tbody>
+<tr><td>01</td><td>Original technical paper / technical report</td><td>Architecture, training method, experiments and technical claims.</td></tr>
+<tr><td>02</td><td>Official model card / release documentation</td><td>Identity, variants, parameters, context, modalities, license and usage information.</td></tr>
+<tr><td>03</td><td>Official repository / implementation</td><td>Configuration, module structure, code-level architectural details.</td></tr>
+<tr><td>04</td><td>Official weights / configuration artifacts</td><td>Machine-readable configuration and implementation evidence where publicly available.</td></tr>
+<tr><td>05</td><td>Official benchmark / evaluation material</td><td>Reported performance and evaluation methodology.</td></tr>
+<tr><td>06</td><td>Reputable secondary research</td><td>Discovery, triangulation and context when primary evidence is incomplete.</td></tr>
+</tbody></table>
+<div class="callout"><strong>Evidence is claim-specific.</strong> A source proving a parameter count does not automatically prove an attention mechanism, and a paper describing a family does not automatically prove that every later variant has the same architecture.</div>
+</section>
+
+<section class="section" id="certainty"><p class="kicker">04 / Certainty</p><h2>Fact, normalization, inference.</h2>
+<p>The Atlas should make the epistemic status of information legible.</p>
+<div class="grid2">
+<div class="card"><span class="tag">Documented</span><h3>Direct evidence</h3><p>The source explicitly states or exposes the property. This is the strongest form of record-level evidence.</p><div class="badges"><span class="badge">verified</span><span class="badge">primary source</span></div></div>
+<div class="card"><span class="tag">Normalized</span><h3>Equivalent representation</h3><p>The Atlas reformats a documented value into a consistent representation without changing its substantive meaning.</p><div class="badges"><span class="badge">normalized</span><span class="badge">comparable</span></div></div>
+<div class="card"><span class="tag">Inferred</span><h3>Reasoned interpretation</h3><p>A conclusion is derived from evidence rather than stated directly. It should be clearly labeled and never presented as a direct quote from the source.</p><div class="badges"><span class="badge">inferred</span><span class="badge">review needed</span></div></div>
+<div class="card"><span class="tag">Unavailable</span><h3>No supported value</h3><p>The public evidence does not support a reliable value. Leaving a field unknown is preferable to filling it with an assumption.</p><div class="badges"><span class="badge">unknown</span><span class="badge">not disclosed</span></div></div>
+</div></section>
+
+<section class="section" id="architecture"><p class="kicker">05 / Architecture</p><h2>Represent structure without pretending to know more.</h2>
+<p>Architecture records describe computational mechanisms at the level supported by the evidence. A visual diagram can be explanatory, but it should not imply undocumented exact layer counts, routing topology or tensor shapes.</p>
+<div class="grid2">
+<div class="card"><span class="tag">Sequence</span><h3>Core mechanism</h3><p>Capture the principal sequence-processing mechanism such as attention, state-space processing, recurrence or a hybrid combination when supported.</p></div>
+<div class="card"><span class="tag">Attention</span><h3>Attention strategy</h3><p>Represent mechanisms such as MHA, MQA, GQA, local/sliding attention or other documented variants where applicable.</p></div>
+<div class="card"><span class="tag">Sparse compute</span><h3>Expert routing</h3><p>For MoE systems, distinguish total experts, active experts and routing behavior when those details are available.</p></div>
+<div class="card"><span class="tag">Multimodal</span><h3>Modality interface</h3><p>Describe encoders, projectors, adapters, cross-attention or shared representations only to the degree supported by source material.</p></div>
+</div>
+<div class="callout"><strong>Architecture abstraction rule:</strong> a conceptual family label such as “Transformer” is not a substitute for the model's documented architecture. The detailed record should preserve meaningful differences.</div>
+</section>
+
+<section class="section" id="parameters"><p class="kicker">06 / Parameters</p><h2>Parameter counts need context.</h2>
+<p>Parameter counts can be misleading when models use sparse expert architectures or publish several variants. The Atlas should preserve the distinction between total and active parameters where the source provides it.</p>
+<table class="table"><thead><tr><th>Notation</th><th>Meaning</th><th>Example interpretation</th></tr></thead><tbody>
+<tr><td>Total</td><td>All stored parameters in the model.</td><td>Useful for model scale and storage comparisons.</td></tr>
+<tr><td>Active</td><td>Parameters participating in a typical token's computation.</td><td>Important for sparse/MoE compute comparisons.</td></tr>
+<tr><td>A/B</td><td>Common shorthand for active/total or a source-specific convention.</td><td>Must be interpreted using the originating source rather than assumed universally.</td></tr>
+<tr><td>Variant</td><td>A separately released model size or configuration.</td><td>Do not merge distinct variants into one record merely because their names share a family.</td></tr>
+</tbody></table>
+</section>
+
+<section class="section" id="families"><p class="kicker">07 / Families & Lineage</p><h2>Family is not identity.</h2>
+<p>Model families connect related releases while preserving individual model records. A family relationship should not cause attributes from one generation to be copied blindly into another.</p>
+<div class="timeline">
+<div class="event"><b>FAMILY</b><h3>Shared lineage</h3><p>Models can belong to the same research or product family while differing in scale, architecture, training data, modality or deployment configuration.</p></div>
+<div class="event"><b>VERSION</b><h3>Generation / release</h3><p>Versions should remain distinguishable when their technical or release identity is materially different.</p></div>
+<div class="event"><b>VARIANT</b><h3>Size / specialization</h3><p>Small, large, coder, reasoning, multimodal and other variants may share lineage without being interchangeable records.</p></div>
+</div>
+</section>
+
+<section class="section" id="sources"><p class="kicker">08 / Provenance</p><h2>Sources are first-class records.</h2>
+<p>A source should be represented as data that can be reused by model pages, architecture pages, comparison views and future audits.</p>
+<pre><span class="codekey">{
+  "id": "source-001",
+  "type": "technical_report",
+  "title": "Original technical report",
+  "publisher": "Organization",
+  "url": "https://...",
+  "accessed": "YYYY-MM-DD",
+  "supports": [
+    "architecture",
+    "parameters"
+  ]
+}</span></pre>
+<p>The exact schema can evolve, but the principle is stable: **do not bury provenance only inside page prose**.</p>
+</section>
+
+<section class="section" id="compare"><p class="kicker">09 / Comparison</p><h2>Compare evidence-backed structures.</h2>
+<p>The Comparison Lab should compare normalized fields and documented components rather than visual similarity alone.</p>
+<div class="rule"><div class="ruleNo">A</div><div><h3>Normalize first</h3><p>Make units, naming and categorical representations comparable before calculating differences.</p></div></div>
+<div class="rule"><div class="ruleNo">B</div><div><h3>Show differences explicitly</h3><p>Highlight changed components such as attention strategy, routing, sequence mechanism, parameter regime or modality interface.</p></div></div>
+<div class="rule"><div class="ruleNo">C</div><div><h3>Preserve unknowns</h3><p>An unknown field should not be treated as a difference simply because the other model has a documented value.</p></div></div>
+<div class="rule"><div class="ruleNo">D</div><div><h3>Explain the visual</h3><p>Interactive diagrams are explanatory interfaces to structured records, not independent evidence.</p></div></div>
+</section>
+
+<section class="section" id="updates"><p class="kicker">10 / Maintenance</p><h2>Updates, deduplication and version control.</h2>
+<p>The Atlas should prefer deterministic updates over repeated manual edits across HTML pages.</p>
+<div class="grid2">
+<div class="card"><span class="tag">Deduplication</span><h3>One entity, one canonical ID</h3><p>Before adding a record, check normalized name, organization, release/version and existing IDs. Near-duplicates should be reviewed rather than silently accumulated.</p></div>
+<div class="card"><span class="tag">Updates</span><h3>Change the data, regenerate views</h3><p>When a model or architecture changes, update the canonical JSON/source record first. Presentation pages should read the updated data.</p></div>
+<div class="card"><span class="tag">Audit</span><h3>Keep provenance inspectable</h3><p>Important changes should be traceable to a source or explicit editorial decision.</p></div>
+<div class="card"><span class="tag">Freshness</span><h3>Release-aware maintenance</h3><p>New model releases should not overwrite historical identity. Add or update records according to whether the event is a new model, version, variant or correction.</p></div>
+</div>
+</section>
+
+<section class="section" id="limitations"><p class="kicker">11 / Limitations</p><h2>What the Atlas cannot guarantee.</h2>
+<p>Public model information is uneven. Some organizations disclose detailed architecture papers; others disclose only high-level descriptions. Closed models can have particularly limited technical transparency.</p>
+<div class="callout"><strong>Therefore:</strong> completeness of the database does not mean completeness of public knowledge. A missing field can be a property of the evidence landscape, not a failure of the Atlas.</div>
+<p>Architecture diagrams may also simplify complex implementations. Hardware kernels, serving optimizations, quantization, inference-time routing and proprietary training infrastructure can sit outside the model's conceptual architecture record.</p>
+</section>
+
+<section class="section" id="principles"><p class="kicker">12 / Principles</p><h2>The Atlas contract.</h2>
+<div class="rule"><div class="ruleNo">01</div><div><h3>Primary evidence first.</h3><p>Prefer original technical and official sources for technical claims.</p></div></div>
+<div class="rule"><div class="ruleNo">02</div><div><h3>Facts before inference.</h3><p>Separate documented properties from interpretations and mark uncertainty.</p></div></div>
+<div class="rule"><div class="ruleNo">03</div><div><h3>Entities before pages.</h3><p>Canonical records are the source of truth; HTML interfaces expose them.</p></div></div>
+<div class="rule"><div class="ruleNo">04</div><div><h3>Comparability without false precision.</h3><p>Normalize what can be normalized, but preserve meaningful differences and unknowns.</p></div></div>
+<div class="rule"><div class="ruleNo">05</div><div><h3>Visuals explain; evidence supports.</h3><p>An animated architecture diagram is an interface for understanding, not proof of an undocumented implementation detail.</p></div></div>
+<div class="rule"><div class="ruleNo">06</div><div><h3>History remains history.</h3><p>New releases should extend the Atlas rather than erase the lineage that came before them.</p></div></div>
+</section>
+</article>
+</main>
+
+<footer><div class="container">
+<div class="footer"><div><div class="footerbrand">Foundation Model Atlas<b>.</b></div><p class="footnote">Methodology v0.1 — a living protocol for evidence, normalization, architecture representation, provenance and comparison.</p></div>
+<div class="footerlinks"><a href="index.html">Atlas</a><a href="models.html">Models</a><a href="architectures.html">Architectures</a><a href="compare.html">Compare</a><a href="methodology.html">Methodology</a></div></div>
+<div class="bottom"><span>OPEN RESEARCH · EVIDENCE FIRST · DATA-DRIVEN</span><span>Methodology / v0.1</span></div>
+</div></footer>
+</body>
+</html>
