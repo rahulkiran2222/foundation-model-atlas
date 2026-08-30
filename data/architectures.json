@@ -40,7 +40,97 @@
       "attention",
       "self-attention",
       "sequence-modeling"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Multi-head self-attention"
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Position-wise feed-forward network."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Layer normalization."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Attention-based sequence modeling with direct pairwise interaction between token representations."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "encoder-only-transformer",
@@ -81,7 +171,97 @@
       "transformer",
       "bidirectional",
       "representation-learning"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Bidirectional self-attention"
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Position-wise feed-forward network."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Layer normalization or architecture-specific normalization."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Bidirectional contextual representation learning."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "decoder-only-transformer",
@@ -129,7 +309,113 @@
       "transformer",
       "causal-attention",
       "autoregressive"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Causal self-attention"
+        },
+        {
+          "id": "router",
+          "type": "router",
+          "label": "Router",
+          "detail": "Dense or sparse depending on the model."
+        },
+        {
+          "id": "experts",
+          "type": "experts",
+          "label": "Expert FFN",
+          "detail": "Position-wise feed-forward network or gated feed-forward variant."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Layer normalization or RMSNorm depending on model family."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Autoregressive next-token prediction."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "router",
+          "type": "dataflow"
+        },
+        {
+          "from": "router",
+          "to": "experts",
+          "type": "dataflow"
+        },
+        {
+          "from": "experts",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        },
+        {
+          "from": "router",
+          "to": "experts",
+          "type": "routing"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "encoder-decoder-transformer",
@@ -170,7 +456,97 @@
       "transformer",
       "seq2seq",
       "cross-attention"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Encoder self-attention, decoder causal self-attention, and encoder-decoder cross-attention."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Position-wise feed-forward networks."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Layer normalization or architecture-specific normalization."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Sequence-to-sequence transformation."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "masked-language-model",
@@ -208,7 +584,97 @@
       "masked-language-modeling",
       "mlm",
       "pretraining-objective"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Typically bidirectional self-attention when implemented with an encoder architecture."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Bidirectional contextual prediction over corrupted input."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "causal-language-model",
@@ -249,7 +715,113 @@
       "causal-language-model",
       "autoregressive",
       "next-token-prediction"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Causal self-attention in Transformer implementations."
+        },
+        {
+          "id": "router",
+          "type": "router",
+          "label": "Router",
+          "detail": "Dense or sparse depending on architecture."
+        },
+        {
+          "id": "experts",
+          "type": "experts",
+          "label": "Expert FFN",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Left-to-right autoregressive sequence modeling."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "router",
+          "type": "dataflow"
+        },
+        {
+          "from": "router",
+          "to": "experts",
+          "type": "dataflow"
+        },
+        {
+          "from": "experts",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        },
+        {
+          "from": "router",
+          "to": "experts",
+          "type": "routing"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "mixture-of-experts-transformer",
@@ -296,7 +868,113 @@
       "sparse",
       "conditional-computation",
       "transformer"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Typically self-attention combined with sparse expert layers."
+        },
+        {
+          "id": "router",
+          "type": "router",
+          "label": "Router",
+          "detail": "Learned sparse token-to-expert routing."
+        },
+        {
+          "id": "experts",
+          "type": "experts",
+          "label": "Expert FFN",
+          "detail": "Multiple expert feed-forward networks with sparse activation."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Transformer-based sequence modeling with conditional computation."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "router",
+          "type": "dataflow"
+        },
+        {
+          "from": "router",
+          "to": "experts",
+          "type": "dataflow"
+        },
+        {
+          "from": "experts",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        },
+        {
+          "from": "router",
+          "to": "experts",
+          "type": "routing"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "sparse-mixture-of-experts",
@@ -338,7 +1016,113 @@
       "moe",
       "expert-routing",
       "conditional-computation"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "router",
+          "type": "router",
+          "label": "Router",
+          "detail": "Sparse learned routing, commonly top-k expert selection."
+        },
+        {
+          "id": "experts",
+          "type": "experts",
+          "label": "Expert FFN",
+          "detail": "Multiple independently parameterized expert networks."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Conditional computation over token representations."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "router",
+          "type": "dataflow"
+        },
+        {
+          "from": "router",
+          "to": "experts",
+          "type": "dataflow"
+        },
+        {
+          "from": "experts",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        },
+        {
+          "from": "router",
+          "to": "experts",
+          "type": "routing"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "state-space-model",
@@ -378,7 +1162,97 @@
       "state-space",
       "sequence-modeling",
       "long-context"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "No conventional full self-attention is required by the core state-space formulation."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Latent-state sequence propagation."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "selective-state-space-model",
@@ -419,7 +1293,97 @@
       "ssm",
       "selective-state-space",
       "long-context"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Does not require conventional full self-attention."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Architecture-specific selective state-space block."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Input-conditioned recurrent state-space processing."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "hybrid-transformer-ssm",
@@ -458,7 +1422,97 @@
       "ssm",
       "mamba",
       "jamba"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Selective Transformer attention combined with state-space sequence blocks."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Transformer-style or architecture-specific feed-forward layers."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Hybrid attention and state-space sequence processing."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "recurrent-sequence-model",
@@ -498,7 +1552,97 @@
       "sequence-modeling",
       "streaming",
       "rwkv"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Optional; not required by the core architecture."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Explicit recurrent state propagation."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "diffusion-model",
@@ -542,7 +1686,97 @@
       "generative-model",
       "image-generation",
       "denoising"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Optional and architecture-dependent."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Typically convolutional or Transformer-based blocks."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Not fundamentally sequence-based; generation proceeds through iterative denoising steps."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "latent-diffusion",
@@ -582,7 +1816,97 @@
       "stable-diffusion",
       "image-generation",
       "text-to-image"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Often uses cross-attention for conditioning."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Typically implemented through a U-Net or related denoising architecture."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Iterative denoising in latent space."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "diffusion-transformer",
@@ -620,7 +1944,113 @@
       "dit",
       "transformer",
       "generative-model"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Transformer self-attention."
+        },
+        {
+          "id": "router",
+          "type": "router",
+          "label": "Router",
+          "detail": "Dense or sparse depending on implementation."
+        },
+        {
+          "id": "experts",
+          "type": "experts",
+          "label": "Expert FFN",
+          "detail": "Transformer feed-forward layers."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Transformer-based representation processing during iterative denoising."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "router",
+          "type": "dataflow"
+        },
+        {
+          "from": "router",
+          "to": "experts",
+          "type": "dataflow"
+        },
+        {
+          "from": "experts",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        },
+        {
+          "from": "router",
+          "to": "experts",
+          "type": "routing"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "unet",
@@ -661,7 +2091,97 @@
       "encoder-decoder",
       "vision",
       "diffusion"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Optional; modern variants may include attention blocks."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Convolutional transformations."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Spatial feature processing rather than token sequence modeling."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "convolutional-neural-network",
@@ -702,7 +2222,97 @@
       "convolution",
       "vision",
       "computer-vision"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Not required by the core architecture."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Convolutional layers and nonlinear transformations."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Spatial rather than sequential modeling."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "residual-network",
@@ -739,7 +2349,97 @@
       "residual",
       "cnn",
       "vision"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Not required by the core architecture."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Convolutional residual blocks."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Typically batch normalization in classical variants."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Hierarchical spatial feature extraction."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "vision-transformer",
@@ -780,7 +2480,113 @@
       "vision-transformer",
       "vision",
       "attention"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Multi-head self-attention over image patches."
+        },
+        {
+          "id": "router",
+          "type": "router",
+          "label": "Router",
+          "detail": "Dense or sparse depending on variant."
+        },
+        {
+          "id": "experts",
+          "type": "experts",
+          "label": "Expert FFN",
+          "detail": "Transformer feed-forward networks."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Layer normalization."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Patch-token sequence modeling."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "router",
+          "type": "dataflow"
+        },
+        {
+          "from": "router",
+          "to": "experts",
+          "type": "dataflow"
+        },
+        {
+          "from": "experts",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        },
+        {
+          "from": "router",
+          "to": "experts",
+          "type": "routing"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "multimodal-encoder",
@@ -820,7 +2626,97 @@
       "encoder",
       "vision-language",
       "representation-learning"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Often uses Transformer attention within or across modalities."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Transformer, convolutional, or modality-specific networks."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Joint representation learning across modality-specific token sequences."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "cross-attention",
@@ -860,7 +2756,97 @@
       "attention",
       "multimodal",
       "conditioning"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Query representations attend to keys and values from another sequence."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Conditional interaction between separate sequences or modalities."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "multimodal-fusion",
@@ -900,7 +2886,97 @@
       "fusion",
       "vision-language",
       "cross-modal"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Often implemented with cross-attention or joint self-attention."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Transformer or modality-specific feed-forward layers."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Joint processing of modality-specific token sequences."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "dual-encoder",
@@ -941,7 +3017,97 @@
       "embedding",
       "retrieval",
       "contrastive-learning"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Architecture-dependent within each encoder."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Encoder-dependent."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Separate sequence encoding into fixed-dimensional representations."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "cross-encoder",
@@ -977,7 +3143,97 @@
       "retrieval",
       "reranking",
       "semantic-similarity"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Joint self-attention over combined input representations."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Transformer feed-forward layers or architecture-specific equivalents."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Joint sequence encoding for pairwise comparison."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "embedding-model",
@@ -1018,7 +3274,97 @@
       "representation-learning",
       "retrieval",
       "semantic-search"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Encodes sequences or other inputs into fixed-dimensional representations."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "retrieval-augmented-generation",
@@ -1060,7 +3406,97 @@
       "retrieval",
       "grounding",
       "knowledge-augmentation"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Typically uses Transformer attention within the generator and may use cross-attention or concatenation for retrieved context."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Inherited from the underlying generator."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Inherited from the underlying generator."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Combines retrieved context with autoregressive or sequence-to-sequence generation."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "retriever-generator",
@@ -1100,7 +3536,97 @@
       "generator",
       "rag",
       "knowledge-retrieval"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Generator attention is architecture-dependent; retrieved representations may be incorporated through cross-attention or concatenation."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Retrieved evidence is integrated into downstream sequence generation."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "efficient-attention",
@@ -1140,7 +3666,97 @@
       "long-context",
       "sparse-attention",
       "linear-attention"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Sparse, linear, low-rank, local, grouped, or otherwise optimized attention."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Transformer-style feed-forward networks."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Long-sequence modeling with reduced attention complexity."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "sparse-attention",
@@ -1178,7 +3794,113 @@
       "sparse-attention",
       "long-context",
       "attention"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Structured sparse attention."
+        },
+        {
+          "id": "router",
+          "type": "router",
+          "label": "Router",
+          "detail": "Predefined or learned sparse attention pattern."
+        },
+        {
+          "id": "experts",
+          "type": "experts",
+          "label": "Expert FFN",
+          "detail": "Transformer feed-forward layers."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Selective long-range and local token interaction."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "router",
+          "type": "dataflow"
+        },
+        {
+          "from": "router",
+          "to": "experts",
+          "type": "dataflow"
+        },
+        {
+          "from": "experts",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        },
+        {
+          "from": "router",
+          "to": "experts",
+          "type": "routing"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "linear-attention",
@@ -1215,7 +3937,97 @@
       "linear-attention",
       "efficient-attention",
       "long-context"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Kernelized, factorized, recurrent, or otherwise linearized attention."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Efficient long-sequence processing."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "long-context-transformer",
@@ -1256,7 +4068,97 @@
       "long-context",
       "transformer",
       "long-sequence"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Full, sparse, sliding-window, grouped, or other efficient attention mechanisms."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Transformer feed-forward networks."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Long-range sequence modeling."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "byte-level-language-model",
@@ -1294,7 +4196,97 @@
       "token-free",
       "tokenization",
       "language-model"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Sequence modeling over byte-level representations."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "token-free-language-model",
@@ -1333,7 +4325,97 @@
       "byte-level",
       "character-level",
       "tokenization"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Sequence modeling over non-subword representations."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "audio-transformer",
@@ -1372,7 +4454,97 @@
       "speech",
       "transformer",
       "acoustic-modeling"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Self-attention over acoustic or audio tokens."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Transformer feed-forward layers."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Layer normalization or architecture-specific normalization."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Temporal acoustic sequence modeling."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "speech-encoder-decoder",
@@ -1410,7 +4582,97 @@
       "speech-recognition",
       "encoder-decoder",
       "audio"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Encoder self-attention, decoder self-attention, and optional cross-attention."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Transformer or convolutional feed-forward blocks."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Speech-to-text or speech-to-sequence transformation."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "audio-self-supervised-encoder",
@@ -1448,7 +4710,97 @@
       "self-supervised",
       "audio",
       "representation-learning"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Typically Transformer-based contextual encoding."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Transformer feed-forward blocks."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Contextual acoustic representation learning."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "video-transformer",
@@ -1486,7 +4838,97 @@
       "spatiotemporal",
       "transformer",
       "vision"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Spatial, temporal, or joint spatiotemporal attention."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Transformer feed-forward layers."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Spatiotemporal sequence modeling."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "vision-language-model",
@@ -1528,7 +4970,97 @@
       "multimodal",
       "vlm",
       "image-understanding"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Visual-language interaction through cross-attention, projection, or joint attention."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Vision encoder and language-model feed-forward layers."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Joint visual and textual token processing."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "vision-language-projector",
@@ -1566,7 +5098,97 @@
       "vision-language",
       "multimodal",
       "connector"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Usually inherited from the vision encoder and language model; the projector itself may be a linear layer or small neural network."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Projection network."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Connects visual token sequences with language-token sequences."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "prefix-lm",
@@ -1603,7 +5225,97 @@
       "prefix-lm",
       "transformer",
       "conditional-generation"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Bidirectional prefix attention combined with causal decoder attention."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Transformer feed-forward layers."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Conditional generation from an encoded prefix."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "denoising-sequence-to-sequence",
@@ -1642,7 +5354,97 @@
       "seq2seq",
       "encoder-decoder",
       "pretraining"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Bidirectional encoder attention, causal decoder attention, and cross-attention."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Transformer feed-forward layers."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Denoising sequence reconstruction."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "retrieval-transformer",
@@ -1681,7 +5483,97 @@
       "transformer",
       "rag",
       "external-memory"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Transformer attention over generated tokens and retrieved information."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Transformer feed-forward layers."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Autoregressive or sequence-to-sequence generation conditioned on retrieved information."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "memory-augmented-transformer",
@@ -1719,7 +5611,97 @@
       "long-context",
       "retrieval",
       "transformer"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Self-attention combined with memory retrieval or memory attention."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Transformer feed-forward layers."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Sequence modeling with persistent or extended memory."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "grouped-query-attention",
@@ -1759,7 +5741,97 @@
       "attention",
       "inference",
       "kv-cache"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Grouped-query attention."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Standard attention with reduced key-value cache size."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "multi-query-attention",
@@ -1797,7 +5869,97 @@
       "attention",
       "inference",
       "kv-cache"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Multi-query attention."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Attention-based sequence modeling with reduced key-value cache."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "multi-head-attention",
@@ -1838,7 +6000,97 @@
       "multi-head-attention",
       "attention",
       "transformer"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Multiple independent query-key-value attention heads."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Provided by the surrounding architecture."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Provided by the surrounding architecture."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Parallel attention-based interaction between tokens."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "parameter-efficient-adaptation",
@@ -1877,7 +6129,97 @@
       "fine-tuning",
       "adaptation",
       "parameter-efficient"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Inherited from the base model."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Inherited from the base model, with optional adaptation modules."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Inherited from the base model."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Inherited from the pretrained architecture."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "low-rank-adaptation",
@@ -1915,7 +6257,97 @@
       "low-rank",
       "peft",
       "fine-tuning"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Can adapt attention projections of a Transformer."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Can adapt selected feed-forward transformations."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Inherited from the base model."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Inherited from the underlying model."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "adapter-architecture",
@@ -1951,7 +6383,97 @@
       "adapter",
       "peft",
       "fine-tuning"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Inherited from the underlying model."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Small trainable adapter modules are inserted into existing transformations."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Inherited from the underlying sequence model."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "quantized-transformer",
@@ -1986,7 +6508,97 @@
       "compression",
       "inference",
       "low-precision"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Inherited from the underlying Transformer."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Inherited from the underlying Transformer."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Inherited from the underlying Transformer."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Inherited from the underlying Transformer."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "mixture-of-depths",
@@ -2021,7 +6633,97 @@
       "conditional-computation",
       "routing",
       "transformer"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Transformer attention with token-dependent computation allocation."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Inherited from the base Transformer."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Inherited from the base Transformer."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Adaptive-depth sequence processing."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "speculative-decoding",
@@ -2057,7 +6759,97 @@
       "inference",
       "generation",
       "acceleration"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Inherited from the target and draft language models."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Inherited from the underlying models."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Inherited from the underlying models."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Autoregressive generation with parallel verification of proposed tokens."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "agentic-language-model",
@@ -2099,7 +6891,97 @@
       "planning",
       "memory",
       "language-model"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Inherited from the underlying language model."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Inherited from the underlying language model."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Inherited from the underlying language model."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Iterative decision and action sequences rather than a single generation pass."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "tool-augmented-language-model",
@@ -2138,7 +7020,97 @@
       "function-calling",
       "agents",
       "language-model"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Inherited from the underlying language model."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Inherited from the underlying language model."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Inherited from the underlying language model."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Alternates between language-model generation and external tool results."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   },
   {
     "id": "robotic-foundation-model",
@@ -2178,6 +7150,96 @@
       "embodied-ai",
       "vision-language-action",
       "foundation-model"
-    ]
+    ],
+    "visualTopology": {
+      "representation": "architecture-concept-map",
+      "nodes": [
+        {
+          "id": "input",
+          "type": "input",
+          "label": "Input",
+          "detail": "Sequence or modality representations"
+        },
+        {
+          "id": "embedding",
+          "type": "embedding",
+          "label": "Embedding / representation",
+          "detail": "Input representation"
+        },
+        {
+          "id": "attention",
+          "type": "attention",
+          "label": "Attention / mixer",
+          "detail": "Transformer or multimodal attention over visual, language, proprioceptive, and action representations."
+        },
+        {
+          "id": "ffn",
+          "type": "ffn",
+          "label": "Feed-forward / transformation",
+          "detail": "Transformer or modality-specific networks."
+        },
+        {
+          "id": "norm",
+          "type": "norm",
+          "label": "Normalization",
+          "detail": "Architecture-dependent."
+        },
+        {
+          "id": "stack",
+          "type": "stack",
+          "label": "Repeated blocks",
+          "detail": "Temporal observation-to-action sequence modeling."
+        },
+        {
+          "id": "output",
+          "type": "output",
+          "label": "Output",
+          "detail": "Architecture-defined output"
+        }
+      ],
+      "edges": [
+        {
+          "from": "input",
+          "to": "embedding",
+          "type": "dataflow"
+        },
+        {
+          "from": "embedding",
+          "to": "attention",
+          "type": "dataflow"
+        },
+        {
+          "from": "attention",
+          "to": "ffn",
+          "type": "dataflow"
+        },
+        {
+          "from": "ffn",
+          "to": "norm",
+          "type": "dataflow"
+        },
+        {
+          "from": "norm",
+          "to": "stack",
+          "type": "dataflow"
+        },
+        {
+          "from": "stack",
+          "to": "output",
+          "type": "dataflow"
+        }
+      ]
+    },
+    "visualDataQuality": {
+      "sourceFields": [
+        "attention",
+        "positionEncoding",
+        "feedForward",
+        "normalization",
+        "routing",
+        "sequenceModeling"
+      ],
+      "note": "Visual map follows the architecture record and does not add unsupported component details."
+    }
   }
 ]
