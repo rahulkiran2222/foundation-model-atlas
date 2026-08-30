@@ -128,18 +128,42 @@ footer{padding:43px 0 60px}
 @media(max-width:980px){.results,.featured{grid-template-columns:repeat(2,1fr)}.categories,.archgrid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){.links a:not(.github){display:none}.stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.explorer,.method{grid-template-columns:1fr}.sh{display:block}.sectionlink{display:inline-block;margin-top:17px}}
 @media(max-width:580px){.container{width:min(calc(100% - 28px),var(--max))}.hero{padding:80px 0 62px}h1{font-size:49px}.hero p{font-size:16px}.results,.featured,.categories,.archgrid{grid-template-columns:1fr}.searchbar{display:grid;grid-template-columns:1fr}.searchbar select{height:43px}.footer,.bottom{display:block}.footerlinks{margin-top:20px}.bottom span+span{display:block;margin-top:8px}}
+
+/* v0.1 HERO MOTION SYSTEM */
+.hero{isolation:isolate}
+.heroScene{position:absolute;inset:-12%;pointer-events:none;overflow:hidden;opacity:.9}
+.heroGlow{position:absolute;width:52vw;height:52vw;min-width:420px;min-height:420px;border-radius:50%;left:50%;top:42%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(215,255,100,.11) 0,rgba(215,255,100,.035) 28%,transparent 68%);filter:blur(2px);animation:heroPulse 7s ease-in-out infinite}
+.heroOrbit{position:absolute;left:50%;top:43%;width:min(78vw,930px);height:min(78vw,930px);max-width:930px;max-height:930px;transform:translate(-50%,-50%) rotate(-12deg);border:1px solid rgba(215,255,100,.10);border-radius:50%;animation:orbit 22s linear infinite}
+.heroOrbit.o2{width:min(58vw,700px);height:min(58vw,700px);border-color:rgba(138,180,255,.10);transform:translate(-50%,-50%) rotate(41deg);animation-duration:17s;animation-direction:reverse}
+.heroOrbit.o3{width:min(39vw,470px);height:min(39vw,470px);border-color:rgba(189,165,255,.11);transform:translate(-50%,-50%) rotate(8deg);animation-duration:12s}
+.heroOrbit:after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 22px var(--accent);left:10%;top:13%}
+.heroOrbit.o2:after{background:var(--blue);box-shadow:0 0 20px var(--blue);left:78%;top:22%}
+.heroOrbit.o3:after{background:var(--purple);box-shadow:0 0 20px var(--purple);left:18%;top:78%}
+.heroNode{position:absolute;width:8px;height:8px;border:1px solid rgba(215,255,100,.55);border-radius:50%;box-shadow:0 0 16px rgba(215,255,100,.3);animation:nodeFloat 5s ease-in-out infinite}
+.heroNode.n1{left:18%;top:28%}.heroNode.n2{right:21%;top:24%;animation-delay:-1.4s}.heroNode.n3{right:14%;bottom:25%;animation-delay:-2.8s}.heroNode.n4{left:27%;bottom:20%;animation-delay:-3.6s}
+.heroTrace{position:absolute;height:1px;background:linear-gradient(90deg,transparent,rgba(215,255,100,.25),transparent);transform-origin:left center;animation:trace 6s ease-in-out infinite}
+.heroTrace.t1{width:34%;left:17%;top:31%;transform:rotate(17deg)}.heroTrace.t2{width:28%;right:15%;top:29%;transform:rotate(153deg);animation-delay:-2s}.heroTrace.t3{width:31%;left:28%;bottom:25%;transform:rotate(-21deg);animation-delay:-4s}
+.heroParticles{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.22) 0 1px,transparent 1.5px);background-size:83px 91px;mask-image:radial-gradient(ellipse at center,#000,transparent 73%);opacity:.22;animation:particleDrift 18s linear infinite}
+.heroContent{z-index:2}
+@keyframes orbit{to{transform:translate(-50%,-50%) rotate(348deg)}} 
+@keyframes heroPulse{0%,100%{opacity:.55;transform:translate(-50%,-50%) scale(.96)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.05)}}
+@keyframes nodeFloat{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(7px,-10px,0) scale(1.35)}}
+@keyframes trace{0%,100%{opacity:.12;transform-origin:left center;scale:.8}50%{opacity:.7;scale:1}}
+@keyframes particleDrift{to{background-position:83px 91px}}
+@media(prefers-reduced-motion:reduce){.heroGlow,.heroOrbit,.heroNode,.heroTrace,.heroParticles{animation:none}}
+
 </style>
 </head>
 <body>
 
 <nav class="nav">
 <div class="container navin">
-<a class="brand" href="index.html"><b class="mark">FM</b><div>Foundation Model Atlas <span>/ v0.2</span></div></a>
+<a class="brand" href="index.html"><b class="mark">FM</b><div>Foundation Model Atlas <span>/ v0.1</span></div></a>
 <div class="links">
 <a href="models.html">models</a>
 <a href="architectures.html">architectures</a>
 <a href="compare.html">compare</a>
-<a href="docs/methodology.md">methodology</a>
+<a href="methodology.html">methodology</a>
 <a class="github" href="https://github.com/rahulkiran2222/foundation-model-atlas" target="_blank" rel="noopener">GitHub ↗</a>
 </div>
 </div>
@@ -148,7 +172,7 @@ footer{padding:43px 0 60px}
 <header class="hero">
 <div class="gridbg"></div>
 <div class="container heroContent">
-<div class="eyebrow">Open Research Knowledge Base</div>
+<div class="eyebrow">Open Research Knowledge Base · v0.1</div>
 <h1>Foundation <span class="accent">Model</span> Atlas</h1>
 <p>Explore <strong>foundation models and their architectures</strong> as a connected research atlas — with model records, architecture concepts, interactive comparison, evolution, and evidence-aware metadata.</p>
 <div class="actions">
@@ -228,7 +252,7 @@ footer{padding:43px 0 60px}
 
 <section>
 <div class="container">
-<div class="sh"><div><p class="kicker">07 / Methodology</p><h2>Evidence before certainty</h2><p class="desc">The Atlas should distinguish verified fields from generalized representations and unavailable information.</p></div><a class="sectionlink" href="docs/methodology.md">Read methodology →</a></div>
+<div class="sh"><div><p class="kicker">08 / Methodology</p><h2>Evidence before certainty</h2><p class="desc">The Atlas should distinguish verified fields from generalized representations and unavailable information.</p></div><a class="sectionlink" href="methodology.html">Read methodology →</a></div>
 <div class="method">
 <div class="sourcebox"><h3>Primary-source hierarchy</h3><p>Architecture and model claims should lead back to official papers, model cards, repositories, documentation, or other authoritative sources. Secondary sources can help discovery but should not silently replace primary evidence.</p><div class="pills"><span class="pill">Research paper</span><span class="pill">Official repository</span><span class="pill">Model card</span><span class="pill">Official weights</span><span class="pill">Documentation</span><span class="pill">Benchmark</span></div></div>
 <div class="sourcebox"><h3>Dataset health</h3><div class="health">
@@ -246,9 +270,9 @@ footer{padding:43px 0 60px}
 <div class="container">
 <div class="footer">
 <div><div class="footerbrand">Foundation Model Atlas<b>.</b></div><p class="footnote">An open encyclopedia of foundation models, architectures, evolution, comparisons, and research resources.</p></div>
-<div class="footerlinks"><a href="models.html">Models</a><a href="architectures.html">Architectures</a><a href="compare.html">Compare</a><a href="docs/methodology.md">Methodology</a><a href="https://github.com/rahulkiran2222/foundation-model-atlas" target="_blank" rel="noopener">GitHub</a></div>
+<div class="footerlinks"><a href="models.html">Models</a><a href="architectures.html">Architectures</a><a href="compare.html">Compare</a><a href="methodology.html">Methodology</a><a href="https://github.com/rahulkiran2222/foundation-model-atlas" target="_blank" rel="noopener">GitHub</a></div>
 </div>
-<div class="bottom"><span>Open research · provenance-first · data-driven</span><span>Foundation Model Atlas · v0.2</span></div>
+<div class="bottom"><span>Open research · provenance-first · data-driven</span><span>Foundation Model Atlas · v0.1</span></div>
 </div>
 </footer>
 
@@ -336,7 +360,7 @@ async function load(){
          const r=await fetch(path+"?v="+Date.now(),{cache:"no-store"});
          if(!r.ok) continue;
          const p=await r.json();
-         const rows=Array.isArray(p)?p:(p.models||p.architectures||p.records||p.data||[]);
+         const rows=Array.isArray(p)?p:(p.models||p.architectures||p.records||p.data||p.items||[]);
          if(Array.isArray(rows)&&rows.length)return rows;
        }catch(_){}
      }
@@ -350,7 +374,7 @@ async function load(){
    renderStats();renderFeatured();renderArchs();search();
  }catch(e){
    document.getElementById("searchMeta").textContent="Atlas datasets could not be loaded. Open models.html to browse the catalog.";
-   document.getElementById("results").innerHTML=`<div style="grid-column:1/-1;color:var(--orange);padding:20px;border:1px solid var(--line);border-radius:9px">Data files are unavailable at the current path. Make sure <b>models-architecture-enriched.json</b> and <b>architectures-visual-enriched.json</b> are in the same GitHub Pages folder as this index.</div>`;
+   document.getElementById("results").innerHTML=`<div style="grid-column:1/-1;color:var(--orange);padding:20px;border:1px solid var(--line);border-radius:9px">Data files are unavailable at the current path. Keep the canonical model and architecture JSON files in the site folder or in <b>data/</b>.</div>`;
  }
 }
 document.getElementById("search").addEventListener("input",search);
