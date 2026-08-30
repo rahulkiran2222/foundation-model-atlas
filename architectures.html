@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Architecture Index — Foundation Model Atlas</title>
+<meta name="description" content="Foundation Model Atlas architecture encyclopedia and interactive architecture index.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080a0d;--card:#11161c;--hover:#1a222b;--text:#f5f7fa;--soft:#b2bbc5;--muted:#707b87;--line:#232c35;--line2:#35414d;--accent:#d7ff64;--blue:#8ab4ff;--max:1280px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 0%,rgba(215,255,100,.08),transparent 25%),var(--bg);color:var(--text);font-family:Inter,sans-serif;font-size:15px;line-height:1.65}a{text-decoration:none;color:inherit}button,input,select{font:inherit}::selection{background:var(--accent);color:#080a0d}.container{width:min(calc(100% - 44px),var(--max));margin:auto}
+.nav{position:sticky;top:0;z-index:20;background:rgba(8,10,13,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.navin{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:25px}.brand{display:flex;align-items:center;gap:12px;font:600 15px "Space Grotesk"}.mark{width:34px;height:34px;border:1px solid var(--accent);border-radius:8px;display:grid;place-items:center;color:var(--accent);font:11px "DM Mono"}.brand small{color:var(--muted);font:9px "DM Mono";margin-left:5px}.links{display:flex;gap:20px;align-items:center;color:var(--soft);font:9px "DM Mono";text-transform:uppercase}.links a:hover{color:var(--accent)}.github{border:1px solid var(--line2);padding:8px 11px;border-radius:6px}
+.hero{position:relative;overflow:hidden;padding:105px 0 76px;border-bottom:1px solid var(--line)}.grid{position:absolute;inset:0;opacity:.25;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(#000,transparent)}.heroIn{position:relative;max-width:1000px}.eyebrow,.kicker{color:var(--accent);font:9px "DM Mono";text-transform:uppercase;letter-spacing:.12em}.eyebrow{display:flex;align-items:center;gap:9px;margin-bottom:20px}.eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 15px rgba(215,255,100,.8)}h1{margin:0;font:600 clamp(52px,8vw,91px)/.94 "Space Grotesk";letter-spacing:-.065em}.accent{color:var(--accent)}.hero p{max-width:850px;color:var(--soft);font-size:18px;margin:25px 0 0;line-height:1.75}.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:29px}.btn{display:inline-flex;padding:11px 16px;border:1px solid var(--line2);border-radius:7px;background:var(--card);font:10px "DM Mono";transition:.2s}.btn:hover{border-color:var(--accent);transform:translateY(-2px)}.primary{background:var(--accent);color:#080a0d;border-color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}.stat{padding:24px 21px;border-right:1px solid var(--line)}.stat:last-child{border:0}.num{display:block;font:600 32px "Space Grotesk";letter-spacing:-.04em}.num em{font-style:normal;color:var(--accent)}.label{display:block;color:var(--muted);font:8px "DM Mono";text-transform:uppercase;letter-spacing:.08em}
+section{padding:78px 0;border-bottom:1px solid var(--line)}.sh{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:28px}.kicker{margin:0 0 7px}h2{margin:0;font:600 37px/1.08 "Space Grotesk";letter-spacing:-.04em}.desc{max-width:730px;color:var(--soft);font-size:13px;margin:11px 0 0}.sectionlink{font:9px "DM Mono";color:var(--soft);border-bottom:1px solid var(--line2);padding-bottom:4px;white-space:nowrap}.sectionlink:hover{color:var(--accent);border-color:var(--accent)}
+.search{display:flex;gap:9px;margin-bottom:12px}.search input{flex:1;min-width:0;background:var(--card);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:14px 15px;outline:0}.search input:focus{border-color:var(--accent)}.search select{background:var(--card);color:var(--soft);border:1px solid var(--line);border-radius:8px;padding:0 12px}.meta{color:var(--muted);font:9px "DM Mono";margin-bottom:15px}
+.archgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.arch{min-height:225px;padding:22px;border:1px solid var(--line);border-radius:11px;background:var(--card);transition:.2s}.arch:hover{transform:translateY(-3px);border-color:var(--accent);background:var(--hover)}.top{display:flex;justify-content:space-between;color:var(--muted);font:8px "DM Mono";text-transform:uppercase}.arch h3{font:600 20px "Space Grotesk";margin:19px 0 7px}.arch p{font-size:12px;color:var(--soft);margin:0}.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}.tag{padding:5px 7px;border:1px solid var(--line2);border-radius:5px;color:var(--blue);font:8px "DM Mono"}.mapped{margin-top:14px;color:var(--muted);font:8px "DM Mono"}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.node{position:relative;padding:22px 13px;text-align:center;border:1px solid var(--line2);border-radius:9px;background:var(--card)}.node b{display:block;font:600 13px "Space Grotesk"}.node span{display:block;margin-top:4px;color:var(--muted);font:8px "DM Mono"}.node:not(:last-child):after{content:"→";position:absolute;right:-18px;top:50%;transform:translateY(-50%);color:var(--accent);font:14px "DM Mono";z-index:2}
+.feature{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.f{padding:20px;border:1px solid var(--line);border-radius:10px;background:var(--card);min-height:170px}.f .n{color:var(--accent);font:8px "DM Mono"}.f h3{margin:18px 0 6px;font:600 18px "Space Grotesk"}.f p{margin:0;color:var(--soft);font-size:11px}.compare{display:grid;grid-template-columns:1fr 1fr;gap:10px}.panel{padding:27px;border:1px solid var(--line);border-radius:11px;background:linear-gradient(135deg,rgba(215,255,100,.04),transparent 55%),var(--card)}.panel h3{margin:0 0 8px;font:600 21px "Space Grotesk"}.panel p{margin:0;color:var(--soft);font-size:13px}.panel .actions{margin-top:20px}.note{padding:19px 21px;border-left:2px solid var(--accent);background:rgba(215,255,100,.035);color:var(--soft);font-size:12px}
+footer{padding:45px 0 65px}.footer{display:flex;justify-content:space-between;gap:30px}.footerbrand{font:600 20px "Space Grotesk"}.footerbrand b{color:var(--accent)}.footnote{max-width:620px;color:var(--muted);font-size:12px;margin:7px 0 0}.footerlinks{display:flex;flex-wrap:wrap;gap:17px;color:var(--soft);font:9px "DM Mono"}.footerlinks a:hover{color:var(--accent)}.bottom{display:flex;justify-content:space-between;gap:20px;padding-top:16px;margin-top:26px;border-top:1px solid var(--line);color:var(--muted);font:8px "DM Mono"}
+@media(max-width:1000px){.archgrid{grid-template-columns:repeat(2,1fr)}.feature{grid-template-columns:repeat(2,1fr)}}@media(max-width:760px){.links a:not(.github){display:none}.stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}.flow{grid-template-columns:1fr}.node:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-20px;transform:translateX(-50%)}.compare{grid-template-columns:1fr}.sh{display:block}.sectionlink{display:inline-block;margin-top:16px}}@media(max-width:560px){.container{width:min(calc(100% - 28px),var(--max))}.hero{padding:80px 0 60px}h1{font-size:50px}.hero p{font-size:16px}.archgrid,.feature{grid-template-columns:1fr}.search{display:grid;grid-template-columns:1fr}.search select{height:44px}.footer,.bottom{display:block}.footerlinks{margin-top:20px}.bottom span+span{display:block;margin-top:8px}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="container navin">
+<a class="brand" href="index.html"><b class="mark">FM</b><div>Foundation Model Atlas <small>/ architecture index</small></div></a>
+<div class="links"><a href="index.html">Atlas</a><a href="models.html">Models</a><a href="architectures.html">Architectures</a><a href="compare.html">Compare</a><a href="methodology.html">Methodology</a><a class="github" href="https://github.com/rahulkiran2222/foundation-model-atlas" target="_blank" rel="noopener">GitHub ↗</a></div>
+</div></nav>
+
+<header class="hero"><div class="grid"></div><div class="container heroIn">
+<div class="eyebrow">02 / Architecture Encyclopedia</div>
+<h1>How foundation <span class="accent">models</span> are built.</h1>
+<p>Explore the architectural ideas behind modern foundation models — attention and Transformer blocks, sparse expert routing, state-space sequence modeling, diffusion, multimodal fusion, efficient attention, and hybrid designs.</p>
+<div class="actions"><a class="btn primary" href="#catalog">Browse architecture records →</a><a class="btn" href="compare.html">Open Comparison Lab</a><a class="btn" href="models.html">Browse Model Records</a></div>
+</div></header>
+
+<div class="container"><div class="stats">
+<div class="stat"><span class="num" id="archCount">—</span><span class="label">Architecture records</span></div>
+<div class="stat"><span class="num" id="mappedCount">—</span><span class="label">Mapped model records</span></div>
+<div class="stat"><span class="num" id="familyCount">—</span><span class="label">Architecture families</span></div>
+<div class="stat"><span class="num" id="sourceCount">—</span><span class="label">Source links</span></div>
+</div></div>
+
+<section id="catalog"><div class="container">
+<div class="sh"><div><p class="kicker">Architecture Registry</p><h2>Architecture index.</h2><p class="desc">Search and filter the live architecture dataset. Every card opens the canonical individual record at <code>architecture.html?id=...</code>.</p></div><a class="sectionlink" href="index.html">← Back to Atlas</a></div>
+<div class="search"><input id="q" type="search" placeholder="Search architecture, mechanism, attention, routing, sequence modeling…"><select id="family"><option value="all">All families</option></select></div>
+<div class="meta" id="meta">Loading architecture records…</div><div class="archgrid" id="grid"></div>
+</div></section>
+
+<section><div class="container"><div class="sh"><div><p class="kicker">Architecture Map</p><h2>The computational stack.</h2><p class="desc">A conceptual map of the major stages found across foundation-model systems. Individual architectures can diverge significantly.</p></div></div>
+<div class="flow"><div class="node"><b>Input</b><span>tokens · pixels · audio</span></div><div class="node"><b>Representation</b><span>embedding / encoding</span></div><div class="node"><b>Sequence Engine</b><span>attention · SSM · hybrid</span></div><div class="node"><b>Compute</b><span>FFN · experts · routing</span></div><div class="node"><b>Output</b><span>logits · tokens · modality</span></div></div>
+</div></section>
+
+<section><div class="container"><div class="sh"><div><p class="kicker">Core Patterns</p><h2>Major architectural families.</h2><p class="desc">Conceptual entry points into the architecture space. The searchable registry above remains the canonical data-driven layer.</p></div></div>
+<div class="feature">
+<div class="f"><span class="n">01 / ATTENTION</span><h3>Transformer</h3><p>Attention-centered sequence processing using stacked blocks, residual pathways and feed-forward computation.</p></div>
+<div class="f"><span class="n">02 / SPARSE</span><h3>Mixture of Experts</h3><p>Conditional computation routes tokens through selected expert modules instead of activating every expert.</p></div>
+<div class="f"><span class="n">03 / STATE</span><h3>State-Space Models</h3><p>Sequence modeling through state representations designed to provide efficient processing of long sequences.</p></div>
+<div class="f"><span class="n">04 / GENERATIVE</span><h3>Diffusion</h3><p>Iterative denoising-based generation, especially important for image, video and multimodal generation.</p></div>
+<div class="f"><span class="n">05 / MULTIMODAL</span><h3>Vision-Language</h3><p>Visual and language representations connected through encoders, projectors, cross-attention or shared spaces.</p></div>
+<div class="f"><span class="n">06 / EFFICIENT</span><h3>Efficient Attention</h3><p>GQA, MQA, sliding/local attention and related mechanisms reduce memory or compute requirements.</p></div>
+<div class="f"><span class="n">07 / HYBRID</span><h3>Hybrid Sequence Models</h3><p>Combine multiple sequence-processing mechanisms to balance quality, memory, throughput and context length.</p></div>
+<div class="f"><span class="n">08 / CUSTOM</span><h3>Specialized Designs</h3><p>Model-specific blocks and combinations can be represented as dedicated architecture records when evidence supports them.</p></div>
+</div></div></section>
+
+<section><div class="container"><div class="sh"><div><p class="kicker">Comparison</p><h2>Turn architecture into a structural question.</h2><p class="desc">Move from an architecture concept to concrete model structures in the interactive Comparison Lab.</p></div></div>
+<div class="compare"><div class="panel"><h3>Architecture → model</h3><p>Open an architecture record and follow its mapped models to see how the abstract design appears in concrete systems.</p><div class="actions"><a class="btn" href="#catalog">Explore records</a></div></div><div class="panel"><h3>Model × model</h3><p>Compare two concrete systems with synchronized topology, component highlighting and animated computation flow.</p><div class="actions"><a class="btn primary" href="compare.html">Open Comparison Lab →</a></div></div></div>
+</div></section>
+
+<section><div class="container"><div class="note"><strong>Data principle:</strong> conceptual explanations on this index are not claims about every model. Exact topology should only be presented when the underlying architecture record has supporting evidence.</div></div></section>
+
+<footer><div class="container"><div class="footer"><div><div class="footerbrand">Foundation Model Atlas<b>.</b></div><p class="footnote">Architecture Index — the directory layer between the Atlas homepage and individual architecture records.</p></div><div class="footerlinks"><a href="index.html">Atlas</a><a href="models.html">Models</a><a href="architectures.html">Architectures</a><a href="compare.html">Compare</a><a href="methodology.html">Methodology</a></div></div><div class="bottom"><span>OPEN RESEARCH · ARCHITECTURE-FIRST · DATA-DRIVEN</span><span>Foundation Model Atlas</span></div></div></footer>
+
+<script>
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let ARCHS=[];
+function norm(p){if(Array.isArray(p))return p;if(!p||typeof p!=="object")return[];return p.architectures||p.records||p.data||[]}
+function fam(a){return a.family||a.category||a.type||"Other"}
+function families(){return [...new Set(ARCHS.map(fam).filter(Boolean))].sort((a,b)=>String(a).localeCompare(String(b)))}
+function sources(){let s=new Set();ARCHS.forEach(a=>{[...(a.sources||[]),...(a.sourceRecords||[])].forEach(x=>{if(typeof x==="string")s.add(x);else if(x?.url)s.add(x.url)})});return s.size}
+function mapped(){return ARCHS.reduce((n,a)=>n+(Array.isArray(a.models)?a.models.length:Array.isArray(a.relatedModels)?a.relatedModels.length:0),0)}
+function stats(){archCount.innerHTML=ARCHS.length+"<em>+</em>";mappedCount.innerHTML=mapped()+"<em>+</em>";familyCount.innerHTML=families().length+"<em>+</em>";sourceCount.innerHTML=sources()+"<em>+</em>";let f=document.getElementById("family");families().forEach(x=>{let o=document.createElement("option");o.value=x;o.textContent=x;f.appendChild(o)})}
+function render(){let term=q.value.trim().toLowerCase(),filter=family.value;let rows=ARCHS.filter(a=>{if(filter!=="all"&&fam(a)!==filter)return false;return !term||JSON.stringify(a).toLowerCase().includes(term)});meta.textContent=rows.length+" architecture record"+(rows.length===1?"":"s");grid.innerHTML=rows.map((a,i)=>{let tags=[a.attention,a.routing,a.sequenceModeling,a.positionEncoding,a.mixing].filter(Boolean).slice(0,4);let n=Array.isArray(a.models)?a.models.length:Array.isArray(a.relatedModels)?a.relatedModels.length:0;return `<a class="arch" href="architecture.html?id=${encodeURIComponent(a.id||"")}"><div class="top"><span>${String(i+1).padStart(3,"0")}</span><span>${esc(fam(a))}</span></div><h3>${esc(a.name||a.id||"Architecture")}</h3><p>${esc(a.coreMechanism||a.description||a.summary||"Architecture record.")}</p><div class="tags">${tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>${n?`<div class="mapped">${n} mapped model record${n===1?"":"s"}</div>`:""}</a>`}).join("")||`<div class="panel" style="grid-column:1/-1">No architecture records matched the current search.</div>`}
+async function load(){for(const p of ["data/architectures.json","data/architectures-final.json","architectures.json","architectures-visual-enriched.json"]){try{let r=await fetch(p+"?v="+Date.now(),{cache:"no-store"});if(!r.ok)continue;let rows=norm(await r.json());if(rows.length){ARCHS=rows;break}}catch(e){}}stats();render();if(!ARCHS.length){meta.textContent="Architecture dataset not found.";grid.innerHTML=`<div class="panel" style="grid-column:1/-1">No architecture JSON was found at the expected paths. Put the canonical architecture dataset in the site's <b>data/</b> directory.</div>`}}
+q.addEventListener("input",render);family.addEventListener("change",render);load();
+</script>
+</body>
+</html>
