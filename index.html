@@ -138,7 +138,7 @@ footer{padding:43px 0 60px}
 <div class="links">
 <a href="models.html">models</a>
 <a href="architectures.html">architectures</a>
-<a href="models.html#compare">compare</a>
+<a href="compare.html">compare</a>
 <a href="docs/methodology.md">methodology</a>
 <a class="github" href="https://github.com/rahulkiran2222/foundation-model-atlas" target="_blank" rel="noopener">GitHub ↗</a>
 </div>
@@ -154,7 +154,7 @@ footer{padding:43px 0 60px}
 <div class="actions">
 <a class="btn primary" href="models.html">Explore models →</a>
 <a class="btn" href="architectures.html">Explore architectures</a>
-<a class="btn" href="models.html#compare">Compare architectures</a>
+<a class="btn" href="compare.html">Compare architectures</a>
 </div>
 </div>
 </header>
@@ -208,7 +208,7 @@ footer{padding:43px 0 60px}
 <div class="container">
 <div class="sh"><div><p class="kicker">05 / Research Tools</p><h2>Go beyond browsing</h2><p class="desc">The Atlas is designed to let a researcher move from a record to structure, comparison, and evidence without losing context.</p></div></div>
 <div class="explorer">
-<div class="panel"><h3>Interactive architecture comparison</h3><p>Select two model records and inspect their computational paths side by side. Hover components, lock explanations, and follow the animated flow.</p><div class="actions"><a class="btn primary" href="models.html#compare">Open comparison →</a></div></div>
+<div class="panel"><h3>Interactive architecture comparison</h3><p>Select two model records and inspect their computational paths side by side. Hover components, lock explanations, and follow the animated flow.</p><div class="actions"><a class="btn primary" href="compare.html">Open comparison →</a></div></div>
 <div class="panel"><h3>Model-level evidence</h3><p>Each record carries source metadata and architecture-data quality so unsupported component details are not silently presented as facts.</p><div class="actions"><a class="btn" href="models.html">Open model encyclopedia →</a></div></div>
 </div>
 </div>
@@ -246,7 +246,7 @@ footer{padding:43px 0 60px}
 <div class="container">
 <div class="footer">
 <div><div class="footerbrand">Foundation Model Atlas<b>.</b></div><p class="footnote">An open encyclopedia of foundation models, architectures, evolution, comparisons, and research resources.</p></div>
-<div class="footerlinks"><a href="models.html">Models</a><a href="architectures.html">Architectures</a><a href="models.html#compare">Compare</a><a href="docs/methodology.md">Methodology</a><a href="https://github.com/rahulkiran2222/foundation-model-atlas" target="_blank" rel="noopener">GitHub</a></div>
+<div class="footerlinks"><a href="models.html">Models</a><a href="architectures.html">Architectures</a><a href="compare.html">Compare</a><a href="docs/methodology.md">Methodology</a><a href="https://github.com/rahulkiran2222/foundation-model-atlas" target="_blank" rel="noopener">GitHub</a></div>
 </div>
 <div class="bottom"><span>Open research · provenance-first · data-driven</span><span>Foundation Model Atlas · v0.2</span></div>
 </div>
@@ -330,12 +330,23 @@ function search(){
 }
 async function load(){
  try{
-   const [mr,ar]=await Promise.all([
-     fetch("models-architecture-enriched.json",{cache:"no-store"}),
-     fetch("architectures-visual-enriched.json",{cache:"no-store"})
+   async function fetchFirst(paths){
+     for(const path of paths){
+       try{
+         const r=await fetch(path+"?v="+Date.now(),{cache:"no-store"});
+         if(!r.ok) continue;
+         const p=await r.json();
+         const rows=Array.isArray(p)?p:(p.models||p.architectures||p.records||p.data||[]);
+         if(Array.isArray(rows)&&rows.length)return rows;
+       }catch(_){}
+     }
+     return [];
+   }
+   [MODELS,ARCHS]=await Promise.all([
+     fetchFirst(["data/models.json","data/models-final.json","models.json","models-architecture-enriched.json"]),
+     fetchFirst(["data/architectures.json","data/architectures-final.json","architectures.json","architectures-visual-enriched.json"])
    ]);
-   if(!mr.ok||!ar.ok)throw new Error("Atlas JSON not found");
-   MODELS=await mr.json(); ARCHS=await ar.json();
+   if(!MODELS.length&&!ARCHS.length)throw new Error("Atlas datasets not found");
    renderStats();renderFeatured();renderArchs();search();
  }catch(e){
    document.getElementById("searchMeta").textContent="Atlas datasets could not be loaded. Open models.html to browse the catalog.";
